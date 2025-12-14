@@ -1,0 +1,152 @@
+{
+  "generated_at_utc": "2025-12-13T21:43:55.263678+00:00",
+  "root": "/Users/Janick_Spirig/git_local/stats_bootcamp",
+  "source_pdfs_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide",
+  "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted",
+  "lectures": [
+    {
+      "lecture_number": 1,
+      "lecture_id": "Lecture_1_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_1_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_1_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_1_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_1_STAT/Lecture_1_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_1_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_1_STAT/embedded",
+      "total_pages": 39,
+      "total_embedded_images": 22
+    },
+    {
+      "lecture_number": 2,
+      "lecture_id": "Lecture_2_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_2_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_2_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_2_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_2_STAT/Lecture_2_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_2_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_2_STAT/embedded",
+      "total_pages": 14,
+      "total_embedded_images": 10
+    },
+    {
+      "lecture_number": 3,
+      "lecture_id": "Lecture_3_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_3_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_3_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_3_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_3_STAT/Lecture_3_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_3_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_3_STAT/embedded",
+      "total_pages": 41,
+      "total_embedded_images": 13
+    },
+    {
+      "lecture_number": 4,
+      "lecture_id": "Lecture_4_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_4_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_4_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_4_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_4_STAT/Lecture_4_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_4_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_4_STAT/embedded",
+      "total_pages": 41,
+      "total_embedded_images": 10
+    },
+    {
+      "lecture_number": 5,
+      "lecture_id": "Lecture_5_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_5_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_5_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_5_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_5_STAT/Lecture_5_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_5_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_5_STAT/embedded",
+      "total_pages": 31,
+      "total_embedded_images": 11
+    },
+    {
+      "lecture_number": 6,
+      "lecture_id": "Lecture_6_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_6_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_6_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_6_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_6_STAT/Lecture_6_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_6_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_6_STAT/embedded",
+      "total_pages": 22,
+      "total_embedded_images": 4
+    },
+    {
+      "lecture_number": 7,
+      "lecture_id": "Lecture_7_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_7_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_7_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_7_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_7_STAT/Lecture_7_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_7_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_7_STAT/embedded",
+      "total_pages": 20,
+      "total_embedded_images": 9
+    },
+    {
+      "lecture_number": 8,
+      "lecture_id": "Lecture_8_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_8_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_8_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_8_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_8_STAT/Lecture_8_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_8_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_8_STAT/embedded",
+      "total_pages": 31,
+      "total_embedded_images": 8
+    },
+    {
+      "lecture_number": 9,
+      "lecture_id": "Lecture_9_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_9_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_9_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_9_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_9_STAT/Lecture_9_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_9_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_9_STAT/embedded",
+      "total_pages": 30,
+      "total_embedded_images": 9
+    },
+    {
+      "lecture_number": 10,
+      "lecture_id": "Lecture_10_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_10_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_10_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_10_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_10_STAT/Lecture_10_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_10_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_10_STAT/embedded",
+      "total_pages": 30,
+      "total_embedded_images": 10
+    },
+    {
+      "lecture_number": 11,
+      "lecture_id": "Lecture_11_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_11_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_11_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_11_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_11_STAT/Lecture_11_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_11_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_11_STAT/embedded",
+      "total_pages": 26,
+      "total_embedded_images": 11
+    },
+    {
+      "lecture_number": 12,
+      "lecture_id": "Lecture_12_STAT",
+      "pdf_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/lecture_slide/Lecture_12_STAT.pdf",
+      "extracted_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_12_STAT",
+      "manifest_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_12_STAT/manifest.json",
+      "notes_path": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_12_STAT/Lecture_12_STAT_notes.txt",
+      "pages_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_12_STAT/pages",
+      "embedded_dir": "/Users/Janick_Spirig/git_local/stats_bootcamp/extracted/Lecture_12_STAT/embedded",
+      "total_pages": 24,
+      "total_embedded_images": 11
+    }
+  ]
+}

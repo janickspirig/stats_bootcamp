@@ -1,0 +1,12 @@
+---
+title: "I can explain the motivation behind OOP"
+notion_id: "63d35716-e8dc-4dd1-a77e-02a9ea3b94fe"
+notion_url: "https://www.notion.so/I-can-explain-the-motivation-behind-OOP-63d35716e8dc4dd1a77e02a9ea3b94fe"
+exported_at: "2025-12-13T22:33:53.129756+00:00"
+---
+
+# I can explain the motivation behind OOP
+
+---
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/fe7ddb2c-a3c4-4ac4-ad96-841ed6a1e62f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UPPVXWLL%2F20251213%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251213T223353Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQCGmEKBf5YDh%2FIh7fs2OyWmku8vHRb%2B0cpKbSqHXxBOVQIgF%2BjNQXkdmEgBcQM2rh30wwLEAmxBJ%2F6Ux3lyW0aYpXYq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDGtotpF0ybNggXksfCrcA54QVQF6M5KaREK9zknFT70MOaT0UFYQ8qu3fljEHJF9jz39c4rmjTF%2Fj5wcaRkWAAei7x8uIMw7%2BgmHtoo6U6yRVo8wUoafRlLY5x%2BeazyOlOWLYWGIHLQWsKQm5N3q8aWz3L7tqqwvw4XSHUL4KtLHjB9mM8xl3gkIjfJAfpl1JbwB8W3kv3hIc7%2FOYyxX4zHZAtu0N6i7bjmlG%2FT91GcxUvFIfIphh%2BuaKmmRa%2FI8QCiI0VrsHR8TOyUDIAnd8P9sabUiv1B3Bb7dp68qdrAviGqX6OP1vObZ472wrtgf75fzvOgCC%2B%2BZLGT1GsGfoXQtRjxbrquYnqXFaOUpIXw8YcD1dIpM2z2By%2FqQQ1dx%2FFbO2xPjPFxIEe14JKUCUCFpalgLVcwmdsUxcE%2BFGrzxDstdu4Cvj15ZesbRHStfU2Bu8eQnfoRRdhQV4Y4FiJ4V0YP%2FYAOiDUoKZ7s7AroVmIR4grpz%2BS32WynvxI5Cjrwz1TvPh2mAasfaMxN0JIEzj0REkZhwDF3WZDsN5Rr9xe7UtcTCeY3NqokQyppnMeBrV3uGQe%2Fnx%2BfYraApTV184a2qM731cENwb3%2BqbiqF8LF%2FiR%2FYXih%2B6oMWOeyNM5%2FcaOb69Bc%2FyyPaMIjO98kGOqUBtqHYeFZD%2FClK8MqfPT1NeYrhe7oNj1NupvKaHxh8ZCK6%2FJsPxI4TGuA7VJejvDhsfgVSNANOSpMN%2FQOiszYfB%2BXoFlSvK6WAr7CCU1Iz48xDfoX%2F5RCMPDgeHemyAINcsDZHZkd757slbU%2BNeE83nQrGsI9qnsS3EnFsqfpOt4ANgm1fhnKjOjM%2F2%2BZjsIJbtNf1ebcXFGlDXO4KD3Oq7J6jIXcG&X-Amz-Signature=c6bac5b3d4ab4aefb5fba44d218682726e4e4a07e14e744d06d1ec9ef5753a18&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+---

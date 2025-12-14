@@ -1,0 +1,252 @@
+================================================================================
+STATISTICS BOOTCAMP - PURPOSE & GUIDING PRINCIPLES
+For AI Agent: Bootcamp Structure Definition
+================================================================================
+
+Document Purpose: This file provides high-level guidance for an AI agent 
+tasked with creating the concrete bootcamp structure in Notion. It synthesizes
+the student profile, available lecture/exercise content, and pedagogical 
+requirements.
+
+================================================================================
+1. MISSION STATEMENT
+================================================================================
+
+The Statistics Bootcamp is a complementary learning resource designed to 
+accelerate HSG Bachelor in Business Administration students' exam preparation 
+for the course "3,120 Methoden: Statistik". It does NOT replace lectures or 
+exercises but provides structured review, practice, and self-assessment to 
+help students efficiently consolidate their understanding and build confidence 
+before the exam.
+
+================================================================================
+2. TARGET AUDIENCE
+================================================================================
+
+WHO: HSG BBA Students (University of St. Gallen, Switzerland)
+- Age: 18-22 years
+- Background: High school graduates (Swiss Matura, German Abitur, IB)
+- Statistics level at entry: BEGINNER TO NONE
+- Math level: Intermediate (high school completion)
+- Programming: Minimal (not required for this bootcamp)
+
+KEY CHARACTERISTICS:
+- Highly ambitious, career-focused (consulting, finance, management)
+- Expect practical, applicable knowledge with clear ROI on time
+- Prefer practice-oriented learning over pure theory
+- Accustomed to rigorous, structured academic programs
+- Strong English proficiency (program requirement)
+
+WHAT THEY NEED FROM THIS BOOTCAMP:
+- Rapid review of core concepts before exam
+- Extensive practice with step-by-step calculations
+- Clear formula references and application patterns
+- Self-assessment to identify weak areas
+- Business-contextualized examples that resonate
+
+================================================================================
+3. COURSE COVERAGE (Source Material Available)
+================================================================================
+
+The bootcamp is based on the HSG course "3,120 Methoden: Statistik" taught by
+Prof. Dr. Roland Füss. All lecture and exercise content has been extracted.
+
+LECTURES (12 total, 349 slides):
+1. Data and Descriptive Statistics
+2. Correlation vs. Causality  
+3. Probability Theory
+4. Random Variables and Discrete Distributions
+5. Continuous, Normal and Exponential Distributions
+6. Multi-Dimensional Random Variables
+7. Sampling Distributions
+8. Estimation Theory
+9. Test Theory and One-Sample Procedures
+10. Two-Sample Procedures
+11. Linear Regression
+12. Multiple Regression and Chi-Square/ANOVA
+
+EXERCISES (7 exercise sheets, 335 pages):
+- Exercise 1: Location and Dispersion Parameters (47 pages)
+- Exercise 2: Introduction to Probability (75 pages)
+- Exercise 3A/3B: Probability Distributions (81 pages)
+- Exercise 4: Sampling Distributions and Estimation (56 pages)
+- Exercise 5: Hypothesis Testing (55 pages)
+- Exercise 6: Regression Analysis (21 pages)
+
+CURRICULUM METADATA (Available for reference):
+- Topic structure: statistics/extracted/curriculum/topics/
+- Concept index: statistics/extracted/curriculum/concepts.json
+- Module mapping: statistics/extracted/curriculum/bootcamp_structure.json
+- Exercise mapping: statistics/extracted/curriculum/exercises_mapping.json
+- Learning objectives: statistics/extracted/curriculum/learning_objectives.json
+
+================================================================================
+4. BOOTCAMP GOALS
+================================================================================
+
+PRIMARY GOAL: Exam Readiness Acceleration
+- Students should complete the bootcamp feeling confident and prepared
+- Focus on high-yield topics most likely to appear on exams
+- Provide enough practice to achieve fluency in standard problem types
+
+SECONDARY GOALS:
+a) Concept Consolidation
+   - Review key formulas and when to apply them
+   - Clarify common points of confusion
+   - Connect related concepts across topics
+
+b) Calculation Fluency
+   - Practice step-by-step problem solving
+   - Build speed and accuracy with standard procedures
+   - Develop table-based calculation habits (HSG exam format)
+
+c) Self-Assessment
+   - Help students identify their weak areas
+   - Provide targeted practice for struggling topics
+   - Build confidence through progressive mastery
+
+WHAT THIS BOOTCAMP IS NOT:
+- Not a replacement for attending lectures
+- Not a comprehensive textbook
+- Not an introduction for complete beginners (assumes lecture attendance)
+- Not focused on programming/R (pure statistics focus)
+
+================================================================================
+5. PEDAGOGICAL PRINCIPLES
+================================================================================
+
+Based on HSG student profile and actual exercise format:
+
+PRINCIPLE 1: Formula → Substitution → Answer
+- Always show the formula symbolically first
+- Then show values substituted into the formula
+- Then show the computed result
+- This matches HSG exam answer format expectations
+
+PRINCIPLE 2: Calculation Tables Are Essential
+- HSG exercises heavily use tabular calculation layouts
+- Build tables with intermediate columns (xi, xi-x̄, (xi-x̄)², etc.)
+- Show running sums (Σ) at the bottom
+- Students must practice building these tables themselves
+
+PRINCIPLE 3: Business Context Matters
+- Use examples from finance, marketing, operations
+- Frame statistics as a decision-making tool
+- Include Swiss/European company examples where natural
+- Avoid overly abstract mathematical examples
+
+PRINCIPLE 4: Progressive Difficulty
+- Start each topic with direct formula application
+- Build to multi-step problems
+- End with integration exercises combining concepts
+- Match the Aufgabe 1-2 → Aufgabe 3-4 → Aufgabe 5-6 progression
+
+PRINCIPLE 5: Efficient Learning
+- These students value time efficiency
+- Be concise - no unnecessary elaboration
+- Focus on what will be tested
+- Provide clear "need to know" vs. "nice to know" signals
+
+================================================================================
+6. BOOTCAMP STRUCTURE GUIDANCE
+================================================================================
+
+RECOMMENDED MODULE ORGANIZATION (13 topic modules):
+1. Introduction to Data & Statistics
+2. Descriptive Statistics
+3. Correlation & Covariance
+4. Probability Theory Fundamentals
+5. Discrete Probability Distributions
+6. Continuous Probability Distributions
+7. Sampling & Sampling Distributions
+8. Estimation & Confidence Intervals
+9. Introduction to Hypothesis Testing
+10. Hypothesis Testing: One-Sample Procedures
+11. Two-Sample Hypothesis Testing
+12. Regression Analysis
+13. Chi-Square Tests & ANOVA
+
+EACH MODULE SHOULD INCLUDE:
+a) Concept Review
+   - Key formulas with notation explained
+   - When to use each formula
+   - Common pitfalls to avoid
+
+b) Worked Examples
+   - 2-3 fully solved problems per module
+   - Show complete calculation tables
+   - Match HSG exercise format
+
+c) Practice Problems
+   - Reference relevant exercise sheet problems
+   - Provide similar practice problems
+   - Include answers for self-checking
+
+d) Quick Reference
+   - Formula summary card
+   - Decision tree for "which test to use"
+   - Common pitfalls checklist
+
+================================================================================
+7. SUCCESS METRICS
+================================================================================
+
+The bootcamp succeeds if students can:
+
+✓ Identify which statistical method to apply for a given problem
+✓ Set up calculation tables correctly
+✓ Execute standard formulas without errors
+✓ Interpret results in business context
+✓ Complete exam-style problems within time limits
+✓ Recognize and avoid common calculation mistakes
+
+================================================================================
+8. CONTENT REFERENCES FOR AI AGENT
+================================================================================
+
+When building the bootcamp structure, reference these files:
+
+CURRICULUM STRUCTURE:
+  statistics/extracted/curriculum/bootcamp_structure.json
+  - 13 modules with slide counts and section mappings
+  - Exercise references per module
+
+TOPIC DETAILS:
+  statistics/extracted/curriculum/topics/*.json
+  - Per-lecture section breakdown
+  - Slide ranges for each topic
+  - Key concepts per section
+
+CONCEPT INDEX:
+  statistics/extracted/curriculum/concepts.json
+  - 99 concepts with category and prerequisite mappings
+  - Where each concept is first defined
+  - Cross-lecture concept appearances
+
+EXERCISE MAPPING:
+  statistics/extracted/curriculum/exercises_mapping.json
+  - 7 exercises mapped to modules
+  - Page counts per exercise
+
+LEARNING OBJECTIVES:
+  statistics/extracted/curriculum/learning_objectives.json
+  - 32 objectives across 12 lectures
+
+LECTURE CONTENT:
+  statistics/extracted/Lecture_*_STAT/
+  - *_notes.txt: OCR text of all slides
+  - pages/: PNG images of each slide
+  - manifest.json: Slide-to-file mapping
+
+EXERCISE CONTENT:
+  statistics/exercises/extracted/*/
+  - manifest.json: Exercise metadata (includes English titles)
+  - page_*.png: Exercise page images
+  
+Note: Exercise folder names are in German but all metadata includes English 
+translations. Use the title_en field from manifest.json for display.
+
+================================================================================
+END OF DOCUMENT
+================================================================================
+

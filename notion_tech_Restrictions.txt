@@ -1,0 +1,1301 @@
+================================================================================
+NOTION TECHNICAL RESTRICTIONS & CAPABILITIES
+For Statistics Bootcamp Content Creation
+================================================================================
+
+This document specifies what content formats can and cannot be displayed in 
+Notion, intended for AI agents creating bootcamp materials. Based on analysis 
+of existing bootcamp materials and Notion's technical capabilities.
+
+================================================================================
+1. SUPPORTED CONTENT TYPES
+================================================================================
+
+------------------------------------------------------------------------------
+1.1 TEXT FORMATTING
+------------------------------------------------------------------------------
+
+FULLY SUPPORTED:
+✓ Headers (H1-H6): # Header 1, ## Header 2, ### Header 3, etc.
+✓ Bold text: **bold** or __bold__
+✓ Italic text: *italic* or _italic_
+✓ Strikethrough: ~~strikethrough~~
+✓ Inline code: `code`
+✓ Links: [text](url)
+✓ Bullet lists: - item or * item
+✓ Numbered lists: 1. item
+✓ Nested lists: supported up to 3 levels
+✓ Horizontal dividers: --- or ***
+✓ Block quotes: > quote text
+
+EXAMPLE (from existing bootcamp):
+```
+**What:** Creates a new n-dimensional numpy array.
+**Input:**
+`<< any array-like object >>` : required
+**Output:** Numpy array → n-dimensional numpy array.
+```
+
+------------------------------------------------------------------------------
+1.2 CODE BLOCKS
+------------------------------------------------------------------------------
+
+FULLY SUPPORTED:
+✓ Fenced code blocks with syntax highlighting
+✓ Languages: python, r, javascript, sql, bash, and 50+ others
+✓ Code is displayed with proper formatting and colors
+
+SYNTAX:
+```python
+import numpy as np
+my_array = np.array([1, 2, 3, 4])
+```
+
+LIMITATION:
+✗ Code is DISPLAY ONLY - cannot be executed
+✗ No interactive Python/R notebooks
+✗ No real-time output display
+
+WORKAROUND:
+- Show code block followed by separate "Output" text or image
+- Example from existing bootcamp:
+  ```python
+  sp.ttest_1samp(df_scores['Score'], 28, alternative='greater')
+  
+  # output
+  Ttest_1sampResult(statistic=array([2.74619412]), pvalue=array([0.00950982]))
+  ```
+
+------------------------------------------------------------------------------
+1.3 TABLES
+------------------------------------------------------------------------------
+
+SUPPORTED (Markdown Tables):
+✓ Basic tables with headers
+✓ Left, center, right alignment
+✓ Text, numbers, inline code in cells
+
+SYNTAX:
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Data 1   | Data 2   | Data 3   |
+| Data 4   | Data 5   | Data 6   |
+
+SUPPORTED (Notion Native Tables):
+✓ Notion database tables (more powerful)
+✓ Sortable columns
+✓ Filter views
+✓ Formula columns (Notion formula language, NOT Excel)
+
+LIMITATIONS:
+✗ No merged cells in markdown tables
+✗ No cell background colors in markdown
+✗ Complex multi-line content in cells is tricky
+✗ No Excel-style formulas in markdown tables
+
+FOR STATISTICS BOOTCAMP - CALCULATION TABLES:
+Use simple markdown tables for step-by-step calculations:
+
+| xi  | xi - x̄  | (xi - x̄)² |
+|-----|---------|-----------|
+| 17  | -3.14   | 9.86      |
+| 18  | -2.14   | 4.58      |
+| Σ   |         | 14.44     |
+
+------------------------------------------------------------------------------
+1.4 IMAGES
+------------------------------------------------------------------------------
+
+FULLY SUPPORTED:
+✓ External image URLs: ![alt](url)
+✓ Embedded images from Notion storage
+✓ Image captions
+✓ Image resizing (in Notion UI, not markdown)
+
+SYNTAX:
+![Description of image](https://example.com/image.png)
+
+FOR STATISTICS BOOTCAMP:
+- All charts, graphs, distribution plots MUST be images
+- Venn diagrams → images
+- Normal distribution curves → images
+- Scatter plots, regression lines → images
+- Bar charts, histograms → images
+
+RECOMMENDATION:
+- Pre-generate all statistical visualizations as PNG/JPG
+- Host on stable URL (S3, GitHub, or Notion's own storage)
+- Include descriptive alt text for accessibility
+
+------------------------------------------------------------------------------
+1.5 MATHEMATICAL EQUATIONS (KaTeX/LaTeX)
+------------------------------------------------------------------------------
+
+FULLY SUPPORTED:
+✓ Inline math: $equation$
+✓ Block math: $$equation$$
+✓ Most LaTeX math symbols
+✓ Greek letters: \alpha, \beta, \mu, \sigma, etc.
+✓ Fractions: \frac{a}{b}
+✓ Subscripts/superscripts: x_i, x^2
+✓ Summation: \sum_{i=1}^{n}
+✓ Square roots: \sqrt{x}
+✓ Integrals: \int
+✓ Matrices (basic)
+
+INLINE EXAMPLE:
+The mean is calculated as $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$
+
+BLOCK EXAMPLE:
+$$
+\sigma^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+COMMON STATISTICS FORMULAS IN KaTeX:
+
+Mean:
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+
+Variance (sample):
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+
+Standard Deviation:
+$$s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+
+Z-score:
+$$z = \frac{x - \mu}{\sigma}$$
+
+Confidence Interval:
+$$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+
+t-statistic:
+$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$$
+
+Regression Coefficient:
+$$\hat{\beta} = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}$$
+
+LIMITATIONS:
+✗ Some advanced LaTeX packages not supported
+✗ Colored equations not supported
+✗ Equation numbering not automatic
+✗ Cross-references to equations not supported
+
+------------------------------------------------------------------------------
+1.6 CALLOUTS & SPECIAL BLOCKS
+------------------------------------------------------------------------------
+
+SUPPORTED:
+✓ Quote blocks: > text (displays as indented block)
+✓ Callout blocks (in Notion UI, use emoji prefix in markdown)
+✓ Toggle blocks (collapsible content)
+✓ Dividers: ---
+
+CALLOUT SYNTAX (Notion-style in markdown):
+> 💡 **Tip:** This is an important note about the concept.
+
+> ⚠️ **Warning:** Be careful about this common mistake.
+
+> 📝 **Note:** Additional information for the student.
+
+TOGGLE BLOCKS (for hiding solutions):
+In Notion UI, these are collapsible sections.
+In markdown export, they appear as nested content.
+
+RECOMMENDED FOR BOOTCAMP:
+- Use callouts for tips, warnings, key concepts
+- Use toggle blocks to hide exercise solutions
+- Use dividers to separate sections
+
+------------------------------------------------------------------------------
+1.7 LINKS
+------------------------------------------------------------------------------
+
+SUPPORTED:
+✓ External URLs: [text](https://url.com)
+✓ Internal Notion page links: [text](/page-id)
+✓ Anchor links within page: limited support
+✓ Email links: [email](mailto:email@example.com)
+
+EXAMPLE FROM EXISTING BOOTCAMP:
+[One sample](https://datatab.net/tutorial/one-sample-t-test)
+[`.ttest_1samp()`](https://docs.scipy.org/doc/scipy/reference/...)
+
+================================================================================
+2. NOT SUPPORTED / LIMITATIONS
+================================================================================
+
+------------------------------------------------------------------------------
+2.1 INTERACTIVE ELEMENTS
+------------------------------------------------------------------------------
+
+NOT SUPPORTED:
+✗ Interactive quizzes with immediate feedback
+✗ Executable code cells (like Jupyter notebooks)
+✗ Live calculations
+✗ Input fields for student answers
+✗ Sliders, dropdowns, or other form elements
+✗ Real-time graphing/plotting
+✗ Animations or GIFs with controls
+
+WORKAROUNDS:
+- For quizzes: Use toggle blocks to hide answers
+- For calculations: Show step-by-step static solutions
+- For graphs: Use pre-generated images
+
+------------------------------------------------------------------------------
+2.2 COMPLEX FORMATTING
+------------------------------------------------------------------------------
+
+NOT SUPPORTED:
+✗ Multi-column layouts (limited)
+✗ Custom fonts
+✗ Custom colors for text (except in Notion UI)
+✗ Background colors for sections
+✗ Custom CSS styling
+✗ Page headers/footers
+✗ Automatic numbering of equations or figures
+
+------------------------------------------------------------------------------
+2.3 ADVANCED TABLES
+------------------------------------------------------------------------------
+
+NOT SUPPORTED:
+✗ Merged cells (rowspan/colspan)
+✗ Cell background colors in markdown
+✗ Complex nested tables
+✗ Excel-style formulas
+✗ Sortable tables in markdown (only Notion databases)
+
+------------------------------------------------------------------------------
+2.4 EMBEDDED CONTENT LIMITATIONS
+------------------------------------------------------------------------------
+
+LIMITED SUPPORT:
+~ YouTube videos: embed block works, not markdown
+~ PDFs: can embed but not inline in markdown
+~ External websites: iframe embeds have restrictions
+
+NOT SUPPORTED:
+✗ Embedded Jupyter notebooks
+✗ Embedded Google Sheets with live updates
+✗ Interactive data visualizations (D3.js, Plotly)
+✗ Embedded calculators
+
+================================================================================
+3. STATISTICS BOOTCAMP-SPECIFIC GUIDELINES
+================================================================================
+
+------------------------------------------------------------------------------
+3.1 FORMATTING HSG-STYLE EXERCISES (Aufgaben)
+------------------------------------------------------------------------------
+
+RECOMMENDED STRUCTURE:
+
+## Aufgabe 1
+
+**Context/Scenario:**
+A company recorded the following sales data...
+
+**Data:**
+| Day | Sales (CHF) |
+|-----|-------------|
+| Mon | 1,250       |
+| Tue | 1,480       |
+| Wed | 1,320       |
+
+**Tasks:**
+a) Calculate the mean sales.
+b) Calculate the sample standard deviation.
+c) Interpret the results.
+
+<details>
+<summary>💡 Solution</summary>
+
+**a) Mean calculation:**
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{1,250 + 1,480 + 1,320}{3} = 1,350$$
+
+**b) Standard deviation:**
+
+| xi    | xi - x̄ | (xi - x̄)² |
+|-------|---------|-----------|
+| 1,250 | -100    | 10,000    |
+| 1,480 | +130    | 16,900    |
+| 1,320 | -30     | 900       |
+| Σ     |         | 27,800    |
+
+$$s = \sqrt{\frac{27,800}{3-1}} = \sqrt{13,900} = 117.9$$
+
+</details>
+
+NOTE: The <details> tag may not render in all Notion imports. 
+Alternative: Use Notion's native toggle block in the UI.
+
+------------------------------------------------------------------------------
+3.2 FORMULA DISPLAY BEST PRACTICES
+------------------------------------------------------------------------------
+
+1. SHOW FORMULA SYMBOLICALLY FIRST:
+   $$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+
+2. THEN SHOW WITH VALUES SUBSTITUTED:
+   $$s^2 = \frac{1}{6-1}[(17-20.14)^2 + (18-20.14)^2 + ...]$$
+
+3. THEN SHOW FINAL RESULT:
+   $$s^2 = \frac{98.86}{5} = 19.77$$
+
+------------------------------------------------------------------------------
+3.3 CALCULATION TABLE FORMAT
+------------------------------------------------------------------------------
+
+For step-by-step calculations, use this format:
+
+| Step | xi  | x̄     | xi - x̄  | (xi - x̄)² |
+|------|-----|-------|---------|-----------|
+| 1    | 17  | 20.14 | -3.14   | 9.86      |
+| 2    | 18  | 20.14 | -2.14   | 4.58      |
+| 3    | 19  | 20.14 | -1.14   | 1.30      |
+| ...  | ... | ...   | ...     | ...       |
+| Σ    |     |       |         | 98.86     |
+
+TIPS:
+- Keep columns narrow where possible
+- Use Σ symbol for totals row
+- Include all intermediate values
+- Round consistently (4 decimals intermediate, 2 final)
+
+------------------------------------------------------------------------------
+3.4 STATISTICAL CHARTS & GRAPHS - COMPREHENSIVE IMAGE GUIDE
+------------------------------------------------------------------------------
+
+*** THIS SECTION IS CRITICAL FOR STATISTICS BOOTCAMP ***
+
+Since Notion cannot generate charts dynamically, ALL statistical visualizations 
+must be pre-generated as images and hosted externally. This section provides 
+complete guidance for creating and managing these essential visual assets.
+
+==============================================================================
+3.4.1 COMPLETE IMAGE INVENTORY FOR STATISTICS BOOTCAMP
+==============================================================================
+
+The following images MUST be pre-generated for a complete statistics bootcamp:
+
+CATEGORY A: PROBABILITY DISTRIBUTIONS (Essential)
+-------------------------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| A01  | normal_standard.png            | Standard normal N(0,1)               |
+| A02  | normal_shifted.png             | Normal with different μ values       |
+| A03  | normal_spread.png              | Normal with different σ values       |
+| A04  | normal_shaded_left.png         | Left tail shaded (P(Z < z))          |
+| A05  | normal_shaded_right.png        | Right tail shaded (P(Z > z))         |
+| A06  | normal_shaded_two_tail.png     | Both tails shaded (two-tailed test)  |
+| A07  | normal_shaded_between.png      | Area between two z-values            |
+| A08  | normal_68_95_99.png            | Empirical rule visualization         |
+| A09  | t_distribution_comparison.png  | t vs normal, various df              |
+| A10  | t_distribution_df5.png         | t-distribution df=5                  |
+| A11  | t_distribution_df10.png        | t-distribution df=10                 |
+| A12  | t_distribution_df30.png        | t-distribution df=30                 |
+| A13  | chi_square_distributions.png   | χ² with various df                   |
+| A14  | f_distribution.png             | F-distribution example               |
+| A15  | binomial_distribution.png      | Binomial with different n, p         |
+| A16  | poisson_distribution.png       | Poisson with different λ             |
+| A17  | uniform_distribution.png       | Continuous uniform                   |
+| A18  | exponential_distribution.png   | Exponential distribution             |
+
+CATEGORY B: DISTRIBUTION SHAPES (Skewness/Kurtosis)
+----------------------------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| B01  | skew_right.png                 | Right-skewed (positive skew)         |
+| B02  | skew_left.png                  | Left-skewed (negative skew)          |
+| B03  | skew_symmetric.png             | Symmetric distribution               |
+| B04  | skew_comparison.png            | All three side-by-side               |
+| B05  | kurtosis_comparison.png        | Leptokurtic vs mesokurtic vs platy   |
+| B06  | mean_median_mode_skew.png      | Showing position in skewed dist      |
+
+CATEGORY C: DESCRIPTIVE STATISTICS VISUALIZATIONS
+-------------------------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| C01  | histogram_basic.png            | Basic histogram example              |
+| C02  | histogram_bins.png             | Effect of different bin sizes        |
+| C03  | frequency_polygon.png          | Frequency polygon                    |
+| C04  | ogive_cumulative.png           | Cumulative frequency curve           |
+| C05  | boxplot_basic.png              | Basic box plot with labels           |
+| C06  | boxplot_comparison.png         | Multiple box plots comparison        |
+| C07  | boxplot_outliers.png           | Box plot showing outliers            |
+| C08  | stem_leaf_plot.png             | Stem-and-leaf diagram                |
+| C09  | dotplot.png                    | Dot plot example                     |
+| C10  | bar_chart.png                  | Categorical bar chart                |
+| C11  | pie_chart.png                  | Pie chart (use sparingly)            |
+
+CATEGORY D: PROBABILITY CONCEPTS
+--------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| D01  | venn_union.png                 | A ∪ B (union)                        |
+| D02  | venn_intersection.png          | A ∩ B (intersection)                 |
+| D03  | venn_complement.png            | Ā (complement)                       |
+| D04  | venn_mutually_exclusive.png    | Disjoint sets                        |
+| D05  | venn_three_sets.png            | Three-set Venn diagram               |
+| D06  | tree_diagram_basic.png         | Basic probability tree               |
+| D07  | tree_diagram_conditional.png   | Conditional probability tree         |
+| D08  | tree_diagram_bayes.png         | Bayes theorem visualization          |
+| D09  | contingency_table_visual.png   | 2x2 contingency table                |
+| D10  | sample_space.png               | Sample space illustration            |
+
+CATEGORY E: SAMPLING & INFERENCE
+--------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| E01  | sampling_distribution.png      | Sampling dist of the mean            |
+| E02  | central_limit_theorem.png      | CLT demonstration                    |
+| E03  | confidence_interval.png        | CI visualization on number line      |
+| E04  | confidence_level_comparison.png| 90% vs 95% vs 99% CI width          |
+| E05  | margin_of_error.png            | Margin of error illustration         |
+| E06  | sample_size_effect.png         | Effect of n on standard error        |
+
+CATEGORY F: HYPOTHESIS TESTING
+------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| F01  | hypothesis_two_tailed.png      | Two-tailed rejection regions         |
+| F02  | hypothesis_left_tailed.png     | Left-tailed rejection region         |
+| F03  | hypothesis_right_tailed.png    | Right-tailed rejection region        |
+| F04  | type_i_error.png               | Type I error (α) visualization       |
+| F05  | type_ii_error.png              | Type II error (β) visualization      |
+| F06  | power_of_test.png              | Power (1-β) visualization            |
+| F07  | p_value_illustration.png       | P-value shaded area                  |
+| F08  | critical_value_z.png           | Critical values for z-test           |
+| F09  | critical_value_t.png           | Critical values for t-test           |
+
+CATEGORY G: REGRESSION & CORRELATION
+-------------------------------------
+| ID   | Image Name                      | Description                          |
+|------|--------------------------------|--------------------------------------|
+| G01  | scatter_positive.png           | Positive correlation                 |
+| G02  | scatter_negative.png           | Negative correlation                 |
+| G03  | scatter_none.png               | No correlation                       |
+| G04  | scatter_nonlinear.png          | Non-linear relationship              |
+| G05  | regression_line.png            | Scatter with regression line         |
+| G06  | regression_residuals.png       | Residuals visualization              |
+| G07  | regression_rsquared.png        | R² interpretation                    |
+| G08  | correlation_strengths.png      | r = 0.2, 0.5, 0.8, 1.0 comparison   |
+| G09  | residual_plot_good.png         | Good residual pattern                |
+| G10  | residual_plot_bad.png          | Problematic residual pattern         |
+
+TOTAL: Approximately 70-80 images for complete bootcamp coverage.
+
+==============================================================================
+3.4.2 PYTHON IMAGE GENERATION SCRIPTS
+==============================================================================
+
+Below are complete Python scripts to generate all required images.
+The AI agent should use these scripts to create the image library.
+
+SETUP REQUIREMENTS:
+```python
+# Required packages
+pip install matplotlib numpy scipy seaborn
+
+# Recommended settings for consistent styling
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+import seaborn as sns
+
+# Set consistent style for all plots
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams['figure.figsize'] = (10, 6)
+plt.rcParams['font.size'] = 12
+plt.rcParams['axes.labelsize'] = 14
+plt.rcParams['axes.titlesize'] = 16
+plt.rcParams['figure.dpi'] = 150
+```
+
+------------------------------------------------------------------------------
+SCRIPT 1: Normal Distribution Images
+------------------------------------------------------------------------------
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+import os
+
+# Create output directory
+os.makedirs('images/distributions', exist_ok=True)
+
+# A01: Standard Normal Distribution
+def create_standard_normal():
+    x = np.linspace(-4, 4, 1000)
+    y = stats.norm.pdf(x)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(x, y, 'b-', linewidth=2.5, label='N(0,1)')
+    plt.fill_between(x, y, alpha=0.3, color='blue')
+    plt.axvline(x=0, color='red', linestyle='--', linewidth=1.5, label='μ = 0')
+    plt.xlabel('z-score')
+    plt.ylabel('Probability Density')
+    plt.title('Standard Normal Distribution N(0,1)')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('images/distributions/normal_standard.png', dpi=150, 
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# A04: Left-tail shaded (for P(Z < z))
+def create_normal_left_tail(z_value=-1.96):
+    x = np.linspace(-4, 4, 1000)
+    y = stats.norm.pdf(x)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(x, y, 'b-', linewidth=2.5)
+    
+    # Shade left tail
+    x_fill = x[x <= z_value]
+    y_fill = stats.norm.pdf(x_fill)
+    plt.fill_between(x_fill, y_fill, alpha=0.5, color='red', 
+                     label=f'P(Z < {z_value}) = {stats.norm.cdf(z_value):.4f}')
+    
+    plt.axvline(x=z_value, color='red', linestyle='--', linewidth=2)
+    plt.xlabel('z-score')
+    plt.ylabel('Probability Density')
+    plt.title(f'Left-Tail Probability: P(Z < {z_value})')
+    plt.legend(fontsize=12)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('images/distributions/normal_shaded_left.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# A05: Right-tail shaded (for P(Z > z))
+def create_normal_right_tail(z_value=1.96):
+    x = np.linspace(-4, 4, 1000)
+    y = stats.norm.pdf(x)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(x, y, 'b-', linewidth=2.5)
+    
+    # Shade right tail
+    x_fill = x[x >= z_value]
+    y_fill = stats.norm.pdf(x_fill)
+    plt.fill_between(x_fill, y_fill, alpha=0.5, color='red',
+                     label=f'P(Z > {z_value}) = {1-stats.norm.cdf(z_value):.4f}')
+    
+    plt.axvline(x=z_value, color='red', linestyle='--', linewidth=2)
+    plt.xlabel('z-score')
+    plt.ylabel('Probability Density')
+    plt.title(f'Right-Tail Probability: P(Z > {z_value})')
+    plt.legend(fontsize=12)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('images/distributions/normal_shaded_right.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# A06: Two-tailed (for hypothesis testing)
+def create_normal_two_tail(alpha=0.05):
+    x = np.linspace(-4, 4, 1000)
+    y = stats.norm.pdf(x)
+    z_crit = stats.norm.ppf(1 - alpha/2)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(x, y, 'b-', linewidth=2.5)
+    
+    # Shade both tails
+    x_left = x[x <= -z_crit]
+    x_right = x[x >= z_crit]
+    plt.fill_between(x_left, stats.norm.pdf(x_left), alpha=0.5, color='red',
+                     label=f'Rejection Region (α = {alpha})')
+    plt.fill_between(x_right, stats.norm.pdf(x_right), alpha=0.5, color='red')
+    
+    # Non-rejection region
+    x_middle = x[(x > -z_crit) & (x < z_crit)]
+    plt.fill_between(x_middle, stats.norm.pdf(x_middle), alpha=0.2, color='green',
+                     label=f'Non-Rejection Region')
+    
+    plt.axvline(x=-z_crit, color='red', linestyle='--', linewidth=2)
+    plt.axvline(x=z_crit, color='red', linestyle='--', linewidth=2)
+    plt.text(-z_crit, -0.02, f'-{z_crit:.3f}', ha='center', fontsize=11)
+    plt.text(z_crit, -0.02, f'+{z_crit:.3f}', ha='center', fontsize=11)
+    
+    plt.xlabel('z-score')
+    plt.ylabel('Probability Density')
+    plt.title(f'Two-Tailed Hypothesis Test (α = {alpha})')
+    plt.legend(fontsize=11)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('images/distributions/normal_shaded_two_tail.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# A08: Empirical Rule (68-95-99.7)
+def create_empirical_rule():
+    x = np.linspace(-4, 4, 1000)
+    y = stats.norm.pdf(x)
+    
+    plt.figure(figsize=(12, 7))
+    plt.plot(x, y, 'b-', linewidth=2.5)
+    
+    # 68% region
+    x_68 = x[(x >= -1) & (x <= 1)]
+    plt.fill_between(x_68, stats.norm.pdf(x_68), alpha=0.6, color='darkblue',
+                     label='68% (μ ± 1σ)')
+    
+    # 95% region (additional)
+    x_95_left = x[(x >= -2) & (x < -1)]
+    x_95_right = x[(x > 1) & (x <= 2)]
+    plt.fill_between(x_95_left, stats.norm.pdf(x_95_left), alpha=0.4, color='blue',
+                     label='95% (μ ± 2σ)')
+    plt.fill_between(x_95_right, stats.norm.pdf(x_95_right), alpha=0.4, color='blue')
+    
+    # 99.7% region (additional)
+    x_99_left = x[(x >= -3) & (x < -2)]
+    x_99_right = x[(x > 2) & (x <= 3)]
+    plt.fill_between(x_99_left, stats.norm.pdf(x_99_left), alpha=0.2, color='lightblue',
+                     label='99.7% (μ ± 3σ)')
+    plt.fill_between(x_99_right, stats.norm.pdf(x_99_right), alpha=0.2, color='lightblue')
+    
+    # Add vertical lines
+    for i in [-3, -2, -1, 0, 1, 2, 3]:
+        plt.axvline(x=i, color='gray', linestyle=':', alpha=0.5)
+        label = f'μ{i:+d}σ' if i != 0 else 'μ'
+        plt.text(i, -0.02, label, ha='center', fontsize=10)
+    
+    plt.xlabel('Standard Deviations from Mean')
+    plt.ylabel('Probability Density')
+    plt.title('Empirical Rule (68-95-99.7 Rule)')
+    plt.legend(loc='upper right', fontsize=11)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('images/distributions/normal_68_95_99.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# Run all functions
+create_standard_normal()
+create_normal_left_tail()
+create_normal_right_tail()
+create_normal_two_tail()
+create_empirical_rule()
+print("Normal distribution images created!")
+```
+
+------------------------------------------------------------------------------
+SCRIPT 2: t-Distribution Comparison
+------------------------------------------------------------------------------
+
+```python
+def create_t_distribution_comparison():
+    x = np.linspace(-4, 4, 1000)
+    
+    plt.figure(figsize=(12, 7))
+    
+    # Plot normal distribution
+    plt.plot(x, stats.norm.pdf(x), 'k-', linewidth=2.5, 
+             label='Normal (df = ∞)')
+    
+    # Plot t-distributions with various df
+    colors = ['red', 'orange', 'green', 'blue']
+    dfs = [1, 5, 10, 30]
+    
+    for df, color in zip(dfs, colors):
+        plt.plot(x, stats.t.pdf(x, df), color=color, linewidth=2,
+                 label=f't (df = {df})')
+    
+    plt.xlabel('t-value')
+    plt.ylabel('Probability Density')
+    plt.title('Comparison: t-Distribution vs Standard Normal')
+    plt.legend(loc='upper right', fontsize=11)
+    plt.grid(True, alpha=0.3)
+    
+    # Add annotation
+    plt.annotate('Heavier tails\nwith lower df', 
+                 xy=(2.5, 0.05), fontsize=10,
+                 bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    plt.tight_layout()
+    plt.savefig('images/distributions/t_distribution_comparison.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+create_t_distribution_comparison()
+print("t-distribution comparison created!")
+```
+
+------------------------------------------------------------------------------
+SCRIPT 3: Skewness Visualizations
+------------------------------------------------------------------------------
+
+```python
+def create_skewness_comparison():
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    
+    # Left-skewed (negative skew)
+    ax = axes[0]
+    data = stats.skewnorm.rvs(-5, size=10000)
+    ax.hist(data, bins=50, density=True, alpha=0.7, color='blue')
+    x = np.linspace(min(data), max(data), 100)
+    ax.set_title('Left-Skewed (Negative Skew)', fontsize=14)
+    ax.set_xlabel('Value')
+    ax.set_ylabel('Density')
+    ax.axvline(np.mean(data), color='red', linestyle='--', 
+               label=f'Mean', linewidth=2)
+    ax.axvline(np.median(data), color='green', linestyle='-', 
+               label=f'Median', linewidth=2)
+    ax.legend()
+    ax.text(0.05, 0.95, 'Mean < Median < Mode', transform=ax.transAxes,
+            fontsize=10, verticalalignment='top',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    # Symmetric
+    ax = axes[1]
+    data = np.random.normal(0, 1, 10000)
+    ax.hist(data, bins=50, density=True, alpha=0.7, color='green')
+    ax.set_title('Symmetric (No Skew)', fontsize=14)
+    ax.set_xlabel('Value')
+    ax.set_ylabel('Density')
+    ax.axvline(np.mean(data), color='red', linestyle='--', 
+               label=f'Mean', linewidth=2)
+    ax.axvline(np.median(data), color='green', linestyle='-', 
+               label=f'Median', linewidth=2)
+    ax.legend()
+    ax.text(0.05, 0.95, 'Mean = Median = Mode', transform=ax.transAxes,
+            fontsize=10, verticalalignment='top',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    # Right-skewed (positive skew)
+    ax = axes[2]
+    data = stats.skewnorm.rvs(5, size=10000)
+    ax.hist(data, bins=50, density=True, alpha=0.7, color='red')
+    ax.set_title('Right-Skewed (Positive Skew)', fontsize=14)
+    ax.set_xlabel('Value')
+    ax.set_ylabel('Density')
+    ax.axvline(np.mean(data), color='red', linestyle='--', 
+               label=f'Mean', linewidth=2)
+    ax.axvline(np.median(data), color='green', linestyle='-', 
+               label=f'Median', linewidth=2)
+    ax.legend()
+    ax.text(0.05, 0.95, 'Mode < Median < Mean', transform=ax.transAxes,
+            fontsize=10, verticalalignment='top',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    plt.tight_layout()
+    plt.savefig('images/distributions/skew_comparison.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+create_skewness_comparison()
+print("Skewness comparison created!")
+```
+
+------------------------------------------------------------------------------
+SCRIPT 4: Venn Diagrams for Probability
+------------------------------------------------------------------------------
+
+```python
+# Requires: pip install matplotlib-venn
+from matplotlib_venn import venn2, venn2_circles
+
+def create_venn_diagrams():
+    fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+    
+    # Union A ∪ B
+    ax = axes[0, 0]
+    v = venn2(subsets=(3, 3, 1), set_labels=('A', 'B'), ax=ax)
+    v.get_patch_by_id('10').set_color('red')
+    v.get_patch_by_id('01').set_color('red')
+    v.get_patch_by_id('11').set_color('red')
+    v.get_patch_by_id('10').set_alpha(0.6)
+    v.get_patch_by_id('01').set_alpha(0.6)
+    v.get_patch_by_id('11').set_alpha(0.8)
+    ax.set_title('Union: A ∪ B', fontsize=14)
+    ax.text(0.5, -0.1, 'P(A ∪ B) = P(A) + P(B) - P(A ∩ B)', 
+            transform=ax.transAxes, ha='center', fontsize=11)
+    
+    # Intersection A ∩ B
+    ax = axes[0, 1]
+    v = venn2(subsets=(3, 3, 1), set_labels=('A', 'B'), ax=ax)
+    v.get_patch_by_id('10').set_color('lightgray')
+    v.get_patch_by_id('01').set_color('lightgray')
+    v.get_patch_by_id('11').set_color('red')
+    v.get_patch_by_id('10').set_alpha(0.3)
+    v.get_patch_by_id('01').set_alpha(0.3)
+    v.get_patch_by_id('11').set_alpha(0.8)
+    ax.set_title('Intersection: A ∩ B', fontsize=14)
+    ax.text(0.5, -0.1, 'P(A ∩ B) = P(A) × P(B) if independent', 
+            transform=ax.transAxes, ha='center', fontsize=11)
+    
+    # Complement Ā
+    ax = axes[1, 0]
+    v = venn2(subsets=(3, 3, 1), set_labels=('A', 'Ω'), ax=ax)
+    v.get_patch_by_id('10').set_color('lightgray')
+    v.get_patch_by_id('01').set_color('red')
+    v.get_patch_by_id('11').set_color('lightgray')
+    v.get_patch_by_id('10').set_alpha(0.3)
+    v.get_patch_by_id('01').set_alpha(0.6)
+    v.get_patch_by_id('11').set_alpha(0.3)
+    ax.set_title('Complement: Ā (not A)', fontsize=14)
+    ax.text(0.5, -0.1, 'P(Ā) = 1 - P(A)', 
+            transform=ax.transAxes, ha='center', fontsize=11)
+    
+    # Mutually Exclusive
+    ax = axes[1, 1]
+    v = venn2(subsets=(3, 3, 0), set_labels=('A', 'B'), ax=ax)
+    v.get_patch_by_id('10').set_color('blue')
+    v.get_patch_by_id('01').set_color('green')
+    v.get_patch_by_id('10').set_alpha(0.6)
+    v.get_patch_by_id('01').set_alpha(0.6)
+    ax.set_title('Mutually Exclusive: A ∩ B = ∅', fontsize=14)
+    ax.text(0.5, -0.1, 'P(A ∪ B) = P(A) + P(B)', 
+            transform=ax.transAxes, ha='center', fontsize=11)
+    
+    plt.tight_layout()
+    plt.savefig('images/probability/venn_diagrams.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+# Note: Requires matplotlib-venn package
+# create_venn_diagrams()
+print("Venn diagram script ready (requires matplotlib-venn)!")
+```
+
+------------------------------------------------------------------------------
+SCRIPT 5: Regression and Correlation
+------------------------------------------------------------------------------
+
+```python
+def create_correlation_examples():
+    fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+    np.random.seed(42)
+    
+    # Strong positive correlation (r ≈ 0.9)
+    ax = axes[0, 0]
+    x = np.random.normal(0, 1, 50)
+    y = 0.9 * x + np.random.normal(0, 0.3, 50)
+    ax.scatter(x, y, alpha=0.7, s=60)
+    z = np.polyfit(x, y, 1)
+    p = np.poly1d(z)
+    ax.plot(x, p(x), 'r-', linewidth=2)
+    r = np.corrcoef(x, y)[0, 1]
+    ax.set_title(f'Strong Positive Correlation\nr = {r:.3f}', fontsize=14)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.grid(True, alpha=0.3)
+    
+    # Strong negative correlation (r ≈ -0.9)
+    ax = axes[0, 1]
+    x = np.random.normal(0, 1, 50)
+    y = -0.9 * x + np.random.normal(0, 0.3, 50)
+    ax.scatter(x, y, alpha=0.7, s=60, color='orange')
+    z = np.polyfit(x, y, 1)
+    p = np.poly1d(z)
+    ax.plot(x, p(x), 'r-', linewidth=2)
+    r = np.corrcoef(x, y)[0, 1]
+    ax.set_title(f'Strong Negative Correlation\nr = {r:.3f}', fontsize=14)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.grid(True, alpha=0.3)
+    
+    # No correlation (r ≈ 0)
+    ax = axes[1, 0]
+    x = np.random.normal(0, 1, 50)
+    y = np.random.normal(0, 1, 50)
+    ax.scatter(x, y, alpha=0.7, s=60, color='green')
+    r = np.corrcoef(x, y)[0, 1]
+    ax.set_title(f'No Correlation\nr = {r:.3f}', fontsize=14)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.grid(True, alpha=0.3)
+    
+    # Non-linear relationship
+    ax = axes[1, 1]
+    x = np.linspace(-2, 2, 50)
+    y = x**2 + np.random.normal(0, 0.3, 50)
+    ax.scatter(x, y, alpha=0.7, s=60, color='purple')
+    r = np.corrcoef(x, y)[0, 1]
+    ax.set_title(f'Non-linear Relationship\n(Pearson r = {r:.3f} - misleading!)', 
+                 fontsize=14)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig('images/regression/correlation_examples.png', dpi=150,
+                bbox_inches='tight', facecolor='white')
+    plt.close()
+
+create_correlation_examples()
+print("Correlation examples created!")
+```
+
+==============================================================================
+3.4.3 IMAGE HOSTING OPTIONS
+==============================================================================
+
+OPTION 1: GitHub Repository (RECOMMENDED)
+-----------------------------------------
+1. Create a folder: `stats_bootcamp/images/`
+2. Organize by category:
+   ```
+   images/
+   ├── distributions/
+   │   ├── normal_standard.png
+   │   ├── normal_shaded_left.png
+   │   └── ...
+   ├── probability/
+   │   ├── venn_diagrams.png
+   │   └── ...
+   ├── regression/
+   │   └── ...
+   └── descriptive/
+       └── ...
+   ```
+3. Use raw GitHub URLs:
+   `https://raw.githubusercontent.com/username/repo/main/images/distributions/normal_standard.png`
+
+OPTION 2: AWS S3 (as used in existing bootcamp)
+-----------------------------------------------
+- Used in current CS bootcamp files
+- URLs look like: `https://prod-files-secure.s3.us-west-2.amazonaws.com/...`
+- More complex setup but reliable
+
+OPTION 3: Notion Upload
+-----------------------
+- Upload directly to Notion pages
+- Notion generates its own URLs
+- Easy but less portable
+
+==============================================================================
+3.4.4 MARKDOWN SYNTAX FOR IMAGES
+==============================================================================
+
+BASIC SYNTAX:
+```markdown
+![Alt text describing the image](URL)
+```
+
+WITH CAPTION (varies by renderer):
+```markdown
+![Normal Distribution showing the bell curve shape](images/normal_standard.png)
+*Figure 1: Standard Normal Distribution N(0,1)*
+```
+
+RECOMMENDED FORMAT FOR BOOTCAMP:
+```markdown
+### Normal Distribution
+
+The standard normal distribution has mean μ = 0 and standard deviation σ = 1.
+
+![Standard Normal Distribution N(0,1) showing the characteristic bell curve](https://raw.githubusercontent.com/user/stats_bootcamp/main/images/distributions/normal_standard.png)
+
+*Abbildung 1: Die Standardnormalverteilung N(0,1)*
+
+Key properties:
+- Symmetric around μ = 0
+- Total area under curve = 1
+- 68% of data within ±1σ
+```
+
+==============================================================================
+3.4.5 ASCII/UNICODE FALLBACK FOR SIMPLE VISUALIZATIONS
+==============================================================================
+
+When images cannot be used, simple text-based representations can help:
+
+NORMAL DISTRIBUTION (ASCII):
+```
+                        ▄▄▄███▄▄▄
+                     ▄█████████████▄
+                   ▄███████████████████▄
+                 ▄█████████████████████████▄
+               ▄█████████████████████████████▄
+             ▄█████████████████████████████████▄
+           ▄█████████████████████████████████████▄
+         ▄█████████████████████████████████████████▄
+       ▄█████████████████████████████████████████████▄
+     ▄█████████████████████████████████████████████████▄
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       -3σ      -2σ      -1σ       μ       +1σ      +2σ      +3σ
+                         ◄──── 68% ────►
+                    ◄──────── 95% ────────►
+               ◄────────────── 99.7% ──────────────►
+```
+
+HISTOGRAM (Unicode blocks):
+```
+Frequency Distribution:
+
+10-20  │████████                           (8)
+20-30  │████████████████                  (16)
+30-40  │████████████████████████          (24)  ← Mode
+40-50  │████████████████████              (20)
+50-60  │████████████                      (12)
+       └───────────────────────────────────────
+         █ = 1 observation
+```
+
+BOX PLOT (ASCII):
+```
+          ┌─────┐
+    ─────┤     ├─────────────
+          └─────┘
+    │     │  │  │            │
+   Min   Q1  M  Q3          Max
+         ◄──IQR──►
+```
+
+SKEWNESS (Text representation):
+```
+Left-Skewed (Negative):      Symmetric:           Right-Skewed (Positive):
+    ▄▄▄████████              ████████████              ████████▄▄▄
+   ▄██████████               ██████████████            ██████████▄
+  ▄███████████              ██████████████████         ███████████▄
+ Mode > Median > Mean     Mean = Median = Mode      Mean > Median > Mode
+```
+
+==============================================================================
+3.4.6 IMAGE NAMING CONVENTIONS
+==============================================================================
+
+Use consistent, descriptive file names:
+
+FORMAT: category_description_variant.png
+
+EXAMPLES:
+- dist_normal_standard.png
+- dist_normal_shaded_left_z-1.96.png
+- dist_t_df10.png
+- prob_venn_union.png
+- prob_tree_conditional.png
+- hyp_rejection_two_tailed_alpha05.png
+- reg_scatter_positive_r0.9.png
+- desc_boxplot_outliers.png
+
+BENEFITS:
+- Easy to find specific images
+- Self-documenting
+- Sortable by category
+
+------------------------------------------------------------------------------
+3.5 HYPOTHESIS TEST FORMATTING
+------------------------------------------------------------------------------
+
+RECOMMENDED 5-STEP FORMAT:
+
+### Hypothesentest (Hypothesis Test)
+
+**Step 1: Hypotheses**
+- H₀: μ = 100 (null hypothesis)
+- H₁: μ ≠ 100 (alternative hypothesis, two-tailed)
+- α = 0.05
+
+**Step 2: Test Statistic**
+$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$$
+
+**Step 3: Critical Value(s)**
+From t-table: t₀.₀₂₅,df=24 = ±2.064
+
+**Step 4: Calculate Test Statistic**
+$$t = \frac{105 - 100}{15/\sqrt{25}} = \frac{5}{3} = 1.67$$
+
+**Step 5: Decision**
+|t| = 1.67 < 2.064 = t_crit
+
+→ **Do not reject H₀**
+
+The sample does not provide sufficient evidence to conclude that 
+the population mean differs from 100.
+
+================================================================================
+4. FILE FORMAT REQUIREMENTS
+================================================================================
+
+------------------------------------------------------------------------------
+4.1 YAML FRONTMATTER
+------------------------------------------------------------------------------
+
+All markdown files for Notion export should include YAML frontmatter:
+
+```yaml
+---
+title: "Topic Name"
+notion_id: "unique-notion-page-id"
+notion_url: "https://www.notion.so/page-url"
+exported_at: "2025-12-13T22:02:57.868012"
+---
+```
+
+For NEW content (not yet in Notion):
+```yaml
+---
+title: "Descriptive Statistics: Measures of Central Tendency"
+category: "Statistics Bootcamp"
+module: 1
+order: 1
+---
+```
+
+------------------------------------------------------------------------------
+4.2 FILE NAMING CONVENTIONS
+------------------------------------------------------------------------------
+
+RECOMMENDED:
+- Use descriptive names: `Descriptive_Statistics.md`
+- Use underscores for spaces: `Hypothesis_Testing.md`
+- Include module numbers: `01_Introduction.md`, `02_Probability.md`
+- Match Notion page titles
+
+EXISTING PATTERN:
+- `Numpy.md`
+- `Pandas.md`
+- `Excursus_Stats_in_Python.md`
+
+------------------------------------------------------------------------------
+4.3 ENCODING
+------------------------------------------------------------------------------
+
+- Use UTF-8 encoding for all files
+- Support for German characters: ä, ö, ü, ß
+- Support for mathematical symbols: Σ, μ, σ, χ, β, α
+- Support for subscript/superscript via Unicode or KaTeX
+
+================================================================================
+5. RECOMMENDED CONTENT STRUCTURE FOR BOOTCAMP MODULES
+================================================================================
+
+Each statistics module should follow this structure:
+
+```markdown
+---
+title: "Module X: Topic Name"
+---
+
+# Module X: Topic Name
+
+## Learning Objectives
+After completing this module, you will be able to:
+- Objective 1
+- Objective 2
+- Objective 3
+
+---
+
+## Refresher: Key Concepts
+Brief review of prerequisite knowledge.
+
+---
+
+## Theory
+
+### Concept 1
+Explanation with formulas...
+
+$$formula$$
+
+### Concept 2
+Explanation...
+
+---
+
+## Worked Examples
+
+### Example 1
+[Full step-by-step solution with tables]
+
+### Example 2
+[Full step-by-step solution]
+
+---
+
+## Exercises (Aufgaben)
+
+### Aufgabe 1
+[Problem statement with data]
+
+<toggle: Solution>
+[Detailed solution]
+</toggle>
+
+### Aufgabe 2
+...
+
+---
+
+## Key Takeaways
+- Summary point 1
+- Summary point 2
+
+---
+
+## Next Module
+[Link to next module]
+```
+
+================================================================================
+6. QUICK REFERENCE CARD
+================================================================================
+
+| Element              | Supported? | Notes                              |
+|----------------------|------------|-----------------------------------|
+| Headers              | ✓          | H1-H6                             |
+| Bold/Italic          | ✓          | **bold** *italic*                 |
+| Code blocks          | ✓          | Display only, not executable      |
+| Tables               | ✓          | No merged cells                   |
+| Images               | ✓          | Must be external/embedded         |
+| Math (KaTeX)         | ✓          | $inline$ $$block$$                |
+| Links                | ✓          | External and internal             |
+| Lists                | ✓          | Bullet and numbered               |
+| Callouts             | ✓          | > 💡 **Tip:** text                |
+| Dividers             | ✓          | ---                               |
+| Interactive quizzes  | ✗          | Use toggle for solutions          |
+| Executable code      | ✗          | Show code + output separately     |
+| Live charts          | ✗          | Use pre-generated images          |
+| Complex tables       | ✗          | No merged cells/colors            |
+| Custom CSS           | ✗          | Use Notion's native styling       |
+
+================================================================================
+7. IMAGE GENERATION QUICK REFERENCE
+================================================================================
+
+REQUIRED IMAGE COUNTS BY CATEGORY:
+| Category                    | Count | Priority |
+|-----------------------------|-------|----------|
+| Probability Distributions   | 18    | CRITICAL |
+| Distribution Shapes/Skew    | 6     | HIGH     |
+| Descriptive Statistics      | 11    | HIGH     |
+| Probability Concepts        | 10    | HIGH     |
+| Sampling & Inference        | 6     | MEDIUM   |
+| Hypothesis Testing          | 9     | CRITICAL |
+| Regression & Correlation    | 10    | HIGH     |
+| TOTAL                       | ~70   |          |
+
+IMAGE GENERATION CHECKLIST:
+□ Install required packages: matplotlib, numpy, scipy, seaborn
+□ Set consistent styling (plt.style.use, rcParams)
+□ Create directory structure: images/{distributions,probability,regression,...}
+□ Generate all images using provided Python scripts (Section 3.4.2)
+□ Verify all images render correctly (150 DPI minimum)
+□ Upload to hosting platform (GitHub recommended)
+□ Update markdown files with correct image URLs
+□ Test image display in Notion
+
+MARKDOWN IMAGE TEMPLATE:
+```markdown
+![Descriptive alt text](https://your-host.com/images/category/filename.png)
+
+*Abbildung X: German caption for the figure*
+```
+
+================================================================================
+Document prepared for: Statistics Bootcamp AI Agent
+Last updated: December 2024
+Based on: Analysis of existing notion_export/ files and Notion capabilities
+
+*** CRITICAL: Section 3.4 contains comprehensive image generation guidance ***
+*** This is ESSENTIAL for visualizing statistical distributions ***
+================================================================================
+

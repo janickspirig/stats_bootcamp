@@ -1,0 +1,804 @@
+================================================================================
+LECTURE 8: STATISTICS BOOTCAMP
+Total Slides: 31
+================================================================================
+
+--- Slide 1 of 31 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+8. Estimation Theory
+Spring 2022
+
+
+--- Slide 2 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+Contents
+I. Estimates from Samples
+II. Point Estimators
+III. Confidence Interval of the Mean
+IV. Confidence Interval of the Proportion
+V. Sample Size
+2
+
+
+--- Slide 3 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+Learning Objectives
+After this lecture, you know how: 
+• the basic concepts of estimation theory and the necessary 
+properties of estimators.
+• sampling statistics differ from the corresponding values of the 
+population.
+• confidence intervals are calculated for mean and proportions.
+• large the required sample size should be.
+3
+
+
+--- Slide 4 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+Literature
+Levine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First 
+Course, 7th ed. United States: Pearson, Chapters  7.2, 7.3 and 8.*
+Stinerock, R. (2018). Statistics with R. United Kingdom: Sage. Chapters 7-8.*
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed. 
+München et al.: Pearson Studium, Chapters 13 and 14.
+Weiers, R. M. (2011). Introductory Business Statistics, 7th ed., Canada: Thomson 
+South-Western, Chapter 9.
+4
+*Mandatory literature
+
+
+--- Slide 5 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+I. Estimates from Samples
+The unknown population parameters should be estimated based on the result of
+a sample. Two types of estimation procedures exist : point estimates and
+interval estimates.
+A point estimate results in a single estimated value for the parameter of interest
+based on the sample result (sample statistic). A point estimator is unbiased if the
+expected value of the sample statistic equals the value of the population
+parameter of interest.
+Since the realizations of the sample are random, the point estimate for the
+population is uncertain. To be able to make statements about the "degree of
+uncertainty", an interval estimate is derived (range within which the actual value
+may fall). Based on a sample, a confidence interval is stated that encloses the
+population parameter of interest with a specified probability.
+5
+
+
+--- Slide 6 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+II. Point Estimators
+6
+Population
+Parameter
+Sample
+Statistics Calculation
+Mean 
+
+Variance 
+
+
+Proportion 
+
+ ixx n
+ 
+2
+2
+1
+ixxs n
+p
+2s
+x
+#
+#
+xs u c c e s spp nt r i a l s
+
+
+--- Slide 7 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Confidence Interval
+A random variable 𝑋ത is normally distributed under the assumptions of a normally
+distributed population or a sufficiently large sample size (n ≥ 30, central limit
+theorem):
+z-value which cuts off /2 percent of the 
+N(0;1)-distribution.
+2
+:z
+
+2
+z
+
+/2 /2 
+2
+z
+7
+22
+2
+2() ()
+(0,1)
+1
+
+
+
+
+
+
+
+
+ 
+
+    
+
+
+X
+X
+X
+E X Var X n
+X N
+XPz z
+
+
+--- Slide 8 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+With respect to the "not-standardized" distribution, the last equation becomes:
+With probability (1) the sample mean is realized in the so-called probability 
+interval:
+However, an estimation aims at finding a confidence interval for
+, the true but
+unknown population mean. In the following, two cases are distinguished:
+1. population variance 
+ 2 known.
+2.  population variance 
+ 2 unknown.
+III. Confidence Interval
+8
+22
+() 1 XXPz X z
+
+
+      
+22
+[; ] X Xzz
+
+
+  
+
+
+--- Slide 9 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Confidence Interval (for
+known)
+9
+Based on the definition of the probability interval 
+a transformation of its boundaries is performed:
+This leads to the new equation
+which defines the so-called confidence interval that covers the true 
+(but unknown) parameter 
+ with probability (1).
+22
+() 1 , XXPX z X z
+
+
+     
+22
+22
+X X
+XX
+zX X z
+Xz X z
+
+
+
+ 
+ 
+   
+   
+22
+() 1 XXPz X z
+
+
+      
+
+
+--- Slide 10 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+The limits of the confidence interval are random (they depend on the random 
+variable "sample mean").
+Consequently, if a large number of samples is drawn, the confidence interval
+covers the population mean in (1  )·100% of the cases. This confidence level
+is usually stated by the index at the right bracket.
+III. Confidence Interval (for
+ known)
+10
+
+
+
+
+  22 1
+;XXXz Xz
+
+
+--- Slide 11 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+𝑋ത = sample mean
+σ = standard deviation
+n = sample size
+z = standard normal distribution for 𝛼/2
+  
+III. Confidence Interval (for
+ known)
+n
+zXXn
+zX
+zz
+
+ 
+
+–
+0–
+11
+Assumption:
+Infinite population size!
+
+
+--- Slide 12 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Confidence Interval (for
+ known: Example)
+12
+Consider the uniform distribution over the interval [0; 10]. It has the mean
+ =5
+and the variance1)
+2 = 100/12 (or standard deviation
+ = 2.89). For a sample size
+of n = 30, a 95%-confidence interval becomes:
+If many samples are drawn, then the true mean 
+ is covered by the intervals in 
+95% of the cases.
+     
+0.95
+0.95
+2.89 2.891.96 ; 1.96 1; 1
+30 30
+XX X X
+1) The variance of a U(a; b)-distributed random variable is
+22 1
+12 ()ba
+ 
+
+
+--- Slide 13 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+If the variance of the population (and therefore the standard error) of the sample
+mean is not known, then the sample variance s2 must be used as estimator
+for
+2:
+As a consequence, the denominator of the standardized test statistics is now also
+random. The new test statistics T is no longer normally distributed. It follows a
+t-distribution with n – 1 degrees of freedom.
+III. Confidence Interval (for 
+ unknown)
+13
+  
+
+
+ 
+
+2
+2
+2 112
+1
+1
+1( 1 )
+nn
+n iiii
+i
+i
+nX X
+SX Xnn n
+1~
+/
+nXTt
+Sn
+ 
+X
+
+
+--- Slide 14 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+The application of the t-distribution requires that the sample mean is normally
+distributed.T h i si st h ec a s ei f
+• the samples were drawn from a normally distributed population or
+• the sample size is large enough: n  30 (CLT, independent of the distribution
+of the population).
+For other distributions and n <3 0 , the distribution of the sample mean is
+generally unknown. Thus the determination of confidence intervals is not
+possible (with the approaches introduced here).
+III. Student t-distribution
+14
+
+
+--- Slide 15 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Student t-distribution
+The shape of the t-distribution is determined by its single parameter, the degree
+of freedom (df). With increasing values of this parameter, the t-distribution
+converges to the standard normal distribution. Here df = n – 1. As a simplification
+the tabulated values from the standard normal distribution may be used if n  30
+The t-distribution is only taken when n <3 0 and the population is normally
+distributed.
+.
+0
+0.1
+0.2
+0.3
+0.4
+-3 -2 -1 0 1 2 3
+n=5
+n=10
+n=30
+standard normal distribution
+15
+
+
+--- Slide 16 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Student t-distribution
+The t-distribution enables us to construct confidence intervals for the mean when
+the sample is small (n < 30) and drawn from a population that is assumed to be
+normally distributed, and the variance is unknown.
+For other distributions and n < 30, no sufficiently accurate confidence intervals
+can be constructed in this way.
+With growing n,t h e t-distribution converges to the standardized normal
+distribution. The main difference to the normal distribution is that the t-distribution
+assigns higher probabilities to the tails. Intuitively, this reflects the higher
+uncertainty of the test statistics since s
+2 in the denominator is only estimated.
+16
+
+
+--- Slide 17 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Student t-distribution
+17
+
+
+--- Slide 18 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Student t-distribution
+What do the t-distribution and beer have in common?
+To produce beer of a consistently high quality, the
+the Guinness Brewery investigated brewing beer
+scientifically. For this purpose, William Gosset,
+a mathematician and statistician, was hired in 1899. 
+Since Guinness only had a small budget for research
+activities, Gosset only was able to carry out a small number of
+experiments. Therefore, Gosset developed the t-distribution out of the necessity 
+to work with small samples and an unknown population.
+Since Guinness did not allow his staff to publish the research results, Gosset
+published his discovery under the pseudonym " Student". To this day, the
+t-distribution is known as student's t.
+18
+
+
+--- Slide 19 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+The starting point is a very large as well as (approximately) normally distributed
+population and the determination of sample mean and variance. The standard-
+ized sample mean follows a t-distribution with n – 1 degrees of freedom (df):
+t
+/2, : analogous to z/2 for the t-distribution with  = n  1 degrees of freedom
+Confidence interval: 
+19
+III. Confidence Interval (for 
+ unknown)
+1~
+/
+nXTt
+Sn
+ 
+;1 ;122
+() 1
+nn
+SSPX t X t
+nn
+
+
+
+
+    
+;1 ;122nn
+ssxt xt
+nn
+
+
+
+  
+
+
+--- Slide 20 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+𝑋ത = sample mean Assumptions:
+s = standard deviation (sample) Infinite population size,
+n = sample size approximately normally
+t = quantile t-distribution distributed!
+for , df = n- 1
+20
+  
+III. Confidence Interval (for 
+ unknown)
+1
+2
+
+ n SXt
+n
+1
+2
+
+ n SXt
+n
+X
+0
+1
+2
+nt
+ 1
+2
+nt
+
+
+
+--- Slide 21 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+55 35 65 64 69 37 88
+39 61 54 50 74 92 59
+38 59 29 60 80 50
+III. Confidence Interval (for 
+ unknown: Example)
+Speed Control:
+A random sample of 20 observations was taken from the record of a radar speed
+check installed at the city border:
+Based on this sample and under the assumption of an approximately normally
+distributed population, determine a 90%-confidence interval for the average
+speed at the city border.
+21
+
+
+--- Slide 22 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+As 
+ is not known and the population is approximately normally distributed, 
+the t-distribution is used for the determination of the confidence interval : 
+Interpretation: With a probability of 90% the true average speed (the population 
+parameter) is covered by an interval from 51.2 to 64.6 km/h.
+22
+  
+
+19
+0.05
+19
+0.05
+0.9
+57.9, 17.384
+20 1 19, 0.052
+1.729
+17.38457.9 1.729
+20
+57.9 6.721 51.179, 64.621
+xs
+df
+t
+sxt
+n
+
+
+  
+
+  
+
+t
+sxt
+n
+
+
+t
+sxt
+n
+
+
+0
+x
+III. Confidence Interval (for
+ unknown: Example)
+
+
+--- Slide 23 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Confidence Interval (R-Example 1)
+23
+Open the file "VL8-Example_1.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 24 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+III. Overview: Confidence Intervals for the Mean
+2
+1
+/xz
+n
+
+
+
+
+ 
+/2
+1
+1
+n sxt
+n
+
+
+
+
+ 
+/2
+1
+ˆxz
+n
+
+
+
+
+ 
+(0,1 )
+/
+xzN
+n
+
+ : 1
+/
+n
+xtt
+sn
+
+
+ : (0,1 )
+ˆ/
+xzN
+n
+
+ :
+-statisticz -statistict
+ 
+2
+2
+21 12
+1
+1
+1( 1 )
+nn
+n iiii
+i
+i
+nx x
+sx x nn n
+
+
+
+ 
+
+(1) (2)
+(3)
+24
+-statisticz
+ known, population
+normally distributed
+ unknown, population
+normally distributed
+and n<30
+if variance of population knownˆ
+, otherwise  (s a m p l e std. dev.)ss
+  
+ known/unknown
+and n ≥ 30
+
+
+--- Slide 25 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+IV. Confidence Interval of the Proportion
+/2 /2() 1
+P
+pPz z
+
+
+
+
+    
+The proportion po f a sample of a dichotomous population ( π proportion of the
+population) is normally distributed ni ft h e sample size is large enough, i.e. if
+np ≥5 and n(1 - p) ≥ 5:
+Hence, it applies that: 
+2
+E( )
+(1 )Var( ) p
+p
+p n
+
+
+
+
+
+
+(0,1 )
+P
+pzN
+
+
+ :
+25
+
+
+--- Slide 26 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+IV. Confidence Interval of the Proportion
+Hence, the (1 െ𝛼 confidence interval of a proportion is calculated as follows: 
+Based on the sample proportion p, the standard error
+p, is estimated by:  
+26
+
+
+    /2 /2() 1 ppPz p z
+2 (1 )
+p
+pps n
+
+   /2 /2 pppz s pz s
+
+
+--- Slide 27 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+  
+
+ /2
+(1 )pppz n
+p
+
+ /2
+(1 )pppz n
+III. Confidence Interval of the Proportion
+p = sample proportion Assumptions:
+n = sample                      Infinite population and
+z = standard normal distribution for
+ np ≥ 5 and n(1 - p) ≥ 5
+27
+/2z 0 /2z
+
+
+--- Slide 28 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+/2
+1
+(1 )pppz n
+
+
+ 
+
+-statisticz
+(0,1 )
+ˆ/
+pzN
+n
+
+ :
+ˆ( 1 )p p
+ 
+28
+A binomial distribution approaches a normal distribution for large n
+(prerequisite: np ≥ 5 and n(1 - p) ≥ 5).
+estimator for
+sample std. dev.
+IV. Overview: Confidence Interval of the Proportion
+
+
+--- Slide 29 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+V. Required Sample Size
+The width of the confidence interval 2e may be considered as a measure for
+the "accuracy" of the estimator. Given a predefined confidence level (1 
+),
+for a desired precision of the estimator a certain sample size is required.
+Example 1 Estimation of the arithmetic mean
+:
+Measure for the precision of the estimator:
+Required sample size: 
+
+
+
+22
+Xez z
+n
+
+
+22
+/2
+2
+zn e
+29
+
+
+--- Slide 30 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+V. Required Sample Size
+Example 2 Sample size for estimation of the proportion π:
+Measure for the precision of the estimator :
+Required sample size: 
+The sample proportion p may be obtained from a previous estimation (e.g., for a
+subsample) and used as an estimator for the unknown proportion π.I fn o
+information about π is available, the inequality p(1  p)  0.25 can be applied for
+the estimation of the (maximum) variance.
+30
+
+ /2
+(1 )ppez n
+ 
+2
+/2
+2
+(1 )zp pn
+e
+
+
+--- Slide 31 of 31 ---
+
+Methods: Statistics (Spring 2022) 
+V. Sample Size (Example)
+Election:
+A politician orders a survey to determine the estimated proportion of voters that
+will vote for his party at the coming election. What is the necessary sample size if
+he wishes the absolute error to be within 3 percentage points of the true
+proportion for a confidence level of 95% (1 –  = 0.95; /2 = 0.025, e = 0.03)?
+Because ap r i o r ino value for p is given, it is set to p = 0.5 to estimate the
+(maximum possible) variance. To obtain the desired width of the confidence
+interval, the sample size should be n = 1068 (rounded).
+31
+  
+2 2
+/2
+22
+() ( 1 ) 1.96 (0.5)(0.5) 1ʹ067.1
+(0.03)
+zp pn
+e
+

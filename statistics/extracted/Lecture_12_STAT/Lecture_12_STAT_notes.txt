@@ -1,0 +1,424 @@
+================================================================================
+LECTURE 12: STATISTICS BOOTCAMP
+Total Slides: 24
+================================================================================
+
+--- Slide 1 of 24 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+12. Multiple Regression
+Spring 2021
+
+
+--- Slide 2 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+Contents
+I. Basic Model and Assumptions
+II. Goodness of Fit
+III. Properties of OLS Estimators
+IV. Confidence Intervals and t-Tests for OLS estimators
+V. Dummy Variables and Interaction Terms
+VI. Violations of Assumptions and Basic Problems
+I. Non-Linearity
+II. Heteroscedasticity
+III. Autocorrelation
+IV. Multicollinearity
+2
+
+
+--- Slide 3 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+Learning Objectives
+After this lecture, you know how: 
+• the results of a multiple regression analysis are interpreted and its
+model quality is determined.
+• dummy variables can model interaction effects.
+• potential errors in regression analysis can be detected and avoided.
+3
+
+
+--- Slide 4 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+Literature
+Hill, R.C., W.E. Griffiths, and G.C. Lim (2011). Principles of Econometrics, 4th ed. 
+United States: Wiley, Chapter 5.**
+Levine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First 
+Course, 7th ed. United States: Pearson, Chapter 13.*
+Stinerock, R. (2018). Statistics with R: A Beginner’s Guide. United Kingdom: 
+Sage. Chapter 13.*
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed. Munich
+et al.: Pearson Studium, Chapter 17.
+Weiers, R. M. (2011). Introductory Business Statistics,7th ed., Canada: Thomson 
+South-Western, Chapter 16.
+4
+*Mandatory literature **Very recommendable
+
+
+--- Slide 5 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Model (Introductory Example)
+Fast food chain:
+A fast-food company wants to investigate its hamburger sales empirically. The
+managing director reads about an economic theory that the price and the
+advertising expenditures have a major impact on the hamburger turnover. Among
+others, he asks himself the following questions:
+• Do hamburger sales increase with higher advertising expenditure?
+• If yes, do the higher sales compensate for increased advertising expenditures?
+• Does a reduction of the price lead to an increase in sales or a loss of turnover? 
+Are hamburger sales price-inelastic or price-elastic?
+5
+
+
+--- Slide 6 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Model
+A relationship between a dependent variable and several independent variables,
+such as the introductory example, can be examined closely by using OLS in a
+multiple regression analysis. This results in the following assumptions and the
+multiple regression model can be written as:
+• Assumption 1: 𝑦𝑦𝑖𝑖 = 𝛽𝛽1+ 𝛽𝛽2𝑥𝑥𝑖𝑖2 + 𝛽𝛽3𝑥𝑥𝑖𝑖3 + ⋯+ 𝛽𝛽𝐾𝐾𝑥𝑥𝑖𝑖𝑖𝑖 + 𝑒𝑒𝑖𝑖
+• Assumption 2: 𝐸𝐸 𝑒𝑒𝑖𝑖 𝑥𝑥𝑖𝑖 = 0 where 𝑥𝑥𝑖𝑖 = (𝑥𝑥𝑖𝑖2, 𝑥𝑥𝑖𝑖3,…, 𝑥𝑥𝑖𝑖𝑖𝑖)′
+• Assumption 3: Var(𝑒𝑒𝑖𝑖|𝑥𝑥𝑖𝑖) = 𝜎𝜎2
+• Assumption 4: Cov 𝑒𝑒𝑖𝑖, 𝑒𝑒𝑗𝑗 𝑥𝑥𝑖𝑖, 𝑥𝑥𝑗𝑗 = 0 for 𝑖𝑖 ≠ 𝑗𝑗
+• Assumption 5: 𝑥𝑥𝑖𝑖, … , 𝑥𝑥𝑛𝑛 are random and there is no exact linear               
+relationship among any of the independent variables.
+• Assumption 6: 𝑒𝑒𝑖𝑖, … , 𝑒𝑒𝑛𝑛 are normally distributed.
+6
+
+
+--- Slide 7 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Model
+Therefore, in a multiple regression model there are multiple slope coefficients.
+These coefficients are always interpreted individually. For example, 𝛽𝛽𝑖𝑖 measures
+the effect of the change in the independent variable 𝑥𝑥𝑖𝑖 on the expected value
+of y if all other variables are held constant (ceteris paribus).
+True regression model: 𝐸𝐸 𝑦𝑦 𝑥𝑥𝑖𝑖2, … , 𝑥𝑥𝑖𝑖𝑖𝑖 = 𝛽𝛽1 + 𝛽𝛽2𝑥𝑥𝑖𝑖2 + ⋯+ 𝛽𝛽𝐾𝐾𝑥𝑥𝑖𝑖𝑖𝑖
+Estimated regression model: �𝑦𝑦𝑖𝑖 = 𝑏𝑏1 + 𝑏𝑏2𝑥𝑥𝑖𝑖2 + 𝑏𝑏3𝑥𝑥𝑖𝑖3 + ⋯+ 𝑏𝑏𝐾𝐾𝑥𝑥𝑖𝑖𝑖𝑖
+OLS residuals: ̂𝑒𝑒𝑖𝑖 = 𝑦𝑦𝑖𝑖 − �𝑦𝑦𝑖𝑖 = 𝑦𝑦𝑖𝑖 −𝑏𝑏1 −𝑏𝑏2𝑥𝑥𝑖𝑖2 −⋯−𝑏𝑏𝐾𝐾𝑥𝑥𝑖𝑖𝑖𝑖
+The OLS estimates of the coefficients are obtained by minimizing* the residual 
+sum of squares as with simple regression.
+�
+𝑖𝑖=1
+𝑛𝑛
+̂𝑒𝑒𝑖𝑖
+2 = �
+𝑖𝑖=1
+𝑛𝑛
+(𝑦𝑦𝑖𝑖 −𝑏𝑏1 −𝑏𝑏2𝑥𝑥𝑖𝑖2 −⋯−𝑏𝑏𝐾𝐾𝑥𝑥𝑖𝑖𝑖𝑖)2
+7
+* Solving the first-order conditions for a minimum yields messy expressions for the least squares
+estimators, even when K is small. Morover, it requires complex linear algebra and matrix notation.
+
+
+--- Slide 8 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Model (Introductory Example, R-Example 1)
+The managing director now wants to empirically investigate the influence of price
+and advertising expenditure on hamburger sales. Therefore, the fast food chain
+offers burgers in 75 cities at different prices, varies advertising expenditure in each
+city and measures the sales figures. This cross-sectional sample looks as follows:
+8
+Town Sales (CHF1000) Price (CHF) Advertising (CHF1000)
+i y x2 x3
+1 73.2 5.69 1.3
+2 71.8 6.49 2.9
+… … … …
+74 81.3 5.45 2.0
+75 75.0 6.05 2.2
+Descriptive statistics
+Mean 77.37 5.69 1.84
+Median 76.50 5.69 1.80
+Max. 91.20 6.49 3.10
+Min. 62.40 4.83 0.50
+SDV 6.49 0.52 0.83
+
+
+--- Slide 9 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Model (Introductory Example, R-Example 1)
+Open the file "L12-Example_1.R" in R-Studio and reproduce the R-Code, which 
+leads to the following results.
+9
+
+
+--- Slide 10 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+II. Goodness of Fit
+The coefficient of determination R2 either remains the same or improves when
+adding a further independent variable (even if it has no economic justification).
+Hence, in the case of multiple regression, R2 does not allow for a fair comparison
+of different regression models.
+However, the Adjusted R2 overcomes this weakness by including the sample size
+and the number of independent variables in the calculation. In contrast to the
+quality measure R2, the Adjusted R2 can also decrease with the addition of
+variables with little or no explanatory content (penalization). This allows a fair
+comparison of different models.
+The Adjusted R2 should not be used as a criterion for adding or deleting
+variables in the regression model!
+10
+𝑅𝑅𝑎𝑎𝑎𝑎𝑗𝑗
+2 = 1 −[(1 −𝑅𝑅2) 𝑛𝑛−1
+𝑛𝑛−𝑘𝑘−1]
+!
+
+
+--- Slide 11 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+II. Goodness of Fit
+In the case of a multiple regression, an F-test can also be used to check whether
+the regression model is significant overall. It checks whether the prediction of the
+dependent variable is improved by adding an independent variable (slope test). In
+the case of multiple regressions, however, the calculation changes slightly:
+Mean Square Regression:
+Mean Square Error: 
+The calculated F-Ratio is then compared with the critical value Fc, which follows a
+F-distribution with k and n - k -1 degrees of freedom. If the F-Ratio exceeds the
+critical value, the null hypothesis (𝐻𝐻0: 𝛽𝛽2 = 𝛽𝛽3 = ⋯ = 𝛽𝛽𝐾𝐾 = 0) can be rejected.
+Hence, the model is significant and the linear relationships can be confirmed.
+11
+𝑀𝑀𝑀𝑀𝐸𝐸 = SSE
+n −𝑘𝑘−1
+𝑀𝑀𝑀𝑀𝑅𝑅 = SSR
+𝑘𝑘 F-Ratio = MSR
+MSE
+
+
+--- Slide 12 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+III. Properties of OLS Estimators
+In the multiple regression framework, OLS estimators are also random variables
+with means and variances. If assumptions 1 to 5 hold, the estimators fulfill the
+Gauss-Markov Theorem. 𝑏𝑏1, 𝑏𝑏2, … , 𝑏𝑏𝑖𝑖 then have the smallest variance of all
+linear and unbiased estimators of 𝛽𝛽1, 𝛽𝛽2, … , 𝛽𝛽𝑖𝑖 and are BLUE (Best Linear
+Unbiased Estimators).*
+As the error variance is also unknown in the case of multiple regressions, the true
+variance of the coefficients has to be estimated again. The estimated variance
+(standard error) of each coefficient has to be derived from error variance
+seperately. However, these calculations are messy and are not mentioned in detail.
+12
+* In the case of multiple regression, the Gauss-Markov Theorem is also not dependent on assumption 6.
+
+
+--- Slide 13 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Confidence Intervals and t-Tests for OLS Estimators
+If assumptions 1 to 6 are met, confidence intervals for the OLS estimators can be
+calculated as follows:
+𝑡𝑡 =
+𝑏𝑏𝑘𝑘−𝛽𝛽𝑘𝑘
+𝑠𝑠𝑏𝑏𝑘𝑘
+∼ 𝑡𝑡𝑛𝑛−𝑖𝑖 for k= 1, … , 𝑘𝑘
+𝑏𝑏𝑖𝑖 ± 𝑡𝑡𝑐𝑐𝑠𝑠𝑏𝑏𝑘𝑘
+The critical value 𝑡𝑡𝑐𝑐 is determined based on the significance level α and can be
+found in the table of the t-distribution. It should be pointed out that we have 𝑛𝑛−k −
+1 degrees of freedom, which is the sample size minus the total number of
+independent variables minus one.
+It is also possible to create one-tailed and two-tailed t-tests for the OLS
+estimators with the t-statistics stated above. The procedure of hypothesis testing
+remains the same as in the previous lectures.
+13
+
+
+--- Slide 14 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+House prices:
+The price of a house depends on the living space in square feet (SQFT). However,
+a broker suspects that this relationship could be influenced by the presence of a
+pool. Therefore, he would like to investigate this relationship empirically and takes
+a sample of 1000 house sales in a city. In addition to price and living space, this
+sample collects a variable which measures whether the house has a pool or not.
+This variable is called a dummy variable which reflects the respective categories
+(no pool, pool) with the values 0 and 1:
+POOLi = 0 if house i has no pool
+POOLi = 1 if house i has a pool
+Dummy variables are often included in different ways in regression models and 
+can, therefore, measure different effects.
+14
+
+
+--- Slide 15 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+15
+House Price (1000 USD) Living space (sqft/10) Pool
+i y x2 D
+1 205.452 23.46 0
+2 185.328 20.03 0
+… … … …
+999 300.728 28.74 0
+1000 220.987 20.93 1
+Descriptive statistics
+Mean 247.66 25.21 0.204
+Median 245.66 25.36 0
+Max. 345.20 30.00 1
+Min. 134.32 20.03 0
+SDV 42.19 2.92 0.40
+Open the file "L12-Example_1.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 16 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+16
+Model 1: Intercept Dummy
+The following house price model allows the intercept to vary with the presence or
+absence of a pool: 𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 𝛽𝛽1+ 𝛿𝛿𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+𝛽𝛽1 + 𝛿𝛿
+𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸
+𝛽𝛽1
+𝛿𝛿
+𝐸𝐸(𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸) = (𝛽𝛽1+ 𝛿𝛿) + 𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝐸𝐸(𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸) = 𝛽𝛽1 +𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+
+
+--- Slide 17 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+17
+Model 2: Interaction Term
+The following house price model allows the slope to vary with the presence or
+absence of a pool: 𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 𝛽𝛽1+𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + γ𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 × 𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝑃𝑃𝑃𝑃𝑖𝑖𝑃𝑃𝑒𝑒
+𝛽𝛽1
+𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑒𝑒 = 𝛽𝛽2 + 𝛾𝛾
+𝐸𝐸 𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸 = 𝛽𝛽1+ (𝛽𝛽2+𝛾𝛾)𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝐸𝐸(𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸) = 𝛽𝛽1 +𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑒𝑒 = 𝛽𝛽2
+𝛾𝛾
+
+
+--- Slide 18 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+18
+Model 3: Intercept Dummy and Interaction Term
+A model that allows the intercept and slope to vary with the presence or absence
+of a pool: 𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 𝛽𝛽1+ 𝛿𝛿𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + γ𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 × 𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝑃𝑃𝑃𝑃𝑖𝑖𝑃𝑃𝑒𝑒
+𝛽𝛽1
+𝐸𝐸 𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸 = (𝛽𝛽1+ 𝛿𝛿) + (𝛽𝛽2+𝛾𝛾)𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝐸𝐸(𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸) = 𝛽𝛽1 +𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+𝛾𝛾
+𝛽𝛽1 + 𝛿𝛿
+𝛿𝛿
+𝐸𝐸(𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸) = (𝛽𝛽1+ 𝛿𝛿) + 𝛽𝛽2𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆
+
+
+--- Slide 19 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+V. Dummy Variables (R-Example 2)
+19
+When interpreting regression models with dummy variables, the reference group
+is particularly important. The reference group is corresponds to 𝐷𝐷𝑖𝑖 = 0. For
+example, in the house price model:
+�𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 29.68 + 5.69𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 8.60𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+the reference group are houses with no pool (POOLi = 0). Two alternative models:
+�𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 35.37 −5.69𝑵𝑵𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 8.60𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+�𝑃𝑃𝑅𝑅𝑃𝑃𝑃𝑃𝐸𝐸𝑖𝑖 = 29.68𝑵𝑵𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 35.37𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝑷𝒊𝒊 + 8.60𝑀𝑀𝑆𝑆𝑆𝑆𝑆𝑆𝑖𝑖 + 𝑒𝑒𝑖𝑖
+In these two models it holds that NOPOOLi = 1 - POOLi. Note: We cannot include
+both POOLi and NOPOOLi in a model containing a constant term because the two
+variables are perfectly collinear. This error is known as the dummy variable trap.
+
+
+--- Slide 20 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Non-Linearity
+20
+Not all relationships between variables are linear. However, if these non-linear
+relationships are described by a linear regression model, violations of
+assumptions 2 (𝐸𝐸 𝑒𝑒𝑖𝑖 𝑥𝑥𝑖𝑖 = 0) and 3 (Cov 𝑒𝑒𝑖𝑖, 𝑒𝑒𝑗𝑗 𝑥𝑥𝑖𝑖, 𝑥𝑥𝑗𝑗 = 0) are the result. The
+expected value and the variance of the residuals (left) do not correspond to the
+assumed case (right).
+Non-linearities can only be solved with a new specification of the regression model 
+(e.g., logarithmic and quadratic transformations).
+ei
+xi0
+ei
+xi0
+
+
+--- Slide 21 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Non-Linearity
+21
+The following graphs show a perfect linear relationship and two perfect non-linear 
+relationships in a regression model with two independent variables.
+
+
+--- Slide 22 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+In case of a violation of assumption 3 (Var(𝑒𝑒𝑖𝑖|𝑥𝑥𝑖𝑖) = 𝜎𝜎2), heteroscedasticity is
+present. One refers to heteroscedasticity (vs. homoscedasticity) if the variance of
+the residuals increases or decreases over xi.
+Heteroskeedasticity is problematic as it leads to a wrong estimation of the
+standard errors of the coefficients. Hence, the statistical significance of the
+estimators is distorted and as a result hypothesis tests and confidence intervals
+are biased.
+VI. Heteroscedasticity
+22
+ei
+xi0
+ei
+xi0
+
+
+--- Slide 23 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Autocorrelation
+23
+In the case of autocorrelation, assumption 4 (Cov 𝑒𝑒𝑖𝑖, 𝑒𝑒𝑗𝑗 𝑥𝑥𝑖𝑖, 𝑥𝑥𝑗𝑗 = 0) is violated. 
+The residuals in one period are correlated with the residuals in another period. 
+This problem occurs mainly with time series data.
+The graph on the right illustrates autocorrelation. In contrast to the graph on the 
+left, the residuals are correlated with each other (linear pattern). Hence, similar to
+heteroskedasticity, the significance of OLS estimators is incorrectly assessed.
+ei-1
+ei
+ei-1
+ei
+
+
+--- Slide 24 of 24 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Multicollinearity
+24
+In the case of multiple regressions one has to ensure that no perfect
+multicollinearity is present, which would violate assumption 5.
+Perfect multicollinearity occurs when there is an exact linear relationship
+between two or more independent variables. Weak multicollinearity occurs when
+two independent variables are highly correlated but do not determine each other
+(e.g., dummy variables for lipstick users and a dummy variable for gender).
+However, multicollinearity is not a major problem. In the case of perfect
+multicollinearity, the superfluous independent variables are simply dropped from
+the analysis. In the case of weak multicollinearity, the standard errors increase,
+which could be compensated by a larger sample size.
+

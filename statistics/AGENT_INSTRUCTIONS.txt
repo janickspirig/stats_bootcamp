@@ -1,0 +1,867 @@
+================================================================================
+STATISTICS BOOTCAMP - AI AGENT INSTRUCTIONS
+Complete Guide for Notion Bootcamp Creation
+================================================================================
+
+Document Version: 1.0
+Last Updated: December 2024
+Purpose: Self-contained instructions for an AI agent to create the Statistics
+         Bootcamp in Notion based on extracted lecture and exercise content.
+
+================================================================================
+1. MISSION & CONTEXT
+================================================================================
+
+WHAT YOU ARE BUILDING:
+A complementary exam preparation bootcamp for HSG University students taking
+the course "3,120 Methoden: Statistik" (Methods: Statistics). The bootcamp
+is implemented as a Notion workspace with hierarchical pages.
+
+WHO IT'S FOR:
+- HSG BBA students, ages 18-22
+- Beginner statistics level (high school math only)
+- Career-focused (consulting, finance)
+- Prefer practical, efficient learning
+
+SUCCESS CRITERIA:
+1. All 63 pages from page_tree.json are created
+2. Each page follows the specified content template
+3. All formulas render correctly in KaTeX
+4. All navigation links work
+5. Content is derived from actual lecture/exercise materials
+6. No placeholder or lorem ipsum text
+7. Consistent terminology throughout
+8. EVERY concept page has 2-3 ORIGINAL practice problems with solutions
+9. Practice problems are business-contextualized with specific numbers
+
+CRITICAL REQUIREMENT - PRACTICE PROBLEMS:
+Every "I can..." or "I know..." page MUST include original practice problems
+that YOU CREATE (not just references to official exercises). Each problem must:
+- Use a realistic business scenario (finance, marketing, operations)
+- Include specific numerical values
+- Have a complete step-by-step solution in a toggle block
+- Follow the formula → substitution → answer pattern
+
+READ FIRST:
+Before generating any content, read these files in order:
+1. statistics/BOOTCAMP_PURPOSE.txt (mission & pedagogy)
+2. statistics/notion_pages/page_tree.json (complete page structure)
+3. notion_tech_Restrictions.txt (Notion platform constraints)
+
+================================================================================
+2. INPUT FILES REFERENCE
+================================================================================
+
+All paths are relative to the repository root.
+
+------------------------------------------------------------------------------
+2.1 REQUIRED CONFIGURATION FILES (Read First)
+------------------------------------------------------------------------------
+
+FILE: statistics/BOOTCAMP_PURPOSE.txt
+PURPOSE: High-level goals, target audience, pedagogical principles
+USE: Reference for tone, difficulty level, and teaching approach
+PRIORITY: REQUIRED - Read before generating any content
+
+FILE: statistics/notion_pages/page_tree.json
+PURPOSE: Complete hierarchical page structure with metadata
+USE: Defines every page to create, including IDs, titles, concepts, formulas
+PRIORITY: REQUIRED - This is your primary structural guide
+
+FILE: statistics/notion_pages/page_tree.md
+PURPOSE: Human-readable version of page structure
+USE: Quick reference for module flow and page organization
+PRIORITY: REFERENCE
+
+FILE: notion_tech_Restrictions.txt
+PURPOSE: Notion platform capabilities and limitations
+USE: Ensures generated content will render correctly in Notion
+PRIORITY: REQUIRED - Defines what formatting is allowed
+
+------------------------------------------------------------------------------
+2.2 CURRICULUM METADATA FILES
+------------------------------------------------------------------------------
+
+FILE: statistics/extracted/curriculum/bootcamp_structure.json
+PURPOSE: Module definitions with source lecture mappings
+USE: Maps each module to specific lecture sections and slides
+CONTAINS: 13 modules, section breakdowns, exercise references
+PRIORITY: REQUIRED
+
+FILE: statistics/extracted/curriculum/concepts.json
+PURPOSE: Index of 99 statistical concepts with categories
+USE: Ensures consistent terminology and concept coverage
+CONTAINS: Concept definitions, prerequisites, where first introduced
+PRIORITY: REQUIRED
+
+FILE: statistics/extracted/curriculum/learning_objectives.json
+PURPOSE: Official learning objectives from each lecture
+USE: Basis for "I can..." page titles and objectives sections
+CONTAINS: 32 objectives across 12 lectures
+PRIORITY: REQUIRED
+
+FILE: statistics/extracted/curriculum/exercises_mapping.json
+PURPOSE: Maps exercises to bootcamp modules
+USE: Links exercise pages to relevant content modules
+PRIORITY: REQUIRED
+
+------------------------------------------------------------------------------
+2.3 LECTURE CONTENT FILES (12 lectures)
+------------------------------------------------------------------------------
+
+PATTERN: statistics/extracted/Lecture_{N}_STAT/Lecture_{N}_STAT_notes.txt
+WHERE: N = 1 to 12
+PURPOSE: OCR-extracted text from lecture slides
+USE: Primary source for explanations, formulas, examples
+FORMAT: Slide-by-slide text with markers "--- Slide X of Y ---"
+
+EXAMPLE PATH: statistics/extracted/Lecture_1_STAT/Lecture_1_STAT_notes.txt
+
+LECTURE CONTENT MAPPING:
+- Lecture 1: Data types, scales, descriptive statistics
+- Lecture 2: Correlation, covariance, causality
+- Lecture 3: Probability theory fundamentals
+- Lecture 4: Discrete distributions (binomial, Poisson, hypergeometric)
+- Lecture 5: Continuous distributions (normal, exponential)
+- Lecture 6: Two-dimensional random variables, covariance
+- Lecture 7: Sampling distributions, Central Limit Theorem
+- Lecture 8: Estimation theory, confidence intervals
+- Lecture 9: Hypothesis testing basics
+- Lecture 10: Two-sample hypothesis tests
+- Lecture 11: Linear regression
+- Lecture 12: Multiple regression, chi-square, ANOVA
+
+------------------------------------------------------------------------------
+2.4 LECTURE SLIDE IMAGES
+------------------------------------------------------------------------------
+
+PATTERN: statistics/extracted/Lecture_{N}_STAT/pages/page_{XXX}.png
+WHERE: N = 1 to 12, XXX = 001 to total slides (zero-padded)
+PURPOSE: Visual slides for embedding in pages
+USE: Reference for charts, diagrams, formulas that are hard to transcribe
+
+MANIFEST: statistics/extracted/Lecture_{N}_STAT/manifest.json
+- Contains page-to-file mapping
+- Lists embedded images
+
+------------------------------------------------------------------------------
+2.5 EXERCISE FILES (7 exercise sheets)
+------------------------------------------------------------------------------
+
+PATTERN: statistics/exercises/extracted/{Exercise_ID}/
+WHERE: Exercise_ID = Übungsblatt_1, Übungsblatt_2, Übungsblatt_3A, 
+       Übungsblatt_3B, Übungsblatt_4, Übungsblatt_5, Übungsblatt_6
+
+MANIFEST: statistics/exercises/extracted/{Exercise_ID}/manifest.json
+PURPOSE: Exercise metadata including English titles
+USE: Read title_en field for display names
+
+IMAGES: statistics/exercises/extracted/{Exercise_ID}/page_{XXX}.png
+PURPOSE: Scanned exercise pages
+USE: Reference for problem statements and solutions
+
+GLOBAL INDEX: statistics/exercises/extracted/index.json
+PURPOSE: Summary of all exercises with page counts
+USE: Quick lookup for exercise information
+
+------------------------------------------------------------------------------
+2.6 STYLE REFERENCE FILES
+------------------------------------------------------------------------------
+
+DIRECTORY: notion_export/CS_Bootcamp/
+PURPOSE: Example pages from existing CS bootcamp
+USE: Reference for page structure, formatting style, tone
+
+KEY EXAMPLES:
+- notion_export/CS_Bootcamp/Computing_basics/index.md (module index pattern)
+- notion_export/CS_Bootcamp/Computing_basics/I_know_the_meaning_of_0_and_1*.md (concept page pattern)
+- notion_export/CS_Bootcamp/Machine_Learning/index.md (another module index)
+
+================================================================================
+3. CONTENT GENERATION RULES
+================================================================================
+
+------------------------------------------------------------------------------
+3.1 MODULE INDEX PAGES
+------------------------------------------------------------------------------
+
+Each module folder (01_foundations, 02_descriptive_statistics, etc.) needs
+an index page that lists all subpages.
+
+TEMPLATE:
+```markdown
+---
+title: "[Module Title]"
+---
+
+# [Module Title]
+
+[One paragraph module description]
+
+---
+
+## Learning Objectives
+
+After completing this module, you will be able to:
+- [Objective 1 from learning_objectives.json]
+- [Objective 2]
+- [Objective 3]
+
+---
+
+## Topics in This Module
+
+📄 **[Subpage 1 Title]**
+[One-line description of what this page covers]
+
+📄 **[Subpage 2 Title]**
+[One-line description]
+
+[... repeat for all subpages ...]
+
+---
+
+## Related Exercises
+
+Practice these concepts with:
+- [Exercise N: Title] (X pages)
+
+---
+
+## Navigation
+
+← Previous Module: [Link] | [Home] | Next Module: [Link] →
+```
+
+------------------------------------------------------------------------------
+3.2 CONCEPT PAGES ("I can..." / "I know..." pages)
+------------------------------------------------------------------------------
+
+These are the main learning content pages. Each must follow this structure:
+
+TEMPLATE:
+```markdown
+---
+title: "[Page Title - Learning Objective Statement]"
+---
+
+# [Page Title]
+
+---
+
+## Learning Objectives
+
+After completing this section, you will be able to:
+- [Primary objective matching page title]
+- [Secondary objective if applicable]
+
+---
+
+## Key Concepts
+
+### [Concept 1 Name]
+
+[Clear explanation in 2-3 paragraphs. Use business context examples.]
+
+**Formula:**
+
+$$[KaTeX formula]$$
+
+Where:
+- $[variable]$ = [definition]
+- $[variable]$ = [definition]
+
+> 💡 **Tip:** [Practical tip for applying this concept]
+
+### [Concept 2 Name]
+
+[Explanation...]
+
+---
+
+## Worked Example
+
+**Problem:**
+[Business-contextualized problem statement with specific numbers]
+
+**Given Data:**
+| Variable | Value |
+|----------|-------|
+| n        | 25    |
+| x̄        | 105   |
+| s        | 15    |
+
+**Solution:**
+
+**Step 1: [Step name]**
+
+$$[Formula with symbolic notation]$$
+
+**Step 2: Substitute values**
+
+$$[Formula with numbers substituted]$$
+
+**Step 3: Calculate**
+
+[Calculation table if needed:]
+
+| i | x_i | x_i - x̄ | (x_i - x̄)² |
+|---|-----|---------|------------|
+| 1 | 17  | -3.14   | 9.86       |
+| 2 | 18  | -2.14   | 4.58       |
+| Σ |     |         | 14.44      |
+
+**Result:**
+
+$$[Final answer] = [value]$$
+
+**Interpretation:**
+[What this result means in the context of the problem]
+
+---
+
+## Practice Problems
+
+### Problem 1
+
+[Problem statement with specific data]
+
+<details>
+<summary>💡 Show Solution</summary>
+
+**Solution:**
+
+[Step-by-step solution following same format as worked example]
+
+</details>
+
+### Problem 2
+
+[Another problem...]
+
+<details>
+<summary>💡 Show Solution</summary>
+
+[Solution...]
+
+</details>
+
+---
+
+## Common Mistakes to Avoid
+
+> ⚠️ **Warning:** [Common mistake 1 and how to avoid it]
+
+> ⚠️ **Warning:** [Common mistake 2]
+
+---
+
+## Key Takeaways
+
+- [Summary point 1 - most important concept]
+- [Summary point 2 - key formula to remember]
+- [Summary point 3 - when to apply this]
+
+---
+
+## Quick Reference
+
+| What | Formula |
+|------|---------|
+| [Name] | $[formula]$ |
+| [Name] | $[formula]$ |
+
+---
+
+## Navigation
+
+← Previous: [Link to previous page]
+↑ Module: [Link to module index]
+→ Next: [Link to next page]
+
+**Related Reference:** [Formula Glossary] | [Which Test to Use?]
+```
+
+------------------------------------------------------------------------------
+3.3 REFERENCE PAGES
+------------------------------------------------------------------------------
+
+A. FORMULA GLOSSARY
+
+Organize all formulas by topic. Use this structure:
+
+```markdown
+# Formula Glossary
+
+## Descriptive Statistics
+
+### Measures of Central Tendency
+
+**Mean (Sample)**
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+
+**Mean (Population)**
+$$\mu = \frac{1}{N}\sum_{i=1}^{N} x_i$$
+
+**Median**
+Middle value when data is sorted. For n values:
+- If n is odd: median = x_{(n+1)/2}
+- If n is even: median = (x_{n/2} + x_{n/2+1}) / 2
+
+[Continue for all formulas organized by topic...]
+
+## Probability
+
+## Distributions
+
+## Hypothesis Testing
+
+## Regression
+```
+
+B. DISTRIBUTION SUMMARY TABLE
+
+```markdown
+# Distribution Summary Table
+
+| Distribution | Type | Parameters | PMF/PDF | Mean | Variance | When to Use |
+|--------------|------|------------|---------|------|----------|-------------|
+| Binomial | Discrete | n, p | $\binom{n}{k}p^k(1-p)^{n-k}$ | np | np(1-p) | Fixed trials, 2 outcomes |
+| Poisson | Discrete | λ | $\frac{\lambda^k e^{-\lambda}}{k!}$ | λ | λ | Count in fixed interval |
+| ... | ... | ... | ... | ... | ... | ... |
+```
+
+C. WHICH TEST SHOULD I USE?
+
+Create a decision tree format:
+
+```markdown
+# Which Test Should I Use?
+
+## Step 1: What are you testing?
+
+- **Means** → Go to Step 2
+- **Proportions** → Go to Step 3
+- **Variances** → Use F-test
+- **Independence of categorical variables** → Use Chi-square test
+
+## Step 2: Testing Means
+
+**How many samples?**
+- One sample → One-sample t-test (or z-test if σ known)
+- Two samples → Go to Step 2a
+
+**Step 2a: Are samples independent or paired?**
+- Independent → Two-sample t-test
+- Paired/Dependent → Paired t-test
+
+[... continue decision tree ...]
+```
+
+D. STATISTICAL TABLES
+
+Reference that standard z, t, chi-square, and F tables are needed.
+These can be embedded as images or linked to external resources.
+
+------------------------------------------------------------------------------
+3.4 EXERCISE PAGES
+------------------------------------------------------------------------------
+
+```markdown
+# Exercise [N]: [English Title]
+
+**Source:** [Original exercise sheet name]
+**Pages:** [X] pages
+**Topics Covered:** [Module 1], [Module 2]
+
+---
+
+## Overview
+
+This exercise covers:
+- [Topic 1]
+- [Topic 2]
+- [Topic 3]
+
+---
+
+## Problems
+
+### Problem 1 (Page 1-3)
+
+[Reference to exercise images or transcribed problem]
+
+<details>
+<summary>💡 Show Solution</summary>
+
+[Detailed solution following the formula → substitution → answer pattern]
+
+</details>
+
+[Continue for each problem...]
+
+---
+
+## Related Modules
+
+- [Link to Module X]
+- [Link to Module Y]
+```
+
+================================================================================
+4. FORMATTING STANDARDS
+================================================================================
+
+------------------------------------------------------------------------------
+4.1 KaTeX FORMULA SYNTAX
+------------------------------------------------------------------------------
+
+INLINE MATH: Use single dollar signs
+Example: The mean is $\bar{x} = 42.5$
+
+BLOCK MATH: Use double dollar signs
+Example:
+$$
+\sigma^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+COMMON SYMBOLS:
+- Mean (sample): \bar{x}
+- Mean (population): \mu
+- Standard deviation: \sigma (population), s (sample)
+- Variance: \sigma^2, s^2
+- Sum: \sum_{i=1}^{n}
+- Fraction: \frac{numerator}{denominator}
+- Square root: \sqrt{x}
+- Subscript: x_i
+- Superscript: x^2
+- Greek letters: \alpha, \beta, \gamma, \lambda, \chi
+- Null hypothesis: H_0
+- Alternative hypothesis: H_1 or H_a
+- Approximately: \approx
+- Not equal: \neq
+- Less than or equal: \leq
+- Greater than or equal: \geq
+
+BINOMIAL COEFFICIENT:
+$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+------------------------------------------------------------------------------
+4.2 CALCULATION TABLES
+------------------------------------------------------------------------------
+
+Use markdown tables with consistent formatting:
+
+```markdown
+| i | x_i | x_i - x̄ | (x_i - x̄)² |
+|---|-----|---------|------------|
+| 1 | 17  | -3.14   | 9.86       |
+| 2 | 18  | -2.14   | 4.58       |
+| 3 | 19  | -1.14   | 1.30       |
+| 4 | 20  | -0.14   | 0.02       |
+| 5 | 21  | +0.86   | 0.74       |
+| 6 | 26  | +5.86   | 34.34      |
+| Σ | 121 |         | 50.84      |
+```
+
+RULES:
+- Always include row numbers (i)
+- Use Σ symbol for sum row
+- Round intermediate calculations to 2-4 decimal places
+- Round final answers to 2 decimal places (unless specified otherwise)
+
+------------------------------------------------------------------------------
+4.3 CALLOUTS
+------------------------------------------------------------------------------
+
+TIP (helpful information):
+> 💡 **Tip:** [Helpful information here]
+
+WARNING (common mistake):
+> ⚠️ **Warning:** [Common mistake to avoid]
+
+NOTE (additional context):
+> 📝 **Note:** [Additional information]
+
+IMPORTANT (critical information):
+> ❗ **Important:** [Critical point]
+
+------------------------------------------------------------------------------
+4.4 TOGGLE BLOCKS (for solutions)
+------------------------------------------------------------------------------
+
+Use HTML details/summary for collapsible content:
+
+```markdown
+<details>
+<summary>💡 Show Solution</summary>
+
+[Solution content here]
+
+</details>
+```
+
+NOTE: In Notion's native editor, these become toggle blocks.
+Some markdown importers may not support this syntax - verify rendering.
+
+------------------------------------------------------------------------------
+4.5 IMAGES
+------------------------------------------------------------------------------
+
+SYNTAX:
+```markdown
+![Description](path/to/image.png)
+```
+
+RULES:
+- Always include descriptive alt text
+- Use relative paths from the markdown file location
+- For lecture slides: reference statistics/extracted/Lecture_N_STAT/pages/
+- For exercises: reference statistics/exercises/extracted/{ID}/
+
+------------------------------------------------------------------------------
+4.6 INTERNAL LINKS
+------------------------------------------------------------------------------
+
+SYNTAX:
+```markdown
+[Link Text](/page-path)
+```
+
+For Notion:
+- Pages in same database: use page title as link
+- Cross-references: use full path notation
+
+================================================================================
+5. QUALITY CHECKLIST
+================================================================================
+
+Before finalizing each page, verify:
+
+------------------------------------------------------------------------------
+5.1 CONTENT COMPLETENESS
+------------------------------------------------------------------------------
+
+□ Page title matches page_tree.json specification
+□ All required sections are present (per template)
+□ Learning objectives are specific and measurable
+□ At least one worked example with complete step-by-step solution
+□ 2-3 ORIGINAL practice problems (created by you, not from exercises)
+□ Each practice problem has toggle solution with formula→substitution→answer
+□ Practice problems use business context with specific numbers
+□ Key takeaways section summarizes main points
+□ Navigation links to previous/next pages
+□ No placeholder text (Lorem ipsum, TODO, TBD, etc.)
+
+------------------------------------------------------------------------------
+5.2 FORMULA CORRECTNESS
+------------------------------------------------------------------------------
+
+□ All formulas use valid KaTeX syntax
+□ All variables are defined after formula
+□ Formulas match those in lecture notes
+□ Consistent notation throughout (e.g., always x̄ for sample mean)
+□ Units are included where applicable
+
+------------------------------------------------------------------------------
+5.3 EXAMPLES AND PROBLEMS
+------------------------------------------------------------------------------
+
+□ Examples use business/real-world context
+□ All numerical values are realistic
+□ Step-by-step solutions show formula → substitution → answer
+□ Calculation tables are formatted consistently
+□ Final answers include interpretation
+
+------------------------------------------------------------------------------
+5.4 FORMATTING
+------------------------------------------------------------------------------
+
+□ Headers follow H1 > H2 > H3 hierarchy
+□ Tables render correctly
+□ Callouts use correct emoji prefixes
+□ Toggle blocks expand/collapse properly
+□ No broken image references
+□ Consistent spacing between sections
+
+================================================================================
+6. VALIDATION PROCEDURE
+================================================================================
+
+After creating all pages, perform these validation steps:
+
+------------------------------------------------------------------------------
+6.1 STRUCTURE VALIDATION
+------------------------------------------------------------------------------
+
+STEP 1: Verify all pages exist
+
+Run through page_tree.json and confirm each page ID has corresponding content.
+
+Expected counts:
+- Start Here section: 3 pages
+- Module 01-13: 48 content pages total
+- Reference section: 5 pages
+- Exercise section: 7 pages
+- TOTAL: 63 pages
+
+STEP 2: Verify page hierarchy
+
+- Each module has an index page
+- Each module's subpages are properly linked from index
+- Root page links to all 16 top-level sections
+
+------------------------------------------------------------------------------
+6.2 LINK VALIDATION
+------------------------------------------------------------------------------
+
+STEP 1: Check all navigation links
+- Every page has ← Previous link (except first page of module)
+- Every page has → Next link (except last page of module)
+- Every page has ↑ Module index link
+- Every module index has ← Previous Module and → Next Module links
+
+STEP 2: Check cross-references
+- Reference section links from content pages work
+- Exercise links from module pages work
+- Concept cross-links (if any) work
+
+------------------------------------------------------------------------------
+6.3 FORMULA VALIDATION
+------------------------------------------------------------------------------
+
+STEP 1: Compile all KaTeX formulas
+Extract every formula and verify:
+- No syntax errors
+- All symbols are valid KaTeX commands
+- Renders correctly
+
+COMMON ERRORS TO CHECK:
+- Missing closing braces: $ x = { $ (WRONG)
+- Invalid commands: $\Mean$ (WRONG, use $\bar{x}$)
+- Unescaped special characters: $50%$ (WRONG, use $50\%$)
+
+------------------------------------------------------------------------------
+6.4 CONTENT COMPLETENESS
+------------------------------------------------------------------------------
+
+For each content page, verify:
+- [ ] Has Learning Objectives section
+- [ ] Has at least one formula (if concept involves calculation)
+- [ ] Has Worked Example (for calculation pages)
+- [ ] Has Practice Problem with solution
+- [ ] Has Key Takeaways
+
+For each reference page, verify:
+- [ ] Content is complete (no "TODO" or empty sections)
+- [ ] Formulas match those in content pages
+
+------------------------------------------------------------------------------
+6.5 CONSISTENCY CHECK
+------------------------------------------------------------------------------
+
+Verify consistent terminology:
+- "Sample mean" (not "arithmetic mean" or "average")
+- "Standard deviation" (not "SD" or "std dev")
+- "Null hypothesis" (not "null theory")
+- x̄ for sample mean, μ for population mean
+- s for sample std dev, σ for population std dev
+- n for sample size, N for population size
+
+================================================================================
+7. ERROR HANDLING
+================================================================================
+
+------------------------------------------------------------------------------
+7.1 MISSING SOURCE CONTENT
+------------------------------------------------------------------------------
+
+IF lecture notes are missing or incomplete:
+1. Check other lectures for similar content
+2. Use concepts.json for terminology
+3. Flag page with: > ⚠️ **Note:** Content pending review
+4. Do NOT generate fictional content
+
+------------------------------------------------------------------------------
+7.2 FORMULA EXTRACTION ISSUES
+------------------------------------------------------------------------------
+
+IF formula cannot be extracted from OCR text:
+1. Check lecture slide images directly
+2. Reference standard statistical formulas
+3. Cross-reference with concepts.json
+4. Use established notation from statistics textbooks
+
+------------------------------------------------------------------------------
+7.3 IMAGE QUALITY ISSUES
+------------------------------------------------------------------------------
+
+IF slide/exercise images are poor quality:
+1. Describe the image content in text
+2. Recreate diagrams using text/markdown if simple
+3. Flag with: > 📝 **Note:** See original slide [X] for diagram
+
+------------------------------------------------------------------------------
+7.4 AMBIGUOUS CONTENT
+------------------------------------------------------------------------------
+
+IF source material is ambiguous:
+1. Prefer simpler interpretation
+2. Use standard statistical conventions
+3. Add note: > 💡 **Tip:** [Clarification]
+
+================================================================================
+8. GENERATION ORDER
+================================================================================
+
+Create pages in this order for best results:
+
+PHASE 1: FOUNDATION (do first)
+1. Reference/Formula Glossary - establishes all formulas
+2. Reference/Distribution Summary Table
+3. Reference/Which Test Should I Use?
+4. Reference/Common Pitfalls
+
+PHASE 2: START HERE
+5. 00_Start_Here pages (orientation)
+
+PHASE 3: CONTENT MODULES (in order)
+6. Module 01 through Module 13, each module completely before next
+   - Create module index first
+   - Then create each subpage in order
+
+PHASE 4: EXERCISES
+7. Exercise pages (reference completed modules)
+
+PHASE 5: VALIDATION
+8. Run all validation checks
+9. Fix any issues found
+
+================================================================================
+9. FINAL CHECKLIST
+================================================================================
+
+Before declaring the bootcamp complete:
+
+□ All 63 pages created per page_tree.json
+□ Every page follows its designated template
+□ All formulas render correctly in KaTeX
+□ All navigation links functional
+□ All toggle solutions work
+□ Reference section complete
+□ Exercise section complete
+□ Consistent terminology throughout
+□ No placeholder content
+□ Validation procedure completed with no errors
+
+================================================================================
+END OF INSTRUCTIONS
+================================================================================
+
+For questions or clarifications, refer to:
+- statistics/BOOTCAMP_PURPOSE.txt (goals and approach)
+- statistics/notion_pages/page_tree.json (complete structure)
+- notion_tech_Restrictions.txt (platform capabilities)
+
+================================================================================
+

@@ -1,0 +1,164 @@
+{
+  "exercises": [
+    {
+      "id": "Übungsblatt_1",
+      "title_de": "Lage- und Streuparameter",
+      "title_en": "Location and Dispersion Parameters",
+      "pages": 47,
+      "modules": [
+        "descriptive_stats"
+      ],
+      "related_lectures": [
+        1
+      ]
+    },
+    {
+      "id": "Übungsblatt_2",
+      "title_de": "Einführung in die Wahrscheinlichkeitsrechnung",
+      "title_en": "Introduction to Probability",
+      "pages": 75,
+      "modules": [
+        "probability_basics"
+      ],
+      "related_lectures": [
+        3
+      ]
+    },
+    {
+      "id": "Übungsblatt_3A",
+      "title_de": "Wahrscheinlichkeitsverteilungen (Teil A)",
+      "title_en": "Probability Distributions (Part A)",
+      "pages": 56,
+      "modules": [
+        "discrete_distributions"
+      ],
+      "related_lectures": [
+        4
+      ]
+    },
+    {
+      "id": "Übungsblatt_3B",
+      "title_de": "Wahrscheinlichkeitsverteilungen (Teil B)",
+      "title_en": "Probability Distributions (Part B)",
+      "pages": 25,
+      "modules": [
+        "continuous_distributions"
+      ],
+      "related_lectures": [
+        5
+      ]
+    },
+    {
+      "id": "Übungsblatt_4",
+      "title_de": "Stichprobenverteilungen und Schätztheorie",
+      "title_en": "Sampling Distributions and Estimation Theory",
+      "pages": 56,
+      "modules": [
+        "sampling",
+        "estimation"
+      ],
+      "related_lectures": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "Übungsblatt_5",
+      "title_de": "Hypothesentests",
+      "title_en": "Hypothesis Testing",
+      "pages": 55,
+      "modules": [
+        "hypothesis_testing_intro",
+        "hypothesis_testing_advanced",
+        "two_sample_tests"
+      ],
+      "related_lectures": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "Übungsblatt_6",
+      "title_de": "Regressionsanalyse",
+      "title_en": "Regression Analysis",
+      "pages": 21,
+      "modules": [
+        "regression",
+        "chi_square_anova"
+      ],
+      "related_lectures": [
+        11,
+        12
+      ]
+    }
+  ],
+  "by_module": {
+    "descriptive_stats": [
+      {
+        "id": "Übungsblatt_1",
+        "pages": 47
+      }
+    ],
+    "probability_basics": [
+      {
+        "id": "Übungsblatt_2",
+        "pages": 75
+      }
+    ],
+    "discrete_distributions": [
+      {
+        "id": "Übungsblatt_3A",
+        "pages": 56
+      }
+    ],
+    "continuous_distributions": [
+      {
+        "id": "Übungsblatt_3B",
+        "pages": 25
+      }
+    ],
+    "sampling": [
+      {
+        "id": "Übungsblatt_4",
+        "pages": 56
+      }
+    ],
+    "estimation": [
+      {
+        "id": "Übungsblatt_4",
+        "pages": 56
+      }
+    ],
+    "hypothesis_testing_intro": [
+      {
+        "id": "Übungsblatt_5",
+        "pages": 55
+      }
+    ],
+    "hypothesis_testing_advanced": [
+      {
+        "id": "Übungsblatt_5",
+        "pages": 55
+      }
+    ],
+    "two_sample_tests": [
+      {
+        "id": "Übungsblatt_5",
+        "pages": 55
+      }
+    ],
+    "regression": [
+      {
+        "id": "Übungsblatt_6",
+        "pages": 21
+      }
+    ],
+    "chi_square_anova": [
+      {
+        "id": "Übungsblatt_6",
+        "pages": 21
+      }
+    ]
+  }
+}

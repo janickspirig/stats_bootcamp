@@ -1,0 +1,715 @@
+================================================================================
+LECTURE 3: STATISTICS BOOTCAMP
+Total Slides: 41
+================================================================================
+
+--- Slide 1 of 41 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+3. Probability Theory
+Spring 2022
+
+
+--- Slide 2 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Contents
+I. Basic Terms
+II. Probability Approaches
+III. Axioms of Kolmogorov
+IV. Event Space and Venn-Diagrams
+V. Addition Rule
+VI. Conditional Probability
+VII. Multiplication Rule
+VIII. Tree Diagrams
+Appendix: Combinatorics
+2
+
+
+--- Slide 3 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Learning Objectives
+After that lecture, you know how …
+• … the basic concepts of probability theory are applied in examples.
+• … the basic concepts of probability theory are represented by Venn 
+diagrams or tree diagrams.
+3
+
+
+--- Slide 4 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Literature
+Levine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First 
+Course, 7th ed. United States: Pearson, Chapter 4.*
+Stinerock, R. (2018). Statistics with R. United Kingdom: Sage. Chapter 4.*
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed., Munich 
+et al.: Pearson Studium, Chapter 8.
+Weiers, R. M. (2011). Introductory Business Statistics,7th ed., Canada: Thomson 
+South-Western, Chapter 5.
+4
+*Mandatory literature
+
+
+--- Slide 5 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Terms
+Random experiment: A process that is performed according to certain
+rules, can be repeated an arbitrary number of times, and whose result
+depends on chance (e.g., the number of dots (pips) after throwing a dice).
+Elementary events: Each random experiment has several possible
+elementary results. When the experiment is performed, exactly one of
+them occurs.
+Sample space: set of all possible elementary events of the experiment 
+(e.g., throwing of a cube has the sample space = {1,2,3,4,5,6}).
+5
+
+
+--- Slide 6 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Terms
+(Composed) events: Any possible subset of the sample space (including ). An
+event occurs when an included elementary event occurs.
+Example: ‚Even number‘ when throwing a
+dice is a (composed) event consisting of the
+elementary events ‚2‘, ‚4‘ and ‚6‘.
+6
+Event
+Sample space
+Elementary event 
+of the sample space
+4 2
+6
+1 3
+5
+
+
+--- Slide 7 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+I. Basic Terms
+Sample space
+Elementary events
+of the sample space
+Event A
+Event "not A"
+7
+\AA=
+Probability: A number between 0 and 1 
+assigned to an event and representing 
+the probability of the event occurring.
+Complementary event: The complementary event of an event A is the event „not 
+A“. It is defined as the set of all elementary events of the sample space which are
+not included in A. We write:
+
+
+--- Slide 8 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Probability Approaches
+Classical Approach
+Relative Frequency Approach
+Subjective Approach
+Axiomatic Approach
+8
+
+
+--- Slide 9 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Classical Approach
+The classical approach goes back to P.S. Laplace (1749-1827) and 
+defines probability as the proportion of times that an event can be 
+expected to occur in a random experiment.
+P(A)= number of favourable outcomes
+total number of possible outcomes
+Example 1: for a 6-sided dice, the probability that 3 occurs:
+P(A=3) = 1
+1+1+1+1+1+1
+1
+6=
+9
+Example 2: Tossing a coin and it lands on ‚heads‘:
+P(A=head) = 1
+1+1
+1
+2=
+
+
+--- Slide 10 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Relative Frequency Approach
+lim ( )nn
+fA
+→
+The relative frequency approach is empirically based on the law of large 
+numbers and corresponds to the frequency with which an event occurs 
+with a correspondingly large number of trials. The propability (P) is then
+equal to the limit value of the relative frequency of occurrence of A.
+P(A)= number of trials in which A occurs
+total number of trials
+resp.: P(A) = 
+with ∙ (number of trials in which A occurred)
+10
+1()nfA n=
+
+
+--- Slide 11 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Relative Frequency Approach
+11
+Example: The life insurance industry uses relative frequencies to calculate
+acceptability and premium for applicants. With a death rate of 221.77 (per 1000 
+male persons aged 90), the probability of death within the next year for a 90-
+year-old policyholder is 0.22. 
+Example «Coin Tossing»: With a growing number of trials (N tosses) the
+probability to get ‚heads‘ will approach 0.5 .
+P(head) = # of heads
+N
+0 50 100 150 200 250 300
+0.0 0.4 0.8
+Number of tosses
+Probability of event 'heads'
+
+
+--- Slide 12 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Relative Frequency Approach (R-Example 1)
+12
+Open the file "L3-Example_1.R" in R-Studio and reproduce the R-Code.
+0 50 100 150 200 250 300
+0.0 0.4 0.8
+Number of tosses
+Probability of event 'heads'
+
+
+--- Slide 13 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Subjective Approach
+The approach is judgemental and reflects the degreee to which one believes
+that an event will happen or not. Subjective probabilities can be quantified by
+expressing odds (likelihood that something will happen).
+1. If the quota for a certain event is A : B, then the probability reads:
+2. If the probability for a certain event is x (with 0x1), the corresponding
+quota reads:
+13
+() APA AB= +
+1
+x
+x−
+
+
+--- Slide 14 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+1. It is "twice as likely" that the price of a particular stock will rise instead of fall.
+2. In 80% of the cases the forecasts of a certain financial analyst also occur.
+II. Subjective Approach (Example)
+( ) 0.8; ( ) 0.2P A P A==
+22( ) 0.662 1 3PA = = =+
+0.8( ) : :1 4 :10.2odds A =
+14
+
+
+--- Slide 15 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+II. Axiomatic Approach
+15
+Generalization:
+• The axiomatic approach goes back to Kolmogorov.
+• The axiomatic approach does not explain the character of probability, but it
+defines its mathematical properties.
+• According to Kolmogorov, sets can be interpreted as events to which a 
+probability p can be assigned.
+A function P defined on a system of events is called probability, if it fulfills the
+Kolmogorovian axioms.
+
+
+--- Slide 16 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+III. Axioms of Kolmogorov
+• The probability P(A) of an event A is a definite, non-negative real number 
+between the values 0 and 1.
+0  P(A)  1
+• The safe event has the probability 1.
+P() = 1  with  = {A1, A2, ... , An}
+• For two disjoint events A1, A2 with (A1  A2 = ) it holds:
+P(A1  A2) = P(A1) + P(A2)
+16
+
+
+--- Slide 17 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+III. Axioms of Kolmogorov
+• For each event A it holds
+P(A) = 1 - P(A)
+• Probability of the impossible event :
+P() = 1 − P() = 0
+• Generalization on n mutually exclusive events A1, A2, ..., An yields:
+ P(A1  A2  ....  An) = P(A1) + P(A2) + ... + P(An)
+17
+
+
+--- Slide 18 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+IV. Venn-Diagrams
+Sample space
+Elementary event 
+of the sample space
+A
+B
+AB
+18
+Union of events:
+The union AB of two events A and B is defined as the set of all elementary
+events that belong to A or B or both.
+
+
+--- Slide 19 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+IV. Venn-Diagrams
+19
+Sample space
+Elementary event 
+of the sample space
+AB
+A B
+Intersection of events:
+The intersection A  B of two events A and B is defined as the set of all 
+elementary events that belong to A and B.
+
+
+--- Slide 20 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+IV. Venn-Diagrams
+20
+Sample space
+Elementary event 
+of the sample space
+AB
+A B A \ B
+( ) ( )\ ( )P A B P A P A B= − 
+Relative complement:
+Event A consists of the two disjoint events A\B (A without B) and the intersection
+AB of the two events A and B. From this it follows:
+
+
+--- Slide 21 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+IV. Contingency Table
+Total
+Total
+A
+B
+A
+The dependence or independence, respectively, of two events and their 
+corresponding complementary events can be presented in a contingency table.
+B
+()P A B
+()P A B
+()P A B
+()P A B
+()PA
+()PA
+()PB
+()PB
+=1
+21
+
+
+--- Slide 22 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+IV. Contingency Table (Example)
+22
+total
+5 15 20
+10 20 30
+total 15 35 50      
+BA=
+C
+A
+C
+1. P(A) = 20 / 50 = 0.4
+2. P(A  ) = 15 / 50 = 0.3
+3. P(A  ) = 0.8       3 different ways to calculate: :
+C
+• (5 + 15 + 20) / 50 = 0.8
+• (35 + 20  15) / 50 = 0.8
+• (35 + 5) / 50 = 0.8
+( ) ( ) ( ) +  + P A C P A C P A C
+( ) ( ) ( )+ − P C P A P C A
+( ) ( )+P C P A C
+C
+There are 20 red and 30 green cubes in an urn. 5 red and 10 green cubes are 
+marked with a *. The events 'red cube', 'green cube' and 'cube with *' are called 
+A, B and C, respectively.
+
+
+--- Slide 23 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+The events are mutually exclusive: Let A and B be arbitrary events of a random
+experiment. The probability for the event AB can be calculated by summing up
+P(A) and P(B). 
+The events are not mutually exclusive: The probability of the event AB can be
+calculated by summing up P(A) and P(B). However, in doing so the area AB is
+counted twice. Thus, it has to be subtracted again:
+V. Addition Rule
+P(AB) = P(A) + P(B) − P(AB)
+Sample space
+Elementary event 
+Event 'A or B' with 
+P(A  B )=P(A) + P(B) − P(A  B )
+Event A 
+with P(A)
+Event B
+with P(B)
+23
+
+
+--- Slide 24 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+V. Addition theorem (example)
+Drawing a card. What is the probability of getting a queen (Q) or hearts ()? 
+P(Q or ) = ? 
+A K Q J 10 9 8 7 6 5 4 3 2
+ • • • • • • • • • • • • •
+ • • • • • • • • • • • • •
+ • • • • • • • • • • • • •
+ • • • • • • • • • • • • •
+24
+Number of elements in the state space: 52 
+An elementary event (a particular card) has the probability of 1/52.
+It follows: P(Q ) = 4/52 + 13/52 - 1/52 = 16/52
+ P(Q) = 4/52.
+P() = 13/52.
+P(  Q) = 1/52.
+
+
+--- Slide 25 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VI. Conditional probability
+Occasionally, one is interested in the occurence of certain events conditional on 
+other events. P(B | A) is the conditional probability that event B occurs given that 
+the event A has already occurred.
+P(B | A) Conditional probability of event B given A
+P(AB) Joint probability of events A and B
+P(A)       Marginal probability of event A (with P(A) > 0): 
+P(B | A) = P(AB) / P(A) Sample space
+A
+A  B B
+25
+
+
+--- Slide 26 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Sometimes the probabilities P(B | A) and P(A) are known, while the probability
+P(A  B) is to be calculated. For this, the multiplication rule can be used. The
+equation follows from the conditional probability formula.
+P(A  B) = P(B | A) ∙ P(A)
+P(A  B) = P(A | B) ∙ P(B)
+Dependent events: The occurrence of one event affects the probability of the 
+occurrence of another event.
+Independent events: The occurrence of one event has no influence on the 
+probability of occurrence of the other event.
+For independent events: P(A  B) = P(A) ∙ P(B)
+Events A and B are stochastically independent if:
+P(B | A) = P(B | ഥ𝑨) = P(B) oder P(A | B) = P(A | ഥ𝑩) = P(A)
+VII. Multiplication Rule
+26
+
+
+--- Slide 27 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VII. Tree Diagrams (Example)
+What is the probability of the price of a security to rise today and tomorrow?
+P( today) = P( today) = 0.5 
+Probability "  tomorrow" is 0.6 if the stock has risen today. Thus, the conditional 
+probability is given by:
+P( tomorrow |  today) = 0.6 
+27
+ tomorrow
+ today,  tomorrow P( tomorrow |  today) = F2 | F1 = 0.6
+P( today and  tomorrow) 
+= P( tomorrow |  today) ∙ P( today) 
+= 0.6 x 0.5 = 0.3
+ today
+F2
+F1 P( today)
+F2  P( today and  tomorrow)
+F1
+
+
+--- Slide 28 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VII. Tree Diagram
+Tree diagrams visually summarize the occurrence or non-occurrence of two or
+more events. They are especially useful for events that occur in sequence. The 
+probabilities of the possible events on each step are plotted at the branches.
+Example Stocks:
+28
+ 0.4
+
+
+0.5
+0.5
+ 0.6
+ 0.4
+ 0.6
+ 
+ 
+ 
+ 
+today
+tomorrow
+P( today and  tomorrow)
+P( today and  tomorrow)
+P( today and  tomorrow)
+P( today and  tomorrow)
+
+
+--- Slide 29 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VII. Tree Diagram
+Analogous:
+P( today,  tomorrow) = P( today) ∙ P( tomorrow |  today)
+P( tomorrow |  today) = 1 - P( tomorrow |  today) = 0.4
+P( today,  tomorrow) = 0.5 ∙ 0.4 = 0.2
+29
+P( today,  tomorrow) = P( today) ∙ P( tomorrow |  today)
+P( tomorrow | today ) = 1 - P( tomorrow |  today) = 0.4
+P( today,  tomorrow) = 0.5 ∙ 0.4 = 0.2
+
+
+--- Slide 30 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VII. tree diagram
+30
+= P( today,  tomorrow) + P( today,  tomorrow)
+→The two events " today,  tomorrow" and " today,  tomorrow" are mutually
+exclusive. Therefore, the probabilities can be added together.
+That's why:
+= P( today,  tomorrow) + P( today,  tomorrow)
+= 0.2 + 0.2 = 0.4
+
+
+0.5
+0.5
+ 0.6
+ 0.4
+ 0.4
+ 0.6
+ : 0.5  0.6 = 0.3
+ : 0.5  0.4 = 0.2
+ : 0.5  0.4 = 0.2
+ : 0.5  0.6 = 0.3
+today tomorrow
+today  or
+Tomorrow  :
+0.2 + 0.2 = 0.4
+
+
+--- Slide 31 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+VII. Tree Diagram (R-Example 2)
+31
+Open the file "L3-Example_2.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 32 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics
+Combinatorics analyzes in how many different ways a given number of elements
+can be arranged and combined. The topic of combinatorics is closely related to
+the concept of probability. Mostly we are interested in different combinations of
+possible events and the determination of the corresponding probability of
+randomly choosing a particular combination. It is important that the postulation of
+equal probabilities is fulfilled.
+Permutations refer to the number of different ways in which objects can be
+arranged in order. Each item can appear only once and each order of
+arrangement is a separate permutation. Combinations consider the possible set
+of objects independent of the order in which the objects are arranged.
+32
+
+
+--- Slide 33 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics
+The symbol n! is called a factorial and is defined as
+Special cases: 1! = 1
+0! ∶= 1
+Principle of multiplication: if there are m ways a first event can happen and n
+ways in which a second event can happen, the total number of possibilities is 𝑚∙𝑛
+• Following an event that can happen in n1 ways, the second event can happen 
+n2 ways, the total number of both ways can happen is n1n2
+• If each of k independent events can occur in n different ways, the total number 
+of possibilities is nk
+33
+! ( 1) ( 2) 2 1n n n n=  −  −   
+
+
+--- Slide 34 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics (Examples)
+34
+License plates: The car license plate contains 6 different combinations of 
+numbers or letters. All 26 letters and 10 numbers are possible. How many 
+different possibilities are there? 
+Solution: 366 = 2,176,782,336 different possibilities
+Government formation: The newly elected president must nominate his cabinet. 
+From 3 possible candidates he can appoint the new Minister of Finance. He must 
+appoint the new Foreign Minister from 5 other suitable candidates. How many 
+different possibilities are there to fill the ministerial offices?
+Solution: The President has a total of 15 different options.
+
+
+--- Slide 35 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics (Example)
+35
+Computer setup: A computer can be combined in the following options to meet 
+individual customer needs. These options include: 
+• 2 different processors, 
+• 3 different operating systems, 
+• 4 levels of memory, 
+• 4 different hard drives,
+• 10 different monitors. 
+How many different types of the computer must the company be able to build?
+Solution: 960 = 2 ∙3 ∙4 ∙4 ∙10 possible combinations
+
+
+--- Slide 36 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics
+n different elements can be arranged differently as follows (significant sequence):
+Each order of n different elements is called permutation. Note that each element 
+can appear only once!
+Generalization: n elements, arranged in order, and the elements ni belong to 
+group i (with m different groups, i.e., n=n1+n2+… +nm)
+Example: Number of permutations of the 𝑛 = 10 letters of the word STATISTICS:
+36
+! ( 1) 2 1n n n=  −   
+12
+!
+! ! ... ! m
+n
+n n n  
+10! 50, 4003!3!1!2!1!=
+
+
+--- Slide 37 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics
+Choose r from n elements...
+… with consideration of the order (permutation):
+… without consideration of the order (combination):
+37
+!( 1) ( 2) ( 1) ( )!
+nn n n n r nr −  −   − + = −
+! ( 1)...( 1) ( )!
+!( )! !( )!
+n n n n r n r
+r n r r n r
+ − − +  −=−−
+( 1)...( 1)
+1 2 3 ... ( 1)
+nn n n r
+rrr
+− − +==     −  
+
+
+--- Slide 38 of 41 ---
+
+Methods: Statistics (Spring 2022) 
+Appendix: Combinatorics (Example)
+Place r = 2 figures A & B on a mini chessboard with
+n = 2 ∙ 2 = 4 fields ...
+• ... with consideration of the order:
+• ... without consideration of the order:
+38
+
+
+--- Slide 39 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Envelopes: 5 letters are randomly put into 5 different envelopes; how many 
+permutations are possible? 
+5! =120
+Numbers: How many 6-digit numbers with different digits (i.e., with consideration 
+of the order) can be formed from the numbers 1,2,3,…,9? 
+Card game: 3 cards are drawn from a card deck (36 cards). How many different 
+results are possible?
+Appendix: Combinatorics (Examples)
+36 36! 36 35 34 7,1403 3! 33! 3 2 1
+ = = =   
+9! 9 8 7 6 5 4 60, 480(9 6)! =      =−
+39
+
+
+--- Slide 40 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+The number of ways to select an ordered sample of k subjects from a population 
+that has n distinguishable elements is given by:
+• nk if sampling is done with replacement 
+• n(n-1)(n-2)...(n-k+1) if sampling is done without replacement
+the number of ways to select an unordered sample of k subjects from a 
+population that has n distinguishable members is given by:
+• if sampling is done with replacement
+• if sampling is done without replacement
+Appendix: Combinatorics
+40
+( )
+( )
+1!
+1 ! !
+nk
+nk
+−+
+−
+( )
+!
+!!
+n n
+k k n k
+ = −
+
+
+--- Slide 41 of 41 ---
+
+Methods: Statistics (Spring 2021) 
+Appendix: Combinatorics (R-Example)
+41
+Open the file "L3-Example_3.R" in R-Studio and reproduce the R-Code.
+

@@ -1,0 +1,127 @@
+{
+  "lecture_id": "Lecture_11_STAT",
+  "lecture_number": 11,
+  "title": "Linear Regression",
+  "total_slides": 26,
+  "learning_objectives": [
+    "a linear regression analysis is performed and which conditions",
+    "correlations in a data set can be investigated and interpreted by"
+  ],
+  "sections": [
+    {
+      "id": "I",
+      "title": "Basic Idea",
+      "slides": [
+        5,
+        6,
+        7
+      ],
+      "slide_range": [
+        5,
+        7
+      ],
+      "key_concepts": [
+        "correlation",
+        "mode",
+        "regression",
+        "variance"
+      ]
+    },
+    {
+      "id": "III",
+      "title": "Basic Model and Method of Ordinary Least Squares (OLS)",
+      "slides": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "slide_range": [
+        8,
+        18
+      ],
+      "key_concepts": [
+        "distribution",
+        "mean",
+        "median",
+        "mode",
+        "normal",
+        "population",
+        "probability",
+        "regression",
+        "sample",
+        "variance"
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Goodness of Fit",
+      "slides": [
+        19
+      ],
+      "slide_range": [
+        19,
+        19
+      ],
+      "key_concepts": [
+        "regression",
+        "variance"
+      ]
+    },
+    {
+      "id": "V",
+      "title": "Properties of OLS Estimators",
+      "slides": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "slide_range": [
+        19,
+        24
+      ],
+      "key_concepts": [
+        "distribution",
+        "for_the",
+        "markov",
+        "mean",
+        "mode",
+        "normal",
+        "random_variable",
+        "regression",
+        "t-test",
+        "variance"
+      ]
+    },
+    {
+      "id": "VI",
+      "title": "Confidence Intervals and t-Tests for OLS Estimators",
+      "slides": [
+        25,
+        26
+      ],
+      "slide_range": [
+        25,
+        26
+      ],
+      "key_concepts": [
+        "confidence_interval",
+        "distribution",
+        "hypothesis",
+        "sample",
+        "significance",
+        "t-test"
+      ]
+    }
+  ]
+}

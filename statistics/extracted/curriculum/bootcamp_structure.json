@@ -1,0 +1,1581 @@
+{
+  "title": "Statistics Bootcamp",
+  "description": "A comprehensive statistics course covering descriptive statistics, probability theory, statistical inference, and regression analysis.",
+  "total_modules": 13,
+  "total_slides": 280,
+  "modules": [
+    {
+      "id": "intro_data",
+      "title": "Introduction to Data & Statistics",
+      "description": "Understanding data types, collection methods, and scales of measurement",
+      "order": 1,
+      "source_content": [
+        {
+          "lecture": 1,
+          "sections": [
+            "I",
+            "II"
+          ]
+        }
+      ],
+      "concepts": [
+        "data_types",
+        "primary_data",
+        "secondary_data",
+        "nominal",
+        "ordinal",
+        "interval",
+        "ratio"
+      ],
+      "learning_outcomes": [
+        "Distinguish between different data types and scales of measurement",
+        "Understand data collection methods and their applications"
+      ],
+      "sections": [
+        {
+          "lecture": 1,
+          "section_id": "I",
+          "title": "Data Sources and Data Collection",
+          "slides": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "slide_range": [
+            5,
+            8
+          ]
+        },
+        {
+          "lecture": 1,
+          "section_id": "II",
+          "title": "Scales of Measurement",
+          "slides": [
+            9,
+            10,
+            11
+          ],
+          "slide_range": [
+            9,
+            11
+          ]
+        }
+      ],
+      "total_slides": 7,
+      "exercises": []
+    },
+    {
+      "id": "descriptive_stats",
+      "title": "Descriptive Statistics",
+      "description": "Measures of central tendency, dispersion, and data visualization",
+      "order": 2,
+      "source_content": [
+        {
+          "lecture": 1,
+          "sections": [
+            "III",
+            "IV",
+            "V"
+          ]
+        }
+      ],
+      "concepts": [
+        "mean",
+        "median",
+        "mode",
+        "variance",
+        "standard_deviation",
+        "quartile",
+        "skewness",
+        "kurtosis"
+      ],
+      "learning_outcomes": [
+        "Calculate and interpret measures of central tendency",
+        "Calculate and interpret measures of dispersion",
+        "Create and interpret graphical representations of data"
+      ],
+      "sections": [
+        {
+          "lecture": 1,
+          "section_id": "III",
+          "title": "Frequency Distributions",
+          "slides": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "slide_range": [
+            12,
+            15
+          ]
+        },
+        {
+          "lecture": 1,
+          "section_id": "IV",
+          "title": "Measures of Central Tendency",
+          "slides": [
+            16
+          ],
+          "slide_range": [
+            16,
+            16
+          ]
+        },
+        {
+          "lecture": 1,
+          "section_id": "V",
+          "title": "Measures of Dispersion",
+          "slides": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "slide_range": [
+            16,
+            37
+          ]
+        }
+      ],
+      "total_slides": 26,
+      "exercises": [
+        {
+          "id": "Übungsblatt_1",
+          "pages": 47
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "title": "Correlation & Covariance",
+      "description": "Understanding relationships between variables",
+      "order": 3,
+      "source_content": [
+        {
+          "lecture": 2,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV"
+          ]
+        }
+      ],
+      "concepts": [
+        "correlation",
+        "covariance",
+        "causality",
+        "scatter_plot"
+      ],
+      "learning_outcomes": [
+        "Calculate and interpret correlation coefficients",
+        "Distinguish between correlation and causation",
+        "Understand the concept of covariance"
+      ],
+      "sections": [
+        {
+          "lecture": 2,
+          "section_id": "II",
+          "title": "Correlation Coefficient",
+          "slides": [
+            7,
+            8,
+            9
+          ],
+          "slide_range": [
+            7,
+            9
+          ]
+        },
+        {
+          "lecture": 2,
+          "section_id": "III",
+          "title": "Covariance",
+          "slides": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "slide_range": [
+            10,
+            13
+          ]
+        },
+        {
+          "lecture": 2,
+          "section_id": "IV",
+          "title": "Portfolio Optimization",
+          "slides": [
+            14
+          ],
+          "slide_range": [
+            14,
+            14
+          ]
+        }
+      ],
+      "total_slides": 8,
+      "exercises": []
+    },
+    {
+      "id": "probability_basics",
+      "title": "Probability Theory Fundamentals",
+      "description": "Basic concepts, axioms, and rules of probability",
+      "order": 4,
+      "source_content": [
+        {
+          "lecture": 3,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII",
+            "VIII"
+          ]
+        }
+      ],
+      "concepts": [
+        "probability",
+        "sample_space",
+        "event",
+        "conditional_probability",
+        "independence",
+        "bayes"
+      ],
+      "learning_outcomes": [
+        "Apply the axioms of probability (Kolmogorov)",
+        "Calculate conditional probabilities",
+        "Use addition and multiplication rules",
+        "Construct and interpret tree diagrams"
+      ],
+      "sections": [
+        {
+          "lecture": 3,
+          "section_id": "I",
+          "title": "Basic Terms",
+          "slides": [
+            5,
+            6,
+            7
+          ],
+          "slide_range": [
+            5,
+            7
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "II",
+          "title": "Probability Approaches",
+          "slides": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "slide_range": [
+            8,
+            15
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "III",
+          "title": "Axioms of Kolmogorov",
+          "slides": [
+            16,
+            17
+          ],
+          "slide_range": [
+            16,
+            17
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "IV",
+          "title": "Event Space and Venn-Diagrams",
+          "slides": [
+            18
+          ],
+          "slide_range": [
+            18,
+            18
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "V",
+          "title": "Addition Rule",
+          "slides": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "slide_range": [
+            18,
+            24
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "VI",
+          "title": "Conditional Probability",
+          "slides": [
+            25
+          ],
+          "slide_range": [
+            25,
+            25
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "VII",
+          "title": "Multiplication Rule",
+          "slides": [
+            26
+          ],
+          "slide_range": [
+            26,
+            26
+          ]
+        },
+        {
+          "lecture": 3,
+          "section_id": "VIII",
+          "title": "Tree Diagrams",
+          "slides": [
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "slide_range": [
+            27,
+            31
+          ]
+        }
+      ],
+      "total_slides": 27,
+      "exercises": [
+        {
+          "id": "Übungsblatt_2",
+          "pages": 75
+        }
+      ]
+    },
+    {
+      "id": "discrete_distributions",
+      "title": "Discrete Probability Distributions",
+      "description": "Random variables and key discrete distributions",
+      "order": 5,
+      "source_content": [
+        {
+          "lecture": 4,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII",
+            "VIII"
+          ]
+        }
+      ],
+      "concepts": [
+        "random_variable",
+        "discrete",
+        "expected_value",
+        "binomial",
+        "poisson",
+        "hypergeometric"
+      ],
+      "learning_outcomes": [
+        "Calculate expected value and variance of discrete distributions",
+        "Apply binomial, Poisson, and hypergeometric distributions",
+        "Understand when to use each distribution type"
+      ],
+      "sections": [
+        {
+          "lecture": 4,
+          "section_id": "I",
+          "title": "Random Variables",
+          "slides": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "slide_range": [
+            5,
+            8
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "II",
+          "title": "Discrete Probability Distributions",
+          "slides": [
+            9
+          ],
+          "slide_range": [
+            9,
+            9
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "III",
+          "title": "Probability Functions and Distribution Functions",
+          "slides": [
+            10,
+            11
+          ],
+          "slide_range": [
+            10,
+            11
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "IV",
+          "title": "Expected Value and Variance of Probability Distributions",
+          "slides": [
+            12
+          ],
+          "slide_range": [
+            12,
+            12
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "V",
+          "title": "Chebychev Inequality",
+          "slides": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "slide_range": [
+            12,
+            17
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "VI",
+          "title": "Binomial Distribution",
+          "slides": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "slide_range": [
+            18,
+            23
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "VII",
+          "title": "Hypergeometric Distribution",
+          "slides": [
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "slide_range": [
+            24,
+            28
+          ]
+        },
+        {
+          "lecture": 4,
+          "section_id": "VIII",
+          "title": "Poisson Distribution",
+          "slides": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "slide_range": [
+            29,
+            34
+          ]
+        }
+      ],
+      "total_slides": 30,
+      "exercises": [
+        {
+          "id": "Übungsblatt_3A",
+          "pages": 56
+        }
+      ]
+    },
+    {
+      "id": "continuous_distributions",
+      "title": "Continuous Probability Distributions",
+      "description": "Normal distribution and its applications",
+      "order": 6,
+      "source_content": [
+        {
+          "lecture": 5,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ]
+        }
+      ],
+      "concepts": [
+        "continuous",
+        "normal",
+        "standard_normal",
+        "z_score",
+        "exponential"
+      ],
+      "learning_outcomes": [
+        "Understand properties of continuous distributions",
+        "Work with the standard normal distribution",
+        "Calculate probabilities using z-scores"
+      ],
+      "sections": [
+        {
+          "lecture": 5,
+          "section_id": "I",
+          "title": "Density Function of Continuous Random Variables",
+          "slides": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "slide_range": [
+            5,
+            8
+          ]
+        },
+        {
+          "lecture": 5,
+          "section_id": "II",
+          "title": "Measures of Central Tendency and Dispersion",
+          "slides": [
+            9
+          ],
+          "slide_range": [
+            9,
+            9
+          ]
+        },
+        {
+          "lecture": 5,
+          "section_id": "III",
+          "title": "Normal Distribution and Standard Normal Distribution",
+          "slides": [
+            10
+          ],
+          "slide_range": [
+            10,
+            10
+          ]
+        },
+        {
+          "lecture": 5,
+          "section_id": "IV",
+          "title": "Approximation Binomial Distribution",
+          "slides": [
+            8
+          ],
+          "slide_range": [
+            8,
+            8
+          ]
+        },
+        {
+          "lecture": 5,
+          "section_id": "V",
+          "title": "Exponential Distribution",
+          "slides": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "slide_range": [
+            8,
+            31
+          ]
+        }
+      ],
+      "total_slides": 27,
+      "exercises": [
+        {
+          "id": "Übungsblatt_3B",
+          "pages": 25
+        }
+      ]
+    },
+    {
+      "id": "sampling",
+      "title": "Sampling & Sampling Distributions",
+      "description": "Sample statistics and the Central Limit Theorem",
+      "order": 7,
+      "source_content": [
+        {
+          "lecture": 6,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI"
+          ]
+        }
+      ],
+      "concepts": [
+        "sample",
+        "population",
+        "sampling_distribution",
+        "central_limit_theorem",
+        "standard_error"
+      ],
+      "learning_outcomes": [
+        "Understand sampling methods and their properties",
+        "Apply the Central Limit Theorem",
+        "Calculate standard error of the mean"
+      ],
+      "sections": [
+        {
+          "lecture": 6,
+          "section_id": "I",
+          "title": "Joint Probability Function",
+          "slides": [
+            5,
+            6
+          ],
+          "slide_range": [
+            5,
+            6
+          ]
+        },
+        {
+          "lecture": 6,
+          "section_id": "II",
+          "title": "Joint Cumulative Distribution Function",
+          "slides": [
+            7,
+            8
+          ],
+          "slide_range": [
+            7,
+            8
+          ]
+        },
+        {
+          "lecture": 6,
+          "section_id": "III",
+          "title": "Marginal Distributions",
+          "slides": [
+            9
+          ],
+          "slide_range": [
+            9,
+            9
+          ]
+        },
+        {
+          "lecture": 6,
+          "section_id": "IV",
+          "title": "Stochastic Independence",
+          "slides": [
+            10
+          ],
+          "slide_range": [
+            10,
+            10
+          ]
+        },
+        {
+          "lecture": 6,
+          "section_id": "V",
+          "title": "Conditional Distributions",
+          "slides": [
+            10,
+            11,
+            12
+          ],
+          "slide_range": [
+            10,
+            12
+          ]
+        },
+        {
+          "lecture": 6,
+          "section_id": "VI",
+          "title": "Expected Value and Variance",
+          "slides": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "slide_range": [
+            13,
+            22
+          ]
+        }
+      ],
+      "total_slides": 18,
+      "exercises": [
+        {
+          "id": "Übungsblatt_4",
+          "pages": 56
+        }
+      ]
+    },
+    {
+      "id": "estimation",
+      "title": "Estimation & Confidence Intervals",
+      "description": "Point and interval estimation for population parameters",
+      "order": 8,
+      "source_content": [
+        {
+          "lecture": 7,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ]
+        }
+      ],
+      "concepts": [
+        "point_estimate",
+        "confidence_interval",
+        "margin_of_error",
+        "t_distribution"
+      ],
+      "learning_outcomes": [
+        "Construct confidence intervals for means and proportions",
+        "Determine appropriate sample sizes",
+        "Interpret confidence intervals correctly"
+      ],
+      "sections": [
+        {
+          "lecture": 7,
+          "section_id": "I",
+          "title": "Concept of Sampling Theory",
+          "slides": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "slide_range": [
+            5,
+            8
+          ]
+        },
+        {
+          "lecture": 7,
+          "section_id": "II",
+          "title": "Sampling Distribution of the Mean",
+          "slides": [
+            9,
+            10,
+            11
+          ],
+          "slide_range": [
+            9,
+            11
+          ]
+        },
+        {
+          "lecture": 7,
+          "section_id": "III",
+          "title": "Central Limit Theorem",
+          "slides": [
+            12,
+            13,
+            14
+          ],
+          "slide_range": [
+            12,
+            14
+          ]
+        },
+        {
+          "lecture": 7,
+          "section_id": "IV",
+          "title": "Characteristics of Sampling Distributions",
+          "slides": [
+            15
+          ],
+          "slide_range": [
+            15,
+            15
+          ]
+        },
+        {
+          "lecture": 7,
+          "section_id": "V",
+          "title": "Sampling Distribution of the Proportion",
+          "slides": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "slide_range": [
+            15,
+            20
+          ]
+        }
+      ],
+      "total_slides": 16,
+      "exercises": [
+        {
+          "id": "Übungsblatt_4",
+          "pages": 56
+        }
+      ]
+    },
+    {
+      "id": "hypothesis_testing_intro",
+      "title": "Introduction to Hypothesis Testing",
+      "description": "Foundations of statistical hypothesis testing",
+      "order": 9,
+      "source_content": [
+        {
+          "lecture": 8,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ]
+        }
+      ],
+      "concepts": [
+        "hypothesis",
+        "null_hypothesis",
+        "alternative_hypothesis",
+        "p_value",
+        "significance"
+      ],
+      "learning_outcomes": [
+        "Formulate null and alternative hypotheses",
+        "Understand Type I and Type II errors",
+        "Conduct z-tests for means and proportions"
+      ],
+      "sections": [
+        {
+          "lecture": 8,
+          "section_id": "I",
+          "title": "Estimates from Samples",
+          "slides": [
+            5
+          ],
+          "slide_range": [
+            5,
+            5
+          ]
+        },
+        {
+          "lecture": 8,
+          "section_id": "II",
+          "title": "Point Estimators",
+          "slides": [
+            6
+          ],
+          "slide_range": [
+            6,
+            6
+          ]
+        },
+        {
+          "lecture": 8,
+          "section_id": "III",
+          "title": "Confidence Interval of the Mean",
+          "slides": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "slide_range": [
+            7,
+            24
+          ]
+        },
+        {
+          "lecture": 8,
+          "section_id": "IV",
+          "title": "Confidence Interval of the Proportion",
+          "slides": [
+            25
+          ],
+          "slide_range": [
+            25,
+            25
+          ]
+        },
+        {
+          "lecture": 8,
+          "section_id": "V",
+          "title": "Sample Size",
+          "slides": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "slide_range": [
+            25,
+            31
+          ]
+        }
+      ],
+      "total_slides": 27,
+      "exercises": [
+        {
+          "id": "Übungsblatt_5",
+          "pages": 55
+        }
+      ]
+    },
+    {
+      "id": "hypothesis_testing_advanced",
+      "title": "Hypothesis Testing: One-Sample Procedures",
+      "description": "T-tests and chi-square tests for single samples",
+      "order": 10,
+      "source_content": [
+        {
+          "lecture": 9,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII"
+          ]
+        }
+      ],
+      "concepts": [
+        "t-test",
+        "chi_square_test",
+        "type_i_error",
+        "type_ii_error",
+        "power"
+      ],
+      "learning_outcomes": [
+        "Conduct t-tests for population means",
+        "Test hypotheses about variances",
+        "Calculate and interpret p-values"
+      ],
+      "sections": [
+        {
+          "lecture": 9,
+          "section_id": "I",
+          "title": "Basic Idea",
+          "slides": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "slide_range": [
+            5,
+            8
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "II",
+          "title": "Null and Alternative Hypothesis",
+          "slides": [
+            9
+          ],
+          "slide_range": [
+            9,
+            9
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "III",
+          "title": "Two-tailed Tests versus One-tailed Tests",
+          "slides": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "slide_range": [
+            10,
+            13
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "IV",
+          "title": "Procedure of Hypothesis Testing",
+          "slides": [
+            14
+          ],
+          "slide_range": [
+            14,
+            14
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "V",
+          "title": "Test Statistic for the Mean",
+          "slides": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "slide_range": [
+            14,
+            23
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "VI",
+          "title": "Test Statistic for the Proportion",
+          "slides": [
+            24,
+            25,
+            26,
+            27
+          ],
+          "slide_range": [
+            24,
+            27
+          ]
+        },
+        {
+          "lecture": 9,
+          "section_id": "VII",
+          "title": "Type I and Type II Error",
+          "slides": [
+            28,
+            29,
+            30
+          ],
+          "slide_range": [
+            28,
+            30
+          ]
+        }
+      ],
+      "total_slides": 26,
+      "exercises": [
+        {
+          "id": "Übungsblatt_5",
+          "pages": 55
+        }
+      ]
+    },
+    {
+      "id": "two_sample_tests",
+      "title": "Two-Sample Hypothesis Testing",
+      "description": "Comparing means and proportions across samples",
+      "order": 11,
+      "source_content": [
+        {
+          "lecture": 10,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII"
+          ]
+        }
+      ],
+      "concepts": [
+        "independent_samples",
+        "dependent_samples",
+        "paired_t_test",
+        "f-test"
+      ],
+      "learning_outcomes": [
+        "Compare means of independent and dependent samples",
+        "Construct confidence intervals for differences",
+        "Test for equality of variances"
+      ],
+      "sections": [
+        {
+          "lecture": 10,
+          "section_id": "I",
+          "title": "Basic Idea",
+          "slides": [
+            5,
+            6
+          ],
+          "slide_range": [
+            5,
+            6
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "II",
+          "title": "Comparing Means of Independent Samples",
+          "slides": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "slide_range": [
+            7,
+            17
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "III",
+          "title": "Comparing Means of Dependent Samples",
+          "slides": [
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "slide_range": [
+            18,
+            22
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "IV",
+          "title": "Confidence Interval for the Difference of Means",
+          "slides": [
+            23
+          ],
+          "slide_range": [
+            23,
+            23
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "V",
+          "title": "Comparing Proportions of Independent Samples",
+          "slides": [
+            23,
+            24,
+            25
+          ],
+          "slide_range": [
+            23,
+            25
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "VI",
+          "title": "Confidence Interval for the Differences of Proportions",
+          "slides": [
+            26
+          ],
+          "slide_range": [
+            26,
+            26
+          ]
+        },
+        {
+          "lecture": 10,
+          "section_id": "VII",
+          "title": "Variance Test",
+          "slides": [
+            27,
+            28,
+            29,
+            30
+          ],
+          "slide_range": [
+            27,
+            30
+          ]
+        }
+      ],
+      "total_slides": 26,
+      "exercises": [
+        {
+          "id": "Übungsblatt_5",
+          "pages": 55
+        }
+      ]
+    },
+    {
+      "id": "regression",
+      "title": "Regression Analysis",
+      "description": "Linear regression and model evaluation",
+      "order": 12,
+      "source_content": [
+        {
+          "lecture": 11,
+          "sections": [
+            "I",
+            "III",
+            "IV",
+            "V",
+            "VI"
+          ]
+        }
+      ],
+      "concepts": [
+        "regression",
+        "linear_regression",
+        "r_squared",
+        "residual",
+        "coefficient"
+      ],
+      "learning_outcomes": [
+        "Fit and interpret simple linear regression models",
+        "Evaluate model fit using R-squared",
+        "Conduct hypothesis tests on regression coefficients"
+      ],
+      "sections": [
+        {
+          "lecture": 11,
+          "section_id": "I",
+          "title": "Basic Idea",
+          "slides": [
+            5,
+            6,
+            7
+          ],
+          "slide_range": [
+            5,
+            7
+          ]
+        },
+        {
+          "lecture": 11,
+          "section_id": "III",
+          "title": "Basic Model and Method of Ordinary Least Squares (OLS)",
+          "slides": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "slide_range": [
+            8,
+            18
+          ]
+        },
+        {
+          "lecture": 11,
+          "section_id": "IV",
+          "title": "Goodness of Fit",
+          "slides": [
+            19
+          ],
+          "slide_range": [
+            19,
+            19
+          ]
+        },
+        {
+          "lecture": 11,
+          "section_id": "V",
+          "title": "Properties of OLS Estimators",
+          "slides": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "slide_range": [
+            19,
+            24
+          ]
+        },
+        {
+          "lecture": 11,
+          "section_id": "VI",
+          "title": "Confidence Intervals and t-Tests for OLS Estimators",
+          "slides": [
+            25,
+            26
+          ],
+          "slide_range": [
+            25,
+            26
+          ]
+        }
+      ],
+      "total_slides": 22,
+      "exercises": [
+        {
+          "id": "Übungsblatt_6",
+          "pages": 21
+        }
+      ]
+    },
+    {
+      "id": "chi_square_anova",
+      "title": "Chi-Square Tests & ANOVA",
+      "description": "Categorical data analysis and comparing multiple groups",
+      "order": 13,
+      "source_content": [
+        {
+          "lecture": 12,
+          "sections": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI"
+          ]
+        }
+      ],
+      "concepts": [
+        "chi_square_test",
+        "anova",
+        "f_distribution",
+        "contingency_table"
+      ],
+      "learning_outcomes": [
+        "Conduct chi-square tests for independence and goodness of fit",
+        "Perform one-way ANOVA",
+        "Interpret ANOVA results and post-hoc tests"
+      ],
+      "sections": [
+        {
+          "lecture": 12,
+          "section_id": "I",
+          "title": "Basic Model and Assumptions",
+          "slides": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "slide_range": [
+            5,
+            9
+          ]
+        },
+        {
+          "lecture": 12,
+          "section_id": "II",
+          "title": "Goodness of Fit",
+          "slides": [
+            10,
+            11
+          ],
+          "slide_range": [
+            10,
+            11
+          ]
+        },
+        {
+          "lecture": 12,
+          "section_id": "III",
+          "title": "Properties of OLS Estimators",
+          "slides": [
+            12
+          ],
+          "slide_range": [
+            12,
+            12
+          ]
+        },
+        {
+          "lecture": 12,
+          "section_id": "IV",
+          "title": "Confidence Intervals and t-Tests for OLS estimators",
+          "slides": [
+            13
+          ],
+          "slide_range": [
+            13,
+            13
+          ]
+        },
+        {
+          "lecture": 12,
+          "section_id": "V",
+          "title": "Dummy Variables and Interaction Terms",
+          "slides": [
+            14
+          ],
+          "slide_range": [
+            14,
+            14
+          ]
+        },
+        {
+          "lecture": 12,
+          "section_id": "VI",
+          "title": "Violations of Assumptions and Basic Problems",
+          "slides": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "slide_range": [
+            13,
+            24
+          ]
+        }
+      ],
+      "total_slides": 20,
+      "exercises": [
+        {
+          "id": "Übungsblatt_6",
+          "pages": 21
+        }
+      ]
+    }
+  ],
+  "total_exercise_pages": 335,
+  "total_exercises": 7
+}

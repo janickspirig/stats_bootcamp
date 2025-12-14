@@ -1,0 +1,151 @@
+{
+  "generated_at": "1765664152.9609463",
+  "total_lectures": 12,
+  "lectures": [
+    {
+      "lecture_id": "Lecture_1_STAT",
+      "title": "Data and Descriptive Statistics",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "Appendix"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_2_STAT",
+      "title": "Correlation vs. Causality",
+      "sections": [
+        "II",
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_3_STAT",
+      "title": "Probability Theory",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "Appendix"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_4_STAT",
+      "title": "Random Variables and",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "Appendix"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_5_STAT",
+      "title": "Continuous, Normal and",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_6_STAT",
+      "title": "Multi-Dimensional",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_7_STAT",
+      "title": "Sampling Distributions",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_8_STAT",
+      "title": "Estimation Theory",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_9_STAT",
+      "title": "Test Theory and",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_10_STAT",
+      "title": "Unknown",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_11_STAT",
+      "title": "Linear Regression",
+      "sections": [
+        "I",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "lecture_id": "Lecture_12_STAT",
+      "title": "Multiple Regression",
+      "sections": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ]
+    }
+  ]
+}

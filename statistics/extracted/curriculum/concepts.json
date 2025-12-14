@@ -1,0 +1,1621 @@
+{
+  "total_concepts": 99,
+  "categories": [
+    "other",
+    "distributions",
+    "descriptive_stats",
+    "probability",
+    "sampling_estimation",
+    "correlation_regression",
+    "hypothesis_testing"
+  ],
+  "concepts": {
+    "a_dummy": {
+      "definition_lecture": 12,
+      "definition_slide": 14,
+      "definition_section": "Dummy Variables and Interaction Terms",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "a_factorial": {
+      "definition_lecture": 3,
+      "definition_slide": 32,
+      "definition_section": "Combinatorics",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "a_probability": {
+      "definition_lecture": 4,
+      "definition_slide": 9,
+      "definition_section": "Discrete Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "addition": {
+      "definition_lecture": 3,
+      "definition_slide": 18,
+      "definition_section": "Addition Rule",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "and_correlation": {
+      "definition_lecture": 6,
+      "definition_slide": 13,
+      "definition_section": "Expected Value and Variance",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "and_density": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "and_poisson": {
+      "definition_lecture": 4,
+      "definition_slide": 35,
+      "definition_section": "Appendix",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "and_probability": {
+      "definition_lecture": 6,
+      "definition_slide": 7,
+      "definition_section": "Joint Cumulative Distribution Function",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "approximate_other": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "approximation_binomial": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "binomial": {
+      "definition_lecture": 4,
+      "definition_slide": 18,
+      "definition_section": "Binomial Distribution",
+      "also_appears": [
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "total_occurrences": 10,
+      "prerequisites": [
+        "probability",
+        "discrete"
+      ],
+      "category": "distributions"
+    },
+    "by_its": {
+      "definition_lecture": 7,
+      "definition_slide": 5,
+      "definition_section": "Concept of Sampling Theory",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "by_the": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "called\nprobability": {
+      "definition_lecture": 4,
+      "definition_slide": 9,
+      "definition_section": "Discrete Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "called_density": {
+      "definition_lecture": 5,
+      "definition_slide": 5,
+      "definition_section": "Density Function of Continuous Random Variables",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "central_limit": {
+      "definition_lecture": 5,
+      "definition_slide": 10,
+      "definition_section": "Normal Distribution and Standard Normal Distribution",
+      "also_appears": [
+        7,
+        8
+      ],
+      "total_occurrences": 5,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "chebyshev": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Dispersion",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "conditional": {
+      "definition_lecture": 6,
+      "definition_slide": 10,
+      "definition_section": "Conditional Distributions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "conditional_probability": {
+      "definition_lecture": 3,
+      "definition_slide": 25,
+      "definition_section": "Conditional Probability",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "confidence_interval": {
+      "definition_lecture": 8,
+      "definition_slide": 5,
+      "definition_section": "Estimates from Samples",
+      "also_appears": [
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 10,
+      "prerequisites": [
+        "sample",
+        "standard_error",
+        "normal"
+      ],
+      "category": "sampling_estimation"
+    },
+    "continuous": {
+      "definition_lecture": 1,
+      "definition_slide": 9,
+      "definition_section": "Scales of Measurement",
+      "also_appears": [
+        4,
+        5
+      ],
+      "total_occurrences": 6,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "correlation": {
+      "definition_lecture": 2,
+      "definition_slide": 7,
+      "definition_section": "Correlation Coefficient",
+      "also_appears": [
+        6,
+        11,
+        12
+      ],
+      "total_occurrences": 5,
+      "prerequisites": [
+        "covariance",
+        "standard_deviation"
+      ],
+      "category": "correlation_regression"
+    },
+    "corresponding\ndistribution": {
+      "definition_lecture": 9,
+      "definition_slide": 28,
+      "definition_section": "Type I and Type II Error",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "countable_if": {
+      "definition_lecture": 4,
+      "definition_slide": 5,
+      "definition_section": "Random Variables",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "covariance": {
+      "definition_lecture": 2,
+      "definition_slide": 10,
+      "definition_section": "Covariance",
+      "also_appears": [
+        6
+      ],
+      "total_occurrences": 2,
+      "prerequisites": [
+        "mean",
+        "variance"
+      ],
+      "category": "correlation_regression"
+    },
+    "cumulative": {
+      "definition_lecture": 4,
+      "definition_slide": 12,
+      "definition_section": "Chebychev Inequality",
+      "also_appears": [
+        5
+      ],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "cumulative_distribution": {
+      "definition_lecture": 4,
+      "definition_slide": 10,
+      "definition_section": "Probability Functions and Distribution Functions",
+      "also_appears": [
+        5
+      ],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "density": {
+      "definition_lecture": 5,
+      "definition_slide": 5,
+      "definition_section": "Density Function of Continuous Random Variables",
+      "also_appears": [],
+      "total_occurrences": 4,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "density_and": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "discrete": {
+      "definition_lecture": 1,
+      "definition_slide": 9,
+      "definition_section": "Scales of Measurement",
+      "also_appears": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "total_occurrences": 14,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "discrete_distribution": {
+      "definition_lecture": 4,
+      "definition_slide": 10,
+      "definition_section": "Probability Functions and Distribution Functions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "discrete_probability": {
+      "definition_lecture": 4,
+      "definition_slide": 9,
+      "definition_section": "Discrete Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 4,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "discrete_uniform": {
+      "definition_lecture": 4,
+      "definition_slide": 10,
+      "definition_section": "Probability Functions and Distribution Functions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "distribution": {
+      "definition_lecture": 1,
+      "definition_slide": 5,
+      "definition_section": "Data Sources and Data Collection",
+      "also_appears": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 45,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "expected_value": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Dispersion",
+      "also_appears": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        12
+      ],
+      "total_occurrences": 16,
+      "prerequisites": [
+        "probability",
+        "random_variable"
+      ],
+      "category": "probability"
+    },
+    "exponential": {
+      "definition_lecture": 5,
+      "definition_slide": 8,
+      "definition_section": "Exponential Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "distributions"
+    },
+    "fit\nthe": {
+      "definition_lecture": 12,
+      "definition_slide": 10,
+      "definition_section": "Goodness of Fit",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "following_probability": {
+      "definition_lecture": 4,
+      "definition_slide": 18,
+      "definition_section": "Binomial Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "for_other": {
+      "definition_lecture": 8,
+      "definition_slide": 7,
+      "definition_section": "Confidence Interval of the Mean",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "for_the": {
+      "definition_lecture": 11,
+      "definition_slide": 19,
+      "definition_section": "Properties of OLS Estimators",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "frequency": {
+      "definition_lecture": 1,
+      "definition_slide": 5,
+      "definition_section": "Data Sources and Data Collection",
+      "also_appears": [
+        3,
+        4
+      ],
+      "total_occurrences": 6,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "hypergeometric": {
+      "definition_lecture": 4,
+      "definition_slide": 24,
+      "definition_section": "Hypergeometric Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [
+        "probability",
+        "discrete",
+        "binomial"
+      ],
+      "category": "distributions"
+    },
+    "hypothesis": {
+      "definition_lecture": 9,
+      "definition_slide": 5,
+      "definition_section": "Basic Idea",
+      "also_appears": [
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 15,
+      "prerequisites": [
+        "sample",
+        "population",
+        "probability"
+      ],
+      "category": "hypothesis_testing"
+    },
+    "important_continuous": {
+      "definition_lecture": 5,
+      "definition_slide": 10,
+      "definition_section": "Normal Distribution and Standard Normal Distribution",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "independence": {
+      "definition_lecture": 3,
+      "definition_slide": 18,
+      "definition_section": "Addition Rule",
+      "also_appears": [
+        4,
+        6
+      ],
+      "total_occurrences": 5,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "joint_cumulative": {
+      "definition_lecture": 6,
+      "definition_slide": 7,
+      "definition_section": "Joint Cumulative Distribution Function",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "joint_probability": {
+      "definition_lecture": 6,
+      "definition_slide": 5,
+      "definition_section": "Joint Probability Function",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "kurtosis": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Dispersion",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "many": {
+      "definition_lecture": 5,
+      "definition_slide": 10,
+      "definition_section": "Normal Distribution and Standard Normal Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "marginal": {
+      "definition_lecture": 6,
+      "definition_slide": 9,
+      "definition_section": "Marginal Distributions",
+      "also_appears": [],
+      "total_occurrences": 4,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "markov": {
+      "definition_lecture": 11,
+      "definition_slide": 19,
+      "definition_section": "Properties of OLS Estimators",
+      "also_appears": [
+        12
+      ],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "mean": {
+      "definition_lecture": 1,
+      "definition_slide": 5,
+      "definition_section": "Data Sources and Data Collection",
+      "also_appears": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 31,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "median": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Central Tendency",
+      "also_appears": [
+        11,
+        12
+      ],
+      "total_occurrences": 5,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "mode": {
+      "definition_lecture": 1,
+      "definition_slide": 5,
+      "definition_section": "Data Sources and Data Collection",
+      "also_appears": [
+        4,
+        6,
+        11,
+        12
+      ],
+      "total_occurrences": 13,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "multiple_slope": {
+      "definition_lecture": 12,
+      "definition_slide": 5,
+      "definition_section": "Basic Model and Assumptions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "multiplication": {
+      "definition_lecture": 3,
+      "definition_slide": 26,
+      "definition_section": "Multiplication Rule",
+      "also_appears": [
+        4,
+        6
+      ],
+      "total_occurrences": 4,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "negatively_skewed": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Dispersion",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "normal": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Dispersion",
+      "also_appears": [
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 19,
+      "prerequisites": [
+        "probability",
+        "continuous",
+        "mean",
+        "variance"
+      ],
+      "category": "distributions"
+    },
+    "of_arbitrary": {
+      "definition_lecture": 7,
+      "definition_slide": 12,
+      "definition_section": "Central Limit Theorem",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "of_binomial": {
+      "definition_lecture": 4,
+      "definition_slide": 35,
+      "definition_section": "Appendix",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "of_density": {
+      "definition_lecture": 5,
+      "definition_slide": 9,
+      "definition_section": "Measures of Central Tendency and Dispersion",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "of_each": {
+      "definition_lecture": 12,
+      "definition_slide": 12,
+      "definition_section": "Properties of OLS Estimators",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "of_marginal": {
+      "definition_lecture": 6,
+      "definition_slide": 13,
+      "definition_section": "Expected Value and Variance",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "of_probability": {
+      "definition_lecture": 4,
+      "definition_slide": 12,
+      "definition_section": "Expected Value and Variance of Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "on_the": {
+      "definition_lecture": 3,
+      "definition_slide": 8,
+      "definition_section": "Probability Approaches",
+      "also_appears": [
+        4
+      ],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "permutation": {
+      "definition_lecture": 3,
+      "definition_slide": 32,
+      "definition_section": "Combinatorics",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "poisson": {
+      "definition_lecture": 4,
+      "definition_slide": 29,
+      "definition_section": "Poisson Distribution",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [
+        "probability",
+        "discrete",
+        "binomial"
+      ],
+      "category": "distributions"
+    },
+    "population": {
+      "definition_lecture": 1,
+      "definition_slide": 9,
+      "definition_section": "Scales of Measurement",
+      "also_appears": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "total_occurrences": 25,
+      "prerequisites": [],
+      "category": "sampling_estimation"
+    },
+    "population_the": {
+      "definition_lecture": 7,
+      "definition_slide": 12,
+      "definition_section": "Central Limit Theorem",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "probability": {
+      "definition_lecture": 3,
+      "definition_slide": 5,
+      "definition_section": "Basic Terms",
+      "also_appears": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "total_occurrences": 27,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "probability_function": {
+      "definition_lecture": 4,
+      "definition_slide": 9,
+      "definition_section": "Discrete Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "quartile": {
+      "definition_lecture": 1,
+      "definition_slide": 16,
+      "definition_section": "Measures of Central Tendency",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "descriptive_stats"
+    },
+    "random_variable": {
+      "definition_lecture": 4,
+      "definition_slide": 5,
+      "definition_section": "Random Variables",
+      "also_appears": [
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "total_occurrences": 24,
+      "prerequisites": [],
+      "category": "probability"
+    },
+    "realization": {
+      "definition_lecture": 4,
+      "definition_slide": 5,
+      "definition_section": "Random Variables",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "regression": {
+      "definition_lecture": 11,
+      "definition_slide": 5,
+      "definition_section": "Basic Idea",
+      "also_appears": [
+        12
+      ],
+      "total_occurrences": 9,
+      "prerequisites": [
+        "correlation",
+        "mean",
+        "variance"
+      ],
+      "category": "correlation_regression"
+    },
+    "relationship_between": {
+      "definition_lecture": 6,
+      "definition_slide": 7,
+      "definition_section": "Joint Cumulative Distribution Function",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "relative_frequency": {
+      "definition_lecture": 4,
+      "definition_slide": 9,
+      "definition_section": "Discrete Probability Distributions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "replacement\nhypergeometric": {
+      "definition_lecture": 4,
+      "definition_slide": 24,
+      "definition_section": "Hypergeometric Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "sample": {
+      "definition_lecture": 1,
+      "definition_slide": 38,
+      "definition_section": "Appendix",
+      "also_appears": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 39,
+      "prerequisites": [],
+      "category": "sampling_estimation"
+    },
+    "sample_mean": {
+      "definition_lecture": 7,
+      "definition_slide": 15,
+      "definition_section": "Characteristics of Sampling Distributions",
+      "also_appears": [],
+      "total_occurrences": 2,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "sampling": {
+      "definition_lecture": 7,
+      "definition_slide": 5,
+      "definition_section": "Concept of Sampling Theory",
+      "also_appears": [],
+      "total_occurrences": 5,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "set_of": {
+      "definition_lecture": 3,
+      "definition_slide": 5,
+      "definition_section": "Basic Terms",
+      "also_appears": [],
+      "total_occurrences": 3,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "significance": {
+      "definition_lecture": 9,
+      "definition_slide": 5,
+      "definition_section": "Basic Idea",
+      "also_appears": [
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 11,
+      "prerequisites": [
+        "hypothesis",
+        "p_value"
+      ],
+      "category": "hypothesis_testing"
+    },
+    "special_cases": {
+      "definition_lecture": 3,
+      "definition_slide": 32,
+      "definition_section": "Combinatorics",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "standard_deviation": {
+      "definition_lecture": 1,
+      "definition_slide": 5,
+      "definition_section": "Data Sources and Data Collection",
+      "also_appears": [
+        2,
+        4,
+        7,
+        8,
+        9,
+        10
+      ],
+      "total_occurrences": 14,
+      "prerequisites": [
+        "variance",
+        "mean"
+      ],
+      "category": "descriptive_stats"
+    },
+    "standard_error": {
+      "definition_lecture": 7,
+      "definition_slide": 5,
+      "definition_section": "Concept of Sampling Theory",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "sampling_estimation"
+    },
+    "standard_normal": {
+      "definition_lecture": 7,
+      "definition_slide": 9,
+      "definition_section": "Sampling Distribution of the Mean",
+      "also_appears": [
+        8
+      ],
+      "total_occurrences": 3,
+      "prerequisites": [],
+      "category": "distributions"
+    },
+    "standardized_normal": {
+      "definition_lecture": 8,
+      "definition_slide": 7,
+      "definition_section": "Confidence Interval of the Mean",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "t-test": {
+      "definition_lecture": 10,
+      "definition_slide": 7,
+      "definition_section": "Comparing Means of Independent Samples",
+      "also_appears": [
+        11,
+        12
+      ],
+      "total_occurrences": 8,
+      "prerequisites": [
+        "hypothesis",
+        "sample",
+        "mean",
+        "standard_deviation"
+      ],
+      "category": "hypothesis_testing"
+    },
+    "test": {
+      "definition_lecture": 9,
+      "definition_slide": 5,
+      "definition_section": "Basic Idea",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "then_the": {
+      "definition_lecture": 7,
+      "definition_slide": 12,
+      "definition_section": "Central Limit Theorem",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "these": {
+      "definition_lecture": 12,
+      "definition_slide": 5,
+      "definition_section": "Basic Model and Assumptions",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "this": {
+      "definition_lecture": 4,
+      "definition_slide": 18,
+      "definition_section": "Binomial Distribution",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "to_certain": {
+      "definition_lecture": 3,
+      "definition_slide": 5,
+      "definition_section": "Basic Terms",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "uniform": {
+      "definition_lecture": 8,
+      "definition_slide": 7,
+      "definition_section": "Confidence Interval of the Mean",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "distributions"
+    },
+    "unknown": {
+      "definition_lecture": 7,
+      "definition_slide": 5,
+      "definition_section": "Concept of Sampling Theory",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "variance": {
+      "definition_lecture": 1,
+      "definition_slide": 38,
+      "definition_section": "Appendix",
+      "also_appears": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "total_occurrences": 26,
+      "prerequisites": [
+        "mean"
+      ],
+      "category": "descriptive_stats"
+    },
+    "via_marginal": {
+      "definition_lecture": 6,
+      "definition_slide": 13,
+      "definition_section": "Expected Value and Variance",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    },
+    "with_probability": {
+      "definition_lecture": 7,
+      "definition_slide": 15,
+      "definition_section": "Sampling Distribution of the Proportion",
+      "also_appears": [],
+      "total_occurrences": 1,
+      "prerequisites": [],
+      "category": "other"
+    }
+  },
+  "by_category": {
+    "other": [
+      {
+        "concept": "negatively_skewed",
+        "definition_lecture": 1,
+        "occurrences": 1
+      },
+      {
+        "concept": "a_factorial",
+        "definition_lecture": 3,
+        "occurrences": 1
+      },
+      {
+        "concept": "addition",
+        "definition_lecture": 3,
+        "occurrences": 1
+      },
+      {
+        "concept": "multiplication",
+        "definition_lecture": 3,
+        "occurrences": 4
+      },
+      {
+        "concept": "on_the",
+        "definition_lecture": 3,
+        "occurrences": 2
+      },
+      {
+        "concept": "set_of",
+        "definition_lecture": 3,
+        "occurrences": 3
+      },
+      {
+        "concept": "special_cases",
+        "definition_lecture": 3,
+        "occurrences": 1
+      },
+      {
+        "concept": "to_certain",
+        "definition_lecture": 3,
+        "occurrences": 1
+      },
+      {
+        "concept": "a_probability",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "and_poisson",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "called\nprobability",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "countable_if",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "cumulative",
+        "definition_lecture": 4,
+        "occurrences": 2
+      },
+      {
+        "concept": "cumulative_distribution",
+        "definition_lecture": 4,
+        "occurrences": 2
+      },
+      {
+        "concept": "discrete_distribution",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "discrete_probability",
+        "definition_lecture": 4,
+        "occurrences": 4
+      },
+      {
+        "concept": "discrete_uniform",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "following_probability",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "of_binomial",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "of_probability",
+        "definition_lecture": 4,
+        "occurrences": 2
+      },
+      {
+        "concept": "probability_function",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "realization",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "relative_frequency",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "replacement\nhypergeometric",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "this",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "and_density",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "approximate_other",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "approximation_binomial",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "by_the",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "called_density",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "central_limit",
+        "definition_lecture": 5,
+        "occurrences": 5
+      },
+      {
+        "concept": "density",
+        "definition_lecture": 5,
+        "occurrences": 4
+      },
+      {
+        "concept": "density_and",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "important_continuous",
+        "definition_lecture": 5,
+        "occurrences": 2
+      },
+      {
+        "concept": "many",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "of_density",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "and_correlation",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "and_probability",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "conditional",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "joint_cumulative",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "joint_probability",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "marginal",
+        "definition_lecture": 6,
+        "occurrences": 4
+      },
+      {
+        "concept": "of_marginal",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "relationship_between",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "via_marginal",
+        "definition_lecture": 6,
+        "occurrences": 1
+      },
+      {
+        "concept": "by_its",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "of_arbitrary",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "population_the",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "sample_mean",
+        "definition_lecture": 7,
+        "occurrences": 2
+      },
+      {
+        "concept": "sampling",
+        "definition_lecture": 7,
+        "occurrences": 5
+      },
+      {
+        "concept": "then_the",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "unknown",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "with_probability",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "for_other",
+        "definition_lecture": 8,
+        "occurrences": 1
+      },
+      {
+        "concept": "standardized_normal",
+        "definition_lecture": 8,
+        "occurrences": 1
+      },
+      {
+        "concept": "corresponding\ndistribution",
+        "definition_lecture": 9,
+        "occurrences": 1
+      },
+      {
+        "concept": "test",
+        "definition_lecture": 9,
+        "occurrences": 1
+      },
+      {
+        "concept": "for_the",
+        "definition_lecture": 11,
+        "occurrences": 1
+      },
+      {
+        "concept": "markov",
+        "definition_lecture": 11,
+        "occurrences": 2
+      },
+      {
+        "concept": "a_dummy",
+        "definition_lecture": 12,
+        "occurrences": 2
+      },
+      {
+        "concept": "fit\nthe",
+        "definition_lecture": 12,
+        "occurrences": 1
+      },
+      {
+        "concept": "multiple_slope",
+        "definition_lecture": 12,
+        "occurrences": 1
+      },
+      {
+        "concept": "of_each",
+        "definition_lecture": 12,
+        "occurrences": 1
+      },
+      {
+        "concept": "these",
+        "definition_lecture": 12,
+        "occurrences": 1
+      }
+    ],
+    "distributions": [
+      {
+        "concept": "normal",
+        "definition_lecture": 1,
+        "occurrences": 19
+      },
+      {
+        "concept": "binomial",
+        "definition_lecture": 4,
+        "occurrences": 10
+      },
+      {
+        "concept": "hypergeometric",
+        "definition_lecture": 4,
+        "occurrences": 1
+      },
+      {
+        "concept": "poisson",
+        "definition_lecture": 4,
+        "occurrences": 2
+      },
+      {
+        "concept": "exponential",
+        "definition_lecture": 5,
+        "occurrences": 1
+      },
+      {
+        "concept": "standard_normal",
+        "definition_lecture": 7,
+        "occurrences": 3
+      },
+      {
+        "concept": "uniform",
+        "definition_lecture": 8,
+        "occurrences": 1
+      }
+    ],
+    "descriptive_stats": [
+      {
+        "concept": "chebyshev",
+        "definition_lecture": 1,
+        "occurrences": 1
+      },
+      {
+        "concept": "distribution",
+        "definition_lecture": 1,
+        "occurrences": 45
+      },
+      {
+        "concept": "frequency",
+        "definition_lecture": 1,
+        "occurrences": 6
+      },
+      {
+        "concept": "kurtosis",
+        "definition_lecture": 1,
+        "occurrences": 1
+      },
+      {
+        "concept": "mean",
+        "definition_lecture": 1,
+        "occurrences": 31
+      },
+      {
+        "concept": "median",
+        "definition_lecture": 1,
+        "occurrences": 5
+      },
+      {
+        "concept": "mode",
+        "definition_lecture": 1,
+        "occurrences": 13
+      },
+      {
+        "concept": "quartile",
+        "definition_lecture": 1,
+        "occurrences": 1
+      },
+      {
+        "concept": "standard_deviation",
+        "definition_lecture": 1,
+        "occurrences": 14
+      },
+      {
+        "concept": "variance",
+        "definition_lecture": 1,
+        "occurrences": 26
+      }
+    ],
+    "probability": [
+      {
+        "concept": "continuous",
+        "definition_lecture": 1,
+        "occurrences": 6
+      },
+      {
+        "concept": "discrete",
+        "definition_lecture": 1,
+        "occurrences": 14
+      },
+      {
+        "concept": "expected_value",
+        "definition_lecture": 1,
+        "occurrences": 16
+      },
+      {
+        "concept": "conditional_probability",
+        "definition_lecture": 3,
+        "occurrences": 2
+      },
+      {
+        "concept": "independence",
+        "definition_lecture": 3,
+        "occurrences": 5
+      },
+      {
+        "concept": "permutation",
+        "definition_lecture": 3,
+        "occurrences": 1
+      },
+      {
+        "concept": "probability",
+        "definition_lecture": 3,
+        "occurrences": 27
+      },
+      {
+        "concept": "random_variable",
+        "definition_lecture": 4,
+        "occurrences": 24
+      }
+    ],
+    "sampling_estimation": [
+      {
+        "concept": "population",
+        "definition_lecture": 1,
+        "occurrences": 25
+      },
+      {
+        "concept": "sample",
+        "definition_lecture": 1,
+        "occurrences": 39
+      },
+      {
+        "concept": "standard_error",
+        "definition_lecture": 7,
+        "occurrences": 1
+      },
+      {
+        "concept": "confidence_interval",
+        "definition_lecture": 8,
+        "occurrences": 10
+      }
+    ],
+    "correlation_regression": [
+      {
+        "concept": "correlation",
+        "definition_lecture": 2,
+        "occurrences": 5
+      },
+      {
+        "concept": "covariance",
+        "definition_lecture": 2,
+        "occurrences": 2
+      },
+      {
+        "concept": "regression",
+        "definition_lecture": 11,
+        "occurrences": 9
+      }
+    ],
+    "hypothesis_testing": [
+      {
+        "concept": "hypothesis",
+        "definition_lecture": 9,
+        "occurrences": 15
+      },
+      {
+        "concept": "significance",
+        "definition_lecture": 9,
+        "occurrences": 11
+      },
+      {
+        "concept": "t-test",
+        "definition_lecture": 10,
+        "occurrences": 8
+      }
+    ]
+  }
+}

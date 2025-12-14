@@ -1,0 +1,841 @@
+{
+  "exported_at": "2025-12-14T01:06:37.903716+00:00",
+  "total_pages": 167,
+  "pages": [
+    {
+      "title": "CS Bootcamp",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/index.md",
+      "status": "error: Block type ai_block is not supported via the API for your bot type."
+    },
+    {
+      "title": "Pandas",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Pandas.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Excursus: Stats in Python",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Excursus_Stats_in_Python.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Matplotlib",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Matplotlib.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Machine Learning",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how we can extract features from text using the Bag of Words (BoW) approach and TD-IDF Vectoriser",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_how_we_can_extract_features_from_text_using_the_Bag_of_Words_(BoW)_approa.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how we can evaluate the performance of a ML algorithm and can explain in which scenario we should use which metric",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_how_we_can_evaluate_the_performance_of_a_ML_algorithm_and_can_explain_in_.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how to calculate the performance metrics for a non-binary classification task",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_how_to_calculate_the_performance_metrics_for_a_non-binary_classification_.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how the kNN algorithm works and can calculate required performance metrics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_how_the_kNN_algorithm_works_and_can_calculate_required_performance_metric.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between supervised and unsupervised learning and when to use which type",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_the_difference_between_supervised_and_unsupervised_learning_and_when_to_u.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I can explain the process of training and testing an ML algorithm",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_can_explain_the_process_of_training_and_testing_an_ML_algorithm.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how we can tune Hyperparameters",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_how_we_can_tune_Hyperparameters.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between regular model Parameters and Hyperparameters",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_the_difference_between_regular_model_Parameters_and_Hyperparameters.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what overfitting is and how it can be mitigated using a k-fold approach",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/I_know_what_overfitting_is_and_how_it_can_be_mitigated_using_a_k-fold_approach.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Excursus: Another supervised learning example with Object Detection",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Machine_Learning/Excursus_Another_supervised_learning_example_with_Object_Detection.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Data Science",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Data_Science/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the most important Seaborn plots and how to create them",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Data_Science/I_know_the_most_important_Seaborn_plots_and_how_to_create_them.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I can distinguish between different data types",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Data_Science/I_can_distinguish_between_different_data_types.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Excursus: Regression ",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Excursus_Regression.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Distributed Systems & Networks",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what Web APIs are and how they enable data exchange between distributed systems",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_what_Web_APIs_are_and_how_they_enable_data_exchange_between_distributed_s.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between symmetric and asymmetric encryption",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_the_difference_between_symmetric_and_asymmetric_encryption.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between the Internet and the World Wide Web (WWW)",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_the_difference_between_the_Internet_and_the_World_Wide_Web_(WWW).md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how TLS/SSL and HTTPS is used for secure data exchange",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_how_TLSSSL_and_HTTPS_is_used_for_secure_data_exchange.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what a Domain Name System (DNS) is and why it is important",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_what_a_Domain_Name_System_(DNS)_is_and_why_it_is_important.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the different HTTP methods and response codes",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_the_different_HTTP_methods_and_response_codes.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I can explain in my own words what happens when a user hits enter in the browser",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_can_explain_in_my_own_words_what_happens_when_a_user_hits_enter_in_the_browser.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I can distinguish between the different layers in the networking stack and I know what each layer is responsible for",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_can_distinguish_between_the_different_layers_in_the_networking_stack_and_I_kno.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between circuit and packet switching and what the advantages of packet switching are and why the Internet is built on packet switching",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Distributed_Systems_&_Networks/I_know_the_difference_between_circuit_and_packet_switching_and_what_the_advantag.md",
+      "status": "skipped"
+    },
+    {
+      "title": "FAQ",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/FAQ.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Computing basics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how a CPU interprets and executes an instruction",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_how_a_CPU_interprets_and_executes_an_instruction.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how binary addition works and how half- and full adder operate",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_how_binary_addition_works_and_how_half-_and_full_adder_operate.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between a compiled and interpreted programming language and their advantages and disadvantages",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_the_difference_between_a_compiled_and_interpreted_programming_language_an.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the different components of a CPU and what they do and in which order",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_the_different_components_of_a_CPU_and_what_they_do_and_in_which_order.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the different logic gates and can fill out their truth tables",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_the_different_logic_gates_and_can_fill_out_their_truth_tables.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how to convert a binary number into a decimal number and the other way around",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_how_to_convert_a_binary_number_into_a_decimal_number_and_the_other_way_ar.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how many bits fit into a byte and how many different combinations can be represented with x bits",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_how_many_bits_fit_into_a_byte_and_how_many_different_combinations_can_be_.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I understand that information = bits + context",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_understand_that_information_=_bits_+_context.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the meaning of 0 and 1 and why a computer works with these binary digits",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Computing_basics/I_know_the_meaning_of_0_and_1_and_why_a_computer_works_with_these_binary_digits.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Python basics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Python_basics.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Old exams",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Old_exams.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Databases",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the most important SQL queries to query data",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/I_know_the_most_important_SQL_queries_to_query_data/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "SQL JOINs",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/I_know_the_most_important_SQL_queries_to_query_data/SQL_JOINs.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how different data tables in a relational database are linked together using primary and foreign keys",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/I_know_how_different_data_tables_in_a_relational_database_are_linked_together_us.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how to optimize a database towards third normal form (3NF)",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/I_know_how_to_optimize_a_database_towards_third_normal_form_(3NF).md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know the difference between a database (DB) and a database management system (DBMS)",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Databases/I_know_the_difference_between_a_database_(DB)_and_a_database_management_system_(.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Object Oriented Programming (OOP)",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what Polymorphism is and how it works",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/I_know_what_Polymorphism_is_and_how_it_works.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I can explain the motivation behind OOP",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/I_can_explain_the_motivation_behind_OOP.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what encapsulation is and how it works",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/I_know_what_encapsulation_is_and_how_it_works.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know how to implement a simple OOP program",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/I_know_how_to_implement_a_simple_OOP_program.md",
+      "status": "skipped"
+    },
+    {
+      "title": "I know what inheritance is and why it is used",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Object_Oriented_Programming_(OOP)/I_know_what_inheritance_is_and_why_it_is_used.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Exercises",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Pen & paper coding",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Functions",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/Functions.md",
+      "status": "skipped"
+    },
+    {
+      "title": "SQL statements",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/SQL_statements.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Loops",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/Loops.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Logical statements",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/Logical_statements.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Math operations",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/Math_operations.md",
+      "status": "skipped"
+    },
+    {
+      "title": "OOP",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Pen_&_paper_coding/OOP.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Programming hands-on",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Programming_hands-on.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Code interpretation",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Code_interpretation/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Python basics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Code_interpretation/Python_basics.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Numpy",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Code_interpretation/Numpy.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Pandas",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Code_interpretation/Pandas.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Multiple-choice questions",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Machine Learning",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Machine_Learning.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Computing basics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Computing_basics.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Programming basics",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Programming_basics.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Data Science",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Data_Science.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Databases",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Databases.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Distributed Systems & Networks",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/Distributed_Systems_&_Networks.md",
+      "status": "skipped"
+    },
+    {
+      "title": "OOP",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Exercises/Multiple-choice_questions/OOP.md",
+      "status": "skipped"
+    },
+    {
+      "title": "scikit-learn",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/scikit-learn.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Learning goals",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Learning_goals.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Requests",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Requests.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Numpy",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Numpy.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quizes",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/index.md",
+      "status": "error: Block type ai_block is not supported via the API for your bot type."
+    },
+    {
+      "title": "FS 25",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_11.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_10.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 4 ",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_4.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_9.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_8.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_7.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_6.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_5.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_3.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_2.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_25/Quiz_1.md",
+      "status": "skipped"
+    },
+    {
+      "title": "HS 24",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/index.md",
+      "status": "error: Block type ai_block is not supported via the API for your bot type."
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_1.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_10.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_4.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_3.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_2.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_11.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_9.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_8.md",
+      "status": "error: Block type ai_block is not supported via the API for your bot type."
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_7.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_6.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_24/Quiz_5.md",
+      "status": "skipped"
+    },
+    {
+      "title": "FS 24",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_2.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_9.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_10.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_8.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_7.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_6.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_5.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_4.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_3.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_24/Quiz_1.md",
+      "status": "skipped"
+    },
+    {
+      "title": "HS 22",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_11.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_2.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_6.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_10.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_7.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 8 ",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_8.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_9.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_3.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_4.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_22/Quiz_5.md",
+      "status": "skipped"
+    },
+    {
+      "title": "HS 23",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/index.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_6.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_11.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_9.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_2.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_7.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_4.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_8.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_5.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_10.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_3.md",
+      "status": "skipped"
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/HS_23/Quiz_1.md",
+      "status": "skipped"
+    },
+    {
+      "title": "FS 22",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/index.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_10.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_11.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_7.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_6.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_4.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_5.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_1.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_9.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_2.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_3.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_22/Quiz_8.md",
+      "status": "ok"
+    },
+    {
+      "title": "FS 23",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/index.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 4",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_4.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 6",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_6.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 5",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_5.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_3.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 9",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_9.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 7",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_7.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 10",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_10.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 11",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_11.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 8",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_8.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 1",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_1.md",
+      "status": "ok"
+    },
+    {
+      "title": "Quiz 2",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/CS_Bootcamp/Quizes/FS_23/Quiz_2.md",
+      "status": "ok"
+    },
+    {
+      "title": "Exercises/Solutions",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/ExercisesSolutions.md",
+      "status": "ok"
+    },
+    {
+      "title": "Explanation Exercise 2.3",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/Explanation_Exercise_2.3.md",
+      "status": "ok"
+    },
+    {
+      "title": "Detailed overview",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/Detailed_overview.md",
+      "status": "ok"
+    },
+    {
+      "title": "Video",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/Video.md",
+      "status": "ok"
+    },
+    {
+      "title": "High-level overview",
+      "path": "/Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/High-level_overview.md",
+      "status": "ok"
+    }
+  ]
+}

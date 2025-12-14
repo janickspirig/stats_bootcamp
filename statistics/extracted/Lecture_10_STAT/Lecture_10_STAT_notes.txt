@@ -1,0 +1,380 @@
+================================================================================
+LECTURE 10: STATISTICS BOOTCAMP
+Total Slides: 30
+================================================================================
+
+--- Slide 1 of 30 ---
+
+Prof. Dr. Roland Füss Swiss Institute of Banking and Finance (s/bf)Methods: Statistics (4,120)10. Two-Sample ProcedureSpring 2022
+
+
+--- Slide 2 of 30 ---
+
+Methods: Statistics (Spring 2022) ContentsI. Basic IdeaII. Comparing Means of Independent SamplesIII. Comparing Means of Dependent SamplesIV. Confidence Interval for the Difference of MeansV. Comparing Proportions of Independent SamplesVI. Confidence Interval for the Differences of ProportionsVII. Variance Test 2
+
+
+--- Slide 3 of 30 ---
+
+Methods: Statistics (Spring 2021) Learning ObjectivesAfter this lecture, you know how: • Hypothesis tests are used to compare the means and proportions of two dependent or independent samples.• Confidence intervals around the difference of two sample means orproportions are formed and interpreted.• an F-testis applied and interpreted for the comparison of twovariances.3
+
+
+--- Slide 4 of 30 ---
+
+Methods: Statistics (Spring 2021) LiteratureLevine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First Course, 7th ed. United States: Pearson, Chapter 10.*Stinerock, R. (2018). Statistics with R. United Kingdom: Sage. Chapter 11.*Shira, Joseph (2012). Statistische Methoden der VWL und  BWL, 4th ed. Munich et al.: Pearson Studium, Chapter 15.Weiers, R. M. (2011). Introductory Business Statistics,7thed., Canada: Thomson South-Western, Chapter 11. 4*Mandatory literature
+
+
+--- Slide 5 of 30 ---
+
+Methods: Statistics (Spring 2021) I. Introduction ExampleCola Zero vs. Original:In last week’s blind test, students always had to tasteCola Zerofirst and wereasked to try theOriginalafterwards. This procedure may have biased the results.Therefore, 40 new students are recruited and randomly devided into two groups.One group tastes and evaluatesCola Zero, while the other group tastes and ratestheOriginal(on a 7-point scale from 1 = tastes bad to 7 = tastes great).The test results show that the «Cola Zero-Sample»has a mean value of 5.2, whilethe «Original-Sample» has a mean value of 5.9.Can you now conclude thatCola Zerodoesnottaste as good as the original?5
+
+
+--- Slide 6 of 30 ---
+
+Methods: Statistics (Spring 2021) I. Basic IdeaThe introductory example aims to distinguish betweentwo unknown means(upto now, we only tested statements about single parameters). In order to investigatesuch an assumption, appropriate samples must be taken from the population.Samples are calledindependentif the selection of one sample does not affect theselection of the other sample. In contrast, one refers todependent samples(orpaired samples) if the selection process for one sample is related to the selectionprocess for the other sample. For instance, samples are dependent if theobservations of the first and second sample are taken from the same statistical unit(e.g., «before-after» comparisons).Depending on the sample at hand (independent vs. dependent) one has to usedifferent test proceduresto examine differences between samples.6
+
+
+--- Slide 7 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)There are threedifferent methods for testing means of two independentsamples:•z-test•t-test for equal variances•t-test for unequal variancesThe choice of the appropriate method depends on whether the populationvariances areknown/unknownand whether they areequal/different. In addition,two-sample procedures are carried out in the same five steps as the hypothesistests covered so far:71.Hypotheses and significance level2.Test statistic and test distribution3.Critical value(s)4.Calculation of the test statistic5.Decision and interpretation
+
+
+--- Slide 8 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)Case 1:s12ands22known and equal!Az-test is used if both independent samples originate from anormally distributedpopulation. Further, variances areknownandvariance homogeneityis given.Test statistic: with = means of sample 1 and 2= hypothesized difference between population means= population variance= size of sample 1 and 28
+ 
+1 2 1 2 0
+2
+1 2
+( ) ( )
+1/ 1/
+x xz n n
+ 
+s
+   
+ 1 2,x x
+1 2 0( ) 
+ 1 2,n n
+2s
+
+
+--- Slide 9 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)Case 2:s12ands22known and different!A z-test is used when both independent samples originate from a normally distributedpopulation but the variances are knownand different.Test statistic: with = means of sample 1 and 2= hypothesized difference between the population means= variances of population 1 and 2= size of sample 1 and 29
+ 1 2,x x
+1 2 0( ) 
+ 1 2,n n
+1 2 1 2 0
+2 2
+1 1 2 2
+( ) ( )
+/ /
+x xz n n
+ 
+s s
+   
+2 2 1 2,s s
+
+
+--- Slide 10 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)Case 3: Randomly distributed populations!A z-test is used if both independent samples originate from an arbitrarily-distributed population and the samples are large enough (n1 30 andn230).Test statistic: 
+10
+1 2 1 2 0
+2 2
+1 1 2 2
+( ) ( )
+ˆ ˆ/ /
+x xz n n
+ 
+s s
+   
+1 1
+1
+1 1
+, if known ( standard deviation of population 1)ˆwith , otherwise ( standard deviation of sample 1)s s
+s ss  
+2 2
+2
+2 2
+, if known ( standard deviation of population 2)ˆwith , otherwise ( standard deviation of sample 2)s s
+s ss  
+
+
+--- Slide 11 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)Case 4:s12ands22unknown and equal!At-test is used when both independent samples originate from anormallydistributedpopulation but the variances areunknown.However, it can beassumed thatvariance homogeneityprevails.Test statistic: with = means of sample 1 and 2= hypothesized difference between population means= estimation function for the population variance (see next slide)= size of sample 1 and 211
+ 1 2,x x
+1 2 0( ) 
+ 1 2,n n
+2ps
+ 
+1 2 1 2 0
+2
+1 2
+( ) ( )
+1/ 1/p
+x xt s n n
+    
+
+
+--- Slide 12 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)
+12
+Estimate function for the population variance:The estimation function for the population variance in the case of homogeneity ofvariances is called«pooled variance». Thet-test for equal variances is thereforealso referred to as pooled-variancest-test.The above estimation function is determined by the corresponding variances andsizes of the two samples as well as the number of degrees of freedom:
+2 2
+2 1 1 2 2
+1 2
+( 1) ( 1)
+2p
+n s n ss n n
+    
+1 2 2df n n  
+
+
+--- Slide 13 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Pooled-variancest-Test: Example)
+13
+Tutorial groups:A lecturer randomly assigns 50 students to one of two equally-sized tutorial groupsof two different tutors. After the exam, the lecturer computes the average numberof points as well as the corresponding standard deviations:Group 1:        = 77.1, s1= 7.8, n1= 25Group 2:        = 80.0, s2= 8.1, n2= 25Can a significant difference between the groups be detected under the assumptionof a normally distributed population and variance homogeneity (α= 0.05)?1. Hypotheses and significance levels:H0: μ1– μ2= 0; H1: μ1- μ2≠ 0; α= 0.05
+1x
+2x
+
+
+--- Slide 14 of 30 ---
+
+Methods: Statistics (Spring 2021) 2. Test statistic and test distribution:σ2is unknown → t-distribution with 25 + 25 - 2 = 48 degrees of freedom3. Critical value(s):Two-tailed hypothesis test with = 0.05 → tα/2= ±2.0114. Calculation of the test statistic:𝑠௣ଶ=247.8ଶ+ 248.1ଶ25 + 25 − 2=1460.16 + 1564.6448= 63.225𝑡=௫భ ି ௫మ௦೛మభ೙భାభ೙మ=଻଻.ଵ ି ଼଴ ଺ଷ.ଶଶହభమఱାభమఱ= −1.2893. Decision and interpretation:The test statistict= -1,289 lies within tα/2= ±2,011. H0cannot be rejected at a significance level of 5%. No difference between the groups can be proven.
+II. Comparing Means (Pooled-variancest-Test: Example)
+14
+.025do not reject H0reject H0reject H0.95–2.01 +2.01.025
+
+
+--- Slide 15 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)Case 5:s12ands22unknown and different!At-test is used when both independent samples originate from anormallydistributedpopulation. Moreover, the variances areunknownand it can beassumed thatvariance heterogeneityprevails.Test statistic: with = means of sample 1 and 2= hypothesized difference between population means= estimation of the standard deviation of sample 1 and 2= size of sample 1 and 215
+ 1 2,x x
+1 2 0( ) 
+ 1 2,n n
+1 2 1 2 0
+2 2
+1 1 2 2
+( ) ( )
+/ /
+x xt s n s n
+    
+ 1 2,s s
+
+
+--- Slide 16 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Independent Samples)
+16
+Calculation of the degrees of freedom:For thet-test for unequal variances thedegrees of freedomof thet-distributionare calculated via the following formula:This formula is known as«Welch correction», which is the reason why thet-test for unequal variances is also referred to as Welch’st-test. A non-integervalue ofdfis rounded up or down.
+22 2
+1 1 2 2
+2 2 2 2
+1 1 2 2
+1 2
+/ /
+( / ) ( / )
+1 1
+s n s ndf s n s n
+n n
+
+ 
+
+
+--- Slide 17 of 30 ---
+
+Methods: Statistics (Spring 2021) II. Comparing Means (Welch correction: Example)
+17
+Sampling survey:An analysis of two independent samples with normally-distributed populations and unequal variances (σ12≠σ22) resulted in the following values: What is the appropriate number of degrees of freedom when applying the corresponding t-test? A t-testfor unequal variances is used with44 degrees of freedom.
+1 1 1
+2 2 2
+120, 16, 25
+114, 12, 22
+x s n
+x s n
+  
+  
+2 22 2 2 2
+1 1 2 2
+2 2 2 2 2 2 2 2
+1 1 2 2
+1 2
+( ) ( ) (16 25) (12 22) 43.96( ) ( ) (16 25) (12 22)
+24 211 1
+s n s ndf s n s n
+n n
+         
+ 
+
+
+--- Slide 18 of 30 ---
+
+Methods: Statistics (Spring 2021) III. Comparing Means (Welch test: R-Example 1)Open the file "L10-Example_1.R" in R-Studio and reproduce the R-Code.
+18
+
+
+--- Slide 19 of 30 ---
+
+Methods: Statistics (Spring 2021) III. Comparing Mean (Dependent Samples, Pairedt-Test)Twodependent samplesare available for this test.However,the differentpairsof measured values are independent of each other(e.g., pair 1 and pair 2 donot influence each other). The differences of the associated test values arenormally distributed in the population.Test statistic: with = difference between measurements of each individual unit:= average difference between measurements:= standard deviation of d:= sample size (number of pairs)= number of degrees of freedom: 19
+d
+d
+ds
+n
+df
+1 2x x
+id
+n
+
+2 2
+1
+id n d
+n
+
+
+
+1n
+,  1
+d
+dt t distribution df ns
+n
+   
+
+
+--- Slide 20 of 30 ---
+
+Methods: Statistics (Spring 2021) III. Comparing Means (Pairedt-Test: Example)
+20
+Keyboards:A professor orders 12 ergonomic keyboards, which are given to a sample ofdoctoral students. If the new keyboards significantly improve productivity, theprofessor wants to replace all old keyboards.For this reason, all 12 doctoral students have to type a standardized document -once with the old keyboard and once with the ergonomic keyboard. The number ofwords per minute is measured.It turns out that the writing speed between the first and second measurementdiffers by -78.7 words per minute. Should the professor order the ergonomickeyboard for all doctoral students (α= 0.05)?
+
+
+--- Slide 21 of 30 ---
+
+Methods: Statistics (Spring 2021) III. Comparing Means (Pairedt-Test: Example)
+21
+Measurement overview:
+1. Hypotheses and significance levels:H0: μd≥ 0; H1: μd < 0;α= 0.05
+
+
+--- Slide 22 of 30 ---
+
+Methods: Statistics (Spring 2021) 2. Test statistic and test distribution:Variances are unknown → t-distributionwith 12 - 1 = 11 degrees of freedom3. Critical value(s):One-tailed hypothesis test withα= 0.05 → tα= - 1.7964. Calculation of the test statistic:3. Decision and interpretation:As the test statistict= -2,524 is smaller than the critical value, the null hypothesis can berejected at a significance level of 5%. An ergonomic keyboard should be ordered for all doctoral students.
+III. Comparing Means (Pairedt-Test: Example)
+22
+78.7 6.55812
+idd n
+  
+2 2 21407.33 12( 6.558)9.0011 12 1
+i
+d
+d nds n
+     
+
+6.558 2.5249.001
+12
+d
+dt s
+n
+  
+
+
+--- Slide 23 of 30 ---
+
+Methods: Statistics (Spring 2021) IV. Confidence Interval for the Difference of MeansInstead of or in addition to the pairedt-test, a confidence interval can be calculated for the difference between two means. This results from the following formula:Confidence interval: with = difference between measurements of each individual unit:= average difference between measurements:= standard deviation of d:= sample size (number of pairs)= upper critical value of thet-distribution with n - 1 degrees of freedom23
+/2
+dsd t n
+d
+d
+ds
+n
+/2t
+1 2x x
+id
+n
+
+2 2
+1
+id nd
+n
+
+
+
+
+
+--- Slide 24 of 30 ---
+
+Methods: Statistics (Spring 2021) V. Comparing Proportions of Independent SamplesThe underlying binomial distribution can be approximated by the normal distribution if all of the following conditions are met:Test statistic: with = proportion of sample 1 and 2= size of sample 1 and 2= pooled estimation of the population proportion24
+n1p15n1(1 -p1) 5 n2p25n2(1 -p2) 5
+1 2
+1 2
+( )
+1 1(1 )
+p pz
+p p n n
+     
+1 1 2 2
+1 2
+n p n pp n n
+ 
+1 2,  p p
+1 2,  n n
+p
+
+
+--- Slide 25 of 30 ---
+
+Methods: Statistics (Spring 2021) V. Comparing Proportions (R-Example 2)Open the file "10-Example_2.R" in R-Studio and reproduce the R-Code.
+25
+
+
+--- Slide 26 of 30 ---
+
+Methods: Statistics (Spring 2021) VI. Confidence Interval for the Difference of ProportionsInstead of or in addition to an hypothesis test, a confidence interval can becalculated for the difference between two proportions. This interval results from thefollowing formula:Confidence interval: with = proportion of sample 1 and 2= size of sample 1 and 2= upper critical value of the normal distribution26
+1 1 2 2
+1 2 /2
+1 2
+(1 ) (1 )( ) p p p pp p z n n
+   
+1 2,  p p
+1 2,  n n
+/2z
+
+
+--- Slide 27 of 30 ---
+
+Methods: Statistics (Spring 2021) VII. Variance TestIn some situations, the question arises whether two independent samples have thesame variances (H0:σ12=σ22). The prerequisites for this test are two independentsamples from normally distributed populations with the variancesσ12andσ22.Test statistic:, where the larger quotient is selected. The critical values are determined by the quantile F(α/2, n1, n2):•α= the specified significance level•n1= (n1- 1), the number of degrees of freedom in the counter•n2= (n2- 1), the number of degrees of freedom in the denominatorAs the test statisticFfollows an F-distribution, the variance test is called an F-test.27
+2 2
+1 2
+2 2
+2 1
+s sF oders s
+
+
+--- Slide 28 of 30 ---
+
+Methods: Statistics (Spring 2021) VII. Variance Test (Example)
+28
+
+
+--- Slide 29 of 30 ---
+
+Methods: Statistics (Spring 2021) VII. Variance Test (Example)
+29
+Tutorial groups:For the previous example of two tutorial groups, it should be tested whether the assumption of variance homogeneity was justified (α= 0.05).1. Hypotheses and significance levels:H0: σ12=σ22;H1: σ12≠σ22; α= 0.052. Test statistic and test distribution:F-statistics with df= 24 in the numerator and df=24 in the denominator3. Critical value(s):For this two-tailed test there is only one critical value, as the greater of the of both quotients is chosen.= 0.05 → Fα/2= 2.27
+.025.975do notreject H0reject H02.27
+
+
+--- Slide 30 of 30 ---
+
+Methods: Statistics (Spring 2021) 3. Calculation of the test statistic:3. Decision and interpretation:As the test statisticF = 1.08 is smaller than the critical value Fα/2= 2.27, the null hypothesis cannot be rejected at a significance level of 5%. Therefore, theassumption of equal variances in the previous example was justified.
+VII. Variance Test (Example)
+30
+2 2
+2
+2 2
+1
+(8.1) 1.0784(7.8)
+sF s  
+

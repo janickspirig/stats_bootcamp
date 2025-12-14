@@ -1,0 +1,165 @@
+{
+  "lecture_id": "Lecture_9_STAT",
+  "lecture_number": 9,
+  "title": "Test Theory and",
+  "total_slides": 30,
+  "learning_objectives": [
+    "to transform a verbal statement into appropriate null and alternative",
+    "to describe what is meant by Type I and Type II errors and explain",
+    "to carry out a hypothesis test for a population mean or a",
+    "to explain the p-value for a hypothesis test and distinguish it from the"
+  ],
+  "sections": [
+    {
+      "id": "I",
+      "title": "Basic Idea",
+      "slides": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "slide_range": [
+        5,
+        8
+      ],
+      "key_concepts": [
+        "distribution",
+        "hypothesis",
+        "mean",
+        "population",
+        "sample",
+        "significance",
+        "test"
+      ]
+    },
+    {
+      "id": "II",
+      "title": "Null and Alternative Hypothesis",
+      "slides": [
+        9
+      ],
+      "slide_range": [
+        9,
+        9
+      ],
+      "key_concepts": [
+        "hypothesis"
+      ]
+    },
+    {
+      "id": "III",
+      "title": "Two-tailed Tests versus One-tailed Tests",
+      "slides": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "slide_range": [
+        10,
+        13
+      ],
+      "key_concepts": [
+        "hypothesis"
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Procedure of Hypothesis Testing",
+      "slides": [
+        14
+      ],
+      "slide_range": [
+        14,
+        14
+      ],
+      "key_concepts": [
+        "and_test",
+        "distribution",
+        "hypothesis",
+        "significance"
+      ]
+    },
+    {
+      "id": "V",
+      "title": "Test Statistic for the Mean",
+      "slides": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "slide_range": [
+        14,
+        23
+      ],
+      "key_concepts": [
+        "and_test",
+        "distribution",
+        "hypothesis",
+        "mean",
+        "normal",
+        "population",
+        "sample",
+        "significance",
+        "standard_deviation",
+        "variance"
+      ]
+    },
+    {
+      "id": "VI",
+      "title": "Test Statistic for the Proportion",
+      "slides": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "slide_range": [
+        24,
+        27
+      ],
+      "key_concepts": [
+        "and_test",
+        "binomial",
+        "distribution",
+        "hypothesis",
+        "normal",
+        "population",
+        "sample",
+        "significance",
+        "underlying_binomial"
+      ]
+    },
+    {
+      "id": "VII",
+      "title": "Type I and Type II Error",
+      "slides": [
+        28,
+        29,
+        30
+      ],
+      "slide_range": [
+        28,
+        30
+      ],
+      "key_concepts": [
+        "corresponding\ndistribution",
+        "distribution",
+        "hypothesis",
+        "mean",
+        "population",
+        "probability",
+        "sample",
+        "significance"
+      ]
+    }
+  ]
+}

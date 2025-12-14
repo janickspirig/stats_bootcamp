@@ -1,0 +1,676 @@
+============================================================
+Notion to Markdown Exporter
+Output directory: /Users/Janick_Spirig/git_local/stats_bootcamp/notion_export
+============================================================
+
+Fetching accessible pages...
+Found 167 pages
+Building page hierarchy...
+
+Exporting all 6 root pages (with children)...
+  Exporting: CS Bootcamp
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+      ...fetched 350 blocks so far
+      ...fetched 400 blocks so far
+      ...fetched 450 blocks so far
+      ...fetched 500 blocks so far
+      ...fetched 550 blocks so far
+      ...fetched 600 blocks so far
+      ...fetched 650 blocks so far
+      ...fetched 700 blocks so far
+      ...fetched 750 blocks so far
+      ...fetched 800 blocks so far
+      ...fetched 850 blocks so far
+      ...fetched 900 blocks so far
+      ...fetched 950 blocks so far
+      ...fetched 1000 blocks so far
+      ...fetched 1050 blocks so far
+      ...fetched 1100 blocks so far
+      ...fetched 1150 blocks so far
+      ...fetched 1200 blocks so far
+      ...fetched 1250 blocks so far
+      ...fetched 1300 blocks so far
+      ...fetched 1350 blocks so far
+      ...fetched 1400 blocks so far
+      ...fetched 1450 blocks so far
+      ...fetched 1500 blocks so far
+      ...fetched 1550 blocks so far
+      ...fetched 1600 blocks so far
+      ...fetched 1650 blocks so far
+      ...fetched 1700 blocks so far
+      ...fetched 1750 blocks so far
+      ...fetched 1800 blocks so far
+      ...fetched 1850 blocks so far
+      ...fetched 1900 blocks so far
+      ...fetched 1950 blocks so far
+      ...fetched 2000 blocks so far
+      ...fetched 2050 blocks so far
+      ...fetched 2100 blocks so far
+      ...fetched 2150 blocks so far
+      ...fetched 2200 blocks so far
+      ...fetched 2250 blocks so far
+      ...fetched 2300 blocks so far
+      ...fetched 2350 blocks so far
+      ...fetched 2400 blocks so far
+      ...fetched 2450 blocks so far
+      ...fetched 2500 blocks so far
+      ...fetched 2550 blocks so far
+      ...fetched 2600 blocks so far
+      ...fetched 2650 blocks so far
+      ...fetched 2700 blocks so far
+      ...fetched 2750 blocks so far
+      ...fetched 2800 blocks so far
+      ...fetched 2850 blocks so far
+      ...fetched 2900 blocks so far
+      ...fetched 2950 blocks so far
+      ...fetched 3000 blocks so far
+      ...fetched 3050 blocks so far
+      ...fetched 3100 blocks so far
+      ...fetched 3150 blocks so far
+      ...fetched 3200 blocks so far
+      ...fetched 3250 blocks so far
+      ...fetched 3300 blocks so far
+      ...fetched 3350 blocks so far
+      ...fetched 3400 blocks so far
+      ...fetched 3450 blocks so far
+      ...fetched 3500 blocks so far
+      ...fetched 3550 blocks so far
+      ...fetched 3600 blocks so far
+      ...fetched 3650 blocks so far
+      ...fetched 3700 blocks so far
+      ...fetched 3750 blocks so far
+      ...fetched 3800 blocks so far
+      ...fetched 3850 blocks so far
+      ...fetched 3900 blocks so far
+      ...fetched 3950 blocks so far
+      ...fetched 4000 blocks so far
+      ...fetched 4050 blocks so far
+      ...fetched 4100 blocks so far
+      ...fetched 4150 blocks so far
+      ...fetched 4200 blocks so far
+      ...fetched 4250 blocks so far
+      ...fetched 4300 blocks so far
+      ...fetched 4350 blocks so far
+      ...fetched 4400 blocks so far
+      ...fetched 4450 blocks so far
+      ...fetched 4500 blocks so far
+      ...fetched 4550 blocks so far
+      ...fetched 4600 blocks so far
+      ...fetched 4650 blocks so far
+      ...fetched 4700 blocks so far
+      ...fetched 4750 blocks so far
+      ...fetched 4800 blocks so far
+      ...fetched 4850 blocks so far
+      ...fetched 4900 blocks so far
+      ...fetched 4950 blocks so far
+      ...fetched 5000 blocks so far
+      ...fetched 5050 blocks so far
+      ...fetched 5100 blocks so far
+      ...fetched 5150 blocks so far
+      ...fetched 5200 blocks so far
+      ...fetched 5250 blocks so far
+      ...fetched 5300 blocks so far
+      ...fetched 5350 blocks so far
+      ...fetched 5400 blocks so far
+      ...fetched 5450 blocks so far
+      ...fetched 5500 blocks so far
+      ...fetched 5550 blocks so far
+      ...fetched 5600 blocks so far
+      ...fetched 5650 blocks so far
+      ...fetched 5700 blocks so far
+      ...fetched 5750 blocks so far
+      ...fetched 5800 blocks so far
+      ...fetched 5850 blocks so far
+      ...fetched 5900 blocks so far
+      ...fetched 5950 blocks so far
+      ...fetched 6000 blocks so far
+      ...fetched 6050 blocks so far
+      ...fetched 6100 blocks so far
+      ...fetched 6150 blocks so far
+      ...fetched 6200 blocks so far
+      ...fetched 6250 blocks so far
+      ...fetched 6300 blocks so far
+      ...fetched 6350 blocks so far
+      ...fetched 6400 blocks so far
+      ...fetched 6450 blocks so far
+      ...fetched 6500 blocks so far
+      ...fetched 6550 blocks so far
+      ...fetched 6600 blocks so far
+      ...fetched 6650 blocks so far
+      ...fetched 6700 blocks so far
+      ...fetched 6750 blocks so far
+      ...fetched 6800 blocks so far
+    ERROR: Block type ai_block is not supported via the API for your bot type.
+  Exporting: Pandas
+    Skipping (already exists)
+  Exporting: Excursus: Stats in Python
+    Skipping (already exists)
+  Exporting: Matplotlib
+    Skipping (already exists)
+  Exporting: Machine Learning
+    Skipping (already exists)
+  Exporting: I know how we can extract features from text using the Bag of Words (BoW) approach and TD-IDF Vectoriser
+    Skipping (already exists)
+  Exporting: I know how we can evaluate the performance of a ML algorithm and can explain in which scenario we should use which metric
+    Skipping (already exists)
+  Exporting: I know how to calculate the performance metrics for a non-binary classification task
+    Skipping (already exists)
+  Exporting: I know how the kNN algorithm works and can calculate required performance metrics
+    Skipping (already exists)
+  Exporting: I know the difference between supervised and unsupervised learning and when to use which type
+    Skipping (already exists)
+  Exporting: I can explain the process of training and testing an ML algorithm
+    Skipping (already exists)
+  Exporting: I know how we can tune Hyperparameters
+    Skipping (already exists)
+  Exporting: I know the difference between regular model Parameters and Hyperparameters
+    Skipping (already exists)
+  Exporting: I know what overfitting is and how it can be mitigated using a k-fold approach
+    Skipping (already exists)
+  Exporting: Excursus: Another supervised learning example with Object Detection
+    Skipping (already exists)
+  Exporting: Data Science
+    Skipping (already exists)
+  Exporting: I know the most important Seaborn plots and how to create them
+    Skipping (already exists)
+  Exporting: I can distinguish between different data types
+    Skipping (already exists)
+  Exporting: Excursus: Regression 
+    Skipping (already exists)
+  Exporting: Distributed Systems & Networks
+    Skipping (already exists)
+  Exporting: I know what Web APIs are and how they enable data exchange between distributed systems
+    Skipping (already exists)
+  Exporting: I know the difference between symmetric and asymmetric encryption
+    Skipping (already exists)
+  Exporting: I know the difference between the Internet and the World Wide Web (WWW)
+    Skipping (already exists)
+  Exporting: I know how TLS/SSL and HTTPS is used for secure data exchange
+    Skipping (already exists)
+  Exporting: I know what a Domain Name System (DNS) is and why it is important
+    Skipping (already exists)
+  Exporting: I know the different HTTP methods and response codes
+    Skipping (already exists)
+  Exporting: I can explain in my own words what happens when a user hits enter in the browser
+    Skipping (already exists)
+  Exporting: I can distinguish between the different layers in the networking stack and I know what each layer is responsible for
+    Skipping (already exists)
+  Exporting: I know the difference between circuit and packet switching and what the advantages of packet switching are and why the Internet is built on packet switching
+    Skipping (already exists)
+  Exporting: FAQ
+    Skipping (already exists)
+  Exporting: Computing basics
+    Skipping (already exists)
+  Exporting: I know how a CPU interprets and executes an instruction
+    Skipping (already exists)
+  Exporting: I know how binary addition works and how half- and full adder operate
+    Skipping (already exists)
+  Exporting: I know the difference between a compiled and interpreted programming language and their advantages and disadvantages
+    Skipping (already exists)
+  Exporting: I know the different components of a CPU and what they do and in which order
+    Skipping (already exists)
+  Exporting: I know the different logic gates and can fill out their truth tables
+    Skipping (already exists)
+  Exporting: I know how to convert a binary number into a decimal number and the other way around
+    Skipping (already exists)
+  Exporting: I know how many bits fit into a byte and how many different combinations can be represented with x bits
+    Skipping (already exists)
+  Exporting: I understand that information = bits + context
+    Skipping (already exists)
+  Exporting: I know the meaning of 0 and 1 and why a computer works with these binary digits
+    Skipping (already exists)
+  Exporting: Python basics
+    Skipping (already exists)
+  Exporting: Old exams
+    Skipping (already exists)
+  Exporting: Databases
+    Skipping (already exists)
+  Exporting: I know the most important SQL queries to query data
+    Skipping (already exists)
+  Exporting: SQL JOINs
+    Skipping (already exists)
+  Exporting: I know how different data tables in a relational database are linked together using primary and foreign keys
+    Skipping (already exists)
+  Exporting: I know how to optimize a database towards third normal form (3NF)
+    Skipping (already exists)
+  Exporting: I know the difference between a database (DB) and a database management system (DBMS)
+    Skipping (already exists)
+  Exporting: Object Oriented Programming (OOP)
+    Skipping (already exists)
+  Exporting: I know what Polymorphism is and how it works
+    Skipping (already exists)
+  Exporting: I can explain the motivation behind OOP
+    Skipping (already exists)
+  Exporting: I know what encapsulation is and how it works
+    Skipping (already exists)
+  Exporting: I know how to implement a simple OOP program
+    Skipping (already exists)
+  Exporting: I know what inheritance is and why it is used
+    Skipping (already exists)
+  Exporting: Exercises
+    Skipping (already exists)
+  Exporting: Pen & paper coding
+    Skipping (already exists)
+  Exporting: Functions
+    Skipping (already exists)
+  Exporting: SQL statements
+    Skipping (already exists)
+  Exporting: Loops
+    Skipping (already exists)
+  Exporting: Logical statements
+    Skipping (already exists)
+  Exporting: Math operations
+    Skipping (already exists)
+  Exporting: OOP
+    Skipping (already exists)
+  Exporting: Programming hands-on
+    Skipping (already exists)
+  Exporting: Code interpretation
+    Skipping (already exists)
+  Exporting: Python basics
+    Skipping (already exists)
+  Exporting: Numpy
+    Skipping (already exists)
+  Exporting: Pandas
+    Skipping (already exists)
+  Exporting: Multiple-choice questions
+    Skipping (already exists)
+  Exporting: Machine Learning
+    Skipping (already exists)
+  Exporting: Computing basics
+    Skipping (already exists)
+  Exporting: Programming basics
+    Skipping (already exists)
+  Exporting: Data Science
+    Skipping (already exists)
+  Exporting: Databases
+    Skipping (already exists)
+  Exporting: Distributed Systems & Networks
+    Skipping (already exists)
+  Exporting: OOP
+    Skipping (already exists)
+  Exporting: scikit-learn
+    Skipping (already exists)
+  Exporting: Learning goals
+    Skipping (already exists)
+  Exporting: Requests
+    Skipping (already exists)
+  Exporting: Numpy
+    Skipping (already exists)
+  Exporting: Quizes
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+      ...fetched 350 blocks so far
+      ...fetched 400 blocks so far
+      ...fetched 450 blocks so far
+      ...fetched 500 blocks so far
+      ...fetched 550 blocks so far
+      ...fetched 600 blocks so far
+      ...fetched 650 blocks so far
+      ...fetched 700 blocks so far
+      ...fetched 750 blocks so far
+      ...fetched 800 blocks so far
+      ...fetched 850 blocks so far
+      ...fetched 900 blocks so far
+      ...fetched 950 blocks so far
+      ...fetched 1000 blocks so far
+      ...fetched 1050 blocks so far
+      ...fetched 1100 blocks so far
+      ...fetched 1150 blocks so far
+    ERROR: Block type ai_block is not supported via the API for your bot type.
+  Exporting: FS 25
+    Skipping (already exists)
+  Exporting: Quiz 11
+    Skipping (already exists)
+  Exporting: Quiz 10
+    Skipping (already exists)
+  Exporting: Quiz 4 
+    Skipping (already exists)
+  Exporting: Quiz 9
+    Skipping (already exists)
+  Exporting: Quiz 8
+    Skipping (already exists)
+  Exporting: Quiz 7
+    Skipping (already exists)
+  Exporting: Quiz 6
+    Skipping (already exists)
+  Exporting: Quiz 5
+    Skipping (already exists)
+  Exporting: Quiz 3
+    Skipping (already exists)
+  Exporting: Quiz 2
+    Skipping (already exists)
+  Exporting: Quiz 1
+    Skipping (already exists)
+  Exporting: HS 24
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+      ...fetched 350 blocks so far
+      ...fetched 400 blocks so far
+      ...fetched 450 blocks so far
+      ...fetched 500 blocks so far
+      ...fetched 550 blocks so far
+      ...fetched 600 blocks so far
+      ...fetched 650 blocks so far
+      ...fetched 700 blocks so far
+      ...fetched 750 blocks so far
+      ...fetched 800 blocks so far
+    ERROR: Block type ai_block is not supported via the API for your bot type.
+  Exporting: Quiz 1
+    Skipping (already exists)
+  Exporting: Quiz 10
+    Skipping (already exists)
+  Exporting: Quiz 4
+    Skipping (already exists)
+  Exporting: Quiz 3
+    Skipping (already exists)
+  Exporting: Quiz 2
+    Skipping (already exists)
+  Exporting: Quiz 11
+    Skipping (already exists)
+  Exporting: Quiz 9
+    Skipping (already exists)
+  Exporting: Quiz 8
+    Fetching blocks...
+    ERROR: Block type ai_block is not supported via the API for your bot type.
+  Exporting: Quiz 7
+    Skipping (already exists)
+  Exporting: Quiz 6
+    Skipping (already exists)
+  Exporting: Quiz 5
+    Skipping (already exists)
+  Exporting: FS 24
+    Skipping (already exists)
+  Exporting: Quiz 2
+    Skipping (already exists)
+  Exporting: Quiz 9
+    Skipping (already exists)
+  Exporting: Quiz 10
+    Skipping (already exists)
+  Exporting: Quiz 8
+    Skipping (already exists)
+  Exporting: Quiz 7
+    Skipping (already exists)
+  Exporting: Quiz 6
+    Skipping (already exists)
+  Exporting: Quiz 5
+    Skipping (already exists)
+  Exporting: Quiz 4
+    Skipping (already exists)
+  Exporting: Quiz 3
+    Skipping (already exists)
+  Exporting: Quiz 1
+    Skipping (already exists)
+  Exporting: HS 22
+    Skipping (already exists)
+  Exporting: Quiz 11
+    Skipping (already exists)
+  Exporting: Quiz 2
+    Skipping (already exists)
+  Exporting: Quiz 6
+    Skipping (already exists)
+  Exporting: Quiz 10
+    Skipping (already exists)
+  Exporting: Quiz 7
+    Skipping (already exists)
+  Exporting: Quiz 8 
+    Skipping (already exists)
+  Exporting: Quiz 9
+    Skipping (already exists)
+  Exporting: Quiz 3
+    Skipping (already exists)
+  Exporting: Quiz 4
+    Skipping (already exists)
+  Exporting: Quiz 5
+    Skipping (already exists)
+  Exporting: HS 23
+    Skipping (already exists)
+  Exporting: Quiz 6
+    Skipping (already exists)
+  Exporting: Quiz 11
+    Skipping (already exists)
+  Exporting: Quiz 9
+    Skipping (already exists)
+  Exporting: Quiz 2
+    Skipping (already exists)
+  Exporting: Quiz 7
+    Skipping (already exists)
+  Exporting: Quiz 4
+    Skipping (already exists)
+  Exporting: Quiz 8
+    Skipping (already exists)
+  Exporting: Quiz 5
+    Skipping (already exists)
+  Exporting: Quiz 10
+    Skipping (already exists)
+  Exporting: Quiz 3
+    Skipping (already exists)
+  Exporting: Quiz 1
+    Skipping (already exists)
+  Exporting: FS 22
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+      ...fetched 350 blocks so far
+      ...fetched 400 blocks so far
+      ...fetched 450 blocks so far
+      ...fetched 500 blocks so far
+      ...fetched 550 blocks so far
+      ...fetched 600 blocks so far
+      ...fetched 650 blocks so far
+      ...fetched 700 blocks so far
+      ...fetched 750 blocks so far
+      ...fetched 800 blocks so far
+      ...fetched 850 blocks so far
+      ...fetched 900 blocks so far
+    Found 906 blocks
+  Exporting: Quiz 10
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 50 blocks
+  Exporting: Quiz 11
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 70 blocks
+  Exporting: Quiz 7
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 66 blocks
+  Exporting: Quiz 6
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 57 blocks
+  Exporting: Quiz 4
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 143 blocks
+  Exporting: Quiz 5
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 107 blocks
+  Exporting: Quiz 1
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 90 blocks
+  Exporting: Quiz 9
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 107 blocks
+  Exporting: Quiz 2
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 56 blocks
+  Exporting: Quiz 3
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 80 blocks
+  Exporting: Quiz 8
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 67 blocks
+  Exporting: FS 23
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+      ...fetched 350 blocks so far
+      ...fetched 400 blocks so far
+      ...fetched 450 blocks so far
+      ...fetched 500 blocks so far
+      ...fetched 550 blocks so far
+      ...fetched 600 blocks so far
+      ...fetched 650 blocks so far
+      ...fetched 700 blocks so far
+      ...fetched 750 blocks so far
+      ...fetched 800 blocks so far
+      ...fetched 850 blocks so far
+      ...fetched 900 blocks so far
+      ...fetched 950 blocks so far
+      ...fetched 1000 blocks so far
+      ...fetched 1050 blocks so far
+      ...fetched 1100 blocks so far
+      ...fetched 1150 blocks so far
+      ...fetched 1200 blocks so far
+      ...fetched 1250 blocks so far
+      ...fetched 1300 blocks so far
+      ...fetched 1350 blocks so far
+      ...fetched 1400 blocks so far
+      ...fetched 1450 blocks so far
+      ...fetched 1500 blocks so far
+      ...fetched 1550 blocks so far
+      ...fetched 1600 blocks so far
+      ...fetched 1650 blocks so far
+      ...fetched 1700 blocks so far
+      ...fetched 1750 blocks so far
+      ...fetched 1800 blocks so far
+      ...fetched 1850 blocks so far
+      ...fetched 1900 blocks so far
+      ...fetched 1950 blocks so far
+      ...fetched 2000 blocks so far
+      ...fetched 2050 blocks so far
+      ...fetched 2100 blocks so far
+      ...fetched 2150 blocks so far
+      ...fetched 2200 blocks so far
+    Found 2396 blocks
+  Exporting: Quiz 4
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+    Found 312 blocks
+  Exporting: Quiz 6
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 91 blocks
+  Exporting: Quiz 5
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 110 blocks
+  Exporting: Quiz 3
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+    Found 288 blocks
+  Exporting: Quiz 9
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 135 blocks
+  Exporting: Quiz 7
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+    Found 304 blocks
+  Exporting: Quiz 10
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+    Found 218 blocks
+  Exporting: Quiz 11
+    Fetching blocks...
+      ...fetched 50 blocks so far
+    Found 91 blocks
+  Exporting: Quiz 8
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+    Found 228 blocks
+  Exporting: Quiz 1
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+    Found 235 blocks
+  Exporting: Quiz 2
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+      ...fetched 200 blocks so far
+      ...fetched 250 blocks so far
+      ...fetched 300 blocks so far
+    Found 370 blocks
+  Exporting: Exercises/Solutions
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+      ...fetched 150 blocks so far
+    Found 204 blocks
+  Exporting: Explanation Exercise 2.3
+    Fetching blocks...
+    Found 51 blocks
+  Exporting: Detailed overview
+    Fetching blocks...
+      ...fetched 50 blocks so far
+      ...fetched 100 blocks so far
+    Found 125 blocks
+  Exporting: Video
+    Fetching blocks...
+    Found 3 blocks
+  Exporting: High-level overview
+    Fetching blocks...
+    Found 23 blocks
+
+✅ Exported 167 page(s) total
+📋 Manifest: /Users/Janick_Spirig/git_local/stats_bootcamp/notion_export/export_manifest.json

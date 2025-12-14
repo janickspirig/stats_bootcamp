@@ -1,0 +1,105 @@
+{
+  "lecture_number": 2,
+  "lecture_pdf": "Lecture_2_STAT.pdf",
+  "notes_txt": "Lecture_2_STAT_notes.txt",
+  "total_pages": 14,
+  "pages": [
+    {
+      "page_number": 1,
+      "page_png": "pages/page_001.png",
+      "embedded_images": [
+        "embedded/page_001_img_001.jpeg",
+        "embedded/page_001_img_002.jpeg",
+        "embedded/page_001_img_003.jpeg"
+      ],
+      "embedded_count": 3
+    },
+    {
+      "page_number": 2,
+      "page_png": "pages/page_002.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 3,
+      "page_png": "pages/page_003.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 4,
+      "page_png": "pages/page_004.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 5,
+      "page_png": "pages/page_005.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 6,
+      "page_png": "pages/page_006.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 7,
+      "page_png": "pages/page_007.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 8,
+      "page_png": "pages/page_008.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 9,
+      "page_png": "pages/page_009.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 10,
+      "page_png": "pages/page_010.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 11,
+      "page_png": "pages/page_011.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 12,
+      "page_png": "pages/page_012.png",
+      "embedded_images": [],
+      "embedded_count": 0
+    },
+    {
+      "page_number": 13,
+      "page_png": "pages/page_013.png",
+      "embedded_images": [
+        "embedded/page_013_img_001.png",
+        "embedded/page_013_img_002.png",
+        "embedded/page_013_img_003.png"
+      ],
+      "embedded_count": 3
+    },
+    {
+      "page_number": 14,
+      "page_png": "pages/page_014.png",
+      "embedded_images": [
+        "embedded/page_014_img_001.png",
+        "embedded/page_014_img_002.png",
+        "embedded/page_014_img_003.png",
+        "embedded/page_014_img_004.png"
+      ],
+      "embedded_count": 4
+    }
+  ]
+}

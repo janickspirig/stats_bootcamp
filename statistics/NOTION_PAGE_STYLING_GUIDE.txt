@@ -1,0 +1,1155 @@
+================================================================================
+NOTION PAGE VISUAL STYLING GUIDE
+AI Agent Instructions for Improving Page Aesthetics
+================================================================================
+
+Document Version: 1.1
+Last Updated: December 2024
+Purpose: Guidelines for AI agents to enhance markdown pages for beautiful 
+         Notion rendering. Apply these patterns when creating or improving
+         bootcamp content.
+
+REFERENCE: Based on analysis of the existing CS Bootcamp (notion_export/CS_Bootcamp/)
+           and Notion's technical capabilities.
+
+================================================================================
+⚠️  CRITICAL: MATH EQUATION SYNTAX FOR NOTION IMPORT
+================================================================================
+
+This section is ESSENTIAL. Incorrect LaTeX syntax will NOT render in Notion.
+
+------------------------------------------------------------------------------
+BLOCK EQUATIONS (CONFIRMED WORKING)
+------------------------------------------------------------------------------
+
+For equations that should appear centered on their own line, use this EXACT format:
+
+✅ CORRECT - $$ on separate lines:
+
+```markdown
+**Sample Mean:**
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+This formula calculates...
+```
+
+❌ WRONG - $$ on same line as equation:
+
+```markdown
+**Sample Mean:**
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+```
+
+❌ WRONG - No blank line before $$:
+
+```markdown
+**Sample Mean:**
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+```
+
+------------------------------------------------------------------------------
+REQUIRED FORMAT RULES FOR BLOCK EQUATIONS
+------------------------------------------------------------------------------
+
+1. BLANK LINE before opening $$
+2. $$ ALONE on its own line (opening delimiter)
+3. Equation content on the next line(s)
+4. $$ ALONE on its own line (closing delimiter)
+5. BLANK LINE after closing $$
+
+EXAMPLE WITH PROPER SPACING:
+
+```markdown
+Solve for x:
+
+$$
+\frac{x - 10}{2.5} = 1.96
+$$
+
+Rearranging gives us:
+
+$$
+x = 1.96 \times 2.5 + 10 = 14.9
+$$
+```
+
+------------------------------------------------------------------------------
+INLINE MATH - LIMITATION WARNING
+------------------------------------------------------------------------------
+
+⚠️ IMPORTANT: Single-dollar inline math ($...$) does NOT reliably render 
+when importing markdown to Notion.
+
+| Syntax           | Native Notion | Markdown Import |
+|------------------|---------------|-----------------|
+| $$...$$ (block)  | ✅ Works      | ✅ Works        |
+| $...$ (inline)   | ✅ Works      | ❌ Often fails  |
+
+WORKAROUNDS FOR INLINE MATH:
+
+Option 1: Use block equations instead
+```markdown
+The z-score is calculated as:
+
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+```
+
+Option 2: Write simple expressions as text
+```markdown
+The z-score z = 1.96 corresponds to a 95% confidence level.
+```
+
+Option 3: Use Unicode symbols for simple cases
+```markdown
+Use σ for population standard deviation and s for sample.
+```
+
+================================================================================
+1. TABLE OF CONTENTS
+================================================================================
+
+Every page longer than 3 sections SHOULD include a table of contents at the top.
+
+------------------------------------------------------------------------------
+1.1 STANDARD TABLE OF CONTENTS FORMAT
+------------------------------------------------------------------------------
+
+Place immediately after the main title and any introductory callout:
+
+```markdown
+# Page Title
+
+> 📚 **Quick Reference:** Brief one-line description of this page's purpose.
+
+---
+
+## 📑 Table of Contents
+
+1. [Section Name](#1-section-name)
+2. [Another Section](#2-another-section)
+3. [Third Section](#3-third-section)
+   - [Subsection A](#subsection-a)
+   - [Subsection B](#subsection-b)
+4. [Quick Reference](#4-quick-reference)
+
+---
+```
+
+------------------------------------------------------------------------------
+1.2 ANCHOR LINK RULES
+------------------------------------------------------------------------------
+
+Notion converts headers to anchor links using these rules:
+- Lowercase all letters
+- Replace spaces with hyphens
+- Remove special characters (except hyphens)
+- Keep numbers
+
+EXAMPLES:
+| Header                          | Anchor Link                      |
+|---------------------------------|----------------------------------|
+| ## 1. Descriptive Statistics    | #1-descriptive-statistics        |
+| ### Measures of Central Tendency| #measures-of-central-tendency    |
+| ## Chi-Square (χ²) Test         | #chi-square-χ²-test              |
+
+------------------------------------------------------------------------------
+1.3 COMPACT TABLE OF CONTENTS (for shorter pages)
+------------------------------------------------------------------------------
+
+For pages with 4-6 sections, use a single-line format:
+
+```markdown
+**Jump to:** [Formulas](#formulas) | [Examples](#examples) | [Practice](#practice) | [Summary](#summary)
+```
+
+================================================================================
+2. CALLOUT BLOCKS
+================================================================================
+
+Use callouts strategically to highlight important information and break up
+dense content. Don't overuse—aim for 2-4 callouts per page maximum.
+
+------------------------------------------------------------------------------
+2.1 CALLOUT TYPES AND WHEN TO USE THEM
+------------------------------------------------------------------------------
+
+| Emoji | Purpose                  | Use When...                           |
+|-------|--------------------------|---------------------------------------|
+| 📚    | Page overview/purpose    | At the top of every page              |
+| 💡    | Tips and insights        | Sharing helpful shortcuts or insights |
+| ⚠️    | Warnings/common mistakes | Highlighting frequent errors          |
+| 📝    | Notes/additional info    | Providing context or clarification    |
+| 🎯    | Key takeaways            | Summarizing critical points           |
+| ✅    | Success criteria         | Defining what mastery looks like      |
+| 🔑    | Key formulas             | Highlighting must-know formulas       |
+| 📊    | Section header           | Introducing major topic sections      |
+| 🧮    | Calculation focus        | Before worked examples                |
+| 🎓    | Exam tips                | Exam-specific advice                  |
+
+------------------------------------------------------------------------------
+2.2 CALLOUT SYNTAX
+------------------------------------------------------------------------------
+
+```markdown
+> 💡 **Tip:** The sample variance uses $n-1$ (Bessel's correction) because 
+> we lose one degree of freedom when estimating the mean from the sample.
+
+> ⚠️ **Common Mistake:** Don't confuse population variance ($\sigma^2$, 
+> divide by $N$) with sample variance ($s^2$, divide by $n-1$).
+
+> 🎯 **Key Takeaway:** The standard error decreases as sample size increases,
+> following the relationship $SE = \frac{\sigma}{\sqrt{n}}$.
+```
+
+------------------------------------------------------------------------------
+2.3 CALLOUT PLACEMENT GUIDELINES
+------------------------------------------------------------------------------
+
+RECOMMENDED PLACEMENT:
+1. PAGE INTRO: One 📚 callout immediately after the title
+2. BEFORE FORMULAS: One 🔑 callout highlighting the key formula
+3. AFTER EXAMPLES: One 💡 callout with practical insights
+4. COMMON PITFALLS: One ⚠️ callout in relevant sections
+5. PAGE END: One 🎯 callout summarizing key takeaways
+
+EXAMPLE STRUCTURE:
+```markdown
+# Confidence Intervals
+
+> 📚 **What You'll Learn:** How to construct and interpret confidence 
+> intervals for population means and proportions.
+
+---
+
+## 📑 Table of Contents
+[...]
+
+---
+
+## 1. The Formula
+
+> 🔑 **Key Formula:** For a confidence interval with known σ:
+> $$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+
+[Explanation...]
+
+> 💡 **Tip:** The margin of error is everything after the ± sign.
+
+---
+
+## 2. Worked Example
+
+> 🧮 **Calculation:** Let's work through a complete example step-by-step.
+
+[Example...]
+
+> ⚠️ **Common Mistake:** Students often forget to divide σ by √n.
+
+---
+
+## Key Takeaways
+
+> 🎯 **Remember:**
+> - Wider intervals = more confidence but less precision
+> - Larger n = narrower intervals
+> - 95% CI uses z = 1.96
+```
+
+================================================================================
+3. SECTION ORGANIZATION
+================================================================================
+
+------------------------------------------------------------------------------
+3.1 SECTION HEADER FORMATTING
+------------------------------------------------------------------------------
+
+Use consistent numbering and emoji prefixes for major sections:
+
+```markdown
+## 1. 📊 Descriptive Statistics
+
+### Measures of Central Tendency
+[content]
+
+### Measures of Dispersion
+[content]
+
+---
+
+## 2. 📈 Probability
+
+### Basic Rules
+[content]
+```
+
+------------------------------------------------------------------------------
+3.2 HORIZONTAL DIVIDERS
+------------------------------------------------------------------------------
+
+Use `---` dividers to:
+- Separate major sections (before each ## header)
+- After the table of contents
+- Before the navigation footer
+- Between distinct content blocks (e.g., theory vs. practice)
+
+DO NOT use dividers:
+- Between every subsection (too busy)
+- Inside callout blocks
+- Before/after every formula
+
+------------------------------------------------------------------------------
+3.3 STANDARD PAGE STRUCTURE
+------------------------------------------------------------------------------
+
+Follow this template for concept pages:
+
+```markdown
+# [Concept Name]
+
+> 📚 **Overview:** [One sentence describing what this page covers]
+
+---
+
+## 📑 Table of Contents
+1. [Key Concepts](#1-key-concepts)
+2. [Formulas](#2-formulas)
+3. [Worked Examples](#3-worked-examples)
+4. [Practice Problems](#4-practice-problems)
+5. [Key Takeaways](#5-key-takeaways)
+
+---
+
+## 1. Key Concepts
+
+[Conceptual explanation with bullet points]
+
+> 💡 **Intuition:** [Help students understand WHY this works]
+
+---
+
+## 2. Formulas
+
+> 🔑 **Core Formula:**
+> $$[Main formula]$$
+
+**Where:**
+- $symbol$ = description
+- $symbol$ = description
+
+[Additional formulas if needed]
+
+---
+
+## 3. Worked Examples
+
+> 🧮 **Example 1: [Business Context]**
+
+**Given:** [Data provided]
+
+**Solution:**
+
+| Step | Calculation | Result |
+|------|-------------|--------|
+| 1    | [...]       | [...]  |
+
+> ⚠️ **Watch Out:** [Common error for this type of problem]
+
+---
+
+## 4. Practice Problems
+
+### Problem 1
+[Problem statement]
+
+<details>
+<summary>💡 Solution</summary>
+
+[Step-by-step solution]
+
+</details>
+
+---
+
+## 5. Key Takeaways
+
+> 🎯 **Summary:**
+> - Point 1
+> - Point 2
+> - Point 3
+
+---
+
+## Navigation
+
+[← Previous Topic](previous.md) | [Module Index](index.md) | [Next Topic →](next.md)
+```
+
+================================================================================
+4. FORMULA PRESENTATION
+================================================================================
+
+⚠️ IMPORTANT: See Section "CRITICAL: MATH EQUATION SYNTAX" at the top 
+   for the required $$ formatting rules!
+
+------------------------------------------------------------------------------
+4.1 FORMULA BLOCK FORMATTING
+------------------------------------------------------------------------------
+
+Present formulas with clear structure. Note the $$ on SEPARATE lines:
+
+```markdown
+> 🔑 **Sample Variance:**
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+**Where:**
+- s² = sample variance
+- n = sample size
+- xᵢ = individual observation
+- x̄ = sample mean
+```
+
+NOTE: In the "Where" section, use Unicode symbols (s², x̄) or plain text 
+instead of $...$ to avoid inline math rendering issues.
+
+------------------------------------------------------------------------------
+4.2 FORMULA NAMING CONVENTIONS
+------------------------------------------------------------------------------
+
+Always name formulas with bold headers, with proper spacing:
+
+GOOD:
+```markdown
+**Sample Variance**
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+```
+
+BAD:
+```markdown
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+
+This is the sample variance formula.
+```
+
+------------------------------------------------------------------------------
+4.3 RELATED FORMULAS GROUPING
+------------------------------------------------------------------------------
+
+Group related formulas together with clear labels:
+
+```markdown
+### Variance Family
+
+**Population Variance**
+
+$$
+\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2
+$$
+
+**Sample Variance**
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+**Standard Deviation** (square root of variance)
+
+$$
+s = \sqrt{s^2}
+$$
+```
+
+================================================================================
+5. TABLES
+================================================================================
+
+------------------------------------------------------------------------------
+5.1 WHEN TO USE TABLES
+------------------------------------------------------------------------------
+
+USE TABLES FOR:
+- Step-by-step calculations with multiple columns
+- Comparing related concepts
+- Quick reference values (z-scores, critical values)
+- Parameter summaries
+- Data presentation in examples
+
+AVOID TABLES FOR:
+- Simple lists (use bullet points)
+- Single-column information
+- Very long content (breaks readability)
+
+------------------------------------------------------------------------------
+5.2 CALCULATION TABLES
+------------------------------------------------------------------------------
+
+For step-by-step statistical calculations:
+
+```markdown
+| $x_i$ | $x_i - \bar{x}$ | $(x_i - \bar{x})^2$ |
+|-------|-----------------|---------------------|
+| 17    | -3.14           | 9.86                |
+| 18    | -2.14           | 4.58                |
+| 19    | -1.14           | 1.30                |
+| **Σ** |                 | **14.44**           |
+```
+
+------------------------------------------------------------------------------
+5.3 COMPARISON TABLES
+------------------------------------------------------------------------------
+
+For comparing related concepts:
+
+```markdown
+| Aspect              | Population         | Sample            |
+|---------------------|--------------------|--------------------|
+| **Symbol (Mean)**   | $\mu$              | $\bar{x}$          |
+| **Symbol (Variance)**| $\sigma^2$        | $s^2$              |
+| **Divisor**         | $N$                | $n-1$              |
+| **Known?**          | Usually unknown    | Calculated from data|
+```
+
+------------------------------------------------------------------------------
+5.4 QUICK REFERENCE TABLES
+------------------------------------------------------------------------------
+
+For frequently referenced values:
+
+```markdown
+### Common Critical Values
+
+| Confidence Level | α     | $z_{\alpha/2}$ |
+|-----------------|-------|----------------|
+| 90%             | 0.10  | 1.645          |
+| 95%             | 0.05  | 1.960          |
+| 99%             | 0.01  | 2.576          |
+```
+
+================================================================================
+6. NAVIGATION AND LINKING
+================================================================================
+
+------------------------------------------------------------------------------
+6.1 PAGE FOOTER NAVIGATION
+------------------------------------------------------------------------------
+
+Every page should end with navigation links:
+
+```markdown
+---
+
+## Navigation
+
+[← Previous: Topic Name](previous_page.md) | [📚 Module Index](index.md) | [Next: Topic Name →](next_page.md)
+```
+
+For index pages:
+```markdown
+---
+
+## Navigation
+
+[← Previous Module](../previous_module/index.md) | [🏠 Bootcamp Home](../index.md) | [Next Module →](../next_module/index.md)
+```
+
+------------------------------------------------------------------------------
+6.2 INTERNAL CROSS-REFERENCES
+------------------------------------------------------------------------------
+
+Link to related concepts when mentioned:
+
+```markdown
+The [Central Limit Theorem](../07_sampling_distributions/central_limit_theorem.md) 
+explains why the sampling distribution approaches normality.
+```
+
+------------------------------------------------------------------------------
+6.3 PREREQUISITE LINKS
+------------------------------------------------------------------------------
+
+At the start of pages with prerequisites:
+
+```markdown
+> 📝 **Prerequisites:** Before starting this section, make sure you understand:
+> - [Standard Deviation](../02_descriptive_statistics/standard_deviation.md)
+> - [Normal Distribution](../06_continuous_distributions/normal_distribution.md)
+```
+
+================================================================================
+7. VISUAL HIERARCHY
+================================================================================
+
+------------------------------------------------------------------------------
+7.1 EMPHASIS RULES
+------------------------------------------------------------------------------
+
+| Element                | Format              | Use For                    |
+|------------------------|---------------------|----------------------------|
+| Key terms (first use)  | **bold**            | Introducing new vocabulary |
+| Variables              | $x$, $\mu$          | Mathematical symbols       |
+| File/function names    | `code`              | Technical references       |
+| Important warnings     | **⚠️ Warning:**     | Critical information       |
+| Formulas               | $$block$$           | Standalone formulas        |
+| Inline formulas        | $inline$            | Within sentences           |
+
+------------------------------------------------------------------------------
+7.2 LIST FORMATTING
+------------------------------------------------------------------------------
+
+Use bullet points for:
+- Unordered concepts or features
+- "Where" definitions after formulas
+- Tips and notes
+
+Use numbered lists for:
+- Sequential steps
+- Procedures
+- Ranked items
+
+```markdown
+**Steps to calculate sample variance:**
+1. Calculate the mean $\bar{x}$
+2. Subtract the mean from each value: $(x_i - \bar{x})$
+3. Square each difference: $(x_i - \bar{x})^2$
+4. Sum all squared differences
+5. Divide by $(n-1)$
+```
+
+================================================================================
+8. SPECIFIC PAGE TYPES
+================================================================================
+
+------------------------------------------------------------------------------
+8.1 FORMULA GLOSSARY PAGES
+------------------------------------------------------------------------------
+
+Structure for reference pages like formula_glossary.md:
+
+```markdown
+# Formula Glossary
+
+> 📚 **Quick Reference:** All statistical formulas organized by topic.
+> Use Ctrl+F / Cmd+F to search for specific formulas.
+
+---
+
+## 📑 Table of Contents
+
+1. [Descriptive Statistics](#1-descriptive-statistics)
+2. [Probability](#2-probability)
+3. [Discrete Distributions](#3-discrete-distributions)
+[...]
+
+---
+
+## 1. 📊 Descriptive Statistics
+
+### Measures of Central Tendency
+
+> 🔑 **Arithmetic Mean (Sample)**
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+
+**Where:**
+- $\bar{x}$ = sample mean
+- $n$ = sample size
+- $x_i$ = individual observations
+
+[Continue with other formulas...]
+
+---
+
+## Quick Reference: Critical Values
+
+| Confidence Level | α     | $z_{\alpha/2}$ |
+|-----------------|-------|----------------|
+| 90%             | 0.10  | 1.645          |
+| 95%             | 0.05  | 1.960          |
+| 99%             | 0.01  | 2.576          |
+
+---
+
+## Navigation
+
+[← Reference Index](index.md) | [Distribution Tables →](distribution_tables.md)
+```
+
+------------------------------------------------------------------------------
+8.2 INDEX/OVERVIEW PAGES
+------------------------------------------------------------------------------
+
+Structure for module index pages:
+
+```markdown
+# Module X: [Module Name]
+
+> 📚 **Overview:** [2-3 sentence description of what this module covers]
+
+---
+
+## 🎯 Learning Objectives
+
+After completing this module, you will be able to:
+- [ ] Objective 1
+- [ ] Objective 2
+- [ ] Objective 3
+
+---
+
+## 📑 Topics in This Module
+
+| # | Topic | Description |
+|---|-------|-------------|
+| 1 | [Topic Name](topic1.md) | Brief description |
+| 2 | [Topic Name](topic2.md) | Brief description |
+| 3 | [Topic Name](topic3.md) | Brief description |
+
+---
+
+## ⏱️ Estimated Time
+
+- Reading: ~30 minutes
+- Practice problems: ~45 minutes
+- Total: ~1.5 hours
+
+---
+
+## 📝 Prerequisites
+
+Before starting this module, ensure you've completed:
+- [Previous Module](../previous_module/index.md)
+
+---
+
+## Navigation
+
+[← Previous Module](../previous/index.md) | [🏠 Home](../index.md) | [Next Module →](../next/index.md)
+```
+
+================================================================================
+9. CHECKLIST FOR PAGE IMPROVEMENT
+================================================================================
+
+Before finalizing any page, verify:
+
+□ STRUCTURE
+  □ Has a descriptive title with # header
+  □ Has an overview callout (📚) after the title
+  □ Has a table of contents (if >3 sections)
+  □ Uses horizontal dividers between major sections
+  □ Has navigation footer at the end
+
+□ CALLOUTS
+  □ 📚 overview at top
+  □ 🔑 or 💡 for key formulas/concepts
+  □ ⚠️ for common mistakes (where applicable)
+  □ 🎯 for key takeaways at end
+  □ Not overused (2-4 per page max)
+
+□ FORMULAS
+  □ All formulas are named with bold headers
+  □ Block formulas use $$ delimiters
+  □ "Where:" section defines all variables
+  □ Related formulas are grouped logically
+
+□ TABLES
+  □ Used for calculations, comparisons, reference values
+  □ Headers are clear and descriptive
+  □ Alignment is consistent
+
+□ VISUAL HIERARCHY
+  □ Consistent heading levels (##, ###)
+  □ Bold for key terms, $math$ for symbols
+  □ Lists are used appropriately
+  □ No walls of text (break up with structure)
+
+□ NAVIGATION
+  □ Links to previous/next pages
+  □ Link to module/section index
+  □ Cross-references to related topics
+
+================================================================================
+10. EXAMPLE: BEFORE AND AFTER
+================================================================================
+
+------------------------------------------------------------------------------
+BEFORE (basic markdown - WILL NOT RENDER CORRECTLY):
+------------------------------------------------------------------------------
+
+```markdown
+# Variance
+
+The variance measures spread.
+
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+
+Example: If we have data 2, 4, 6, the mean is 4. The variance is...
+```
+
+PROBLEMS:
+- $$ on same line as equation (won't render in Notion import)
+- No structure or visual hierarchy
+- No callouts or context
+
+------------------------------------------------------------------------------
+AFTER (styled for Notion - CORRECT FORMATTING):
+------------------------------------------------------------------------------
+
+```markdown
+# Variance
+
+> 📚 **What You'll Learn:** How to calculate and interpret variance as a 
+> measure of data spread.
+
+---
+
+## 📑 Table of Contents
+
+1. [Key Concept](#1-key-concept)
+2. [The Formula](#2-the-formula)
+3. [Worked Example](#3-worked-example)
+4. [Key Takeaways](#4-key-takeaways)
+
+---
+
+## 1. Key Concept
+
+Variance measures how far data points are spread out from their mean. 
+A larger variance indicates more spread; a variance of zero means all 
+values are identical.
+
+---
+
+## 2. The Formula
+
+> 🔑 **Sample Variance:**
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+**Where:**
+- s² = sample variance
+- n = sample size  
+- xᵢ = individual observation
+- x̄ = sample mean
+
+> 💡 **Tip:** We divide by (n-1) instead of n to get an unbiased 
+> estimate (Bessel's correction).
+
+---
+
+## 3. Worked Example
+
+> 🧮 **Example:** Calculate the variance for: 2, 4, 6
+
+**Step 1:** Calculate the mean
+
+$$
+\bar{x} = \frac{2 + 4 + 6}{3} = 4
+$$
+
+**Step 2:** Calculate squared deviations
+
+| xᵢ    | xᵢ - x̄  | (xᵢ - x̄)² |
+|-------|---------|-----------|
+| 2     | -2      | 4         |
+| 4     | 0       | 0         |
+| 6     | 2       | 4         |
+| **Σ** |         | **8**     |
+
+**Step 3:** Calculate variance
+
+$$
+s^2 = \frac{8}{3-1} = \frac{8}{2} = 4
+$$
+
+> ⚠️ **Common Mistake:** Don't forget to square the deviations before 
+> summing—unsigned deviations always sum to zero!
+
+---
+
+## 4. Key Takeaways
+
+> 🎯 **Remember:**
+> - Variance measures spread from the mean
+> - Always squared units (use standard deviation for original units)
+> - Sample variance uses (n-1), population uses N
+
+---
+
+## Navigation
+
+[← Mean](mean.md) | [📊 Descriptive Stats](index.md) | [Standard Deviation →](standard_deviation.md)
+```
+
+KEY CHANGES:
+✅ $$ on separate lines (CRITICAL for Notion import)
+✅ Blank lines before/after equations
+✅ Unicode symbols in tables instead of inline math
+✅ Callouts for visual structure
+✅ Table of contents
+✅ Proper dividers between sections
+
+================================================================================
+11. CS BOOTCAMP PATTERNS (PROVEN WORKING)
+================================================================================
+
+These patterns are derived from the existing CS Bootcamp and are confirmed 
+to work well in Notion.
+
+------------------------------------------------------------------------------
+11.1 YAML FRONTMATTER
+------------------------------------------------------------------------------
+
+Every markdown file should include YAML frontmatter for Notion export:
+
+```yaml
+---
+title: "Page Title"
+notion_id: "unique-notion-page-id"  # Added after import
+notion_url: "https://www.notion.so/..." # Added after import
+exported_at: "2025-12-13T22:28:52.151891+00:00"
+---
+```
+
+For NEW content (not yet in Notion):
+```yaml
+---
+title: "Descriptive Statistics: Measures of Central Tendency"
+category: "Statistics Bootcamp"
+module: 1
+order: 1
+---
+```
+
+------------------------------------------------------------------------------
+11.2 SUBPAGE LINK FORMAT
+------------------------------------------------------------------------------
+
+Use this format to indicate links to subpages (works well in Notion export):
+
+```markdown
+📄 **[Page Title Goes Here]** (subpage)
+---
+[Optional: Brief preview content or image from the subpage]
+```
+
+EXAMPLE FROM CS BOOTCAMP:
+```markdown
+📄 **[I know the meaning of 0 and 1 and why a computer works with these binary digits]** (subpage)
+# Introduction
+Binary system is a number system of base 2...
+---
+```
+
+------------------------------------------------------------------------------
+11.3 COLLAPSIBLE CONTENT WITH <details>
+------------------------------------------------------------------------------
+
+Use HTML <details> tags for hiding solutions or additional content:
+
+```markdown
+<details>
+<summary>💡 Solution</summary>
+
+**Step 1:** Calculate the mean
+
+$$
+\bar{x} = \frac{1 + 2 + 3}{3} = 2
+$$
+
+**Step 2:** Calculate the variance...
+
+</details>
+```
+
+TIPS FOR <details> BLOCKS:
+- Keep the <summary> short and descriptive
+- Add emoji to the summary for visual appeal (💡, 📝, ✅)
+- Include blank lines inside for proper markdown rendering
+- Note: May render as toggle block in Notion
+
+------------------------------------------------------------------------------
+11.4 CODE BLOCKS WITH OUTPUT
+------------------------------------------------------------------------------
+
+Show code with expected output (CS Bootcamp pattern):
+
+```markdown
+```python
+import numpy as np
+my_array = np.array([1, 2, 3, 4])
+print(my_array.mean())
+
+# Output: 2.5
+`` `
+```
+
+For truth tables and structured text output:
+```markdown
+```plain text
+    Input A  Input B  Output
+         0        0       0
+         0        1       0
+         1        0       0
+         1        1       1
+`` `
+```
+
+------------------------------------------------------------------------------
+11.5 SECTION SEPARATORS
+------------------------------------------------------------------------------
+
+The CS Bootcamp uses `---` dividers liberally:
+- After every subpage link block
+- Between major sections
+- Before and after images
+
+```markdown
+📄 **[Topic 1]** (subpage)
+---
+[content preview]
+---
+
+📄 **[Topic 2]** (subpage)
+---
+[content preview]
+---
+```
+
+------------------------------------------------------------------------------
+11.6 KEY TAKEAWAYS SECTION
+------------------------------------------------------------------------------
+
+End content pages with a Key Takeaways section:
+
+```markdown
+---
+## Key Takeaways
+- Point 1: Clear, actionable summary
+- Point 2: What students should remember
+- Point 3: How it connects to other concepts
+---
+```
+
+------------------------------------------------------------------------------
+11.7 IMAGES WITH CONTEXT
+------------------------------------------------------------------------------
+
+Images should have descriptive alt text:
+
+```markdown
+![Normal distribution curve showing the 68-95-99.7 rule](https://url-to-image.png)
+---
+```
+
+For multiple sequential images (like slides), separate with dividers:
+
+```markdown
+![Slide 1](image1.png)
+---
+![Slide 2](image2.png)
+---
+![Slide 3](image3.png)
+---
+```
+
+================================================================================
+12. FORMULA FORMATTING - MULTI-LINE EQUATIONS
+================================================================================
+
+For step-by-step equation solving, use multiple block equations:
+
+```markdown
+**Solving for x:**
+
+Start with the equation:
+
+$$
+\frac{x - 10}{2.5} = 1.96
+$$
+
+Multiply both sides by 2.5:
+
+$$
+x - 10 = 1.96 \times 2.5 = 4.9
+$$
+
+Add 10 to both sides:
+
+$$
+x = 4.9 + 10 = 14.9
+$$
+```
+
+For showing the formula, then substitution, then result:
+
+```markdown
+**Sample Variance Formula:**
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2
+$$
+
+**Substituting our values:**
+
+$$
+s^2 = \frac{1}{6-1}[(17-20.14)^2 + (18-20.14)^2 + \cdots]
+$$
+
+**Final Result:**
+
+$$
+s^2 = \frac{98.86}{5} = 19.77
+$$
+```
+
+================================================================================
+13. QUICK REFERENCE: NOTION IMPORT CHECKLIST
+================================================================================
+
+Before importing markdown to Notion, verify:
+
+□ MATH EQUATIONS
+  □ All block equations use $$ on SEPARATE lines
+  □ Blank line before opening $$
+  □ Blank line after closing $$
+  □ No inline $...$ math (or accept it won't render)
+
+□ STRUCTURE
+  □ YAML frontmatter at top
+  □ Title as # header
+  □ --- dividers between major sections
+  □ Callouts use > emoji **Label:** format
+
+□ CODE BLOCKS
+  □ Language specified (```python, ```plain text)
+  □ Output shown as comments or separate block
+
+□ SPECIAL ELEMENTS
+  □ <details> tags for collapsible content
+  □ Tables use proper markdown syntax
+  □ Images have descriptive alt text
+
+□ CONTENT
+  □ Key Takeaways section at end
+  □ Navigation links (if applicable)
+  □ No orphaned content or incomplete sections
+
+================================================================================
+END OF STYLING GUIDE
+================================================================================
+

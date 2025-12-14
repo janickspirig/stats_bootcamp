@@ -1,0 +1,533 @@
+================================================================================
+LECTURE 6: STATISTICS BOOTCAMP
+Total Slides: 22
+================================================================================
+
+--- Slide 1 of 22 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+6. Multi-Dimensional 
+Probability Distributions
+Spring 2022
+
+
+--- Slide 2 of 22 ---
+
+Methods: Statistics (Spring 2022)
+I. Joint Probability Function
+II. Joint Cumulative Distribution Function
+III. Marginal Distributions
+IV. Stochastic Independence
+V. Conditional Distributions
+VI. Expected Value and Variance
+VII.Covariance under Stochastic Independence
+2
+Contents
+
+
+--- Slide 3 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Learning Objectives
+After this lecture, you know how: 
+• the probability concepts for two-dimensional random variables are
+applied in theory and in practice.
+• the concepts of covariance and correlation are applied to random
+variables and how they are used to confirm stochastic
+independence.
+3
+
+
+--- Slide 4 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Literature
+4
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed., Munich 
+et al.: Pearson Studium, Chapter 10.
+
+
+--- Slide 5 of 22 ---
+
+Methods: Statistics (Spring 2022)
+I. Joint Probability Function
+(, ) 0
+(, ) 1
+ik
+ik
+ik
+fxy
+fxy
+
+
+The joint probability function 𝑓 𝑥௜, 𝑦௞ states the probability that 𝑋 takes the 
+value 𝑥𝑖 and at the same time 𝑌 takes the value 𝑦𝑘. 𝑋, 𝑌 are discrete random 
+variables with realizations 𝑥1, 𝑥2,…  and 𝑦1, 𝑦2,…
+𝑓 𝑥௜, 𝑦௞ ൌ𝑃 𝑋ൌ𝑥 ௜, 𝑌ൌ𝑦 ௞
+5
+
+
+--- Slide 6 of 22 ---
+
+Methods: Statistics (Spring 2022)
+I. Joint Probability Function
+Machine breakdowns: A machine has sensitive components B1 and B2. X is the 
+number of breakdowns per day from B1,                               . Y is the number of 
+breakdowns per day of B2,                               . Thus, up to 2 breakdowns per day 
+are modeled. The joint probability function f(xi, yk) is given by:
+𝑓 𝑥௜, 𝑦௞ ൌ𝑃 𝑋ൌ𝑥 ௜, 𝑌ൌ𝑦 ௞
+12 3 0, 1, 2xxx
+12 3 0, 1, 2yyy
+6
+𝑌 ൌ  0 𝑌 ൌ  1 𝑌 ൌ  2
+𝑋 ൌ  0 0.30 0.14 0.02
+𝑋 ൌ  1 0.18 0.10 0.02
+𝑋 ൌ  2 0.12 0.06 0.06
+
+
+--- Slide 7 of 22 ---
+
+Methods: Statistics (Spring 2022)
+II. Joint Cumulative Distribution Function
+
+ (, ) ( , )
+ik
+ik
+xx y y
+Fxy fx y
+The joint cumulative distribution function 𝐹 𝑥, 𝑦 states the probability that 𝑋
+takes at most the value 𝑥 and at the same time 𝑌 takes at most the value 𝑦. 𝑋, 𝑌
+are again discrete random variables.
+𝐹 𝑥, 𝑦ൌ 𝑃 𝑟 𝑜 𝑏𝑋൑𝑥 , 𝑌൑𝑦
+Relationship between distribution function and probability function:
+7
+
+
+--- Slide 8 of 22 ---
+
+Methods: Statistics (Spring 2022)
+II. Joint Cumulative Distribution Function
+
+ (, ) ( , )
+ik
+ik
+xx y y
+Fxy fx y
+The joint cumulative distribution function follows from the relationship between 
+distribution and probability function:
+8
+𝑌 ൌ  0 𝑌 ൌ  1 𝑌 ൌ  2
+𝑋 ൌ  0 0.30 0.44 0.46
+𝑋 ൌ  1 0.48 0.72 0.76
+𝑋 ൌ  2 0.60 0.90 1
+Machine breakdowns:
+
+
+--- Slide 9 of 22 ---
+
+Methods: Statistics (Spring 2022)
+III. Marginal Distributions (Example)
+9
+ 
+ 
+
+
+() ( ) (, )
+() ( ) ( ,)
+Xi i i k
+k
+Yk k ik
+i
+fx P X x f x y
+fy P Y y f x y
+𝑌 ൌ  0 𝑌 ൌ  1 𝑌 ൌ  2 𝑓𝑥ሺ𝑥ሻ
+𝑋 ൌ  0 0.30 0.14 0.02 0.46
+𝑋 ൌ  1 0.18 0.10 0.02 0.30
+𝑋 ൌ  2 0.12 0.06 0.06 0.24
+𝑓𝑦ሺ𝑦ሻ 0.60 0.30 0.10 1
+Machine breakdowns:
+
+
+--- Slide 10 of 22 ---
+
+Methods: Statistics (Spring 2022)
+IV. Stochastic Independence
+  () ( ) (, )X ii i k
+k
+fx P X x f x y
+The independence of two discrete random variables X, Y is given if the following 
+condition is fulfilled:
+𝑓 𝑥௜, 𝑦௞ ൌ𝑓௫ 𝑥௜ · 𝑓௬ 𝑦௞
+Analogous: Multiplication rule for independent events:
+𝑃 𝐴∩𝐵 ൌ𝑃 𝐴𝑃 𝐵
+The marginal distribution 𝑓௫ 𝑥௜ for 𝑋 states the probability for 𝑋ൌ𝑥 ௜ no matter 
+what value 𝑌 accepts (in the case of stochastic independence):
+10
+
+
+--- Slide 11 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The conditional distribution of 𝑋 given 𝑌 is defined by :
+𝑓 𝑥௜|𝑦௞ ൌ 𝑓 𝑥௜, 𝑦௞
+𝑓௬ 𝑦௞
+Assume 𝑌ൌ 0 occured:
+V. Conditional Distributions
+(, 0 )(| 0 ) (0)
+i
+i
+Y
+fxfx Y f
+11
+𝑋𝑓 ሺ 𝑥 ௜,0 ሻ𝑓 ሺ 𝑥𝑖|𝑌ൌ 0ሻ
+𝑖 ൌ  0 0.30 0.50
+𝑖 ൌ  1 0.18 0.30
+𝑖 ൌ  2 0.12 0.20
+𝑓𝑦ሺ0ሻ 0.6
+
+
+--- Slide 12 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The conditional distribution of 𝑌 given 𝑋 is defined by :
+𝑓 𝑦௞|𝑥௜ ൌ 𝑓 𝑥௜, 𝑦௞
+𝑓௫ 𝑥௜
+Assume 𝑋 ൌ  2 occured:
+V. Conditional Distributions
+(2, )(| 2 ) (2)
+k
+k
+X
+fyfy X f
+12
+𝑋𝑓 ሺ 2, 𝒚𝒌ሻ 𝑓ሺ𝑦𝑘|𝑋ൌ 2ሻ
+𝑘 ൌ  0 0.12 0.50
+𝑘 ൌ  1 0.06 0.25
+𝑘 ൌ  2 0.06 0.25
+𝑓𝑥ሺ2ሻ 0.24
+
+
+--- Slide 13 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The expected values E(X) and E(Y) can be calculated via marginal distributions: 
+VI. Expected Value of Marginal Distributions
+3
+1
+E( ) ( ) 0 0.46 1 0.30 2 0.24 0.78iX i
+i
+Xx f x
+
+    
+3
+1
+E() ( ) 0 0.60 1 0.30 2 0.10 0.50kY k
+k
+Yy f y
+
+      
+13
+𝑌 ൌ  0 𝑌 ൌ  1 𝑌 ൌ  2 𝑓𝑥ሺ𝑥ሻ
+𝑋 ൌ  0 0.30 0.14 0.02 0.46
+𝑋 ൌ  1 0.18 0.10 0.02 0.30
+𝑋 ൌ  2 0.12 0.06 0.06 0.24
+𝑓𝑦ሺ𝑦ሻ 0.60 0.30 0.10 1
+
+
+--- Slide 14 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The variances Var(X) and Var(Y) can be determined via the marginal distributions 
+and the expected values E(X) and E(Y): 
+VI. Variance
+3
+22
+1
+2
+Var( ) ( ) [E( )]
+00 . 4 6 10 . 3 0 40 . 2 4 0 . 7 8
+0.6516
+iX i
+i
+Xx f x X
+
+
+   
+
+
+3
+22
+1
+2
+Var( ) ( ) [E( )]
+0 0.60 1 0.30 4 0.10 0.5
+0.45
+kY k
+i
+Yy f y Y
+
+
+   
+
+
+14
+
+
+--- Slide 15 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The conditional expected values as well as the conditional probabilities can be
+determined (assume Y = 0 occured):
+VI. Conditional Expected Value and Variance
+3
+1
+E( | 0) ( | 0) 0 0.50 1 0.30 2 0.20 0.70ii
+i
+XY x fx Y
+
+       
+
+  
+    
+
+3
+22
+1
+2
+V a r ( |0 ) ( |0 ) [ E ( |0 ) ]
+0 0.50 1 0.30 4 0.20 0.70 0.61
+ii
+i
+XY xfx Y XY
+15
+X 𝑓ሺ𝑥௜,0 ሻ𝑓 ሺ 𝑥𝑖|𝑌ൌ 0ሻ
+𝑖 ൌ  0 0.30 0.50
+𝑖 ൌ  1 0.18 0.30
+𝑖 ൌ  2 0.12 0.20
+𝑓𝑦ሺ0ሻ 0.60
+
+
+--- Slide 16 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Machine breakdowns:
+The conditional expected values as well as the conditional probabilities can be
+determined (assume X = 2 occured):
+VI. Conditional Expected Value and Variance
+16
+3
+1
+E( | 2) ( | 2) 0 0.50 1 0.25 2 0.25 0.75kk
+k
+YX y f y X
+
+      
+
+  
+    
+
+3
+22
+1
+2
+Var( | 2) ( | 2) [E( | 2)]
+0 0.50 1 0.25 4 0.25 0.75 0.6875
+kk
+k
+YX yf y X YX
+𝑌𝑓 ሺ 2, 𝒚𝒌ሻ𝑓 ሺ 𝑦𝑘|𝑋ൌ 2ሻ
+𝑘 ൌ  0 0.12 0.50
+𝑘 ൌ  1 0.06 0.25
+𝑘 ൌ  2 0.06 0.25
+𝑓𝑥ሺ2ሻ 0.24
+
+
+--- Slide 17 of 22 ---
+
+Methods: Statistics (Spring 2022)
+VI. Expected Value and Variance (R-Example 1)
+17
+Open the file "L6-Example_1.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 18 of 22 ---
+
+Methods: Statistics (Spring 2022)
+VII. Covariance and Correlation Coefficient
+Covariance and correlation coefficient are measures for the strength of a 
+statistical relationship between two random variables. If Y tends to large values 
+whenever X takes large values, then X and Y are (positively) correlated.
+Cov( , ) [ E( )] [ E( )] ( , )
+E( ) E( ) E( )
+ik i k
+ik
+X Yx X y Y f x y
+XY X Y
+   
+ 
+
+   
+
+Cov( , )(,) [ 1 , 1 ]
+Var( ) Var( )
+XYXY
+XY
+18
+
+
+--- Slide 19 of 22 ---
+
+Methods: Statistics (Spring 2022)
+VII. Covariance and Correlation Coefficient
+0.11 0.20
+0.6516 0.45
+ 
+
+Cov( , ) [ E( )] [ E( )] ( , )
+(, )E () E ()
+E( ) E( ) E( )
+ik i k
+ik
+ik i k
+ik
+X Yx X y Y f x y
+xy f x y X Y
+XY X Y
+   
+ 
+ 
+
+
+E( ) ( , )
+0 0 0.30 0 1 0.14 0 2 0.02
+1 0 0.18 1 1 0.10 1 2 0.02
+2 0 0.12 2 1 0.06 2 2 0.06
+0.50
+ik i k
+ik
+XY x y f x y
+   
+    
+  
+
+
+Cov( , ) E( ) E( ) E( )
+0.50 0.78 0.50 0.11
+XY X Y X Y 
+
+19
+
+
+--- Slide 20 of 22 ---
+
+Methods: Statistics (Spring 2022)
+VII. Covariance under Stochastic Independence
+Stochastic Independence:
+
+
+
+
+
+
+
+E( ) ( , )
+() ( )
+() ( )
+E( )E( )
+ik i k
+ik
+ik X iY k
+ik
+iX i k Y k
+ik
+XY x y f x y
+x yf x f y
+x fx y fy
+XY
+Cov( , ) E( ) E( ) E( )
+E( ) E( ) E( ) E( ) 0
+XY X Y X Y
+XY XY
+ 
+
+20
+(, ) () ( )ik xi ykfxy f x f y
+
+
+--- Slide 21 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Summary:
+or (in general):
+VII. Covariance under Stochastic Independence
+21
+ 
+
+
+,0 d e p e n d e n c e
+,0 i n d e p e n d e n c e
+Cov
+Cov
+
+
+
+
+independence , 0
+,0 i n d e p e n d e n c e
+Cov
+Cov
+
+
+--- Slide 22 of 22 ---
+
+Methods: Statistics (Spring 2022)
+Appendix: Covariance and Correlation Coefficient
+The coefficient of correlation 
+ always takes values between -1 and +1:
+Proof:
+  (,)[ 1 , 1 ]XY
+22
+
+
+ 
+ 
+
+   
+   
+    
+   
+
+
+
+2
+2
+22 2
+2
+2
+2
+: E[(( E[ ]) ( E[ ])) ] 0
+[(( [ ]) ( [ ])) ] 0
+E[( E[ ] ) 2 ( E[ ] )( E[ ] )( E[ ] ) ]
+Var( ) 2 Cov( , ) Var( ) 0
+Cov( , ): Var( )
+Cov ( , )Var( ) 0 Var( )
+Cov ( , )1 Var( )
+DefinetheRV X X Y Y
+EXE X YE Y
+XX XX Y Y Y Y
+XX Y Y
+XY
+Y
+XYX Y
+XY
+Y
+
+2(,)Var( ) XYX
+

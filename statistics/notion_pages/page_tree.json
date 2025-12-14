@@ -1,0 +1,784 @@
+{
+  "title": "Statistics Bootcamp",
+  "description": "Notion page tree structure for the HSG Statistics Bootcamp",
+  "version": "1.0",
+  "generated_at": "2024-12-13",
+  "design_principles": {
+    "hierarchy_depth": 3,
+    "naming_convention": "Learning-objective titles (I can..., I know...)",
+    "navigation": "Each page links to module index, prev/next pages, and Reference",
+    "content_template": "Learning Objectives > Theory > Worked Examples > Practice > Takeaways"
+  },
+  "pages": [
+    {
+      "id": "root",
+      "title": "Statistics Bootcamp",
+      "type": "root",
+      "children": [
+        "00_start_here",
+        "01_foundations",
+        "02_descriptive_statistics",
+        "03_correlation_covariance",
+        "04_probability_fundamentals",
+        "05_discrete_distributions",
+        "06_continuous_distributions",
+        "07_sampling_distributions",
+        "08_estimation_confidence_intervals",
+        "09_hypothesis_testing_basics",
+        "10_one_sample_tests",
+        "11_two_sample_tests",
+        "12_regression_analysis",
+        "13_advanced_topics",
+        "reference",
+        "exercises"
+      ]
+    },
+    {
+      "id": "00_start_here",
+      "title": "Start Here",
+      "type": "module",
+      "order": 0,
+      "description": "Orientation and study guidance for the bootcamp",
+      "children": [
+        {
+          "id": "00_01_welcome",
+          "title": "Welcome & How to Use This Bootcamp",
+          "type": "page",
+          "content_type": "orientation",
+          "description": "Overview of bootcamp structure, goals, and how to navigate"
+        },
+        {
+          "id": "00_02_prerequisites",
+          "title": "Prerequisites & Self-Assessment",
+          "type": "page",
+          "content_type": "assessment",
+          "description": "Check your math readiness and identify areas to review"
+        },
+        {
+          "id": "00_03_study_path",
+          "title": "Suggested Study Path",
+          "type": "page",
+          "content_type": "guide",
+          "description": "Recommended order and time estimates for each module"
+        }
+      ]
+    },
+    {
+      "id": "01_foundations",
+      "title": "Foundations",
+      "type": "module",
+      "order": 1,
+      "description": "Understanding data types, collection methods, and scales of measurement",
+      "source_module": "intro_data",
+      "related_lectures": [1],
+      "children": [
+        {
+          "id": "01_01_data_types",
+          "title": "I know the different types of data and their characteristics",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["data_types", "primary_data", "secondary_data"],
+          "description": "Primary vs secondary data, qualitative vs quantitative"
+        },
+        {
+          "id": "01_02_scales_measurement",
+          "title": "I can identify and distinguish scales of measurement",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["nominal", "ordinal", "interval", "ratio"],
+          "description": "NOIR: Nominal, Ordinal, Interval, Ratio scales"
+        }
+      ]
+    },
+    {
+      "id": "02_descriptive_statistics",
+      "title": "Descriptive Statistics",
+      "type": "module",
+      "order": 2,
+      "description": "Measures of central tendency, dispersion, and data visualization",
+      "source_module": "descriptive_stats",
+      "related_lectures": [1],
+      "related_exercises": ["Exercise_1"],
+      "children": [
+        {
+          "id": "02_01_central_tendency",
+          "title": "I can calculate and interpret the mean, median, and mode",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["mean", "median", "mode"],
+          "formulas": ["mean", "median"],
+          "description": "Measures of central tendency and when to use each"
+        },
+        {
+          "id": "02_02_variance_stddev",
+          "title": "I can calculate variance and standard deviation",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["variance", "standard_deviation"],
+          "formulas": ["sample_variance", "population_variance", "standard_deviation"],
+          "description": "Measures of spread around the mean"
+        },
+        {
+          "id": "02_03_quartiles_boxplots",
+          "title": "I can interpret quartiles and box plots",
+          "type": "page",
+          "content_type": "interpretation",
+          "concepts": ["quartile", "interquartile_range", "boxplot"],
+          "description": "Five-number summary and visual representation"
+        },
+        {
+          "id": "02_04_skewness_kurtosis",
+          "title": "I can identify skewness and kurtosis",
+          "type": "page",
+          "content_type": "interpretation",
+          "concepts": ["skewness", "kurtosis"],
+          "description": "Shape characteristics of distributions"
+        }
+      ]
+    },
+    {
+      "id": "03_correlation_covariance",
+      "title": "Correlation and Covariance",
+      "type": "module",
+      "order": 3,
+      "description": "Understanding relationships between variables",
+      "source_module": "correlation",
+      "related_lectures": [2],
+      "children": [
+        {
+          "id": "03_01_correlation",
+          "title": "I can calculate and interpret correlation coefficients",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["correlation", "pearson_correlation"],
+          "formulas": ["correlation_coefficient"],
+          "description": "Measuring linear relationships between variables"
+        },
+        {
+          "id": "03_02_covariance",
+          "title": "I can calculate and interpret covariance",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["covariance"],
+          "formulas": ["covariance"],
+          "description": "Understanding joint variability of two variables"
+        },
+        {
+          "id": "03_03_correlation_causation",
+          "title": "I understand the difference between correlation and causation",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["causality", "spurious_correlation"],
+          "description": "Why correlation does not imply causation"
+        }
+      ]
+    },
+    {
+      "id": "04_probability_fundamentals",
+      "title": "Probability Fundamentals",
+      "type": "module",
+      "order": 4,
+      "description": "Basic concepts, axioms, and rules of probability",
+      "source_module": "probability_basics",
+      "related_lectures": [3],
+      "related_exercises": ["Exercise_2"],
+      "children": [
+        {
+          "id": "04_01_basic_concepts",
+          "title": "I know the basic terms and concepts of probability",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["sample_space", "event", "probability"],
+          "description": "Sample space, events, and probability definitions"
+        },
+        {
+          "id": "04_02_axioms",
+          "title": "I can apply the axioms of probability (Kolmogorov)",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["kolmogorov_axioms"],
+          "description": "The three fundamental axioms of probability"
+        },
+        {
+          "id": "04_03_conditional_probability",
+          "title": "I can calculate conditional probabilities",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["conditional_probability"],
+          "formulas": ["conditional_probability"],
+          "description": "Probability of events given other events"
+        },
+        {
+          "id": "04_04_addition_multiplication",
+          "title": "I can use addition and multiplication rules",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["addition_rule", "multiplication_rule", "independence"],
+          "formulas": ["addition_rule", "multiplication_rule"],
+          "description": "Combining probabilities of events"
+        },
+        {
+          "id": "04_05_tree_diagrams",
+          "title": "I can construct and interpret tree diagrams",
+          "type": "page",
+          "content_type": "method",
+          "concepts": ["tree_diagram", "bayes"],
+          "description": "Visual representation of sequential probability"
+        }
+      ]
+    },
+    {
+      "id": "05_discrete_distributions",
+      "title": "Discrete Distributions",
+      "type": "module",
+      "order": 5,
+      "description": "Random variables and key discrete distributions",
+      "source_module": "discrete_distributions",
+      "related_lectures": [4],
+      "related_exercises": ["Exercise_3A"],
+      "children": [
+        {
+          "id": "05_01_random_variables",
+          "title": "I understand discrete random variables",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["random_variable", "discrete"],
+          "description": "Definition and properties of discrete random variables"
+        },
+        {
+          "id": "05_02_expected_value_variance",
+          "title": "I can calculate expected value and variance",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["expected_value", "variance"],
+          "formulas": ["expected_value_discrete", "variance_discrete"],
+          "description": "Mean and spread of discrete distributions"
+        },
+        {
+          "id": "05_03_binomial",
+          "title": "I can apply the binomial distribution",
+          "type": "page",
+          "content_type": "distribution",
+          "concepts": ["binomial"],
+          "formulas": ["binomial_pmf", "binomial_mean", "binomial_variance"],
+          "description": "Fixed number of independent trials with two outcomes"
+        },
+        {
+          "id": "05_04_poisson",
+          "title": "I can apply the Poisson distribution",
+          "type": "page",
+          "content_type": "distribution",
+          "concepts": ["poisson"],
+          "formulas": ["poisson_pmf"],
+          "description": "Count of events in a fixed interval"
+        },
+        {
+          "id": "05_05_hypergeometric",
+          "title": "I can apply the hypergeometric distribution",
+          "type": "page",
+          "content_type": "distribution",
+          "concepts": ["hypergeometric"],
+          "formulas": ["hypergeometric_pmf"],
+          "description": "Sampling without replacement"
+        }
+      ]
+    },
+    {
+      "id": "06_continuous_distributions",
+      "title": "Continuous Distributions",
+      "type": "module",
+      "order": 6,
+      "description": "Normal distribution and its applications",
+      "source_module": "continuous_distributions",
+      "related_lectures": [5],
+      "related_exercises": ["Exercise_3B"],
+      "children": [
+        {
+          "id": "06_01_continuous_rv",
+          "title": "I understand continuous random variables and density functions",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["continuous", "probability_density_function"],
+          "description": "Properties of continuous distributions"
+        },
+        {
+          "id": "06_02_normal",
+          "title": "I can work with the normal distribution",
+          "type": "page",
+          "content_type": "distribution",
+          "concepts": ["normal"],
+          "formulas": ["normal_pdf"],
+          "description": "The bell curve and its properties"
+        },
+        {
+          "id": "06_03_z_scores",
+          "title": "I can standardize using z-scores",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["standard_normal", "z_score"],
+          "formulas": ["z_score"],
+          "description": "Converting to standard normal distribution"
+        },
+        {
+          "id": "06_04_exponential",
+          "title": "I can apply the exponential distribution",
+          "type": "page",
+          "content_type": "distribution",
+          "concepts": ["exponential"],
+          "formulas": ["exponential_pdf", "exponential_cdf"],
+          "description": "Time between events in a Poisson process"
+        }
+      ]
+    },
+    {
+      "id": "07_sampling_distributions",
+      "title": "Sampling Distributions",
+      "type": "module",
+      "order": 7,
+      "description": "Sample statistics and the Central Limit Theorem",
+      "source_module": "sampling",
+      "related_lectures": [6, 7],
+      "related_exercises": ["Exercise_4"],
+      "children": [
+        {
+          "id": "07_01_sample_population",
+          "title": "I understand sampling and population concepts",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["sample", "population", "sampling_methods"],
+          "description": "Samples, populations, and sampling techniques"
+        },
+        {
+          "id": "07_02_sampling_distribution",
+          "title": "I know what a sampling distribution is",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["sampling_distribution"],
+          "description": "Distribution of sample statistics"
+        },
+        {
+          "id": "07_03_clt",
+          "title": "I can apply the Central Limit Theorem",
+          "type": "page",
+          "content_type": "theorem",
+          "concepts": ["central_limit_theorem"],
+          "description": "Why the normal distribution is so important"
+        },
+        {
+          "id": "07_04_standard_error",
+          "title": "I can calculate standard error",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["standard_error"],
+          "formulas": ["standard_error_mean", "standard_error_proportion"],
+          "description": "Measuring precision of sample estimates"
+        }
+      ]
+    },
+    {
+      "id": "08_estimation_confidence_intervals",
+      "title": "Estimation and Confidence Intervals",
+      "type": "module",
+      "order": 8,
+      "description": "Point and interval estimation for population parameters",
+      "source_module": "estimation",
+      "related_lectures": [7, 8],
+      "related_exercises": ["Exercise_4"],
+      "children": [
+        {
+          "id": "08_01_point_estimates",
+          "title": "I understand point estimators and their properties",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["point_estimate", "bias", "efficiency"],
+          "description": "Properties of good estimators"
+        },
+        {
+          "id": "08_02_ci_means",
+          "title": "I can construct confidence intervals for means",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["confidence_interval", "t_distribution"],
+          "formulas": ["ci_mean_known_sigma", "ci_mean_unknown_sigma"],
+          "description": "Interval estimation for population mean"
+        },
+        {
+          "id": "08_03_ci_proportions",
+          "title": "I can construct confidence intervals for proportions",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["confidence_interval"],
+          "formulas": ["ci_proportion"],
+          "description": "Interval estimation for population proportion"
+        },
+        {
+          "id": "08_04_sample_size",
+          "title": "I can determine appropriate sample sizes",
+          "type": "page",
+          "content_type": "calculation",
+          "concepts": ["margin_of_error"],
+          "formulas": ["sample_size_mean", "sample_size_proportion"],
+          "description": "How many observations do we need?"
+        }
+      ]
+    },
+    {
+      "id": "09_hypothesis_testing_basics",
+      "title": "Hypothesis Testing Basics",
+      "type": "module",
+      "order": 9,
+      "description": "Foundations of statistical hypothesis testing",
+      "source_module": "hypothesis_testing_intro",
+      "related_lectures": [9],
+      "related_exercises": ["Exercise_5"],
+      "children": [
+        {
+          "id": "09_01_hypotheses",
+          "title": "I can formulate null and alternative hypotheses",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["null_hypothesis", "alternative_hypothesis"],
+          "description": "Setting up hypothesis tests correctly"
+        },
+        {
+          "id": "09_02_errors",
+          "title": "I understand Type I and Type II errors",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["type_i_error", "type_ii_error", "power", "significance"],
+          "description": "False positives, false negatives, and power"
+        },
+        {
+          "id": "09_03_procedure",
+          "title": "I know the 5-step hypothesis testing procedure",
+          "type": "page",
+          "content_type": "method",
+          "concepts": ["hypothesis_test_procedure"],
+          "description": "Systematic approach to testing hypotheses"
+        },
+        {
+          "id": "09_04_z_test",
+          "title": "I can conduct a z-test for means",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["z_test"],
+          "formulas": ["z_test_statistic"],
+          "description": "Testing means when population variance is known"
+        }
+      ]
+    },
+    {
+      "id": "10_one_sample_tests",
+      "title": "One-Sample Tests",
+      "type": "module",
+      "order": 10,
+      "description": "T-tests and tests for single samples",
+      "source_module": "hypothesis_testing_advanced",
+      "related_lectures": [9],
+      "related_exercises": ["Exercise_5"],
+      "children": [
+        {
+          "id": "10_01_t_test_mean",
+          "title": "I can conduct a t-test for population means",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["t_test"],
+          "formulas": ["t_test_statistic"],
+          "description": "Testing means when population variance is unknown"
+        },
+        {
+          "id": "10_02_test_proportion",
+          "title": "I can test hypotheses about proportions",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["z_test_proportion"],
+          "formulas": ["z_test_proportion_statistic"],
+          "description": "Testing population proportions"
+        },
+        {
+          "id": "10_03_p_values",
+          "title": "I can calculate and interpret p-values",
+          "type": "page",
+          "content_type": "interpretation",
+          "concepts": ["p_value"],
+          "description": "What p-values mean and how to use them"
+        }
+      ]
+    },
+    {
+      "id": "11_two_sample_tests",
+      "title": "Two-Sample Tests",
+      "type": "module",
+      "order": 11,
+      "description": "Comparing means and proportions across samples",
+      "source_module": "two_sample_tests",
+      "related_lectures": [10],
+      "related_exercises": ["Exercise_5"],
+      "children": [
+        {
+          "id": "11_01_independent_means",
+          "title": "I can compare means of independent samples",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["independent_samples", "two_sample_t_test"],
+          "formulas": ["two_sample_t_statistic"],
+          "description": "Testing if two group means differ"
+        },
+        {
+          "id": "11_02_paired_t_test",
+          "title": "I can compare means of dependent samples (paired t-test)",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["dependent_samples", "paired_t_test"],
+          "formulas": ["paired_t_statistic"],
+          "description": "Before-after and matched-pairs designs"
+        },
+        {
+          "id": "11_03_compare_proportions",
+          "title": "I can compare proportions across samples",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["two_proportion_z_test"],
+          "formulas": ["two_proportion_z_statistic"],
+          "description": "Testing if two group proportions differ"
+        },
+        {
+          "id": "11_04_f_test_variance",
+          "title": "I can test for equality of variances",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["f_test"],
+          "formulas": ["f_statistic"],
+          "description": "Comparing variability across groups"
+        }
+      ]
+    },
+    {
+      "id": "12_regression_analysis",
+      "title": "Regression Analysis",
+      "type": "module",
+      "order": 12,
+      "description": "Linear regression and model evaluation",
+      "source_module": "regression",
+      "related_lectures": [11],
+      "related_exercises": ["Exercise_6"],
+      "children": [
+        {
+          "id": "12_01_simple_regression",
+          "title": "I can fit a simple linear regression model",
+          "type": "page",
+          "content_type": "method",
+          "concepts": ["linear_regression", "ordinary_least_squares"],
+          "formulas": ["ols_slope", "ols_intercept"],
+          "description": "Ordinary Least Squares estimation"
+        },
+        {
+          "id": "12_02_interpret_coefficients",
+          "title": "I can interpret regression coefficients",
+          "type": "page",
+          "content_type": "interpretation",
+          "concepts": ["coefficient", "intercept", "slope"],
+          "description": "What the numbers mean in context"
+        },
+        {
+          "id": "12_03_r_squared",
+          "title": "I can evaluate model fit using R-squared",
+          "type": "page",
+          "content_type": "interpretation",
+          "concepts": ["r_squared", "residual"],
+          "formulas": ["r_squared"],
+          "description": "How much variance does the model explain?"
+        },
+        {
+          "id": "12_04_inference_regression",
+          "title": "I can conduct hypothesis tests on regression coefficients",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["t_test_coefficient"],
+          "formulas": ["t_statistic_coefficient"],
+          "description": "Testing if relationships are statistically significant"
+        }
+      ]
+    },
+    {
+      "id": "13_advanced_topics",
+      "title": "Advanced Topics",
+      "type": "module",
+      "order": 13,
+      "description": "Chi-square tests, ANOVA, and multiple regression",
+      "source_module": "chi_square_anova",
+      "related_lectures": [12],
+      "related_exercises": ["Exercise_6"],
+      "children": [
+        {
+          "id": "13_01_chi_square_independence",
+          "title": "I can conduct chi-square tests for independence",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["chi_square_test", "contingency_table"],
+          "formulas": ["chi_square_statistic"],
+          "description": "Testing relationships between categorical variables"
+        },
+        {
+          "id": "13_02_chi_square_gof",
+          "title": "I can conduct chi-square goodness-of-fit tests",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["chi_square_gof"],
+          "formulas": ["chi_square_gof_statistic"],
+          "description": "Testing if data follows an expected distribution"
+        },
+        {
+          "id": "13_03_anova",
+          "title": "I can perform one-way ANOVA",
+          "type": "page",
+          "content_type": "test",
+          "concepts": ["anova", "f_distribution"],
+          "formulas": ["f_statistic_anova", "ss_between", "ss_within"],
+          "description": "Comparing means across multiple groups"
+        },
+        {
+          "id": "13_04_dummy_variables",
+          "title": "I understand dummy variables and interactions",
+          "type": "page",
+          "content_type": "concept",
+          "concepts": ["dummy_variable", "interaction_term"],
+          "description": "Incorporating categorical variables in regression"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "title": "Reference",
+      "type": "reference_section",
+      "description": "Quick lookup resources for exam preparation",
+      "children": [
+        {
+          "id": "ref_formula_glossary",
+          "title": "Formula Glossary",
+          "type": "reference",
+          "content_type": "glossary",
+          "description": "All formulas in one searchable page, organized by topic"
+        },
+        {
+          "id": "ref_distribution_table",
+          "title": "Distribution Summary Table",
+          "type": "reference",
+          "content_type": "table",
+          "description": "When to use each distribution: conditions, formulas, examples"
+        },
+        {
+          "id": "ref_which_test",
+          "title": "Which Test Should I Use?",
+          "type": "reference",
+          "content_type": "decision_tree",
+          "description": "Decision tree for selecting the right statistical test"
+        },
+        {
+          "id": "ref_stat_tables",
+          "title": "Statistical Tables",
+          "type": "reference",
+          "content_type": "tables",
+          "description": "z, t, chi-square, and F distribution tables"
+        },
+        {
+          "id": "ref_common_mistakes",
+          "title": "Common Pitfalls & Mistakes",
+          "type": "reference",
+          "content_type": "guide",
+          "description": "Avoid these common errors in calculations and interpretation"
+        }
+      ]
+    },
+    {
+      "id": "exercises",
+      "title": "Exercises",
+      "type": "exercise_section",
+      "description": "Practice problems from official HSG exercise sheets",
+      "children": [
+        {
+          "id": "ex_01",
+          "title": "Exercise 1: Descriptive Statistics",
+          "type": "exercise",
+          "source_id": "Übungsblatt_1",
+          "pages": 47,
+          "related_modules": ["02_descriptive_statistics"]
+        },
+        {
+          "id": "ex_02",
+          "title": "Exercise 2: Probability",
+          "type": "exercise",
+          "source_id": "Übungsblatt_2",
+          "pages": 75,
+          "related_modules": ["04_probability_fundamentals"]
+        },
+        {
+          "id": "ex_03a",
+          "title": "Exercise 3A: Discrete Distributions",
+          "type": "exercise",
+          "source_id": "Übungsblatt_3A",
+          "pages": 56,
+          "related_modules": ["05_discrete_distributions"]
+        },
+        {
+          "id": "ex_03b",
+          "title": "Exercise 3B: Continuous Distributions",
+          "type": "exercise",
+          "source_id": "Übungsblatt_3B",
+          "pages": 25,
+          "related_modules": ["06_continuous_distributions"]
+        },
+        {
+          "id": "ex_04",
+          "title": "Exercise 4: Sampling & Estimation",
+          "type": "exercise",
+          "source_id": "Übungsblatt_4",
+          "pages": 56,
+          "related_modules": ["07_sampling_distributions", "08_estimation_confidence_intervals"]
+        },
+        {
+          "id": "ex_05",
+          "title": "Exercise 5: Hypothesis Testing",
+          "type": "exercise",
+          "source_id": "Übungsblatt_5",
+          "pages": 55,
+          "related_modules": ["09_hypothesis_testing_basics", "10_one_sample_tests", "11_two_sample_tests"]
+        },
+        {
+          "id": "ex_06",
+          "title": "Exercise 6: Regression",
+          "type": "exercise",
+          "source_id": "Übungsblatt_6",
+          "pages": 21,
+          "related_modules": ["12_regression_analysis", "13_advanced_topics"]
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "total_modules": 14,
+    "total_content_pages": 48,
+    "total_reference_pages": 5,
+    "total_exercise_pages": 7,
+    "total_pages": 63
+  },
+  "navigation_links": {
+    "module_sequence": [
+      "01_foundations",
+      "02_descriptive_statistics",
+      "03_correlation_covariance",
+      "04_probability_fundamentals",
+      "05_discrete_distributions",
+      "06_continuous_distributions",
+      "07_sampling_distributions",
+      "08_estimation_confidence_intervals",
+      "09_hypothesis_testing_basics",
+      "10_one_sample_tests",
+      "11_two_sample_tests",
+      "12_regression_analysis",
+      "13_advanced_topics"
+    ],
+    "always_accessible": ["reference", "exercises", "00_start_here"]
+  }
+}
+

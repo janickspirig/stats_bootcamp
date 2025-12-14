@@ -1,0 +1,547 @@
+================================================================================
+LECTURE 5: STATISTICS BOOTCAMP
+Total Slides: 31
+================================================================================
+
+--- Slide 1 of 31 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+5. Continuous, Normal and
+Standard Normal Distribution
+Spring 2022
+
+
+--- Slide 2 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Contents
+I. Density Function of Continuous Random Variables
+II. Measures of Central Tendency and Dispersion
+III. Normal Distribution and Standard Normal Distribution
+IV. Approximation Binomial Distribution
+V. Exponential Distribution
+2
+
+
+--- Slide 3 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Learning Objectives
+After this lecture, you know how: 
+• the expected value and the variance for continuous distributions can 
+be calculated and interpreted.
+• the normal distribution is applied in business context and why it is of 
+central importance.
+• a normal distribution is standardized and why the standard normal 
+distribution is important.
+3
+
+
+--- Slide 4 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Literature
+Levine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First 
+Course, 7th ed. United States: Pearson, Chapter 6.*
+Stinerock, R. (2018). Statistics with R. United Kingdom: Sage. Chapter 5.*
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed. Munich 
+et al.: Pearson Studium, Chapter 11.
+Weiers, R. M. (2011). Introductory Business Statistics,7th ed., Canada: Thomson 
+South-Western, Chapter 7.
+4
+*Mandatory literature
+
+
+--- Slide 5 of 31 ---
+
+Methods: Statistics (Spring 2022)
+In case of continuous random variables the probability function is replaced by 
+the so-called density function. The density function f(x) of a continuous random 
+variable X is a continuous function for which holds:
+Thus, the density function has the following properties:
+1. The density function cannot be negative.
+2. The area between the density function and the x-axis always equals 1.
+I. Density Function of Continuous Random Variables
+
+
+ () 1 u n d () 0 .fxd x fx
+5
+
+
+--- Slide 6 of 31 ---
+
+Methods: Statistics (Spring 2022)
+I. Density Function of Continuous Random Variables
+Probability that X takes a value which lies in the interval [a, b] corresponds to 
+the area below the density function within the boundaries a and b:
+ 
+
+() ( )
+() ()
+b
+a
+Pa X b f x d x
+Fb Fa
+6
+is the cumulative distribution function.
+
+  () ( ) ()
+a
+Fa PX a f xd x
+Density function f(x)
+
+
+--- Slide 7 of 31 ---
+
+Methods: Statistics (Spring 2022)
+I. Density Function of Continuous Random Variables
+Note: The density of a continuous random variable X does NOT state the 
+probability that the random variable takes a certain value x! This can also be 
+seen from the fact that the density can take larger values than 1. In particular, 
+for a single value x it holds:
+P(X = x) = 0f o r  a l lx 
+although X = x is not an impossible event!
+The area below the density function over a specific interval corresponds to the 
+probability that the random variable takes a value within this interval. In this 
+context, it is irrelevant if the boundaries a and b are included in the interval or not. 
+Formally stated:
+P(a <  X  <b )  =P(a  X < b) = P(a < X  b) = P(a  X  b) =     
+7
+ ()
+b
+a
+fx d x
+
+
+--- Slide 8 of 31 ---
+
+Methods: Statistics (Spring 2022)
+IV. Density Function (R-Example 1)
+8
+Open the file "L5-Example_1.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 9 of 31 ---
+
+Methods: Statistics (Spring 2022)
+II. Measures of Central Tendency and Dispersion
+The characterization of density distributions of continuous random variables is 
+done by the following measures:
+Expected value:
+Simplified:
+Variance
+9
+() ( )EX x f xd x
+
+
+
+2() [ () ] ( )Var X x E X f x dx
+
+
+ 
+22 2 2( ) ( ) [ ( )] ( ) [ ( )]Var X x f x dx E X E X E X
+
+
+   
+
+
+--- Slide 10 of 31 ---
+
+Methods: Statistics (Spring 2022)
+The normal distribution is one of the most important continuous distributions, 
+since many random variables occurring in practice are - at least approximately -
+normally distributed. A continuous random variable X with the density function:
+is normally distributed with the parameters 𝜇 and 𝜎
+2. Many distributions (e.g., 
+binomial distribution) can be approximated by the normal distribution.
+Sample means as well as proportions of repeated samples tend to be normally
+distributed (central limit theorem).
+III. Normal Distribution - N(
+, )
+21
+21()
+2
+x
+fx e
+ 
+
+ 
+10
+
+
+--- Slide 11 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Normal Distribution - N(
+, )
+11
+68.3% of observations within 1 standard deviation around mean
+  
+95.5% of observations within 2 standard deviation around mean
+2  2
+99.7% of observations within 3 standard deviation around mean
+ 3  3
+
+
+--- Slide 12 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Normal Distribution (Example)
+12
+Normal distribution with expected value 𝜇ൌ 5 and standard deviation of 𝜎ൌ 3:
+-10 -5 0 5 10 15 20
+Normal distribution N(5,3)
+21
+21()
+2
+x
+fx e
+ 
+
+ 
+
+
+--- Slide 13 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Standard Normal Distribution - N(0,1)
+2
+21()
+2
+x
+f xe
+
+
+
+For 𝜇ൌ 0 and 𝜎ଶ ൌ 1, the standard normal distribution is obtained:
+13
+-4 -2 0 2 4
+Standard normal distribution
+2x
+21()
+2
+z
+ze d x
+
+
+
+ 
+-4 -2 0 2 4
+0 . 00 . 20 . 40 . 60 . 81 . 0
+Standard normal CDF (F(x))
+
+
+--- Slide 14 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Standard Normal Distribution - N(0,1)
+14
+0z
+z
+
+
+
+
+2
+21
+2
+z
+x
+ed x
+
+
+--- Slide 15 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Standard Normal Distribution - N(0,1)
+Using distribution tables:
+• 𝑃ሺ𝑍 ൑  𝑧ሻ ൌ  𝑧ൌ Table(z)
+• 𝑃 𝑍 ൑   𝑧ൌ   𝑧ൌ 1 െ Table(z)
+• "Table(z)" represents values listed in the table on the previous slide.
+15
+Table(z)
+0z
+z
+0z
+z
+
+
+--- Slide 16 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Standard Normal Distribution - N(0,1) (Examples)
+16
+1. By means of the previously mentioned "tables" for the standard normal 
+distribution, we are searching the following probability:
+𝑃ሺ1.00 ൑𝑧൑  1.32ሻ ; 𝑧 ~ 𝑁ሺ0;  1ሻ
+The probability results from the subtraction of the corresponding areas: 
+→ 0.9066 – 0.8413 = 0.0653
+2. Search the value  𝑧ൌെ 1.23. What probability does it reflect?
+( 1.23) 1 0.8907 0.1093   
+z=-1.23 0
+z = ‐1.23
+
+
+--- Slide 17 of 31 ---
+
+Methods: Statistics (Spring 2022)
+For the standardized normal distribution (short: Φ(z)) there are "tables" which can 
+be used to obtain "probability-areas" of standard normally distributed random 
+variables. Each normally distributed random variable X with the parameters 𝜇 and 
+𝜎
+2 can be transformed into a standard normally distributed random variable Z
+(standardization): 
+The distribution function F of the random variable X is expressed by the 
+distribution function  of the standard normal distribution:
+III. Calculation of Probabilities
+2(, ) ( 0 , 1 ) XXN Z N
+
+
+
+::
+17
+
+ 
+  
+                 
+() ( ) Xx x xFx PX x P P Z
+
+
+--- Slide 18 of 31 ---
+
+Methods: Statistics (Spring 2022)
+For the determination of the probability that a N(
+, 2)-distributed random variable 
+X takes a value between a and b, we make use of the “standardization":
+with: 
+III. Calculation of Probabilities
+() ( ) ( ) ( ) ( )
+() ()
+    
+ ba
+P aXb P Xb P Xa F b F a
+zz
+;ba
+bazz
+
+
+
+
+
+18
+
+
+--- Slide 19 of 31 ---
+
+Methods: Statistics (Spring 2022)
+III. Normal Distribution (Example)
+Work process: Let the average (normally distributed) duration of a certain 
+operation be 12.1 minutes with a standard deviation of 2 minutes. What is the 
+probability that a worker needs:
+• longer than 14.1 minutes, 
+• less than 8.1 minutes,
+• between 10.1 and 16.1 minutes?
+19
+
+
+--- Slide 20 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Given: 𝜇 ൌ  12.1 minutes, 𝜎 ൌ  2.0 minutes
+Wanted: Probability of «time > 14.1 minutes»?
+⟺𝑃 ሺ 𝑥 ൐  14.1ሻ ൌ  𝑃ሺ𝑧 ൐  1.00ሻ
+ൌ  1 –  0.8413 ൌ  𝟎. 𝟏𝟓𝟖𝟕
+III. Normal Distribution (Example)
+z  x – 
+  14.1 – 12.1
+2.0
+ 1.0 0
+4 3 2 1 01234
+20
+
+
+--- Slide 21 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Given: 𝜇 ൌ  12.1 minutes, 𝜎 ൌ  2.0 minutes
+Wanted: probability of «time < 8.1 minutes»?
+⟺𝑃 ሺ 𝑥 ൏  8.1ሻ ൌ  𝑃ሺ𝑧 ൏ െ2.00ሻ
+ൌ  1 –  0.9772 ൌ  𝟎. 𝟎𝟐𝟐𝟖
+z  x – 
+  8.1 – 12. 1
+2.0
+ -2.00.
+21
+III. Normal Distribution (Example)
+4 3 2 1 01234
+
+
+--- Slide 22 of 31 ---
+
+Methods: Statistics (Spring 2022)
+Given: 𝜇 ൌ  12.1 minutes, 𝜎 ൌ  2.0 minutes
+Wanted: probability of «10.1 < time < 16.1 minutes»?
+⟺   𝑃ሺ10.1 ൏  𝑥 ൏  16.1ሻ ൌ 
+ ൌ   𝑃ሺെ1.00 ൏  𝑧 ൏  2.00ሻ ൌ
+ ൌ   0.9772 െሺ1 െ0.8413ሻ ൌ  𝟎. 𝟖𝟏𝟖𝟓
+– 10.1–12.1      – 1 . 0 0a 2.0
+– 16.1–12.1      2 . 0 0b 2.0
+xz
+xz
+ 
+ 
+ 
+22
+III. Normal Distribution (Example)
+4 3 2 1 01234
+
+
+--- Slide 23 of 31 ---
+
+Methods: Statistics (Spring 2022)
+IV. Normal Distribution (R-Example 2)
+23
+Open the file "L5-Example_2.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 24 of 31 ---
+
+Methods: Statistics (Spring 2022)
+An important characteristic of the normal distribution is that it can be used to 
+approximate other distributions. For instance, the binomial distribution
+approaches the form of a normal distribution with growing n.  A good 
+approximation results, when the conditions
+n𝜋൒ 5 and n (1  𝜋) ൒ 5
+are fulfilled. 
+Expected value: 𝜇 = n𝜋
+Variance: 𝜎2 = n𝜋 (1  𝜋)
+IV. Approximation Binomial Distribution
+() ( 1 )x nxnfx x
+ 
+24
+
+
+--- Slide 25 of 31 ---
+
+Methods: Statistics (Spring 2022)
+IV. Approximation Binomial Distribution
+Binomially distributed random variable r:   r ~ B(n, p )
+Expected value 
+ = np, variance 
+ 2 = np (1
+ p )
+For n  : binomial distribution converges to the normal 
+distribution with mean 
+ = np and variance 
+ 2 = np (1
+ p )
+25
+N=10, prob=0.5
+Density
+02468 1 0
+0.00 0.05 0.10 0.15 0.20 0.25
+N=100, prob=0.1
+Density
+0 5 10 15 20 25 30
+0.00 0.02 0.04 0.06 0.08 0.10 0.12
+
+
+--- Slide 26 of 31 ---
+
+Methods: Statistics (Spring 2022)
+IV. Approximation Binomial Distribution (Example)
+Exam: 40 students take an exam. The probability to pass the exam is 60%. What
+is the probability that at least 30 students pass the exam?
+Option 1: Binomial distribution
+p = p(30) + p(31) + ... + p(40)
+ extensive calculation yields: p = 3.52%
+ 
+4040() 0 . 6 0 . 4 x xpx x
+26
+
+
+--- Slide 27 of 31 ---
+
+Methods: Statistics (Spring 2022)
+IV. Approximation Binomial Distribution (Example)
+Option 2: Approximation with normal distribution!
+(n𝜋 = 24  5, n (1  𝜋) = 16 5)
+X ~ N(
+ = n 𝜋, 2 = n 𝜋 (1  𝜋)), n = 40, 𝜋 = 0.6
+X ~ N(
+ = 24, 
+ 2 = 9.6)
+30
+29.5
+Since the binomial distribution is
+discrete, the approximation is improved
+by the so-called continuity correction:
+x → [x - 0.5]; [x + 0.5]
+29.5 24 1.78
+9.6
+z 
+ from the normal distribution table 
+we get: p = 3.75%.
+27
+
+
+--- Slide 28 of 31 ---
+
+Methods: Statistics (Spring 2022)
+The exponential distribution describes the continuous random variable x = the
+amount of time, space, or distance between occurrences of these rare
+events (e.g., x is the time between successive arrivals). The cumulative
+distribution and density function are:
+Mean and variance of the exponential distribution are: 
+V. Exponential Distribution
+– – für() 1 ()   0 , 0x xFx e f x e x
+
+
+
+   
+2
+1 
+1 
+Expected value = Variance =
+28
+
+
+--- Slide 29 of 31 ---
+
+Methods: Statistics (Spring 2022)
+V. Exponential Distribution
+Density and distribution function for different values of the parameter 
+ :
+29
+
+
+--- Slide 30 of 31 ---
+
+Methods: Statistics (Spring 2022)
+V. Exponential distribution (example)
+(2 ) 1 (2 )
+0.4 21( 1 )
+0.8 0.4493
+PX PX
+e
+e
+  
+
+
+Bank counter: Assume the time span (in minutes) between the arrival of two
+bank customers at the counter is exponentially distributed with
+ = 0.4 . What is
+the probability that more than 2 minutes pass between the arrival of two
+customers?
+30
+
+
+--- Slide 31 of 31 ---
+
+Methods: Statistics (Spring 2022)
+V. Exponential Distribution (R-Example)
+31
+Open the file "L5-Example_3.R" in R-Studio and reproduce the R-Code.
+

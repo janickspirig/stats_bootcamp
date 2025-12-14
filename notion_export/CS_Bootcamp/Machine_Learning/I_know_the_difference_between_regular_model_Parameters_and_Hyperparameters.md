@@ -1,0 +1,13 @@
+---
+title: "I know the difference between regular model Parameters and Hyperparameters"
+notion_id: "baeb6333-22e7-4ce7-bd69-e3dd84d4864c"
+notion_url: "https://www.notion.so/I-know-the-difference-between-regular-model-Parameters-and-Hyperparameters-baeb633322e74ce7bd69e3dd84d4864c"
+exported_at: "2025-12-13T22:27:26.979832+00:00"
+---
+
+# I know the difference between regular model Parameters and Hyperparameters
+
+---
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/144ade45-42a5-4e75-8558-0e987b8fe296/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XJQOMPBH%2F20251213%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251213T222726Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJGMEQCIGjoyUlDodN%2BB6jxU24X7uVqirT9t9HM6HO0U2umSvgSAiBAmBOXAfjcjTaBqoqf%2BM1zXzRRxzGY8k%2B%2BFQK7PmSTzSr%2FAwgnEAAaDDYzNzQyMzE4MzgwNSIMoXl%2BKjNN8Qz2Q%2BFRKtwDSG8bm%2FMcEx%2FXrdBe6%2BUf%2FypORqa41YBNMpmnVPwMCqJ%2BOYQYai%2Fc3Chrx0RSEu0jgyyzzvUTBdnH7COFgEgmWZ9yxuMkbDjtozSMYZvLQpQeQzGoR8whMWtHxK5U6%2FFAV6YVZ5WQwR1m9y3oYIPl4wDRtQCduQlwWvY5PnTKoh%2FN%2F3Fas20vSmVpEahceuplGyk%2BGhD0zpMuygBopn0v%2BfjtPvlnUVualVyoaKJwOFW5w7wx5OBjhBy6ejRw3OuvNu0VNqzapLdgfWkoSqE3TwJG22LJ3Yy%2FS0c2UhfqIKJvOoX7gr6A7o9ZnS%2Br1MufrHQ18uMUQqIOeflE9h4TIzLdjdRG01C8ZESCqzleQFjeIom0gMakAxtQ7kffl2MPvocnjr9dveUj%2B9gh2bL2rQd%2F7DbtyOkmV6aYijM1LNsJfb9YCRrMpyv47zMaQSNkaCUR3HOe%2Bi0xBsCW3VEcBqq9HtsFkDVsjugJ%2FD5vZBDjOcxRv%2BXNNdwUFmwuEsUVrbwOpGBMLe%2FeXz2DMRzP4joKmjQWNLn8xnFdITNo0lmZ1S3fA8DsYbgIkfdDy14Lsp%2FNzVwdnH9822YGH0j%2BiLx7CliwOfKsty%2FsRa8XxtzY0yrntXDGmSt3gzgwjs73yQY6pgHFSZuRknLMEQ76GWnzrLgoL8M7kcQ2HG7dFkKg%2FFKHeR4h6VqAdJBUR0XsFwKQS3YFYyF%2Bv7TD2qe5h9Qyg1S1I8sC%2B%2FyLkDlrSYv5fnb11pX0z5xDtSeraGxjwGZNaFg81ivUio05QO%2BKPMhxRXv%2BbtWTF%2F1uqKn07VZO9LHUPdD4haJ%2F4Y9dTtwi5TDprxqds3JJtMNO4pgvVMqwdanTAmRUuida&X-Amz-Signature=ce022c09982657152b43bbc7bf89730324688778ae46eb6a6a02689375777d35&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+---
+

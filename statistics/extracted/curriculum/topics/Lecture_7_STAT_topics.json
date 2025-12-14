@@ -1,0 +1,151 @@
+{
+  "lecture_id": "Lecture_7_STAT",
+  "lecture_number": 7,
+  "title": "Sampling Distributions",
+  "total_slides": 20,
+  "learning_objectives": [
+    "sample and population can be distinguished.",
+    "the central limit theorem influences our approach.",
+    "the sample distribution for the mean and the proportion is defined."
+  ],
+  "sections": [
+    {
+      "id": "I",
+      "title": "Concept of Sampling Theory",
+      "slides": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "slide_range": [
+        5,
+        8
+      ],
+      "key_concepts": [
+        "by_its",
+        "discrete",
+        "distribution",
+        "expected_value",
+        "mean",
+        "population",
+        "probability",
+        "random_variable",
+        "sample",
+        "sampling",
+        "standard_deviation",
+        "standard_error",
+        "unknown",
+        "variance"
+      ]
+    },
+    {
+      "id": "II",
+      "title": "Sampling Distribution of the Mean",
+      "slides": [
+        9,
+        10,
+        11
+      ],
+      "slide_range": [
+        9,
+        11
+      ],
+      "key_concepts": [
+        "distribution",
+        "mean",
+        "normal",
+        "random_variable",
+        "sample",
+        "sampling",
+        "standard_normal",
+        "variance"
+      ]
+    },
+    {
+      "id": "III",
+      "title": "Central Limit Theorem",
+      "slides": [
+        12,
+        13,
+        14
+      ],
+      "slide_range": [
+        12,
+        14
+      ],
+      "key_concepts": [
+        "central_limit",
+        "distribution",
+        "expected_value",
+        "for_any",
+        "mean",
+        "normal",
+        "of_arbitrary",
+        "population",
+        "population_the",
+        "random_variable",
+        "sample",
+        "sampling",
+        "standard_deviation",
+        "then_the",
+        "variance"
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Characteristics of Sampling Distributions",
+      "slides": [
+        15
+      ],
+      "slide_range": [
+        15,
+        15
+      ],
+      "key_concepts": [
+        "distribution",
+        "mean",
+        "normal",
+        "population",
+        "random_variable",
+        "sample",
+        "sample_mean",
+        "sampling",
+        "standard_deviation"
+      ]
+    },
+    {
+      "id": "V",
+      "title": "Sampling Distribution of the Proportion",
+      "slides": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "slide_range": [
+        15,
+        20
+      ],
+      "key_concepts": [
+        "binomial",
+        "central_limit",
+        "distribution",
+        "expected_value",
+        "mean",
+        "normal",
+        "population",
+        "probability",
+        "random_variable",
+        "sample",
+        "sample_mean",
+        "sampling",
+        "standard_deviation",
+        "variance",
+        "with_probability"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+================================================================================
+LECTURE 7: STATISTICS BOOTCAMP
+Total Slides: 20
+================================================================================
+
+--- Slide 1 of 20 ---
+
+Prof. Dr. Roland Füss 
+Swiss Institute of Banking and Finance (s/bf)
+Methods: Statistics (4,120)
+7. Sampling Distributions
+Spring 2022
+
+
+--- Slide 2 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+I. Concept of Sampling Theory
+II. Sampling Distribution of the Mean
+III. Central Limit Theorem
+IV. Characteristics of Sampling Distributions
+V. Sampling Distribution of the Proportion
+2
+Contents
+
+
+--- Slide 3 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+Learning Objectives
+After this lecture, you know how: 
+• sample and population can be distinguished.
+• the central limit theorem influences our approach.
+• the sample distribution for the mean and the proportion is defined.
+3
+
+
+--- Slide 4 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+Literature
+Levine, D.M., K. A. Szabat, and D.F. Stephan. (2016). Business Statistics: A First 
+Course, 7th ed. United States: Pearson, Chapter 7.*
+Stinerock, R. (2018). Statistics with R. United Kingdom: Sage. Chapter 7.*
+Shira, Joseph (2012). Statistische Methoden der VWL und BWL, 4th ed. Munich 
+et al.: Pearson Studium, Chapter 12.
+Weiers, R. M. (2011). Introductory Business Statistics,7th ed., Canada: Thomson 
+South-Western, Chapter 8.
+4
+*Mandatory literature
+
+
+--- Slide 5 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+I. Concept of Sampling Theory
+Statistical Inference : Using information from a random sample to make
+conclusions about the unknown distribution or unknown parameter values of the
+population from which the sample is drawn.
+The number n of chosen elements from the population is the sample size.E a c h
+observed element x
+i can be considered as a realization of a random variable, the
+so-called i-th sample variable Xi (i = 1, ..., n).
+Realizations of the sample are fed into a sample function (e.g., to determine the
+population mean or the variance). The result of the sample function is also a
+random variable. All possible realizations of a sample function (and their
+corresponding probabilities) form a sampling distribution , described by its
+distribution function, mean, and variance.
+5
+
+
+--- Slide 6 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+I. Concept of Sampling Theory (Example)
+Assume each of the 4 members of a student group (= population)h a sac e r t a i n
+number of Rivella bottles in his/her fridge. The probability function of this discrete
+random variable X = "number of bottles in person’s fridge"looks as follows:
+6
+32104 50.00
+0.25
+0.50
+Person x
+Reto 1
+Urs 1
+Regula 3
+Michael 5
+22 2 2 2 1[( ) ] 2 (1.0 2.5) (3 2.5) (5 2.5) 2.754
+     EX
+1 113 5 2 . 54
+    
+
+
+--- Slide 7 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+Random Sample Sample Mean Probability
+Reto, Urs = (1+1)/2 = 1.0 1/6
+Reto, Regula = (1+3)/2 = 2.0 1/6
+Reto, Michael = (1+5)/2 = 3.0 1/6
+Urs, Regula = (1+3)/2 = 2.0 1/6
+Urs, Michael = (1+5)/2 = 3.0 1/6
+Michael, Regula = (5+3)/2 = 4.0 1/6
+All possible simple random samples of n = 2 from this population:
+7
+x
+x
+x
+x
+x
+x
+I. Concept of Sampling Theory (Example)
+
+
+--- Slide 8 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+32104 50
+1/6
+2/6
+The sampling distribution of the mean has the same expected value as the
+population. The standard deviation of the sampling distribution of the mean is
+called standard error of the mean.
+I. Concept of Sampling Theory (Example)
+x
+
+     
+  
+22 2 2
+22
+12[( ) ] (1.0 2.5) (2 2.5) 66
+21(3 2.5) (4 2.5) 0.91766
+x Ex
+= 2.5
+8
+1221(1) (2) (3) (4) 2.56666
+x
+
+
+
+
+--- Slide 9 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+II. Sampling Distribution of the Mean
+9
+/
+
+
+
+
+
+x
+xxz
+n
+Consider a normally distributed random variable X  N(
+, ). Each individual 
+sample X1, …, Xn is also a random variable with Xi  N(
+, ) and observed 
+realization x1, …, xn , i = 1, …, n. The sample mean as a function of random 
+variables is also a random variable:
+Each linear combination of independent, normally distributed random variables is 
+again normally distributed. The random variable "sample mean" is normally 
+distributed with mean and variance:
+Transformation into standard normal distribution:
+()
+
+ xEX /
+x nand
+ nXXnX  1
+1
+
+
+--- Slide 10 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+with standard error of the sample mean
+Show that
+II. Sampling Distribution of the Mean
+10
+()
+
+ xEX 22 /x n
+ and
+𝜎 / 𝑛
+
+
+--- Slide 11 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+II. Sample Distribution of the Mean (R-Example 1)
+11
+Open the file "L1-Example_1.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 12 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+III. Central Limit Theorem
+Given a population of arbitrary distribution with mean
+ and standard deviation
+,
+then the distribution of the arithmetic mean of n independent and identically (as
+the population) distributed ( i.i.d.) random variables Xi approaches with growing
+sample size n  a normal distribution with expected value
+ and variance
+2 / n
+(i.e., the sample mean is asymptotically normally distributed).
+The central limit theorem justifies that for any distribution of the population the
+distribution of the mean can be approximated by the normal distribution if the
+sample size is sufficiently large (n  30).
+12
+
+
+--- Slide 13 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+III. Central Limit Theorem
+13
+Weibull(1,1.5) sampling distibution of mean with n = 2
+Density
+02468
+0.0 0.1 0.2 0.3
+Weibull(1,1.5) sampling distibution of mean with n = 5
+Density
+01234
+0.0 0.2 0.4 0.6
+Weibull(1,1.5) sampling distibution of mean with n = 30
+Density
+1 . 01 . 52 . 02 . 5
+0.0 0.5 1.0 1.5
+Lognormal(1,1) sampling distribution of mean with n= 10
+Density
+2 4 6 8 10 12 14
+0.00 0.10 0.20 0.30
+Lognormal(1,1) sampling distribution of mean with n= 30
+Density
+2468 1 0
+0.0 0.1 0.2 0.3
+Lognormal(1,1) sampling distribution of mean with n= 100
+Density
+3456
+0 . 00 . 20 . 40 . 6
+
+
+--- Slide 14 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+III. Central Limit Theorem (R-Example 2)
+14
+Open the file "L1-Example_2.R" in R-Studio and reproduce the R-Code.
+
+
+--- Slide 15 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+1. Distribution of the sampling mean has the same mean as the population: 
+2. The standard deviation of the sample mean distribution is: 
+(if     normally distr., e.g., because CLT applies)
+3a.  If the population is normally distributed, the sampling distribution of the mean
+is normally distributed as well.
+3b. If the population is not normally distributed, the distribution of the mean of n
+independent random variables Xi approaches a normal distribution with a
+growing sample size (implied by CLT).
+4.     Then, the standardized random variable is 
+(asymptotically) normally distributed.
+IV. Characteristics of the Sampling Distributions
+xz
+n
+
+
+x
+n
+ 
+() xEx
+
+
+15
+X
+
+
+--- Slide 16 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+IV. Sampling Distribution (Example)
+16
+Production time: An accurately adjusted machine needs 25 seconds on average
+for the production of a component, with a standard deviation of 3 seconds. A
+random sample ( n = 36) resulted in a sample mean of 26.2 seconds for the
+completion of one component. What is the probability – assuming the machine is
+accurately adjusted – that the mean of this sample is bigger or equal to 26.2?
+3,25,2.26 
+
+x 26.2 25 2.40
+/3 / 3 6
+
+
+
+
+   
+x
+xxz
+n
+( 26.2) ( 2.40) 1 0.9918 0.0082PX PZ   
+
+
+--- Slide 17 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+IV. Sampling Distribution (Example)
+Waiting time: The branch manager of a bank finds out that the waiting time of
+customers at the counter is exponentially distributed with a mean (and standard
+deviation) of 3.5 minutes. Determine (under consideration of the CLT), for a
+random sample of n = 36 customers, the probability that the average waiting time
+was longer than 4 minutes.
+Reason: 
+ = 
+ = 3.5; with n = 36, the mean value of the sample is approximately 
+normal distributed due to the central limit theorem with
+x = 3.5!
+17
+3.5 0.5833
+36
+43 . 5( 4) ( 0.86) 1 0.8051 0.19490.5833
+x
+n
+PX P Z PZ
+
+  
+      
+
+
+--- Slide 18 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+V. Sampling Distribution of the Proportion
+The binomial distribution with probability function f(x) of X is defined by :
+The proportion of success x in a sample of n trials will be the sample proportion
+p = x / n, resp. x = pn. The expected value E(p) and the variance of the 
+proportional value are calculated as follows:
+18
+11() ( )Ep Ex nnn
+
+  
+2
+22
+1( 1 ) ( 1 )() ( )p
+nVar p Var Xnn n
+
+ 
+   
+() ( 1 ) x nxnfx x
+ 
+
+
+--- Slide 19 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+If conditions nπ  5 and n(1-π)  5 are fulfilled, the sampling
+distribution of the proportions is approximately normal distributed.
+As the sample size increases, the standard error of the proportion 
+becomes smaller.
+The standardized proportion is given by:
+V. Sample Distribution of the Proportion
+(1 )
+p
+n
+
+
+ 
+p
+pz
+
+
+
+with:
+19
+
+
+--- Slide 20 of 20 ---
+
+Methods: Statistics (Spring 2022) 
+V. Sampling Distribution of the Proportion (Example)
+0.60 0.55 1.74
+0.55(1 0.55)
+300
+z 
+
+( 0.60) ( 1.74) 0.0409Pp Pz 
+Product preference: A product manager claims that 55% of the potential
+customers in a certain target group prefer his product over that of the competitor.
+Assume his claim is true; what is then the probability that in a random sample of
+300 people of the target group at least 60% prefer the manager's product?
+20
+

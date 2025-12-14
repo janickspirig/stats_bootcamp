@@ -1,0 +1,316 @@
+{
+  "exercise_id": "Übungsblatt_2",
+  "title_de": "Einführung in die Wahrscheinlichkeitsrechnung",
+  "title_en": "Introduction to Probability",
+  "description": "Exercises on basic probability concepts, axioms, and rules",
+  "total_pages": 75,
+  "pdf_source": "Übungsblatt_2_Folien.pdf",
+  "modules": [
+    "probability_basics"
+  ],
+  "related_lectures": [
+    3
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "filename": "page_001.png"
+    },
+    {
+      "page_number": 2,
+      "filename": "page_002.png"
+    },
+    {
+      "page_number": 3,
+      "filename": "page_003.png"
+    },
+    {
+      "page_number": 4,
+      "filename": "page_004.png"
+    },
+    {
+      "page_number": 5,
+      "filename": "page_005.png"
+    },
+    {
+      "page_number": 6,
+      "filename": "page_006.png"
+    },
+    {
+      "page_number": 7,
+      "filename": "page_007.png"
+    },
+    {
+      "page_number": 8,
+      "filename": "page_008.png"
+    },
+    {
+      "page_number": 9,
+      "filename": "page_009.png"
+    },
+    {
+      "page_number": 10,
+      "filename": "page_010.png"
+    },
+    {
+      "page_number": 11,
+      "filename": "page_011.png"
+    },
+    {
+      "page_number": 12,
+      "filename": "page_012.png"
+    },
+    {
+      "page_number": 13,
+      "filename": "page_013.png"
+    },
+    {
+      "page_number": 14,
+      "filename": "page_014.png"
+    },
+    {
+      "page_number": 15,
+      "filename": "page_015.png"
+    },
+    {
+      "page_number": 16,
+      "filename": "page_016.png"
+    },
+    {
+      "page_number": 17,
+      "filename": "page_017.png"
+    },
+    {
+      "page_number": 18,
+      "filename": "page_018.png"
+    },
+    {
+      "page_number": 19,
+      "filename": "page_019.png"
+    },
+    {
+      "page_number": 20,
+      "filename": "page_020.png"
+    },
+    {
+      "page_number": 21,
+      "filename": "page_021.png"
+    },
+    {
+      "page_number": 22,
+      "filename": "page_022.png"
+    },
+    {
+      "page_number": 23,
+      "filename": "page_023.png"
+    },
+    {
+      "page_number": 24,
+      "filename": "page_024.png"
+    },
+    {
+      "page_number": 25,
+      "filename": "page_025.png"
+    },
+    {
+      "page_number": 26,
+      "filename": "page_026.png"
+    },
+    {
+      "page_number": 27,
+      "filename": "page_027.png"
+    },
+    {
+      "page_number": 28,
+      "filename": "page_028.png"
+    },
+    {
+      "page_number": 29,
+      "filename": "page_029.png"
+    },
+    {
+      "page_number": 30,
+      "filename": "page_030.png"
+    },
+    {
+      "page_number": 31,
+      "filename": "page_031.png"
+    },
+    {
+      "page_number": 32,
+      "filename": "page_032.png"
+    },
+    {
+      "page_number": 33,
+      "filename": "page_033.png"
+    },
+    {
+      "page_number": 34,
+      "filename": "page_034.png"
+    },
+    {
+      "page_number": 35,
+      "filename": "page_035.png"
+    },
+    {
+      "page_number": 36,
+      "filename": "page_036.png"
+    },
+    {
+      "page_number": 37,
+      "filename": "page_037.png"
+    },
+    {
+      "page_number": 38,
+      "filename": "page_038.png"
+    },
+    {
+      "page_number": 39,
+      "filename": "page_039.png"
+    },
+    {
+      "page_number": 40,
+      "filename": "page_040.png"
+    },
+    {
+      "page_number": 41,
+      "filename": "page_041.png"
+    },
+    {
+      "page_number": 42,
+      "filename": "page_042.png"
+    },
+    {
+      "page_number": 43,
+      "filename": "page_043.png"
+    },
+    {
+      "page_number": 44,
+      "filename": "page_044.png"
+    },
+    {
+      "page_number": 45,
+      "filename": "page_045.png"
+    },
+    {
+      "page_number": 46,
+      "filename": "page_046.png"
+    },
+    {
+      "page_number": 47,
+      "filename": "page_047.png"
+    },
+    {
+      "page_number": 48,
+      "filename": "page_048.png"
+    },
+    {
+      "page_number": 49,
+      "filename": "page_049.png"
+    },
+    {
+      "page_number": 50,
+      "filename": "page_050.png"
+    },
+    {
+      "page_number": 51,
+      "filename": "page_051.png"
+    },
+    {
+      "page_number": 52,
+      "filename": "page_052.png"
+    },
+    {
+      "page_number": 53,
+      "filename": "page_053.png"
+    },
+    {
+      "page_number": 54,
+      "filename": "page_054.png"
+    },
+    {
+      "page_number": 55,
+      "filename": "page_055.png"
+    },
+    {
+      "page_number": 56,
+      "filename": "page_056.png"
+    },
+    {
+      "page_number": 57,
+      "filename": "page_057.png"
+    },
+    {
+      "page_number": 58,
+      "filename": "page_058.png"
+    },
+    {
+      "page_number": 59,
+      "filename": "page_059.png"
+    },
+    {
+      "page_number": 60,
+      "filename": "page_060.png"
+    },
+    {
+      "page_number": 61,
+      "filename": "page_061.png"
+    },
+    {
+      "page_number": 62,
+      "filename": "page_062.png"
+    },
+    {
+      "page_number": 63,
+      "filename": "page_063.png"
+    },
+    {
+      "page_number": 64,
+      "filename": "page_064.png"
+    },
+    {
+      "page_number": 65,
+      "filename": "page_065.png"
+    },
+    {
+      "page_number": 66,
+      "filename": "page_066.png"
+    },
+    {
+      "page_number": 67,
+      "filename": "page_067.png"
+    },
+    {
+      "page_number": 68,
+      "filename": "page_068.png"
+    },
+    {
+      "page_number": 69,
+      "filename": "page_069.png"
+    },
+    {
+      "page_number": 70,
+      "filename": "page_070.png"
+    },
+    {
+      "page_number": 71,
+      "filename": "page_071.png"
+    },
+    {
+      "page_number": 72,
+      "filename": "page_072.png"
+    },
+    {
+      "page_number": 73,
+      "filename": "page_073.png"
+    },
+    {
+      "page_number": 74,
+      "filename": "page_074.png"
+    },
+    {
+      "page_number": 75,
+      "filename": "page_075.png"
+    }
+  ]
+}

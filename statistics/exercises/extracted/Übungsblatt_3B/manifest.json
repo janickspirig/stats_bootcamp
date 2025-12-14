@@ -1,0 +1,116 @@
+{
+  "exercise_id": "Übungsblatt_3B",
+  "title_de": "Wahrscheinlichkeitsverteilungen (Teil B)",
+  "title_en": "Probability Distributions (Part B)",
+  "description": "Exercises on continuous probability distributions",
+  "total_pages": 25,
+  "pdf_source": "Übungsblatt_3B_Folien.pdf",
+  "modules": [
+    "continuous_distributions"
+  ],
+  "related_lectures": [
+    5
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "filename": "page_001.png"
+    },
+    {
+      "page_number": 2,
+      "filename": "page_002.png"
+    },
+    {
+      "page_number": 3,
+      "filename": "page_003.png"
+    },
+    {
+      "page_number": 4,
+      "filename": "page_004.png"
+    },
+    {
+      "page_number": 5,
+      "filename": "page_005.png"
+    },
+    {
+      "page_number": 6,
+      "filename": "page_006.png"
+    },
+    {
+      "page_number": 7,
+      "filename": "page_007.png"
+    },
+    {
+      "page_number": 8,
+      "filename": "page_008.png"
+    },
+    {
+      "page_number": 9,
+      "filename": "page_009.png"
+    },
+    {
+      "page_number": 10,
+      "filename": "page_010.png"
+    },
+    {
+      "page_number": 11,
+      "filename": "page_011.png"
+    },
+    {
+      "page_number": 12,
+      "filename": "page_012.png"
+    },
+    {
+      "page_number": 13,
+      "filename": "page_013.png"
+    },
+    {
+      "page_number": 14,
+      "filename": "page_014.png"
+    },
+    {
+      "page_number": 15,
+      "filename": "page_015.png"
+    },
+    {
+      "page_number": 16,
+      "filename": "page_016.png"
+    },
+    {
+      "page_number": 17,
+      "filename": "page_017.png"
+    },
+    {
+      "page_number": 18,
+      "filename": "page_018.png"
+    },
+    {
+      "page_number": 19,
+      "filename": "page_019.png"
+    },
+    {
+      "page_number": 20,
+      "filename": "page_020.png"
+    },
+    {
+      "page_number": 21,
+      "filename": "page_021.png"
+    },
+    {
+      "page_number": 22,
+      "filename": "page_022.png"
+    },
+    {
+      "page_number": 23,
+      "filename": "page_023.png"
+    },
+    {
+      "page_number": 24,
+      "filename": "page_024.png"
+    },
+    {
+      "page_number": 25,
+      "filename": "page_025.png"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+---
+title: "I can work with odds and odds ratios"
+category: "Statistics Bootcamp"
+module: 4
+order: 6
+---
+
+# I can work with odds and odds ratios
+
+> 📚 **Overview:** Convert between probability and odds, and interpret odds ratios (OR).
+
+---
+
+## Learning Objectives
+
+After completing this section, you will be able to:
+- Convert probability \(p\\) to odds and back
+- Compute an odds ratio (OR) for two groups
+- Interpret odds and OR in plain language
+
+---
+
+## Definitions
+
+### Odds
+
+If an event has probability \(p\\), then its **odds** are:
+
+$$
+\\text{odds} = \\frac{p}{1-p}
+$$
+
+To convert odds \(o\\) back to probability:
+
+$$
+p = \\frac{o}{1+o}
+$$
+
+---
+
+### Odds ratio (OR)
+
+For two groups (1 and 0) with probabilities \(p_1\\) and \(p_0\\):
+
+$$
+OR = \\frac{\\frac{p_1}{1-p_1}}{\\frac{p_0}{1-p_0}}
+$$
+
+Interpretation:
+- OR = 1 → same odds in both groups
+- OR > 1 → higher odds in group 1
+- OR < 1 → lower odds in group 1
+
+---
+
+## Worked Examples
+
+### Example 1 (probability → odds)
+
+If \(P(\\text{Default})=0.08\\), compute the odds of default.
+
+<details>
+<summary>💡 Show Solution</summary>
+
+$$
+\\text{odds} = \\frac{0.08}{1-0.08} = \\frac{0.08}{0.92} = 0.0870
+$$
+
+Interpretation: odds ≈ 0.087 means about 0.087 defaults per 1 non-default (≈ 1 to 11.5).
+
+</details>
+
+---
+
+### Example 2 (odds → probability)
+
+If odds = 0.25, what is the probability?
+
+<details>
+<summary>💡 Show Solution</summary>
+
+$$
+p = \\frac{0.25}{1+0.25} = \\frac{0.25}{1.25} = 0.20
+$$
+
+</details>
+
+---
+
+### Example 3 (odds ratio)
+
+Group 1 has event probability \(p_1=0.20\\), group 0 has event probability \(p_0=0.10\\). Compute OR.
+
+<details>
+<summary>💡 Show Solution</summary>
+
+Odds in group 1: \(0.20/0.80=0.25\\)  
+Odds in group 0: \(0.10/0.90=0.1111\\)
+
+$$
+OR = \\frac{0.25}{0.1111} = 2.25
+$$
+
+Interpretation: the odds of the event are about **2.25×** higher in group 1 than in group 0.
+
+</details>
+
+---
+
+## Practice Problems
+
+### Problem 1
+
+Convert probability \(p=0.40\\) to odds.
+
+<details>
+<summary>💡 Show Solution</summary>
+
+$$
+\\text{odds} = \\frac{0.40}{0.60} = 0.6667
+$$
+
+</details>
+
+---
+
+### Problem 2
+
+Group A has odds 0.50 and group B has odds 0.25. Compute OR (A relative to B).
+
+<details>
+<summary>💡 Show Solution</summary>
+
+$$
+OR = \\frac{0.50}{0.25} = 2
+$$
+
+</details>
+
+---
+
+## Navigation
+
+[← Bayes' Theorem](bayes_theorem.md) | [Module Index](index.md) | [Next: Counting →](counting.md)
+
+

@@ -1,0 +1,139 @@
+{
+  "lecture_id": "Lecture_8_STAT",
+  "lecture_number": 8,
+  "title": "Estimation Theory",
+  "total_slides": 31,
+  "learning_objectives": [
+    "the basic concepts of estimation theory and the necessary",
+    "sampling statistics differ from the corresponding values of the",
+    "confidence intervals are calculated for mean and proportions.",
+    "large the required sample size should be."
+  ],
+  "sections": [
+    {
+      "id": "I",
+      "title": "Estimates from Samples",
+      "slides": [
+        5
+      ],
+      "slide_range": [
+        5,
+        5
+      ],
+      "key_concepts": [
+        "confidence_interval",
+        "expected_value",
+        "population",
+        "probability",
+        "sample"
+      ]
+    },
+    {
+      "id": "II",
+      "title": "Point Estimators",
+      "slides": [
+        6
+      ],
+      "slide_range": [
+        6,
+        6
+      ],
+      "key_concepts": [
+        "mean",
+        "population",
+        "sample",
+        "variance"
+      ]
+    },
+    {
+      "id": "III",
+      "title": "Confidence Interval of the Mean",
+      "slides": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "slide_range": [
+        7,
+        24
+      ],
+      "key_concepts": [
+        "central_limit",
+        "confidence_interval",
+        "distribution",
+        "for_other",
+        "mean",
+        "normal",
+        "of_the",
+        "population",
+        "probability",
+        "random_variable",
+        "sample",
+        "standard_deviation",
+        "standard_normal",
+        "standardized_normal",
+        "uniform"
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Confidence Interval of the Proportion",
+      "slides": [
+        25
+      ],
+      "slide_range": [
+        25,
+        25
+      ],
+      "key_concepts": [
+        "confidence_interval",
+        "normal",
+        "population",
+        "sample"
+      ]
+    },
+    {
+      "id": "V",
+      "title": "Sample Size",
+      "slides": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "slide_range": [
+        25,
+        31
+      ],
+      "key_concepts": [
+        "binomial",
+        "confidence_interval",
+        "distribution",
+        "mean",
+        "normal",
+        "population",
+        "sample",
+        "standard_normal",
+        "variance"
+      ]
+    }
+  ]
+}

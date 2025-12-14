@@ -1,0 +1,125 @@
+---
+title: "Quiz 7"
+notion_id: "637ff0b9-5a36-4328-9dc8-3e4b8f5f74c0"
+notion_url: "https://www.notion.so/Quiz-7-637ff0b95a3643289dc83e4b8f5f74c0"
+exported_at: "2025-12-14T00:52:06.572833+00:00"
+---
+
+# Quiz 7
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/bf8c1506-d537-432f-af56-6a596d458eb9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=90c875fb99578ec6837a6e52dca3fc213277fc14a6568b64363b13694f4004e9&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+- `SELECT *` → We want all columns
+- `FROM students` → the table is called Students
+- `WHERE DATE(date_of_birth) = DATE (’2001-11-11’)` → we want the person that was born on the 11.11.2001
+- We convert the value stored in `date_of_birth` to a `DATE` object so that we can compare it with our string `‘2011-11-11’`, so that we are sure that we compare the same data types with each other as otherwise we would get an error
+
+---
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/af463273-ae58-44ac-8f8c-42ac1b7225e5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=5287619d958caf668bf05b290dd4e13d973d162629d6c6a982f5bf220be1af15&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+Python does not know with which student the enrolment belongs to as the foreign key does not exist, thus an error is thrown.
+
+---
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/a936995d-7221-4e13-9112-861522d53cbf/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=a0629b6497885ee0d74097ede6c2c293344a42a5b56e1dd3745b29548352e74f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/00c2a6ed-8d79-40bf-bda6-e4671c822e43/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=07372f91ec0f3a910aadff165d7cb50824f0247360eb2d51b6b335ef2adbcc65&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+We want the average grade per course category. Thus, we must look into the different code snippets and check where we find `GORUP BY category`. → **snippet 2**
+All other code snippets are grouped based on another column and therefore not valid solutions. 
+The query is executable in one SQL statements as we have three inner JOINs
+- First, we join enrolments and grades to get the information to which enrolment a grade belongs to
+```sql
+SELECT *
+FROM grades
+INNER JOIN enrollments 
+	ON enrollments.id = grades.enrollment_id
+```
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/f54cbd49-cc2e-4bf1-81cd-de4645258c3c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VCWDT75S%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQCBecpEc00XB1Rc%2FUxNVABbtYZf6xY6j6%2FkDz%2BMvj8CMgIgPekBq90CidVH0GaPpf5CCzYJsJY%2Bj0AQEp3n86dmNC0q%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDI70xKWQy6LoQH9IhCrcAzktewsZzjJt%2BeED7NuMiouxoodyJut%2FhloNxw3DerNxDCsMFQ5EWUzYes7vu13cLMMERUF1siJesh4pwyFSbFrnncvSX5G2yMyoG%2FVklA531EUCuxoGMPcnuMKZcfx6MJKKR25pLNYKO67c7xECeWvb5NiJmlESis6XH%2FyQqupYExRma94XoqHmkfyc9p6pdlvI5qjlKb5ADyUX1MTq6zspJgK%2FXmO2OfBltMFPWqw%2BivurcI%2BhgGeuFyCIHLWtmFzqtPrWCK69YV1WR5UxieCuL%2BEgY8kfvsI13dxQCoN0hMQVIjiTjUw5WyfioBrsTSjmxxzHzbM1zkAoRHgcFUW642dyHhfcef2hf0FrrrzqNOd7FkHSLFMqEhys04uVqluChJ6rzuG96rMllxBeeDWVtmt3qeZTq7GnEK0%2BmtIHi6DWpP6VWqiqkOe7VrG85GqOpE%2BXbJXX0vhO6%2BWyiPU3F4cjvsr%2FTi0qwyDmMoGQIU%2BMMxXhrLQXr%2By%2BK4863tTVlKpzUKK28HyGtW%2BoGuwJB%2Fo5nM3nzWdc3kOloevoy2vmwWQWkYz4%2BLZnfVwwuB2SqvvR51OLNwflwXNf7nGd7I3FSPlS9HYBn54ek%2BeugWXOqdTTthD5FNoBMPHN98kGOqUBjQDnNOEDCPF7PdZoVML3EvuvMJgsFC8rpxWDu7%2BaTO9Jd3OpSBnnX1u12tiQhBwFHtDb7XprHCUd49q8Qx4%2FT%2BjaYFgMwvAJQZNuQ1Fjae16E9yOy2lZzAvqXkS%2FLVHpxJnUyAZl8p3wjOJa8ukn8LROAHrpZPZs47osuGK17l0xoZXCGmXKvpN%2Fj0R7fko4IKcv8teuWJGJiO2wg9TvMCyohYLP&X-Amz-Signature=a67739df4106e0849d83fdb672e5a20286e0debc37b4e1fe9544f05e7f0c8e68&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+- Second, we join courses with enrolments so that we get the information about the course category as in the end we want to group the grades per category
+```sql
+SELECT *
+FROM grades
+INNER JOIN enrollments 
+	ON enrollments.id = grades.enrollment_id
+INNER JOIN courses 
+	ON courses.id = enrollments.course_id
+```
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/933a1930-9bf6-4e68-8d02-bea9b1b6dfea/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZR74K5FE%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005200Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQCnxGRChn2tv7ZyWCMNuusqnZrEmOPJWkAWmaBgfUzZgAIgTZ%2Fz6%2BLTYOyrHdsSoApuQsvZdEuoo%2Bj2L%2BLOj9hk%2FYAq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDHipDdEoN4ucYgWL0CrcAy6LjPNKemU%2FOXh%2BXFsysMwZZJOPcW5fMsmpAmvBxCJF9%2BmOkc8g29e0s1mZLb6tIGSR%2F6TrCywvDDn01SiRpSjU53ECgGjnJUfHSoIVesXsXxsrEtjhT9h%2BBnaM2sr3xG9SrDQYJ7c2ZxYlU%2BK4Iq%2BbQWEQ5KYjtmu7KoLDCwrqoPwnFDdPZjh5yOlrnhzt92BuZ3nHqA2Gr9zrA4wG%2Fag9LLYrLFFqcL6%2FjC200UKruLjtS9u%2BfZgguZvWtVUk3R1TTs7G5SI1uVyRjZHivpQ7v%2FLCejtuLg8arjaLO1eHMitIRrMlUc3NyAnU%2BsIMXQLIx6Q39XSihPa6y4B4cbUo9rwmVXuSxdwz44EmlpG%2FOcuNjaMnkiwvI51cwD2e70lqk0E1cHvRv06JVYyt2JdqnjgG%2B3Ob8ryQ6jwa%2B3JAp81ZzLK6IXeTgeG2sqUoQTgo%2FFlwylSnpSMb4TZeP3MyS%2BikBJmSvKCg2lFBoM0YE3OPUkcpFTJfRqK2vJFX9MCl%2FfI4qfsz14oDFMCOPwkr4B8jk%2FAEK52QkOGgXy8aK4F8QDKQaaxDiQsn6FA15HMGGF%2FfcAvuTbxgBvcfaUwGLn8c4j6o4e%2BLrv6VYRgtvRnzz253yXJXalaNMODN98kGOqUBWZfuSr%2BACSyek0HpMg8MceuttVhtUvR7BKEfre3c6ote11buxECq0hRUdQSZcfrjG8Z%2BZ6kg0zqChwnek7%2B5pal3epLxSw0O1XrBmTyxTIaYDhaYABorEXyW0041iQGS%2F2d%2Bf4plU5aLuvwnDe7FToqyyrv1VRgtl1E8L28HSibpYx40W2XgGtfexEdyzzIT4apSMX%2BBmsuaydUyAURjM6CSlFBC&X-Amz-Signature=4593a4231a472cb498d74c1b55e58f16a50fbedcd28ced3b0294c10e1a0be23f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+- Third, we join with students table to see by whom the grades were achieved
+```sql
+SELECT *
+FROM grades
+INNER JOIN enrollments 
+	ON enrollments.id = grades.enrollment_id
+INNER JOIN courses 
+	ON courses.id = enrollments.course_id
+INNER JOIN students 
+  ON students.id = enrollments.student_id
+```
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/91706ec3-cc77-42a8-a12b-69711347157f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RZENXSJN%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005200Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIEw3lJPZHAOknNyO9eAmR4vaF9PUalcFwIPafO%2B4vM%2F6AiEAtlA7tqjST9r54eWqe1qR64mEbCLToXysM%2FWmLGDTmGwq%2FwMIKBAAGgw2Mzc0MjMxODM4MDUiDLXO0SElAYnoxrkD8CrcA9fzNF1v2UvHvY3EyW3G7JyYx9Cew5guJOI8qTfsuN0d0MK0%2Biwj64K5Pwu48pS6zVsGr9vp5dQqNHOOzDwWtKQpU1UsTyUn025HffP3AIF4zNdvTzc1iRf2wgzWLZg8SK%2BRDySHLUkFFeEIhw4DQS3CYT7QKeb9BVPzx2fAHtzl%2FTReHkAt3Vuhwt9rv9KFmnxHHQJaSKZjT9Hvt5V3rwWC4azqifCUmZYnStaKO4GBWRbz79pxGnj0DbVIaYuQQ%2BnLC5%2F3SSlx1tdMx%2F9puxPBOTx4emYEpYsVo5fBMuWaUvXx4itZZjR%2Bu1fpSfGEEpqcZKU2HKbc1ue2s26cXPh810NcM193YP2bHB%2Bjps%2F9hIe1enY%2Bvru6n4JVWHY%2BPe5rB7qqlsseW8FjUTm%2FJVEYXos8QVFuybE61QPhREWh2Z4QpzB36hR7U6MzEaGNfQe%2FPvrrLXIib6dtEXBPyKsGmFtmP0CT4L1i3YsDOf9%2BPXFIiGW8lFjIuHz75ibFAzi91bnqaQ4Kt1JmDes15IvOp5XcKYOjPoEZoA8seB%2BgbHvpYPcBDpfDQktaijKsJadWuwi7LrjG%2Brhctc51d3fW3QInlq%2BFPRYuFesP2r8hjFMs0GluLKidTGt0MM7O98kGOqUB9la9O8bDsppWHUY2z4%2BfDkT9jFSH%2FS%2BJWrX%2FylSTdQVw3pOn0olnU2E4btvpuLyr0lgWWnmSHD%2Fnvyl27nKLsxuPGlck94jtSm7DywXljMU%2FG5I4KsiRGxRFFuemB8QW3eE5t7gmTYQkMvLd84sxuZJJsKkRixJRVzK6nnOVtR2Cu5uMHhdGFXqM1RKkMz8pzhOneMOQQz4mmveKCn7vEl63DPkS&X-Amz-Signature=2258eb9e030de854bb92c0af3139ea4182f02f59ff1a508e9fd5ba62688cc6de&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+- We can now start filtering our data table and select only one specific student, for example the student Clotilde Runkle
+```sql
+SELECT *
+FROM grades
+INNER JOIN enrollments 
+	ON enrollments.id = grades.enrollment_id
+INNER JOIN courses 
+	ON courses.id = enrollments.course_id
+INNER JOIN students 
+  ON students.id = enrollments.student_id
+WHERE
+	students.first_name = 'Clotilde'
+	AND
+	students.last_name = 'Runkle'
+
+```
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/771fd60d-ff9a-4153-8399-276d0e0d4fdc/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XZZOTLZF%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005201Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJIMEYCIQDaymlBWwDPaYRw28gG6wyffaq%2FAZbokDyvKvXRahs2mwIhAI%2Fzbr5ApeHN2eNhp8Q%2F6ct9NcCA0qEppVaNlRje3JXUKv8DCCcQABoMNjM3NDIzMTgzODA1Igx%2BPXTtYL4gohtUoHwq3AO8lJUxkVm7usURlAVV9VQC5TJdj6TR51tGGZx%2BwQpBRRQOwyQDlNmjTbJyRbpscVqkmkBK8YWwaxFRVSt65%2FDHNdauKRWaJUbSr6aYOlOJnSNxZcQ%2Fci1Nx%2FB1FkQeGt2%2BF%2F2S4Qvl516XIqb9tRm3kxiJZF0B765%2FIxOeTW%2FXLnivcj6KoaJaJTH63HH1AWaZtKtJY%2BOAMZNQMT7uWlKqVCNkszS%2Fg3ZGJrY83HFNBGR7I0WIOmXp0MJn5r7Z1vsr%2Fgl8pQzPuHhZtkaYRebSedfvViLAfgp4SKjKDGl2LCFjkuXrSz17nq8IMp6iO6ebqD5XiK1i6wgSdWKAnUHpXC5gyJNAr2LvQ6kY%2Fh7PTPdrv2gLztou4Uereq8hAnvPNGUXb75a1JtuqVqZqW7byCTzeiffhjUedd6wSf6m5JdockG6fWmNfq8nNKsXySN3kG03%2FCn8NshzcejtqaedLlVkJ5YdtDCV8M4WtquU%2FXy52ml7AncjvJKaFxLwYmZ28NLi0DOSGf2zKeDWBgT8M%2B16s7U%2BEjRXf60wW2qRaSLmwmmb5kVf5G964JqWiH%2F%2BomIJKKxxDEub7gTObMub%2F8wA6h5O6tNfJuxOsO1hAZHozpxmP3P9%2FbcGcDCwzvfJBjqkAcX6OwigDqjBQhpq5ie72UlEPyN08R%2BHi08Z%2FsrdiVcNf7XQFfKu5FCnPJwwWPt%2FoIJFBi6bzLj9b7ivjtc3MMan2xwaftEUlLrZtMe5Q5iJSSGMg2gIg%2BjimfhCBY6GsoROymkuKhu7bTnTJpQqiG1fpkJmEErJNJbNQh%2BbReBzKOmsryWMUyEFr4eusPqxqAicwvfhLyClcuVtr5EE0FkZJLBP&X-Amz-Signature=84bd9f43d6c4326cf614cb5cd88ef242f5f92d6cc90e9a29918238b9826d6d8e&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+- Lastly, we can group or table by the different values in column `category` we must now also define how the numeric values should be aggregated, thus we specify AVG(grade) so that for each course category the average of the values in column `grade` is calculated
+```sql
+SELECT
+	category, AVG(grade)
+FROM grades
+INNER JOIN enrollments 
+	ON enrollments.id = grades.enrollment_id
+INNER JOIN courses 
+	ON courses.id = enrollments.course_id
+INNER JOIN students 
+  ON students.id = enrollments.student_id
+WHERE
+	students.first_name = 'Clotilde'
+	AND
+	students.last_name = 'Runkle'
+GROUP BY category
+```
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/1def4219-38d6-49c9-97fd-c2e86f5d0552/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4667AMIQKEC%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005201Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIHvgBXvTY92mXahdFHaGTj0By9esZCvIXHhjf2LU7XkeAiEAtYo5dhciqZa13fM9zQgG7nUJVMwdYQHpM7nCNVCQvYsq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDAaFSNnlWRQa1LRmeyrcA4ijKm2PNsGLPa0uJtqKsZLsSS5ut%2FNj%2BxTYUK7Rwb8Kt1Y%2BB98WHedkCUQJj%2BtoK8lZoknKFZ1Iv0iRxM92KKFD%2FP5s0jF%2FoYe0Yuikt1oWAIiOQp5CygFRaNOmll%2BoaW0YzGIDw6vfak3CgZasm4I2iYCi6%2FjXfzY9be5EiUIPBei3%2F7HrEQFkxsdc1xpZ7hi7tzfH%2FoCI7h1y0WUzMfhIcHYbc7aBfnZRd2dxD%2Fi6dy3BGl%2FPJ2zNBHllJKJePSElVQzIUaqpKOT3RfSMFg8HrsPGBpka1yyaQR011OF0Yw9l0HBqR8Bz5VV0RH80RB2kewh9LDkDQHNLXA%2Fs6x%2FUsIEj%2FTU2o4XSJNVTCD48YDhikyvi2EZ4yGHIII7xis2eSS7h5UJhb1pTtmmT0oCfIf02TxZjdD7%2BFbj4ILs42Ar7OGWY0fjXM5VCBmG7T31F%2BMOdazDpVCv5Qd9w9tx66BGMjmYd0jxqH916%2Fq8dJvfMmGXPKaUCnFHKLyU9S42JF%2BYf0bLy13ldi4sBNqoj3HrWnLLywlHllIhVCO6e4ed7aAA%2Fb3NNeD62kC4gK6BZpLsH1B%2FMgRj3%2FQbVu3iHKgwciMnV63JspMNpPLuWv%2FynN1NmUeOgwJSeMIXO98kGOqUBeYyX5TZWOqaR4yPf7RrH9hYY5C%2BXIU9jyrIPuGhsP2Kn4xP5ytV7%2FwxrAlS%2FAxqRO75BGchJdJzaMPPHo%2FjXygTNwBlh3qp41qWftVNA32dZPeQurrftHNhXW7tU8Qrwj1UhjDyI%2FNWUx8BM4n2bWIIkPX1emzjDN5HpXUOCsXCYqx1AWNSbfQ6FNGGDv8rpqplm0j1GDnOSnp8cDdLrGn%2FHKV%2BM&X-Amz-Signature=c0ed82e42fb0839da2910a435bbe4983a2ae38807f15048438721e89a1cd74e3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+---
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/2ee0b636-349f-4fd3-ad27-ad9a392da5ca/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=80d209ef7b558090f580de0040ff4c89a323950c11d44063b99059a3c1d46587&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+- Incorrect, not mandatory to define `WHERE` statement
+- Incorrect, we use `INSERT` to add a new record to a data table
+- Correct, [check this](https://stackoverflow.com/questions/12163047/update-query-without-where-clause)
+- Incorrect
+
+---
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/ad8827c2-5b4a-46ea-9a0c-ff5ce2ea56e3/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=baf14fe19607161a20d34105f53a86bfd041262a9c90f9001f2c9d81b60a4153&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+- `MAX(grade)` → 5.75
+- `COUNT(grade)` → 5
+- 5.75 - 5 + 1.25 = 2
+
+---
+
+![image](https://prod-files-secure.s3.us-west-2.amazonaws.com/85904fa9-813f-4181-815c-7a9adaee3156/9c7df43f-952d-4894-a5d9-fedd97f41373/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4664YFHZOA7%2F20251214%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T005159Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJHMEUCIQDTybtgRUl6pCC3W5larDCHg8wqhML3QdJz1%2BBDveiX1QIgOyfbBu1rT7NmH0PIK%2Bo5Ba1Y4VyuYiaVzf2GB2cto7kq%2FwMIJxAAGgw2Mzc0MjMxODM4MDUiDBbLtJY25xc%2BZ8b8GyrcA01LqX2R9uL%2BwU64Dgh%2Bc%2BnXxLNV6%2B2PlTNH7jl%2BNCxGbMxvOAJ4G6IVs7aVja9fkqidHJQb%2B7KUcrizI5VKBMjXU4SnC5BB1KZYqCCJm53limARG2ph4Fu%2FKoUspeWCNVpb2W%2BtTtMK%2FLR%2Bd%2Bn6fTfKU1%2BbwCF4hr5IEproJ4AQC%2BNDKfUpDd7Nwg6NJQ9cVO1d3IQ%2B80TY4b804FCb4mrwMnTPNb56xf6YVvYmAOYEbPymzVhsx2bQWe0FNumBETi4ptCvvTR63C43N9oa4by1gDN7ZgqiBxEtuYYOAgMS%2BfhqoYzcxpmNkHA9v2VWh5NsuF49yE4wyRx%2Bt7EBuz3M6GtX9AOhQ%2B0R%2Bo%2Bv1t2NStiXpKN2P0mqVSOcJKxLvldNErB9lXo83vE7MvLfrlCy2en8SGbuanFx%2Bw%2BG2gAfuop1WKxMIe5hKkIurmWjEGY6i5gA3RUZuCQMdxESk%2BGXls6gzWly1ZmazMittH1ImRkX81BzoiwPW044PDWPZOgFHepmV32O2XhJ05qYMpOer6ETaQgfx0NGyUhSRalpXGO8yn%2FKf%2BNJil%2BIurQkjaJZeaeGaGKT6jnksfN2YfXnXHXYo7juuzsV6ruWyrwAGJXitScQF8m1uNh5ML%2FO98kGOqUBLsIp2x8olS1NYdU5%2BAy6g6EjfhAVRkgTqkn5e6B%2FDmzT7UCd2Yd%2BhtizbRImvDXQRmftKJfOkM4EZEXtLnnoe1UPRyThlt7KwC8FSZmvba5kZ0D6OjiY3vQBs%2FQwuy0Q4w6WjlaX0PllF7Kltwmz%2FphcZTPvt0cc2AZ%2FV2XecGtXhR4zMiCj3NLW3ablxNUSL2RC338J0XOpY2TFqgLcHt%2F1LDJi&X-Amz-Signature=51881ec630f473baf6c82cae27da4bcd002b1578a0fb9ff02104e7e3adf7960f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+Our formula has following components:
+- `z` is the salary of the current record we are in
+- average(x) → `AVG(salary)`
+- max(x) → `MAX(salary)`
+- min(x) → `MIN(salary)`
+Thus, we can calculate:
+`(salary - AVG(salary)) / MAX(salary) - MIN(salary)`
+
+
