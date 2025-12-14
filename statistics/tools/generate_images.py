@@ -164,8 +164,8 @@ def generate_skewness_types():
         ax.set_yticks([])
     
     fig.suptitle('Types of Skewness', fontsize=16, fontweight='bold', y=1.02)
-    fig.text(0.5, 0.01, 'Rule: the tail points in the direction of the skew', ha='center',
-             fontsize=10, color=COLORS['neutral'])
+    fig.text(0.5, 0.01, 'Rule: Tail points in direction of skew   |   Examples: Age at death (left), Height (symmetric), Income (right)', 
+             ha='center', fontsize=10, color=COLORS['neutral'])
     plt.tight_layout()
     save_figure(fig, 'skewness_types.png')
 
@@ -196,21 +196,23 @@ def generate_kurtosis_types():
     ax.plot(x, y_platy, color=COLORS['platykurtic'], linewidth=2.5, label='Platykurtic (light tails)')
     ax.fill_between(x, y_platy, alpha=0.15, color=COLORS['platykurtic'])
     
-    # Annotations
-    ax.annotate('Higher peak,\nheavier tails', xy=(0, 0.38), xytext=(2.5, 0.35),
+    # Annotations - with boxes to prevent cutoff
+    ax.annotate('Higher peak,\nheavier tails\n(kurtosis > 3)', xy=(0, 0.38), xytext=(2.2, 0.32),
                 fontsize=10, color=COLORS['leptokurtic'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['leptokurtic'], lw=1.5))
+                arrowprops=dict(arrowstyle='->', color=COLORS['leptokurtic'], lw=1.5),
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['leptokurtic'], alpha=0.9))
     
-    ax.annotate('Flatter peak,\nlighter tails', xy=(0, 0.18), xytext=(-3.5, 0.12),
+    ax.annotate('Flatter peak,\nlighter tails\n(kurtosis < 3)', xy=(0, 0.18), xytext=(-3.2, 0.08),
                 fontsize=10, color=COLORS['platykurtic'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['platykurtic'], lw=1.5))
+                arrowprops=dict(arrowstyle='->', color=COLORS['platykurtic'], lw=1.5),
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['platykurtic'], alpha=0.9))
     
     ax.set_xlabel('Value (standardized)')
     ax.set_ylabel('Density')
-    ax.set_title('Types of Kurtosis', fontsize=16, fontweight='bold', pad=15)
+    ax.set_title('Types of Kurtosis\n(Advanced Topic - not typically on HSG exams)', fontsize=14, fontweight='bold', pad=15)
     ax.legend(loc='upper right', frameon=True, fancybox=True, shadow=False)
     ax.set_yticks([])
-    ax.set_xlim(-5, 5)
+    ax.set_xlim(-5, 5.5)  # Slightly wider to prevent cutoff
     
     save_figure(fig, 'kurtosis_types.png')
 
@@ -302,10 +304,15 @@ def generate_boxplot_labeled():
     ax.set_xticks([])
     ax.set_title('Anatomy of a Box Plot', fontsize=16, fontweight='bold', pad=15)
 
-    # Fence formulas (common exam rule)
-    ax.text(0.02, 0.05,
-            r'Fences: $Q1-1.5\cdot IQR$ and $Q3+1.5\cdot IQR$',
-            transform=ax.transAxes, fontsize=11, color=COLORS['dark'],
+    # Fence formulas with worked example
+    lower_fence = q1 - 1.5 * iqr
+    upper_fence = q3 + 1.5 * iqr
+    ax.text(0.02, 0.12,
+            f'Fence calculations:\n'
+            f'Lower fence = Q1 - 1.5*IQR = {q1:.0f} - {1.5*iqr:.0f} = {lower_fence:.0f}\n'
+            f'Upper fence = Q3 + 1.5*IQR = {q3:.0f} + {1.5*iqr:.0f} = {upper_fence:.0f}\n'
+            f'Outliers: values < {lower_fence:.0f} or > {upper_fence:.0f}',
+            transform=ax.transAxes, fontsize=10, color=COLORS['dark'],
             bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.9))
     
     save_figure(fig, 'boxplot_labeled.png')
@@ -361,11 +368,11 @@ def generate_boxplot_comparison():
     ax.set_title('Comparing Distribution Shapes via Box Plots', fontsize=16, fontweight='bold', pad=15)
     
     # Add annotations
-    ax.annotate('Median closer to Q3\n→ Left-skewed', xy=(1, 60), fontsize=9, 
+    ax.annotate('Median closer to Q3\n= Left-skewed', xy=(1, 60), fontsize=9, 
                 ha='center', color=COLORS['left_skew'], style='italic')
-    ax.annotate('Median centered\n→ Symmetric', xy=(2, 65), fontsize=9, 
+    ax.annotate('Median centered\n= Symmetric', xy=(2, 65), fontsize=9, 
                 ha='center', color=COLORS['symmetric'], style='italic')
-    ax.annotate('Median closer to Q1\n→ Right-skewed', xy=(3, 60), fontsize=9, 
+    ax.annotate('Median closer to Q1\n= Right-skewed', xy=(3, 60), fontsize=9, 
                 ha='center', color=COLORS['right_skew'], style='italic')
     
     save_figure(fig, 'boxplot_comparison.png')
@@ -402,14 +409,16 @@ def generate_variance_comparison():
             fontsize=13, fontweight='bold',
             bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.9))
     
-    # Annotations
-    ax.annotate('Narrow spread\n= Low variance', xy=(50, 0.075), xytext=(65, 0.07),
+    # Annotations - positioned to avoid cutoff
+    ax.annotate('Narrow spread = Low variance\n(Var = 25, SD = 5)', xy=(55, 0.07), xytext=(62, 0.055),
                 fontsize=10, color=COLORS['primary'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['primary']))
+                arrowprops=dict(arrowstyle='->', color=COLORS['primary']),
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['primary'], alpha=0.9))
     
-    ax.annotate('Wide spread\n= High variance', xy=(30, 0.015), xytext=(25, 0.04),
+    ax.annotate('Wide spread = High variance\n(Var = 225, SD = 15)', xy=(35, 0.02), xytext=(25, 0.045),
                 fontsize=10, color=COLORS['secondary'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['secondary']))
+                arrowprops=dict(arrowstyle='->', color=COLORS['secondary']),
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['secondary'], alpha=0.9))
     
     save_figure(fig, 'variance_comparison.png')
 
@@ -519,7 +528,7 @@ def generate_noir_scales():
     # Arrow showing increasing information
     ax.annotate('', xy=(13, 1.2), xytext=(1, 1.2),
                 arrowprops=dict(arrowstyle='->', color=COLORS['dark'], lw=2))
-    ax.text(7, 0.7, 'Increasing Mathematical Properties →', ha='center', va='center',
+    ax.text(7, 0.7, 'Increasing Mathematical Properties >', ha='center', va='center',
             fontsize=11, fontweight='bold', color=COLORS['dark'])
     
     ax.set_title('The NOIR Scales of Measurement', fontsize=16, fontweight='bold', y=0.98)
@@ -543,8 +552,9 @@ def generate_covariance_patterns():
     p = np.poly1d(z)
     x_line = np.linspace(min(x1), max(x1), 100)
     axes[0].plot(x_line, p(x_line), color=COLORS['positive'], linewidth=2, linestyle='--', alpha=0.8)
+    cov1 = np.cov(x1, y1)[0, 1]
     axes[0].set_title('Positive Covariance', fontweight='bold', pad=10, color=COLORS['positive'])
-    axes[0].annotate('Cov(X,Y) > 0', xy=(0.95, 0.05), xycoords='axes fraction',
+    axes[0].annotate(f'Cov(X,Y) = {cov1:.1f}', xy=(0.95, 0.05), xycoords='axes fraction',
                      ha='right', fontsize=11, fontweight='bold', color=COLORS['positive'])
     
     # Negative covariance
@@ -556,8 +566,9 @@ def generate_covariance_patterns():
     p = np.poly1d(z)
     x_line = np.linspace(min(x2), max(x2), 100)
     axes[1].plot(x_line, p(x_line), color=COLORS['negative'], linewidth=2, linestyle='--', alpha=0.8)
+    cov2 = np.cov(x2, y2)[0, 1]
     axes[1].set_title('Negative Covariance', fontweight='bold', pad=10, color=COLORS['negative'])
-    axes[1].annotate('Cov(X,Y) < 0', xy=(0.95, 0.95), xycoords='axes fraction',
+    axes[1].annotate(f'Cov(X,Y) = {cov2:.1f}', xy=(0.95, 0.95), xycoords='axes fraction',
                      ha='right', fontsize=11, fontweight='bold', color=COLORS['negative'])
     
     # Zero covariance (no pattern)
@@ -566,8 +577,9 @@ def generate_covariance_patterns():
     
     axes[2].scatter(x3, y3, c=COLORS['zero'], alpha=0.7, s=60, edgecolors='white', linewidths=0.5)
     axes[2].axhline(y=np.mean(y3), color=COLORS['zero'], linewidth=1.5, linestyle='--', alpha=0.5)
+    cov3 = np.cov(x3, y3)[0, 1]
     axes[2].set_title('Zero Covariance', fontweight='bold', pad=10, color=COLORS['zero'])
-    axes[2].annotate('Cov(X,Y) ≈ 0', xy=(0.95, 0.05), xycoords='axes fraction',
+    axes[2].annotate(f'Cov(X,Y) = {cov3:.1f}', xy=(0.95, 0.05), xycoords='axes fraction',
                      ha='right', fontsize=11, fontweight='bold', color=COLORS['zero'])
     
     for ax in axes:
@@ -634,7 +646,8 @@ def generate_correlation_examples():
         ax.set_ylabel('Y')
     
     fig.suptitle('Correlation Coefficient Examples', fontsize=16, fontweight='bold', y=1.01)
-    fig.text(0.5, 0.005, 'Sign = direction, |r| = strength', ha='center', fontsize=11, color=COLORS['neutral'])
+    fig.text(0.5, 0.01, 'Sign = direction, |r| = strength   |   Business examples: Sales vs Ad spend (+0.8), Price vs Demand (-0.5)', 
+             ha='center', fontsize=10, color=COLORS['neutral'])
     plt.tight_layout()
     save_figure(fig, 'correlation_examples.png')
 
@@ -824,7 +837,7 @@ def generate_sampling_distribution():
     ax.legend(loc='upper right', frameon=True)
     
     # Annotation
-    ax.annotate(f'μ = {pop_mean}\nSE = σ/√n = {se:.2f}', 
+    ax.annotate(f'$\\mu$ = {pop_mean}\nSE = $\\sigma/\\sqrt{{n}}$ = {se:.2f}', 
                 xy=(pop_mean, max(y)*0.8), xytext=(pop_mean + 8, max(y)*0.9),
                 fontsize=10, color=COLORS['dark'],
                 bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral']))
@@ -949,8 +962,9 @@ def generate_binomial_shapes():
         ax.legend(loc='upper right', frameon=True, fontsize=9)
     
     fig.suptitle('Binomial Distribution Shapes', fontsize=16, fontweight='bold', y=1.02)
-    fig.text(0.5, 0.01, 'Rule of thumb: p<0.5 -> right-skewed, p=0.5 -> symmetric, p>0.5 -> left-skewed',
-             ha='center', fontsize=10, color=COLORS['neutral'])
+    fig.text(0.5, 0.01, 'Rule of thumb: p < 0.5 = right-skewed, p = 0.5 = symmetric, p > 0.5 = left-skewed',
+             ha='center', fontsize=12, fontweight='bold', color=COLORS['dark'],
+             bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     plt.tight_layout()
     save_figure(fig, 'binomial_shapes.png')
 
@@ -967,7 +981,7 @@ def generate_discrete_distribution_flowchart():
         diamond = Polygon([(x, y + height/2), (x + width/2, y), (x, y - height/2), (x - width/2, y)],
                          facecolor=COLORS['light'], edgecolor=COLORS['primary'], linewidth=2)
         ax.add_patch(diamond)
-        ax.text(x, y, text, ha='center', va='center', fontsize=9, fontweight='bold',
+        ax.text(x, y, text, ha='center', va='center', fontsize=10, fontweight='bold',
                 color=COLORS['dark'], wrap=True)
     
     def draw_result(x, y, text, color):
@@ -975,14 +989,14 @@ def generate_discrete_distribution_flowchart():
                              boxstyle='round,pad=0.2', facecolor=color, edgecolor=color,
                              linewidth=2, alpha=0.9)
         ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color='white')
+        ax.text(x, y, text, ha='center', va='center', fontsize=12, fontweight='bold', color='white')
     
     def draw_arrow(x1, y1, x2, y2, label=''):
         ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
                     arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=2))
         if label:
             mid_x, mid_y = (x1 + x2) / 2, (y1 + y2) / 2
-            ax.text(mid_x + 0.2, mid_y, label, fontsize=9, color=COLORS['dark'], fontweight='bold')
+            ax.text(mid_x + 0.2, mid_y, label, fontsize=10, color=COLORS['dark'], fontweight='bold')
     
     # Start
     box = FancyBboxPatch((6.5, 8.5), 3, 1,
@@ -1003,13 +1017,13 @@ def generate_discrete_distribution_flowchart():
     # Binomial
     draw_result(4, 2.4, 'BINOMIAL', COLORS['primary'])
     draw_arrow(4, 4.4, 4, 3, 'No')
-    ax.text(4, 1.6, 'Fixed n trials,\ncount successes', ha='center', fontsize=8,
+    ax.text(4, 1.6, 'Fixed n trials,\ncount successes', ha='center', fontsize=10,
             style='italic', color=COLORS['neutral'])
     
     # Hypergeometric
     draw_result(1.5, 2.4, 'HYPERGEOMETRIC', COLORS['secondary'])
     draw_arrow(2.6, 5, 1.7, 3, 'Yes')
-    ax.text(1.5, 1.6, 'Finite population,\nno replacement', ha='center', fontsize=8,
+    ax.text(1.5, 1.6, 'Finite population,\nno replacement', ha='center', fontsize=10,
             style='italic', color=COLORS['neutral'])
     
     # No branch - events in interval
@@ -1019,13 +1033,13 @@ def generate_discrete_distribution_flowchart():
     # Poisson
     draw_result(12, 2.4, 'POISSON', COLORS['accent'])
     draw_arrow(12, 4.4, 12, 3, 'Yes')
-    ax.text(12, 1.6, 'Events in fixed\ntime/space interval', ha='center', fontsize=8,
+    ax.text(12, 1.6, 'Events in fixed\ntime/space interval', ha='center', fontsize=10,
             style='italic', color=COLORS['neutral'])
     
     # Special case note
     ax.text(8, 0.9, 'TIP: If n is large and sample < 5% of population,\nuse Binomial as approximation for Hypergeometric',
-            ha='center', fontsize=9, style='italic', color=COLORS['neutral'],
-            bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor='none', alpha=0.8))
+            ha='center', fontsize=10, style='italic', color=COLORS['dark'],
+            bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['neutral'], alpha=0.9))
     
     ax.set_title('Choosing the Right Discrete Distribution', fontsize=16, fontweight='bold', y=0.98)
     
@@ -1058,6 +1072,11 @@ def generate_addition_rule_venn():
             bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral']))
     ax.text(1, -2.55, r'Example: $P(A)=0.6,\ P(B)=0.5,\ P(A\cap B)=0.2\Rightarrow P(A\cup B)=0.9$',
             fontsize=11, ha='center', color=COLORS['neutral'], style='italic')
+    
+    # Business context
+    ax.text(-2.5, 2.2, 'Business context:\nA = Email marketing reach\nB = Social media reach\nA or B = Total unique reach',
+            fontsize=9, ha='left', va='top', color=COLORS['dark'],
+            bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     
     ax.set_title('Addition Rule of Probability', fontsize=16, fontweight='bold', pad=15)
     
@@ -1103,6 +1122,11 @@ def generate_conditional_probability_venn():
     
     ax.text(1, -2.2, '"Given that A occurred,\nwhat is the probability of B?"', 
             fontsize=11, ha='center', style='italic', color=COLORS['neutral'])
+    
+    # Add numerical example
+    ax.text(-2.5, 2.5, 'Example:\nP(A) = 0.6\nP(A and B) = 0.2\nP(B|A) = 0.2/0.6 = 0.333',
+            fontsize=10, ha='left', va='top', color=COLORS['dark'],
+            bbox=dict(boxstyle='round,pad=0.4', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     
     ax.set_title('Conditional Probability P(B|A)', fontsize=16, fontweight='bold', pad=15)
     
@@ -1199,14 +1223,14 @@ def generate_causation_explanations():
     draw_box(7, 8.5, 'Y', COLORS['accent'])
     ax.annotate('', xy=(6.2, 8.5), xytext=(4.8, 8.5),
                 arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=3))
-    ax.text(9, 8.5, 'Example: Ad spend → Sales', fontsize=9, va='center', style='italic', color=COLORS['neutral'])
+    ax.text(9, 8.5, 'Example: Ad spend causes Sales', fontsize=9, va='center', style='italic', color=COLORS['neutral'])
     
     # Scenario 2: Y → X
     draw_box(4, 6.5, 'X', COLORS['primary'])
     draw_box(7, 6.5, 'Y', COLORS['accent'])
     ax.annotate('', xy=(4.8, 6.5), xytext=(6.2, 6.5),
                 arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=3))
-    ax.text(9, 6.5, 'Example: Sales → Ad spend\n(budget increases after success)', fontsize=9, va='center',
+    ax.text(9, 6.5, 'Example: Sales causes Ad spend\n(budget increases after success)', fontsize=9, va='center',
             style='italic', color=COLORS['neutral'])
     
     # Scenario 3: Confounding
@@ -1504,7 +1528,8 @@ def generate_regression_diagnostics():
     axes[3].set_xlim(lims)
     axes[3].set_ylim(lims)
     
-    fig.suptitle('Regression Diagnostic Plots', fontsize=16, fontweight='bold', y=1.02)
+    fig.suptitle('Regression Diagnostic Plots\n(Advanced Topic - HSG exams focus on calculation, not diagnostics)', 
+                 fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
     save_figure(fig, 'regression_diagnostics.png')
 
@@ -1517,7 +1542,8 @@ def generate_ci_repeated_samples_coverage():
     """Generate visualization of repeated sampling showing 95% CI coverage."""
     fig, ax = plt.subplots(figsize=(10, 8))
     
-    np.random.seed(42)
+    # Use seed that produces ~95% coverage (24/25 or 23/25) to illustrate the concept realistically
+    np.random.seed(17)  # This seed produces ~24/25 coverage - more realistic than 100%
     
     # True population mean
     mu = 50
@@ -1610,7 +1636,7 @@ def generate_t_vs_z_critical_values():
                 arrowprops=dict(arrowstyle='->', color=COLORS['secondary']))
     
     # Heavy tails annotation
-    ax.annotate('Heavier tails\n→ larger critical values\n→ wider CIs', 
+    ax.annotate('Heavier tails\n= larger critical values\n= wider CIs', 
                 xy=(3, 0.02), xytext=(2.5, 0.2),
                 fontsize=10, color=COLORS['dark'],
                 bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor='none'),
@@ -1640,7 +1666,7 @@ def generate_ci_width_vs_n():
     ax.plot(n_values, me_values, color=COLORS['primary'], linewidth=2.5)
     ax.fill_between(n_values, me_values, alpha=0.2, color=COLORS['primary'])
     
-    # Mark key points showing "halve E → 4× n"
+    # Mark key points showing "halve ME requires 4x n"
     key_points = [(25, 5.88), (100, 2.94), (400, 1.47)]
     for n, e in key_points:
         actual_e = z * sigma / np.sqrt(n)
@@ -1651,7 +1677,7 @@ def generate_ci_width_vs_n():
     
     # Annotation for the relationship
     ax.annotate('To halve the margin of error,\nyou must quadruple the sample size!\n\n'
-                'ME ∝ 1/√n  →  n ∝ 1/E²',
+                r'ME ~ 1/$\sqrt{n}$,  so n ~ 1/E$^2$',
                 xy=(200, 2.1), fontsize=11, ha='center', color=COLORS['dark'],
                 bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['primary']))
     
@@ -1847,8 +1873,13 @@ def generate_p_value_shaded():
         ax.set_xlim(-4, 4)
         ax.set_yticks([])
     
-    fig.suptitle('P-Value: Probability of Results This Extreme (or More) If H₀ True', 
+    fig.suptitle('P-Value: Probability of Results This Extreme (or More) If H0 True', 
                  fontsize=14, fontweight='bold', y=1.02)
+    
+    # Add decision rule
+    fig.text(0.5, -0.02, f'Decision rule: If p-value < α (e.g., 0.05), reject H0. Here: {p_two:.4f} < 0.05, so REJECT H0',
+             ha='center', fontsize=11, fontweight='bold', color=COLORS['positive'])
+    
     plt.tight_layout()
     save_figure(fig, 'p_value_shaded_area_one_two_tailed.png')
 
@@ -1902,8 +1933,8 @@ def generate_alpha_beta_power():
     power = 1 - beta
     
     ax.text(2.5, 0.25, f'Power = {power:.2f}', fontsize=11, fontweight='bold', color=COLORS['positive'])
-    ax.text(0.5, 0.1, f'β = {beta:.2f}', fontsize=11, fontweight='bold', color=COLORS['warning'])
-    ax.text(2.2, 0.02, f'α = {alpha}', fontsize=11, fontweight='bold', color=COLORS['negative'])
+    ax.text(0.5, 0.12, f'β = {beta:.2f}', fontsize=11, fontweight='bold', color=COLORS['warning'])
+    ax.text(2.0, 0.05, f'α = {alpha}', fontsize=11, fontweight='bold', color=COLORS['negative'])  # Moved up from x-axis
     
     ax.set_xlabel('Value')
     ax.set_ylabel('Density')
@@ -1973,18 +2004,20 @@ def generate_hypotheses_tail_direction():
             ax.text(6.5 - 1.96 * 0.6, y - 0.5, 'α/2', fontsize=9, ha='center', color=COLORS['negative'], fontweight='bold')
             ax.text(6.5 + 1.96 * 0.6, y - 0.5, 'α/2', fontsize=9, ha='center', color=COLORS['negative'], fontweight='bold')
         
-        # Critical value description
+        # Critical value description with z-values
         if direction == 'left':
-            cv_text = 'Use α (left tail)'
+            cv_text = 'z < -1.645 (α=0.05)'
         elif direction == 'right':
-            cv_text = 'Use α (right tail)'
+            cv_text = 'z > 1.645 (α=0.05)'
         else:
-            cv_text = 'Use α/2 (both tails)'
-        ax.text(10, y, cv_text, fontsize=10, ha='left', va='center', color=COLORS['neutral'])
+            cv_text = '|z| > 1.96 (α=0.05)'
+        ax.text(10, y, cv_text, fontsize=10, ha='left', va='center', color=COLORS['dark'], fontweight='bold')
     
     # Key at bottom
-    ax.text(6, 0.7, 'RED shaded regions = Rejection regions (reject H₀ if test statistic falls here)', 
+    ax.text(6, 0.9, 'RED shaded regions = Rejection regions (reject H0 if test statistic falls here)', 
             fontsize=10, ha='center', color=COLORS['negative'], style='italic')
+    ax.text(6, 0.4, 'Common z-critical values: z0.05 = 1.645 (one-tailed), z0.025 = 1.96 (two-tailed)', 
+            fontsize=10, ha='center', color=COLORS['dark'])
     
     save_figure(fig, 'hypotheses_tail_direction_cheatsheet.png')
 
@@ -2022,7 +2055,7 @@ def generate_z_test_rejection_example():
     ax.text(test_stat, 0.12, f'z = {test_stat}', ha='center', fontsize=12, fontweight='bold', color=COLORS['warning'])
     
     # Decision annotation
-    ax.annotate('z = 1.75 > 1.645\n→ IN rejection region\n→ REJECT H₀', 
+    ax.annotate('z = 1.75 > 1.645\n= IN rejection region\n= REJECT H0', 
                 xy=(test_stat, 0.05), xytext=(3, 0.25),
                 fontsize=11, color=COLORS['dark'], fontweight='bold',
                 bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['positive']),
@@ -2081,7 +2114,7 @@ def generate_t_test_rejection_example():
     ax.text(test_stat, 0.12, f't = {test_stat}', ha='center', fontsize=12, fontweight='bold', color=COLORS['warning'])
     
     # Decision annotation
-    ax.annotate(f'|t| = {test_stat} > {t_crit:.3f}\n→ IN rejection region\n→ REJECT H₀', 
+    ax.annotate(f'|t| = {test_stat} > {t_crit:.3f}\n= IN rejection region\n= REJECT H0', 
                 xy=(test_stat, 0.05), xytext=(3, 0.25),
                 fontsize=11, color=COLORS['dark'], fontweight='bold',
                 bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['positive']),
@@ -2102,6 +2135,11 @@ def generate_t_test_rejection_example():
         Line2D([0], [0], color=COLORS['warning'], linewidth=3, label=f'Test statistic (t = {test_stat})'),
     ]
     ax.legend(handles=legend_elements, loc='upper left', frameon=True)
+    
+    # Add interpretation
+    ax.text(0.02, 0.02, 'Interpretation: There is sufficient evidence at α=0.05 to reject H0.\nThe sample mean differs significantly from the hypothesized value.',
+            transform=ax.transAxes, fontsize=9, color=COLORS['dark'], va='bottom',
+            bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.9))
     
     save_figure(fig, 't_test_rejection_region_example.png')
 
@@ -2181,7 +2219,7 @@ def generate_paired_vs_independent():
         ax1.text(7.5, y, f'S{i+1}', fontsize=10, ha='center', va='center', color='white', fontweight='bold')
         ax1.text(7.5, y - 0.7, 'After', fontsize=8, ha='center', color=COLORS['neutral'])
     
-    ax1.text(5, 2.5, 'Analyze DIFFERENCES (d)\n→ One-sample t-test on d̄', fontsize=11, ha='center', 
+    ax1.text(5, 2.5, 'Analyze DIFFERENCES (d)\nUse: One-sample t-test on d', fontsize=11, ha='center', 
              color=COLORS['dark'], fontweight='bold',
              bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['primary']))
     
@@ -2215,7 +2253,7 @@ def generate_paired_vs_independent():
     ax2.annotate('', xy=(6, 5.5), xytext=(4, 5.5), arrowprops=dict(arrowstyle='<->', lw=2, color=COLORS['warning']))
     ax2.text(5, 6, 'Compare', fontsize=10, ha='center', color=COLORS['warning'], fontweight='bold')
     
-    ax2.text(5, 2.5, 'Analyze DIFFERENCE of means\n→ Two-sample t-test', fontsize=11, ha='center', 
+    ax2.text(5, 2.5, 'Analyze DIFFERENCE of means\nUse: Two-sample t-test', fontsize=11, ha='center', 
              color=COLORS['dark'], fontweight='bold',
              bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['secondary']))
     
@@ -2250,7 +2288,7 @@ def generate_pooled_vs_welch():
     yes_box = FancyBboxPatch((0.5, 2.5), 4.5, 2, boxstyle='round,pad=0.2',
                               facecolor='white', edgecolor=COLORS['positive'], linewidth=3)
     ax.add_patch(yes_box)
-    ax.text(2.75, 4, 'YES → Pooled t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['positive'])
+    ax.text(2.75, 4, 'YES: Pooled t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['positive'])
     ax.text(2.75, 3.3, 'Use pooled variance sp²\ndf = n₁ + n₂ − 2', fontsize=10, ha='center', color=COLORS['dark'])
     ax.annotate('', xy=(2.75, 4.5), xytext=(4.5, 5.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['positive']))
     ax.text(2.5, 5.2, 'Yes', fontsize=10, fontweight='bold', color=COLORS['positive'])
@@ -2259,7 +2297,7 @@ def generate_pooled_vs_welch():
     no_box = FancyBboxPatch((7, 2.5), 4.5, 2, boxstyle='round,pad=0.2',
                              facecolor='white', edgecolor=COLORS['warning'], linewidth=3)
     ax.add_patch(no_box)
-    ax.text(9.25, 4, 'NO → Welch t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['warning'])
+    ax.text(9.25, 4, 'NO: Welch t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['warning'])
     ax.text(9.25, 3.3, 'Separate variances\ndf from Welch formula', fontsize=10, ha='center', color=COLORS['dark'])
     ax.annotate('', xy=(9.25, 4.5), xytext=(7.5, 5.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['warning']))
     ax.text(9.5, 5.2, 'No / Unsure', fontsize=10, fontweight='bold', color=COLORS['warning'])
@@ -2395,7 +2433,7 @@ def generate_chi_square_expected_pipeline():
     ax.text(1.2, 5.5, '     A    B', fontsize=9, fontfamily='monospace')
     ax.text(1.2, 5.0, 'X   30   20', fontsize=9, fontfamily='monospace')
     ax.text(1.2, 4.5, 'Y   20   30', fontsize=9, fontfamily='monospace')
-    ax.text(1.2, 4.0, 'Σ   50   50  →100', fontsize=8, fontfamily='monospace', color=COLORS['neutral'])
+    ax.text(1.2, 4.0, 'Sum: 50  50 = 100', fontsize=8, fontfamily='monospace', color=COLORS['neutral'])
     
     # Arrow 1
     ax.annotate('', xy=(5, 5), xytext=(4, 5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['neutral']))
@@ -2425,12 +2463,15 @@ def generate_chi_square_expected_pipeline():
     ax.text(11.95, 5.3, r'$\chi^2 = \sum\frac{(O-E)^2}{E}$', fontsize=12, ha='center', color=COLORS['dark'])
     ax.text(11.95, 4.3, '= (30-25)²/25 + ...\n= 1 + 1 + 1 + 1\n= 4.0', fontsize=9, ha='center', color=COLORS['dark'])
     
-    # Bottom: Decision
-    ax.text(7, 2.2, 'Compare χ² to critical value from χ² table (df = (r-1)(c-1))', 
+    # Bottom: Decision with df calculation
+    ax.text(7, 2.4, 'Compare χ² to critical value from χ² table', 
             fontsize=11, ha='center', color=COLORS['dark'],
             bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor='none'))
     
-    ax.text(7, 1.2, 'χ² = 4.0 > χ²₀.₀₅,₁ = 3.841  →  Reject H₀ (variables are related)', 
+    ax.text(7, 1.7, 'df = (rows-1)(cols-1) = (2-1)(2-1) = 1', 
+            fontsize=10, ha='center', color=COLORS['neutral'])
+    
+    ax.text(7, 1.0, 'Result: χ² = 4.0 > critical value 3.841 (df=1, α=0.05)\nReject H0: variables are related', 
             fontsize=11, ha='center', color=COLORS['positive'], fontweight='bold')
     
     save_figure(fig, 'chi_square_expected_counts_pipeline.png')
@@ -2485,7 +2526,7 @@ def generate_anova_between_within():
     ax.set_xticklabels(['Group 1', 'Group 2', 'Group 3'])
     ax.set_xlim(0, 4)
     
-    ax.text(0.02, 0.98, 'Large F → Group means differ significantly\nSmall F → Variation mainly within groups', 
+    ax.text(0.02, 0.98, 'Large F = Group means differ significantly\nSmall F = Variation mainly within groups', 
             transform=ax.transAxes, fontsize=10, ha='left', va='top',
             bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor='none'))
     
