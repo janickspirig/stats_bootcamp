@@ -1335,68 +1335,95 @@ def generate_causation_explanations():
 
 
 def generate_module_progression():
-    """Generate flowchart showing module progression."""
-    fig, ax = plt.subplots(figsize=(16, 6))
+    """Generate flowchart showing module progression - 2 row layout for better spacing."""
+    fig, ax = plt.subplots(figsize=(16, 8))
     ax.set_xlim(0, 16)
-    ax.set_ylim(0, 6)
+    ax.set_ylim(0, 8)
     ax.axis('off')
     
     modules = [
         ('01', 'Foundations', '30m', COLORS['primary']),
-        ('02', 'Descriptive\nStats', '90m', COLORS['primary']),
+        ('02', 'Descriptive Stats', '90m', COLORS['primary']),
         ('03', 'Correlation', '60m', COLORS['primary']),
         ('04', 'Probability', '90m', COLORS['secondary']),
-        ('05', 'Discrete\nDist.', '90m', COLORS['secondary']),
-        ('06', 'Continuous\nDist.', '90m', COLORS['secondary']),
-        ('07', 'Sampling\nDist.', '60m', COLORS['accent']),
+        ('05', 'Discrete Dist.', '90m', COLORS['secondary']),
+        ('06', 'Continuous Dist.', '90m', COLORS['secondary']),
+        ('07', 'Sampling Dist.', '60m', COLORS['accent']),
         ('08', 'Estimation', '90m', COLORS['accent']),
-        ('09', 'Hypothesis\nTesting', '90m', COLORS['warning']),
-        ('10', 'One-Sample\nTests', '90m', COLORS['warning']),
-        ('11', 'Two-Sample\nTests', '90m', COLORS['warning']),
+        ('09', 'Hypothesis Testing', '90m', COLORS['warning']),
+        ('10', 'One-Sample Tests', '90m', COLORS['warning']),
+        ('11', 'Two-Sample Tests', '90m', COLORS['warning']),
         ('12', 'Regression', '90m', COLORS['secondary']),
-        ('13', 'Advanced\nTopics', '60m', COLORS['secondary']),
+        ('13', 'Advanced Topics', '60m', COLORS['secondary']),
     ]
     
-    # Fit 13 modules: slightly tighter spacing and smaller boxes
-    x_start = 0.7
-    x_spacing = 1.15
-    y = 3
+    # Two rows: 7 modules on top, 6 on bottom
+    row1 = modules[:7]
+    row2 = modules[7:]
     
-    for i, (num, name, time, color) in enumerate(modules):
-        x = x_start + i * x_spacing
+    box_width = 1.8
+    box_height = 1.2
+    x_spacing = 2.1
+    
+    # Row 1 (top)
+    y1 = 5.5
+    x_start1 = 1.2
+    for i, (num, name, time, color) in enumerate(row1):
+        x = x_start1 + i * x_spacing
         
-        # Box
-        box = FancyBboxPatch((x - 0.55, y - 0.75), 1.1, 1.5,
-                             boxstyle='round,pad=0.1', facecolor=color, edgecolor=color, 
-                             alpha=0.85, linewidth=2)
+        box = FancyBboxPatch((x - box_width/2, y1 - box_height/2), box_width, box_height,
+                             boxstyle='round,pad=0.1', facecolor=color, edgecolor='white', 
+                             alpha=0.9, linewidth=2)
         ax.add_patch(box)
         
-        # Module number
-        ax.text(x, y + 0.35, num, fontsize=12, ha='center', va='center',
+        ax.text(x, y1 + 0.25, num, fontsize=14, ha='center', va='center',
                 fontweight='bold', color='white')
-        
-        # Module name
-        ax.text(x, y - 0.1, name, fontsize=7.5, ha='center', va='center',
-                color='white', linespacing=0.9)
-        
-        # Time
-        ax.text(x, y - 0.52, time, fontsize=7.5, ha='center', va='center',
-                color='white', style='italic')
+        ax.text(x, y1 - 0.15, name, fontsize=9, ha='center', va='center', color='white')
+        ax.text(x, y1 - 0.42, time, fontsize=8, ha='center', va='center',
+                color='white', alpha=0.8, style='italic')
         
         # Arrow to next
-        if i < len(modules) - 1:
-            ax.annotate('', xy=(x + 0.7, y), xytext=(x + 0.55, y),
+        if i < len(row1) - 1:
+            ax.annotate('', xy=(x + box_width/2 + 0.25, y1), xytext=(x + box_width/2 + 0.05, y1),
                         arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=2))
     
-    # Legend
-    for i, (label, color) in enumerate([('Foundations', COLORS['primary']), 
-                                        ('Probability', COLORS['secondary']),
-                                        ('Inference', COLORS['accent']),
-                                        ('Testing', COLORS['warning'])]):
-        ax.add_patch(FancyBboxPatch((1 + i*3.5, 0.5), 0.4, 0.4, facecolor=color, edgecolor=color))
-        ax.text(1.6 + i*3.5, 0.7, label, fontsize=9, va='center', color=COLORS['dark'])
+    # Arrow from row 1 to row 2
+    ax.annotate('', xy=(14.5, 3.5), xytext=(14.5, 4.5),
+                arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=2,
+                               connectionstyle='arc3,rad=0'))
     
-    ax.set_title('Statistics Bootcamp: Module Progression', fontsize=16, fontweight='bold', y=0.95)
+    # Row 2 (bottom) - centered
+    y2 = 2.5
+    x_start2 = 2.3
+    for i, (num, name, time, color) in enumerate(row2):
+        x = x_start2 + i * x_spacing
+        
+        box = FancyBboxPatch((x - box_width/2, y2 - box_height/2), box_width, box_height,
+                             boxstyle='round,pad=0.1', facecolor=color, edgecolor='white', 
+                             alpha=0.9, linewidth=2)
+        ax.add_patch(box)
+        
+        ax.text(x, y2 + 0.25, num, fontsize=14, ha='center', va='center',
+                fontweight='bold', color='white')
+        ax.text(x, y2 - 0.15, name, fontsize=9, ha='center', va='center', color='white')
+        ax.text(x, y2 - 0.42, time, fontsize=8, ha='center', va='center',
+                color='white', alpha=0.8, style='italic')
+        
+        if i < len(row2) - 1:
+            ax.annotate('', xy=(x + box_width/2 + 0.25, y2), xytext=(x + box_width/2 + 0.05, y2),
+                        arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=2))
+    
+    # Legend at bottom
+    legend_items = [('Foundations', COLORS['primary']), 
+                    ('Probability', COLORS['secondary']),
+                    ('Inference', COLORS['accent']),
+                    ('Testing', COLORS['warning'])]
+    legend_x = 3
+    for i, (label, color) in enumerate(legend_items):
+        ax.add_patch(Circle((legend_x + i*3, 0.6), 0.2, facecolor=color, edgecolor='white', linewidth=2))
+        ax.text(legend_x + 0.4 + i*3, 0.6, label, fontsize=10, va='center', color=COLORS['dark'])
+    
+    ax.set_title('Statistics Bootcamp: Module Progression', fontsize=18, fontweight='bold', y=0.96)
     
     save_figure(fig, 'module_progression.png')
 
