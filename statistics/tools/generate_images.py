@@ -1331,88 +1331,104 @@ def generate_module_progression():
 
 def generate_test_selection_flowchart():
     """Generate flowchart for selecting the right statistical test."""
-    fig, ax = plt.subplots(figsize=(14, 10))
-    ax.set_xlim(0, 14)
-    ax.set_ylim(0, 12)
+    fig, ax = plt.subplots(figsize=(16, 12))
+    ax.set_xlim(0, 16)
+    ax.set_ylim(0, 14)
     ax.axis('off')
     
-    def draw_decision(x, y, text):
-        box = FancyBboxPatch((x - 1.8, y - 0.5), 3.6, 1,
+    def draw_question(x, y, text, width=3.2, height=1.0):
+        """Draw a decision/question box."""
+        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
                              boxstyle='round,pad=0.2', facecolor=COLORS['light'],
-                             edgecolor=COLORS['primary'], linewidth=2)
+                             edgecolor=COLORS['primary'], linewidth=2.5)
         ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=9, fontweight='bold', color=COLORS['dark'])
+        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color=COLORS['dark'])
     
-    def draw_test(x, y, text, color):
-        box = FancyBboxPatch((x - 1.3, y - 0.4), 2.6, 0.8,
-                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color)
+    def draw_test(x, y, text, color, width=2.8, height=0.9):
+        """Draw a test result box."""
+        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
+                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color, linewidth=2)
         ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=10, fontweight='bold', color='white')
+        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color='white')
     
-    # Start
-    draw_decision(7, 11, 'What is your\nresearch question?')
+    def arrow(x1, y1, x2, y2, label='', label_offset=(0, 0.15)):
+        """Draw an arrow with optional label."""
+        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle='->', lw=2.5, color=COLORS['neutral']))
+        if label:
+            mid_x = (x1 + x2) / 2 + label_offset[0]
+            mid_y = (y1 + y2) / 2 + label_offset[1]
+            ax.text(mid_x, mid_y, label, fontsize=10, fontweight='bold', color=COLORS['dark'], ha='center')
     
-    # Main branches
-    ax.annotate('', xy=(3, 9.5), xytext=(5.5, 10.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['neutral']))
-    ax.text(3.5, 10.2, 'Comparing\ngroups', fontsize=8, ha='center')
+    # ===== TOP: Main Question =====
+    draw_question(8, 13, 'What is your\nresearch question?', width=4, height=1.2)
     
-    ax.annotate('', xy=(11, 9.5), xytext=(8.5, 10.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['neutral']))
-    ax.text(10.5, 10.2, 'Relationship\nbetween variables', fontsize=8, ha='center')
+    # ===== LEVEL 2: Two main branches =====
+    arrow(6.5, 12.4, 4, 11.2, 'Compare\ngroups', (-0.5, 0))
+    arrow(9.5, 12.4, 12, 11.2, 'Relationship\nbetween variables', (0.5, 0))
     
-    # Comparing groups branch
-    draw_decision(3, 9, 'How many\ngroups?')
+    draw_question(4, 10.5, 'How many groups?', width=3.5)
+    draw_question(12, 10.5, 'Variable types?', width=3.5)
     
-    # One sample
-    ax.annotate('', xy=(1, 7.5), xytext=(1.8, 8.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(0.8, 8.2, '1', fontsize=9, fontweight='bold')
-    draw_decision(1, 7, 'σ known?')
+    # ===== LEFT BRANCH: Comparing Groups =====
     
-    draw_test(0.3, 5.5, 'Z-test', COLORS['primary'])
-    draw_test(1.7, 5.5, 't-test', COLORS['secondary'])
-    ax.annotate('', xy=(0.3, 6.5), xytext=(0.6, 6.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.annotate('', xy=(1.7, 6.5), xytext=(1.4, 6.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(0.1, 6.6, 'Yes', fontsize=8)
-    ax.text(1.9, 6.6, 'No', fontsize=8)
+    # One sample branch
+    arrow(2.5, 10, 1.5, 8.7, '1')
+    draw_question(1.5, 8, 'Is σ known?', width=2.8)
     
-    # Two samples
-    ax.annotate('', xy=(4, 7.5), xytext=(3.5, 8.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(4.2, 8.2, '2', fontsize=9, fontweight='bold')
-    draw_decision(4.5, 7, 'Independent or\npaired?')
+    arrow(0.8, 7.5, 0.8, 6.2, 'Yes')
+    arrow(2.2, 7.5, 2.2, 6.2, 'No')
+    draw_test(0.8, 5.5, 'Z-test\n(1-sample)', COLORS['primary'])
+    draw_test(2.2, 5.5, 't-test\n(1-sample)', COLORS['secondary'])
     
-    draw_test(3.5, 5.5, 'Two-sample\nt-test', COLORS['accent'])
-    draw_test(5.5, 5.5, 'Paired\nt-test', COLORS['accent'])
-    ax.annotate('', xy=(3.5, 6.5), xytext=(4, 6.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.annotate('', xy=(5.5, 6.5), xytext=(5, 6.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(3.2, 6.6, 'Ind.', fontsize=8)
-    ax.text(5.7, 6.6, 'Paired', fontsize=8)
-
-    # 3+ groups -> ANOVA (common in exams; shown as a hint)
-    ax.annotate('', xy=(6.2, 7.5), xytext=(3.5, 8.5),
-                arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(6.4, 8.2, '3+', fontsize=9, fontweight='bold')
-    draw_test(6.8, 6.1, 'ANOVA', COLORS['warning'])
-
-    # Proportions reminder (common case not fully drawn to keep chart readable)
-    ax.text(0.3, 4.6, 'For proportions (p):\nuse z-tests / chi-square', fontsize=8,
-            color=COLORS['neutral'], style='italic', ha='left')
+    # Two sample branch
+    arrow(4, 10, 5, 8.7, '2')
+    draw_question(5, 8, 'Paired or\nindependent?', width=3)
     
-    # Relationship branch
-    draw_decision(11, 9, 'Type of\nvariables?')
+    arrow(4, 7.5, 3.8, 6.2, 'Ind.')
+    arrow(6, 7.5, 6.2, 6.2, 'Paired')
+    draw_test(3.8, 5.5, 'Two-sample\nt-test', COLORS['accent'])
+    draw_test(6.2, 5.5, 'Paired\nt-test', COLORS['accent'])
     
-    # Numerical
-    ax.annotate('', xy=(9.5, 7.5), xytext=(10.2, 8.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(9.2, 8, 'Numerical', fontsize=8)
-    draw_test(9.5, 6.5, 'Correlation\n(Pearson r)', COLORS['primary'])
+    # Three+ groups branch
+    arrow(5.5, 10, 8, 8.7, '3+')
+    draw_test(8, 8, 'ANOVA\n(F-test)', COLORS['warning'])
     
-    ax.annotate('', xy=(9.5, 5.5), xytext=(9.5, 6), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    draw_test(9.5, 5, 'Regression', COLORS['secondary'])
+    # ===== RIGHT BRANCH: Relationships =====
     
-    # Categorical
-    ax.annotate('', xy=(12.5, 7.5), xytext=(11.8, 8.5), arrowprops=dict(arrowstyle='->', lw=1.5, color=COLORS['neutral']))
-    ax.text(12.8, 8, 'Categorical', fontsize=8)
-    draw_test(12.5, 6.5, 'Chi-square\ntest', COLORS['warning'])
+    # Numerical variables
+    arrow(10.5, 10, 10, 8.7, 'Both\nnumerical', (-0.6, 0))
+    draw_test(10, 8, 'Correlation\n(Pearson r)', COLORS['primary'])
     
-    ax.set_title('Choosing the Right Statistical Test', fontsize=16, fontweight='bold', y=0.98)
+    arrow(10, 7.5, 10, 6.2, 'Predict Y?')
+    draw_test(10, 5.5, 'Regression\n(OLS)', COLORS['secondary'])
+    
+    # Categorical variables  
+    arrow(13.5, 10, 14, 8.7, 'Categorical', (0.5, 0))
+    draw_test(14, 8, 'Chi-square\ntest', COLORS['warning'])
+    
+    # ===== BOTTOM: Quick Reference Notes =====
+    note_y = 3.5
+    ax.text(8, note_y, 'Quick Reference', fontsize=13, fontweight='bold', ha='center', color=COLORS['dark'])
+    
+    notes = [
+        ('Z-test:', 'σ known (rare in practice)', COLORS['primary']),
+        ('t-test:', 'σ unknown, small samples', COLORS['secondary']),
+        ('ANOVA:', '3+ group means comparison', COLORS['warning']),
+        ('Chi-square:', 'categorical independence', COLORS['warning']),
+    ]
+    
+    for i, (test, desc, color) in enumerate(notes):
+        x_pos = 2 + (i % 2) * 7
+        y_pos = note_y - 1 - (i // 2) * 0.7
+        ax.text(x_pos, y_pos, test, fontsize=10, fontweight='bold', color=color)
+        ax.text(x_pos + 1.8, y_pos, desc, fontsize=10, color=COLORS['neutral'])
+    
+    ax.text(8, 0.8, 'For proportions: use z-test for p or chi-square for independence',
+            fontsize=10, ha='center', style='italic', color=COLORS['neutral'],
+            bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['light'], edgecolor='none'))
+    
+    ax.set_title('Choosing the Right Statistical Test', fontsize=18, fontweight='bold', y=0.98)
     
     save_figure(fig, 'test_selection_flowchart.png')
 
