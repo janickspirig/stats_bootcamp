@@ -33,123 +33,536 @@ except ImportError:
     print("  pip install notion-client python-frontmatter pyyaml")
     sys.exit(1)
 
-# Try to import martian, fall back to basic converter if not available
-try:
-    from martian import convert_to_notion
-    MARTIAN_AVAILABLE = True
-except ImportError:
-    MARTIAN_AVAILABLE = False
+# ============================================================================
+# MARKDOWN TO NOTION RICH TEXT CONVERTER
+# ============================================================================
+
+def parse_rich_text(text: str) -> List[Dict[str, Any]]:
+    """
+    Parse markdown inline formatting into Notion rich_text array.
     
-    def convert_to_notion(markdown_content: str) -> list:
-        """
-        Basic markdown to Notion blocks converter (fallback).
-        Handles common markdown elements.
-        """
-        blocks = []
-        lines = markdown_content.split('\n')
-        i = 0
+    Handles:
+    - **bold** or __bold__
+    - *italic* or _italic_
+    - `code`
+    - ~~strikethrough~~
+    - [links](url)
+    - Combined: **bold *and italic***
+    """
+    if not text:
+        return []
+    
+    rich_text = []
+    
+    # Token patterns (order matters - more specific first)
+    patterns = [
+        # Bold + italic combined: ***text*** or ___text___
+        (r'\*\*\*(.+?)\*\*\*', {'bold': True, 'italic': True}),
+        (r'___(.+?)___', {'bold': True, 'italic': True}),
+        # Bold: **text** or __text__
+        (r'\*\*(.+?)\*\*', {'bold': True}),
+        (r'__(.+?)__', {'bold': True}),
+        # Italic: *text* or _text_ (but not inside words for underscore)
+        (r'\*(.+?)\*', {'italic': True}),
+        (r'(?<![a-zA-Z])_(.+?)_(?![a-zA-Z])', {'italic': True}),
+        # Code: `text`
+        (r'`([^`]+)`', {'code': True}),
+        # Strikethrough: ~~text~~
+        (r'~~(.+?)~~', {'strikethrough': True}),
+        # Links: [text](url)
+        (r'\[([^\]]+)\]\(([^)]+)\)', 'link'),
+    ]
+    
+    # Build a combined pattern to find all matches
+    combined_pattern = r'(\*\*\*.*?\*\*\*|___.*?___|' \
+                       r'\*\*.*?\*\*|__.*?__|' \
+                       r'\*.*?\*|(?<![a-zA-Z])_.*?_(?![a-zA-Z])|' \
+                       r'`[^`]+`|~~.*?~~|' \
+                       r'\[[^\]]+\]\([^)]+\))'
+    
+    last_end = 0
+    for match in re.finditer(combined_pattern, text):
+        # Add plain text before this match
+        if match.start() > last_end:
+            plain = text[last_end:match.start()]
+            if plain:
+                rich_text.append({
+                    "type": "text",
+                    "text": {"content": plain},
+                    "annotations": _default_annotations()
+                })
         
-        while i < len(lines):
-            line = lines[i]
-            stripped = line.strip()
-            
-            # Skip empty lines
-            if not stripped:
+        matched_text = match.group(0)
+        
+        # Determine which pattern matched and extract content
+        for pattern, annotations in patterns:
+            m = re.fullmatch(pattern, matched_text)
+            if m:
+                if annotations == 'link':
+                    # Link: [text](url)
+                    link_text = m.group(1)
+                    link_url = m.group(2)
+                    # Only create Notion links for absolute URLs (http/https)
+                    # Relative links (.md files) are invalid in Notion
+                    if link_url.startswith('http://') or link_url.startswith('https://'):
+                        rich_text.append({
+                            "type": "text",
+                            "text": {"content": link_text, "link": {"url": link_url}},
+                            "annotations": _default_annotations()
+                        })
+                    else:
+                        # For relative links, just show the text (could be styled)
+                        annot = _default_annotations()
+                        annot['italic'] = True  # Make it italic to indicate it's a reference
+                        rich_text.append({
+                            "type": "text",
+                            "text": {"content": link_text},
+                            "annotations": annot
+                        })
+                else:
+                    content = m.group(1)
+                    annot = _default_annotations()
+                    annot.update(annotations)
+                    rich_text.append({
+                        "type": "text",
+                        "text": {"content": content},
+                        "annotations": annot
+                    })
+                break
+        
+        last_end = match.end()
+    
+    # Add remaining plain text
+    if last_end < len(text):
+        remaining = text[last_end:]
+        if remaining:
+            rich_text.append({
+                "type": "text",
+                "text": {"content": remaining},
+                "annotations": _default_annotations()
+            })
+    
+    # If no matches found, return simple text
+    if not rich_text:
+        rich_text.append({
+            "type": "text",
+            "text": {"content": text},
+            "annotations": _default_annotations()
+        })
+    
+    return rich_text
+
+
+def _default_annotations() -> Dict[str, Any]:
+    """Return default Notion annotations."""
+    return {
+        "bold": False,
+        "italic": False,
+        "strikethrough": False,
+        "underline": False,
+        "code": False,
+        "color": "default"
+    }
+
+
+def convert_to_notion(markdown_content: str) -> List[Dict[str, Any]]:
+    """
+    Convert markdown content to Notion blocks with proper rich text formatting.
+    
+    Handles:
+    - Headers (h1, h2, h3)
+    - Paragraphs with inline formatting (bold, italic, code, links)
+    - Bullet lists
+    - Numbered lists
+    - Code blocks
+    - Block quotes / callouts
+    - Images (external URLs)
+    - Horizontal rules
+    - Tables (basic)
+    - LaTeX equations ($$ blocks)
+    - <details><summary> tags → Notion toggle blocks
+    - HTML comments (ignored)
+    """
+    blocks = []
+    lines = markdown_content.split('\n')
+    i = 0
+    
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        
+        # Skip empty lines
+        if not stripped:
+            i += 1
+            continue
+        
+        # Skip HTML comments
+        if stripped.startswith('<!--'):
+            # Find end of comment
+            while i < len(lines) and '-->' not in lines[i]:
                 i += 1
-                continue
+            i += 1
+            continue
+        
+        # Handle <details><summary> → Notion toggle block
+        if stripped.startswith('<details>') or stripped == '<details>':
+            # Find the summary line
+            i += 1
+            summary_text = "Details"
+            while i < len(lines):
+                check_line = lines[i].strip()
+                if check_line.startswith('<summary>'):
+                    # Extract summary text
+                    match = re.search(r'<summary>(.+?)</summary>', check_line)
+                    if match:
+                        summary_text = match.group(1)
+                    elif '<summary>' in check_line:
+                        summary_text = check_line.replace('<summary>', '').replace('</summary>', '').strip()
+                    i += 1
+                    break
+                elif check_line == '':
+                    i += 1
+                    continue
+                else:
+                    i += 1
+                    break
             
-            # Headers
-            if stripped.startswith('# '):
+            # Collect content until </details>
+            details_content_lines = []
+            while i < len(lines) and '</details>' not in lines[i]:
+                details_content_lines.append(lines[i])
+                i += 1
+            
+            # Parse the inner content as child blocks
+            inner_content = '\n'.join(details_content_lines)
+            child_blocks = convert_to_notion(inner_content) if inner_content.strip() else []
+            
+            # Create toggle block
+            toggle_block = {
+                "object": "block",
+                "type": "toggle",
+                "toggle": {
+                    "rich_text": parse_rich_text(summary_text),
+                    "children": child_blocks if child_blocks else [{
+                        "object": "block",
+                        "type": "paragraph",
+                        "paragraph": {"rich_text": [{"type": "text", "text": {"content": "(empty)"}}]}
+                    }]
+                }
+            }
+            blocks.append(toggle_block)
+            i += 1  # Skip </details>
+            continue
+        
+        # Skip closing tags
+        if stripped in ('</details>', '</summary>'):
+            i += 1
+            continue
+        
+        # LaTeX block equation: $$
+        if stripped == '$$':
+            equation_lines = []
+            i += 1
+            while i < len(lines) and lines[i].strip() != '$$':
+                equation_lines.append(lines[i])
+                i += 1
+            equation = '\n'.join(equation_lines).strip()
+            if equation:
                 blocks.append({
                     "object": "block",
-                    "type": "heading_1",
-                    "heading_1": {"rich_text": [{"type": "text", "text": {"content": stripped[2:]}}]}
+                    "type": "equation",
+                    "equation": {"expression": equation}
                 })
-            elif stripped.startswith('## '):
+            i += 1
+            continue
+        
+        # Headers
+        if stripped.startswith('# '):
+            content = stripped[2:]
+            blocks.append({
+                "object": "block",
+                "type": "heading_1",
+                "heading_1": {"rich_text": parse_rich_text(content)}
+            })
+        elif stripped.startswith('## '):
+            content = stripped[3:]
+            
+            # Check if this is a Table of Contents header
+            if 'table of contents' in content.lower():
+                # Add the heading
                 blocks.append({
                     "object": "block",
                     "type": "heading_2",
-                    "heading_2": {"rich_text": [{"type": "text", "text": {"content": stripped[3:]}}]}
+                    "heading_2": {"rich_text": parse_rich_text(content)}
                 })
-            elif stripped.startswith('### '):
-                blocks.append({
-                    "object": "block",
-                    "type": "heading_3",
-                    "heading_3": {"rich_text": [{"type": "text", "text": {"content": stripped[4:]}}]}
-                })
-            # Horizontal rule
-            elif stripped == '---':
-                blocks.append({"object": "block", "type": "divider", "divider": {}})
-            # Block quote / callout
-            elif stripped.startswith('> '):
-                blocks.append({
-                    "object": "block",
-                    "type": "callout",
-                    "callout": {
-                        "rich_text": [{"type": "text", "text": {"content": stripped[2:]}}],
-                        "icon": {"type": "emoji", "emoji": "💡"}
-                    }
-                })
-            # Code block
-            elif stripped.startswith('```'):
-                code_lines = []
-                lang = stripped[3:] if len(stripped) > 3 else "plain text"
+                
+                # Skip the TOC list items and add a native Notion TOC block
                 i += 1
-                while i < len(lines) and not lines[i].strip().startswith('```'):
-                    code_lines.append(lines[i])
+                while i < len(lines):
+                    next_line = lines[i].strip()
+                    # Skip empty lines and numbered list items with anchor links
+                    if not next_line:
+                        i += 1
+                        continue
+                    if re.match(r'^\d+\.\s*\[.+\]\(#.+\)', next_line):
+                        i += 1
+                        continue
+                    # Stop at divider or next section
+                    if next_line in ('---', '***', '___') or next_line.startswith('#'):
+                        i -= 1  # Back up to process this line
+                        break
                     i += 1
+                
+                # Add Notion's native table of contents block
                 blocks.append({
                     "object": "block",
-                    "type": "code",
-                    "code": {
-                        "rich_text": [{"type": "text", "text": {"content": '\n'.join(code_lines)}}],
-                        "language": lang if lang in ["python", "javascript", "sql", "bash"] else "plain text"
-                    }
+                    "type": "table_of_contents",
+                    "table_of_contents": {"color": "gray"}
                 })
-            # Bullet list
-            elif stripped.startswith('- ') or stripped.startswith('* '):
-                blocks.append({
-                    "object": "block",
-                    "type": "bulleted_list_item",
-                    "bulleted_list_item": {"rich_text": [{"type": "text", "text": {"content": stripped[2:]}}]}
-                })
-            # Numbered list
-            elif re.match(r'^\d+\.\s', stripped):
-                content = re.sub(r'^\d+\.\s', '', stripped)
-                blocks.append({
-                    "object": "block",
-                    "type": "numbered_list_item",
-                    "numbered_list_item": {"rich_text": [{"type": "text", "text": {"content": content}}]}
-                })
-            # Image
-            elif stripped.startswith('!['):
-                match = re.match(r'!\[([^\]]*)\]\(([^)]+)\)', stripped)
-                if match:
-                    alt_text, url = match.groups()
-                    if url.startswith('http'):
-                        blocks.append({
-                            "object": "block",
-                            "type": "image",
-                            "image": {"type": "external", "external": {"url": url}}
-                        })
-                    else:
-                        # For local images, add a placeholder paragraph
-                        blocks.append({
-                            "object": "block",
-                            "type": "paragraph",
-                            "paragraph": {"rich_text": [{"type": "text", "text": {"content": f"[Image: {alt_text}]"}}]}
-                        })
-            # Regular paragraph
             else:
                 blocks.append({
                     "object": "block",
-                    "type": "paragraph",
-                    "paragraph": {"rich_text": [{"type": "text", "text": {"content": stripped[:2000]}}]}
+                    "type": "heading_2",
+                    "heading_2": {"rich_text": parse_rich_text(content)}
                 })
-            
-            i += 1
+        elif stripped.startswith('### '):
+            content = stripped[4:]
+            blocks.append({
+                "object": "block",
+                "type": "heading_3",
+                "heading_3": {"rich_text": parse_rich_text(content)}
+            })
+        elif stripped.startswith('#### '):
+            # Notion only has h1-h3, use bold paragraph for h4+
+            content = stripped[5:]
+            rt = parse_rich_text(content)
+            for item in rt:
+                item['annotations']['bold'] = True
+            blocks.append({
+                "object": "block",
+                "type": "paragraph",
+                "paragraph": {"rich_text": rt}
+            })
         
-        return blocks
+        # Horizontal rule
+        elif stripped in ('---', '***', '___'):
+            blocks.append({"object": "block", "type": "divider", "divider": {}})
+        
+        # Block quote / callout - collect consecutive lines
+        elif stripped.startswith('> '):
+            quote_lines = []
+            emoji = "💡"
+            
+            # Collect all consecutive quote lines
+            while i < len(lines) and lines[i].strip().startswith('> '):
+                quote_content = lines[i].strip()[2:]
+                quote_lines.append(quote_content)
+                
+                # Detect callout type by emoji or keyword (from first line)
+                if len(quote_lines) == 1:
+                    if quote_content.startswith('⚠️'):
+                        emoji = "⚠️"
+                    elif quote_content.startswith('📝'):
+                        emoji = "📝"
+                    elif quote_content.startswith('✅'):
+                        emoji = "✅"
+                    elif quote_content.startswith('❌'):
+                        emoji = "❌"
+                    elif quote_content.startswith('🎯'):
+                        emoji = "🎯"
+                    elif quote_content.startswith('📚'):
+                        emoji = "📚"
+                    elif quote_content.startswith('💡'):
+                        emoji = "💡"
+                    elif 'warning' in quote_content.lower()[:30]:
+                        emoji = "⚠️"
+                    elif 'note' in quote_content.lower()[:20]:
+                        emoji = "📝"
+                    elif 'tip' in quote_content.lower()[:20]:
+                        emoji = "✅"
+                
+                i += 1
+            
+            i -= 1  # Back up since we'll increment at end
+            
+            # Separate header lines from bullet lines
+            header_lines = []
+            bullet_lines = []
+            
+            for line in quote_lines:
+                if line.startswith('- ') or line.startswith('* '):
+                    bullet_lines.append(line[2:])
+                else:
+                    # If we haven't started bullets yet, it's a header line
+                    if not bullet_lines:
+                        header_lines.append(line)
+                    else:
+                        # It's a continuation of the last bullet
+                        if bullet_lines:
+                            bullet_lines[-1] += ' ' + line
+            
+            # Build header text
+            header_text = '\n'.join(header_lines) if header_lines else ''
+            
+            # Remove duplicate emoji at the start of text (if it matches the callout icon)
+            emoji_prefixes = ['⚠️', '📝', '✅', '❌', '🎯', '📚', '💡']
+            for ep in emoji_prefixes:
+                if header_text.startswith(ep) and ep == emoji:
+                    header_text = header_text[len(ep):].lstrip()
+                    break
+            
+            # Create callout block
+            callout_block = {
+                "object": "block",
+                "type": "callout",
+                "callout": {
+                    "rich_text": parse_rich_text(header_text) if header_text else [],
+                    "icon": {"type": "emoji", "emoji": emoji}
+                }
+            }
+            
+            # If there are bullet lines, add them as children
+            if bullet_lines:
+                children = []
+                for bullet_content in bullet_lines:
+                    children.append({
+                        "object": "block",
+                        "type": "bulleted_list_item",
+                        "bulleted_list_item": {
+                            "rich_text": parse_rich_text(bullet_content)
+                        }
+                    })
+                callout_block["callout"]["children"] = children
+            
+            blocks.append(callout_block)
+        
+        # Code block
+        elif stripped.startswith('```'):
+            code_lines = []
+            lang = stripped[3:].strip() if len(stripped) > 3 else "plain text"
+            # Map common language names
+            lang_map = {
+                'python': 'python', 'py': 'python',
+                'javascript': 'javascript', 'js': 'javascript',
+                'typescript': 'typescript', 'ts': 'typescript',
+                'sql': 'sql', 'bash': 'bash', 'shell': 'bash', 'sh': 'bash',
+                'r': 'r', 'latex': 'latex', 'tex': 'latex',
+                'json': 'json', 'yaml': 'yaml', 'yml': 'yaml',
+                'html': 'html', 'css': 'css', 'java': 'java',
+                'c': 'c', 'cpp': 'c++', 'c++': 'c++',
+            }
+            lang = lang_map.get(lang.lower(), 'plain text')
+            i += 1
+            while i < len(lines) and not lines[i].strip().startswith('```'):
+                code_lines.append(lines[i])
+                i += 1
+            blocks.append({
+                "object": "block",
+                "type": "code",
+                "code": {
+                    "rich_text": [{"type": "text", "text": {"content": '\n'.join(code_lines)}}],
+                    "language": lang
+                }
+            })
+        
+        # Bullet list (handle nested)
+        elif stripped.startswith('- ') or stripped.startswith('* '):
+            content = stripped[2:]
+            blocks.append({
+                "object": "block",
+                "type": "bulleted_list_item",
+                "bulleted_list_item": {"rich_text": parse_rich_text(content)}
+            })
+        
+        # Numbered list
+        elif re.match(r'^\d+\.\s', stripped):
+            content = re.sub(r'^\d+\.\s', '', stripped)
+            blocks.append({
+                "object": "block",
+                "type": "numbered_list_item",
+                "numbered_list_item": {"rich_text": parse_rich_text(content)}
+            })
+        
+        # Image
+        elif stripped.startswith('!['):
+            match = re.match(r'!\[([^\]]*)\]\(([^)]+)\)', stripped)
+            if match:
+                alt_text, url = match.groups()
+                if url.startswith('http'):
+                    blocks.append({
+                        "object": "block",
+                        "type": "image",
+                        "image": {"type": "external", "external": {"url": url}}
+                    })
+                else:
+                    # For local images, add a placeholder with the path
+                    blocks.append({
+                        "object": "block",
+                        "type": "callout",
+                        "callout": {
+                            "rich_text": [{"type": "text", "text": {"content": f"🖼️ Image: {alt_text}\nPath: {url}"}}],
+                            "icon": {"type": "emoji", "emoji": "🖼️"}
+                        }
+                    })
+        
+        # Table (simple detection)
+        elif stripped.startswith('|') and stripped.endswith('|'):
+            # Collect all table rows
+            table_rows = [stripped]
+            i += 1
+            while i < len(lines) and lines[i].strip().startswith('|'):
+                row = lines[i].strip()
+                # Skip separator row (|---|---|)
+                if not re.match(r'^\|[\s\-:]+\|$', row.replace('|', '|').replace('-', '-')):
+                    if '---' not in row:
+                        table_rows.append(row)
+                i += 1
+            i -= 1  # Back up one since we'll increment at end
+            
+            # Parse table
+            if len(table_rows) >= 1:
+                # Create table
+                parsed_rows = []
+                for row in table_rows:
+                    cells = [c.strip() for c in row.split('|')[1:-1]]
+                    parsed_rows.append(cells)
+                
+                if parsed_rows:
+                    num_cols = max(len(r) for r in parsed_rows)
+                    table_children = []
+                    for row in parsed_rows:
+                        row_cells = []
+                        for j in range(num_cols):
+                            cell_content = row[j] if j < len(row) else ""
+                            row_cells.append(parse_rich_text(cell_content))
+                        table_children.append({
+                            "object": "block",
+                            "type": "table_row",
+                            "table_row": {"cells": row_cells}
+                        })
+                    
+                    blocks.append({
+                        "object": "block",
+                        "type": "table",
+                        "table": {
+                            "table_width": num_cols,
+                            "has_column_header": True,
+                            "has_row_header": False,
+                            "children": table_children
+                        }
+                    })
+        
+        # Regular paragraph (skip stray HTML tags)
+        elif not stripped.startswith('<'):
+            blocks.append({
+                "object": "block",
+                "type": "paragraph",
+                "paragraph": {"rich_text": parse_rich_text(stripped[:2000])}
+            })
+        
+        i += 1
+    
+    return blocks
 
 # Configuration
 SCRIPT_DIR = Path(__file__).parent
@@ -159,7 +572,7 @@ PAGE_TREE_PATH = STATS_DIR / "notion_pages" / "page_tree.json"
 MANIFEST_PATH = STATS_DIR / "notion_pages" / "notion_manifest.json"
 
 # Rate limiting
-API_DELAY = 0.35  # seconds between API calls to avoid rate limiting
+API_DELAY = 0.5  # seconds between API calls to avoid rate limiting
 
 
 def load_page_tree() -> dict:
@@ -443,8 +856,14 @@ def create_file_mapping() -> Dict[str, Path]:
     return mapping
 
 
-def publish_bootcamp(dry_run: bool = False):
-    """Main publication function."""
+def publish_bootcamp(dry_run: bool = False, debug_file: Optional[str] = None, single_key: Optional[str] = None):
+    """Main publication function.
+    
+    Args:
+        dry_run: If True, show what would be done without making changes
+        debug_file: If provided, write converted blocks to this JSON file for debugging
+        single_key: If provided, only process this manifest key
+    """
     # Setup
     token = os.environ.get("NOTION_TOKEN")
     root_id = os.environ.get("NOTION_ROOT_PAGE_ID")
@@ -565,27 +984,50 @@ def publish_bootcamp(dry_run: bool = False):
     
     pages_updated = 0
     pages_skipped = 0
+    debug_output = {}  # For --debug mode
     
     for manifest_key, md_file in file_mapping.items():
+        # If --single is specified, skip other keys
+        if single_key and manifest_key != single_key:
+            continue
+            
         if manifest_key in manifest["pages"]:
             print(f"  📝 Updating: {manifest_key}")
             
-            if not dry_run:
-                try:
-                    _, content = get_markdown_content(md_file)
-                    content = preprocess_markdown_for_notion(content)
-                    content = resolve_internal_links(content, manifest, md_file)
-                    
+            try:
+                _, content = get_markdown_content(md_file)
+                content = preprocess_markdown_for_notion(content)
+                content = resolve_internal_links(content, manifest, md_file)
+                
+                # Convert to blocks
+                blocks = convert_to_notion(content)
+                
+                # If debug mode, save blocks to output
+                if debug_file:
+                    debug_output[manifest_key] = {
+                        "file": str(md_file),
+                        "page_url": manifest["pages"][manifest_key].get("url", ""),
+                        "block_count": len(blocks),
+                        "blocks": blocks
+                    }
+                
+                if not dry_run:
                     page_id = manifest["pages"][manifest_key]["id"]
                     update_page_content(notion, page_id, content)
                     pages_updated += 1
-                except Exception as e:
-                    print(f"    ❌ ERROR: {e}")
-            else:
-                pages_updated += 1
+                else:
+                    pages_updated += 1
+            except Exception as e:
+                print(f"    ❌ ERROR: {e}")
         else:
             print(f"  ⚠️  Skipped (no page): {manifest_key}")
             pages_skipped += 1
+    
+    # Write debug output if requested
+    if debug_file:
+        with open(debug_file, "w") as f:
+            json.dump(debug_output, f, indent=2, ensure_ascii=False)
+        print(f"\n📋 Debug output written to: {debug_file}")
     
     print(f"\n  Updated {pages_updated} pages, skipped {pages_skipped}")
     
@@ -616,9 +1058,21 @@ def main():
         action="store_true",
         help="Show what would be done without making changes"
     )
+    parser.add_argument(
+        "--debug",
+        type=str,
+        metavar="FILE",
+        help="Write converted blocks to JSON file for debugging (e.g., --debug output.json)"
+    )
+    parser.add_argument(
+        "--single",
+        type=str,
+        metavar="KEY",
+        help="Only process a single manifest key (e.g., --single 02_descriptive_statistics_central_tendency)"
+    )
     
     args = parser.parse_args()
-    publish_bootcamp(dry_run=args.dry_run)
+    publish_bootcamp(dry_run=args.dry_run, debug_file=args.debug, single_key=args.single)
 
 
 if __name__ == "__main__":
