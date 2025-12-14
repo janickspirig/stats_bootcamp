@@ -20,6 +20,27 @@ After completing this section, you will be able to:
 
 ---
 
+## Intuition (probability vs odds)
+
+Probability \(p\) answers: “Out of all cases, how often does the event happen?”
+
+Odds answer a slightly different question: “How many **event** cases do we expect **per non-event** case?”
+
+- If \(p=0.50\), odds \(=0.50/0.50=1\): about **1 event per 1 non-event**.
+- If \(p=0.10\), odds \(=0.10/0.90=0.111\): about **1 event per 9 non-events**.
+
+An **odds ratio** compares odds between two groups. OR = 2 means the odds are twice as high in group 1 as in group 0.
+
+---
+
+## When to use / when not to use
+
+- **Use when**: comparing event likelihood between two groups using a 2×2 table (e.g., default vs non-default by customer type).
+- **Use when**: interpreting coefficients from logistic regression (OR is the natural scale there; advanced context).
+- **Do not use when**: you want “probability is X times larger” (that is a **risk ratio**, not an OR).
+
+---
+
 ## Definitions
 
 ### Odds
@@ -50,6 +71,26 @@ Interpretation:
 - OR = 1 → same odds in both groups
 - OR > 1 → higher odds in group 1
 - OR < 1 → lower odds in group 1
+
+---
+
+## Interpretation sentence templates (exam-ready)
+
+- “The odds of **[event]** are **[OR]×** as high in group 1 as in group 0.”
+- “OR = [..] (>1) indicates higher odds in group 1; OR < 1 indicates lower odds.”
+
+---
+
+## Common traps (high-frequency)
+
+> ⚠️ **Trap 1: Interpreting OR as ‘probability doubles’.**
+> OR = 2 does *not* mean the probability is 2×. The probability change depends on the baseline rate.
+
+> ⚠️ **Trap 2: Mixing up OR and risk ratio (RR).**
+> OR ≈ RR only when the event is rare; otherwise OR can look much larger than RR.
+
+> ⚠️ **Trap 3: Swapping group 0/1.**
+> Always state which group is the numerator (OR for group 1 relative to group 0).
 
 ---
 

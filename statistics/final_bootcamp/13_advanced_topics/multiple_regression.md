@@ -22,6 +22,55 @@ After completing this section, you will be able to:
 
 ---
 
+## Intuition (why multiple regression exists)
+
+In business, outcomes usually depend on **more than one factor**. Multiple regression lets you estimate the relationship between \(Y\) and one predictor while **controlling for other predictors**.
+
+The key phrase is **“holding other variables constant”**: it means “compare two observations that are the same in all other included predictors, except \(x_j\).”
+
+**Why this matters (confounding):** If advertising spend rises in peak season, then a simple regression of Sales on Ads can mix up “ads effect” with “season effect”. Adding a season variable helps separate these effects.
+
+---
+
+## When to use / when not to use
+
+- **Use when**: you want to explain/predict a numeric outcome using **multiple predictors** (numeric or dummy-coded categorical).
+- **Use when**: you expect confounding and want a “controlled” comparison.
+- **Do not use when**: the outcome is categorical (use logistic models; not covered here).
+- **Do not use when**: the relationship is clearly non-linear and you have no transformation/terms to model it.
+
+---
+
+## Interpretation sentence templates (exam-ready)
+
+For a coefficient on \(x_j\):
+
+- “A one-unit increase in \(x_j\) is associated with an average change of **[β̂ⱼ]** in \(Y\), **holding the other predictors constant**.”
+- “The sign of \(\\hat\\beta_j\) is [positive/negative], meaning higher \(x_j\) is associated with [higher/lower] \(Y\) after controlling for the other variables.”
+
+For adjusted R²:
+
+- “Adjusted \(R^2\) increases only if the new predictor improves the model enough to justify the extra complexity.”
+
+---
+
+## Common traps (high-frequency)
+
+> ⚠️ **Trap 1: Forgetting ‘holding others constant’.**
+> Multiple regression coefficients are *partial* effects, not simple pairwise relationships.
+
+> ⚠️ **Trap 2: Sign flips.**
+> A coefficient can change sign after adding controls (classic confounding).
+
+> ⚠️ **Trap 3: Interpreting the intercept literally.**
+> \(\\hat\\beta_0\) is the predicted \(Y\) when all predictors are 0 — often outside the meaningful data range.
+
+> ⚠️ **Trap 4: Multicollinearity.**
+> If predictors move together strongly (e.g., Ads and Promo), individual coefficients can become unstable.
+
+> ⚠️ **Trap 5: Causality language.**
+> Unless the study design supports it, write “associated with”, not “causes”.
+
 ## The Model
 
 $$

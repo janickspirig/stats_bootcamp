@@ -22,6 +22,59 @@ After completing this section, you will be able to:
 
 ---
 
+## Intuition (what you are actually testing)
+
+In simple regression, the slope \(\\beta_1\) is the **average change in \(Y\)** for a **+1 change in \(X\)** (in the population).
+
+This hypothesis test answers a specific question:
+
+> “Do we have enough evidence (from this sample) that the true population slope is **not zero**?”
+
+If you reject \(H_0: \\beta_1 = 0\), you are saying: “A linear association is likely present.” You are **not** automatically saying: “Changing \(X\) will cause \(Y\) to change.”
+
+---
+
+## When to use / when not to use
+
+- **Use when**: you have a simple linear regression model and want to test whether the slope differs from 0.
+- **Use when**: you need an exam-style conclusion about “significant relationship” between \(X\) and \(Y\).
+- **Do not use when**: the relationship is clearly non-linear (the “slope” test can be misleading without appropriate terms/transformations).
+
+---
+
+## Practical vs statistical significance
+
+- **Statistically significant** means “unlikely under \(H_0\)” (p-value small / test statistic extreme).
+- **Practically significant** means “large enough to matter for a decision” (business impact).
+
+A tiny slope can be statistically significant with large \(n\), but irrelevant in practice.
+
+---
+
+## Interpretation sentence templates (exam-ready)
+
+- **Reject \(H_0\)**: “At α = [..], there is sufficient evidence that the slope differs from 0; \(X\) is statistically significantly associated with \(Y\) in a linear model.”
+- **Do not reject \(H_0\)**: “At α = [..], there is not sufficient evidence that the slope differs from 0; we cannot conclude a linear association from this sample.”
+- **Confidence interval**: “A [95%] CI for \(\\beta_1\) is [..]. If the interval includes 0, the slope is not significant at α = 0.05.”
+
+---
+
+## Common traps (high-frequency)
+
+> ⚠️ **Trap 1: Writing causal conclusions.**
+> Use “associated with” unless the design supports causality.
+
+> ⚠️ **Trap 2: Forgetting units.**
+> The slope is “units of \(Y\) per +1 unit of \(X\)”.
+
+> ⚠️ **Trap 3: Wrong degrees of freedom.**
+> For simple regression slope tests: df = \(n-2\).
+
+> ⚠️ **Trap 4: Confusing ‘significant’ with ‘important’.**
+> Always consider the size of \(\\hat\\beta_1\), not only the p-value.
+
+---
+
 ## Key Formula
 
 **Test Statistic:**

@@ -22,6 +22,32 @@ After completing this section, you will be able to:
 
 ---
 
+## Intuition (what this test is doing)
+
+The χ² test compares what you **actually observed** in a contingency table to what you would **expect to observe** if there were **no relationship** (i.e., if the variables were independent).
+
+You can think of χ² as a single “mismatch score” across all cells:
+- If observed counts are close to expected counts, χ² is small (looks like independence).
+- If some cells are far away from what independence would predict, χ² becomes large (evidence of association).
+
+---
+
+## When to use / when not to use
+
+- **Use when**: both variables are **categorical** (e.g., gender × product choice) and you want to test if they are related.
+- **Do not use when**: your variables are numeric (use t-tests/regression instead).
+- **Common exam check**: expected counts should be “not too small” (rule of thumb: **all expected \(E\) ≥ 5**).
+
+---
+
+## Assumptions (say these explicitly)
+
+- **Independent observations** (each person/item counted once)
+- **Categorical data in counts** (not percentages)
+- **Expected counts sufficiently large** (typically all \(E \ge 5\); otherwise results can be unreliable)
+
+---
+
 ## Key Formula
 
 $$
@@ -43,6 +69,32 @@ $$
 ![Chi-square distribution with right-tail rejection region](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/chi_square_distribution_rejection_region.png)
 
 ![Pipeline: Observed table → Expected table → (O-E)²/E](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/chi_square_expected_counts_pipeline.png)
+
+---
+
+## Interpretation sentence templates (exam-ready)
+
+Use one of these after your decision:
+
+- **Reject \(H_0\)**: “At α = [..], there is sufficient evidence that **[variable A]** and **[variable B]** are **associated** (not independent).”
+- **Do not reject \(H_0\)**: “At α = [..], there is not sufficient evidence of an association between **[A]** and **[B]**.”
+- **One-liner reminder**: “Association does not prove causality; it only says the distribution differs across categories.”
+
+---
+
+## Common traps (high-frequency)
+
+> ⚠️ **Trap 1: Mixing up O and E.**
+> O is the given table; E is computed from row/column totals.
+
+> ⚠️ **Trap 2: Using percentages instead of counts.**
+> The test is defined on counts (frequencies).
+
+> ⚠️ **Trap 3: Forgetting the expected-count rule.**
+> If some \(E\) are too small, the χ² approximation can be poor.
+
+> ⚠️ **Trap 4: Incorrect df.**
+> df = (r−1)(c−1), not \(rc\) or \(n-1\).
 
 ---
 
