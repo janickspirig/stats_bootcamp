@@ -979,10 +979,12 @@ def generate_binomial_shapes():
         ax.legend(loc='upper right', frameon=True, fontsize=9)
     
     fig.suptitle('Binomial Distribution Shapes', fontsize=16, fontweight='bold', y=1.02)
-    fig.text(0.5, 0.01, 'Rule of thumb: p < 0.5 = right-skewed, p = 0.5 = symmetric, p > 0.5 = left-skewed',
-             ha='center', fontsize=12, fontweight='bold', color=COLORS['dark'],
-             bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     plt.tight_layout()
+    # Add extra bottom margin for the rule of thumb box
+    plt.subplots_adjust(bottom=0.18)
+    fig.text(0.5, 0.04, 'Rule of thumb: p < 0.5 = right-skewed, p = 0.5 = symmetric, p > 0.5 = left-skewed',
+             ha='center', fontsize=11, fontweight='bold', color=COLORS['dark'],
+             bbox=dict(boxstyle='round,pad=0.4', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     save_figure(fig, 'binomial_shapes.png')
 
 
