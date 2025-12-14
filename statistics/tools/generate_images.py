@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, Circle, FancyArrowPatch, Polygon
 from matplotlib.patches import ConnectionPatch
+from matplotlib.lines import Line2D
 import seaborn as sns
 
 # =============================================================================
@@ -99,6 +100,24 @@ def save_figure(fig, filename: str, tight: bool = True):
         fig.savefig(filepath, dpi=DPI)
     plt.close(fig)
     print(f"  ✓ Saved: {filename}")
+
+
+def draw_check_icon(ax, x: float, y: float, size: float, color: str, lw: float = 3.0) -> None:
+    """Draw a checkmark icon using vector lines (font-independent)."""
+    # Two-segment checkmark: downstroke then upstroke
+    x0, y0 = x - 0.45 * size, y + 0.05 * size
+    x1, y1 = x - 0.10 * size, y - 0.35 * size
+    x2, y2 = x + 0.55 * size, y + 0.45 * size
+    ax.add_line(Line2D([x0, x1], [y0, y1], color=color, linewidth=lw, solid_capstyle='round'))
+    ax.add_line(Line2D([x1, x2], [y1, y2], color=color, linewidth=lw, solid_capstyle='round'))
+
+
+def draw_x_icon(ax, x: float, y: float, size: float, color: str, lw: float = 3.0) -> None:
+    """Draw an X icon using vector lines (font-independent)."""
+    dx = 0.45 * size
+    dy = 0.45 * size
+    ax.add_line(Line2D([x - dx, x + dx], [y - dy, y + dy], color=color, linewidth=lw, solid_capstyle='round'))
+    ax.add_line(Line2D([x - dx, x + dx], [y + dy, y - dy], color=color, linewidth=lw, solid_capstyle='round'))
 
 
 # =============================================================================
@@ -697,31 +716,17 @@ def generate_normal_curve():
     # Mean line
     ax.axvline(0, color=COLORS['warning'], linewidth=2.5, linestyle='--')
     
-    # Standard deviation markers with staggered labels
-    sd_info = [
-        (-3, '-3σ', 0.06),
-        (-2, '-2σ', 0.10),
-        (-1, '-1σ', 0.06),
-        (0, 'μ', 0.10),
-        (1, '+1σ', 0.06),
-        (2, '+2σ', 0.10),
-        (3, '+3σ', 0.06),
-    ]
-    
-    for sd, label, y_offset in sd_info:
-        if sd != 0:
-            ax.axvline(sd, color=COLORS['neutral'], linewidth=1, linestyle=':', alpha=0.6)
-        
-        # Place label below x-axis with staggered heights
-        color = COLORS['warning'] if sd == 0 else COLORS['dark']
-        weight = 'bold' if sd == 0 else 'normal'
-        size = 12 if sd == 0 else 10
-        ax.text(sd, -y_offset, label, ha='center', fontsize=size, color=color, fontweight=weight)
+    # Standard deviation guide lines (no cramped ±σ labels)
+    for sd in [-3, -2, -1, 1, 2, 3]:
+        ax.axvline(sd, color=COLORS['neutral'], linewidth=1, linestyle=':', alpha=0.6)
+
+    # Keep only the mean label
+    ax.text(0, -0.06, 'μ', ha='center', fontsize=12, color=COLORS['warning'], fontweight='bold')
     
     # Key properties box (instead of arrows)
     props_text = 'Properties:\n• Symmetric around μ\n• Peak at mean\n• 68% within ±1σ\n• 95% within ±2σ'
     ax.text(0.98, 0.95, props_text, transform=ax.transAxes, fontsize=10,
-            va='top', ha='right', color=COLORS['dark'],
+            va='top', ha='right', multialignment='right', color=COLORS['dark'],
             bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor=COLORS['primary'], alpha=0.9))
     
     ax.set_xlabel('Standard Deviations from Mean', fontsize=11)
@@ -729,7 +734,7 @@ def generate_normal_curve():
     ax.set_title('The Normal Distribution', fontsize=18, fontweight='bold', pad=15)
     ax.set_yticks([])
     ax.set_xlim(-4, 4)
-    ax.set_ylim(-0.12, 0.45)  # Extra space below for labels
+    ax.set_ylim(-0.09, 0.45)  # small space below for μ label only
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     
@@ -2235,6 +2240,10 @@ def generate_t_test_rejection_example():
     # Example: two-tailed test, t = 2.5, t_crit = 2.131
     test_stat = 2.5
     t_crit = stats.t.ppf(0.975, df=df)
+
+    # Use distinct colors (global palette has warning==negative, which reduces contrast here)
+    rejection_color = COLORS['negative']          # red
+    test_stat_color = COLORS['platykurtic']       # amber
     
     ax.plot(x, y, color=COLORS['dark'], linewidth=2.5)
     ax.fill_between(x, y, alpha=0.15, color=COLORS['secondary'])
@@ -2244,18 +2253,18 @@ def generate_t_test_rejection_example():
     x_reject_right = x[x >= t_crit]
     y_reject_left = stats.t.pdf(x_reject_left, df=df)
     y_reject_right = stats.t.pdf(x_reject_right, df=df)
-    ax.fill_between(x_reject_left, y_reject_left, alpha=0.5, color=COLORS['negative'])
-    ax.fill_between(x_reject_right, y_reject_right, alpha=0.5, color=COLORS['negative'])
+    ax.fill_between(x_reject_left, y_reject_left, alpha=0.65, color=rejection_color)
+    ax.fill_between(x_reject_right, y_reject_right, alpha=0.65, color=rejection_color)
     
     # Critical value lines
-    ax.axvline(-t_crit, color=COLORS['negative'], linewidth=2, linestyle='--')
-    ax.axvline(t_crit, color=COLORS['negative'], linewidth=2, linestyle='--')
-    ax.text(t_crit, -0.03, f't_crit = ±{t_crit:.3f}', ha='center', fontsize=10, fontweight='bold', color=COLORS['negative'])
+    ax.axvline(-t_crit, color=rejection_color, linewidth=2, linestyle='--')
+    ax.axvline(t_crit, color=rejection_color, linewidth=2, linestyle='--')
+    ax.text(t_crit, -0.03, f't_crit = ±{t_crit:.3f}', ha='center', fontsize=10, fontweight='bold', color=rejection_color)
     
     # Test statistic
-    ax.axvline(test_stat, color=COLORS['warning'], linewidth=3)
-    ax.scatter([test_stat], [0.02], color=COLORS['warning'], s=150, zorder=5, marker='^')
-    ax.text(test_stat, 0.12, f't = {test_stat}', ha='center', fontsize=12, fontweight='bold', color=COLORS['warning'])
+    ax.axvline(test_stat, color=test_stat_color, linewidth=3)
+    ax.scatter([test_stat], [0.02], color=test_stat_color, s=150, zorder=5, marker='^')
+    ax.text(test_stat, 0.12, f't = {test_stat}', ha='center', fontsize=12, fontweight='bold', color=test_stat_color)
     
     # Decision annotation
     ax.annotate(f'|t| = {test_stat} > {t_crit:.3f}\n= IN rejection region\n= REJECT H0', 
@@ -2275,15 +2284,21 @@ def generate_t_test_rejection_example():
     from matplotlib.patches import Patch
     from matplotlib.lines import Line2D
     legend_elements = [
-        Patch(facecolor=COLORS['negative'], alpha=0.5, label='Rejection regions (α/2 each tail)'),
-        Line2D([0], [0], color=COLORS['warning'], linewidth=3, label=f'Test statistic (t = {test_stat})'),
+        Patch(facecolor=rejection_color, alpha=0.65, label='Rejection regions (α/2 each tail)'),
+        Line2D([0], [0], color=test_stat_color, linewidth=3, label=f'Test statistic (t = {test_stat})'),
     ]
     ax.legend(handles=legend_elements, loc='upper left', frameon=True)
     
     # Add interpretation
-    ax.text(0.02, 0.02, 'Interpretation: There is sufficient evidence at α=0.05 to reject H0.\nThe sample mean differs significantly from the hypothesized value.',
-            transform=ax.transAxes, fontsize=9, color=COLORS['dark'], va='bottom',
-            bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.9))
+    ax.text(0.5, -0.23,
+            'Interpretation: There is sufficient evidence at α=0.05 to reject H0.\n'
+            'The sample mean differs significantly from the hypothesized value.',
+            transform=ax.transAxes, fontsize=9, color=COLORS['dark'],
+            ha='center', va='top', clip_on=False,
+            bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.95))
+
+    # Ensure the below-axis conclusion box isn't clipped
+    fig.subplots_adjust(bottom=0.30)
     
     save_figure(fig, 't_test_rejection_region_example.png')
 
@@ -2303,8 +2318,9 @@ def generate_proportion_test_se():
     correct_box = FancyBboxPatch((0.5, 2.5), 4, 2.5, boxstyle='round,pad=0.3',
                                   facecolor='white', edgecolor=COLORS['positive'], linewidth=3)
     ax.add_patch(correct_box)
-    ax.text(2.5, 4.5, '✓ CORRECT (for tests)', fontsize=12, fontweight='bold', 
-            ha='center', color=COLORS['positive'])
+    draw_check_icon(ax, x=1.05, y=4.5, size=0.6, color=COLORS['positive'], lw=4.0)
+    ax.text(1.35, 4.5, 'CORRECT (for tests)', fontsize=12, fontweight='bold',
+            ha='left', va='center', color=COLORS['positive'])
     ax.text(2.5, 3.3, r'$SE = \sqrt{\frac{p_0(1-p_0)}{n}}$', fontsize=14, ha='center', color=COLORS['dark'])
     ax.text(2.5, 2.8, 'Use p₀ from H₀', fontsize=10, ha='center', style='italic', color=COLORS['neutral'])
     
@@ -2312,8 +2328,9 @@ def generate_proportion_test_se():
     incorrect_box = FancyBboxPatch((5.5, 2.5), 4, 2.5, boxstyle='round,pad=0.3',
                                     facecolor='white', edgecolor=COLORS['negative'], linewidth=3)
     ax.add_patch(incorrect_box)
-    ax.text(7.5, 4.5, '✗ WRONG (for tests)', fontsize=12, fontweight='bold', 
-            ha='center', color=COLORS['negative'])
+    draw_x_icon(ax, x=6.05, y=4.5, size=0.6, color=COLORS['negative'], lw=4.0)
+    ax.text(6.35, 4.5, 'WRONG (for tests)', fontsize=12, fontweight='bold',
+            ha='left', va='center', color=COLORS['negative'])
     ax.text(7.5, 3.3, r'$SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$', fontsize=14, ha='center', color=COLORS['dark'])
     ax.text(7.5, 2.8, 'This is for CIs only!', fontsize=10, ha='center', style='italic', color=COLORS['neutral'])
     
