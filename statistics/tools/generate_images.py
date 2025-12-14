@@ -1107,51 +1107,79 @@ def generate_addition_rule_venn():
 
 
 def generate_conditional_probability_venn():
-    """Generate Venn diagram for conditional probability."""
-    fig, ax = plt.subplots(figsize=(10, 7))
+    """Generate Venn diagram for conditional probability with proper intersection."""
+    fig, ax = plt.subplots(figsize=(12, 7))
     ax.set_xlim(-3, 5)
-    ax.set_ylim(-2.5, 3.5)
+    ax.set_ylim(-2.5, 3)
     ax.set_aspect('equal')
     ax.axis('off')
     
-    # Circle A (condition)
-    circle_a = Circle((0, 0), 1.5, facecolor='none', edgecolor=COLORS['primary'], linewidth=3)
-    ax.add_patch(circle_a)
+    # Circle parameters
+    r = 1.5
+    x_a, y_a = 0, 0
+    x_b, y_b = 1.3, 0  # Closer overlap for clearer intersection
     
-    # Circle B
-    circle_b = Circle((1.5, 0), 1.5, facecolor='none', edgecolor=COLORS['accent'], linewidth=3, linestyle='--')
-    ax.add_patch(circle_b)
+    # Create proper lens-shaped intersection using Path
+    from matplotlib.path import Path
+    from matplotlib.patches import PathPatch
     
-    # Highlight A (given)
-    circle_a_fill = Circle((0, 0), 1.5, facecolor=COLORS['primary'], alpha=0.3)
+    # Calculate intersection points
+    d = x_b - x_a  # distance between centers
+    # Intersection points are at x = (d^2 + r^2 - r^2) / (2*d) = d/2 from center A
+    # y = +/- sqrt(r^2 - (d/2)^2)
+    x_intersect = d / 2
+    y_intersect = np.sqrt(r**2 - (d/2)**2)
+    
+    # Create lens shape by combining two arcs
+    theta_a = np.arctan2(y_intersect, x_intersect - x_a)
+    theta_b = np.arctan2(y_intersect, x_intersect - x_b)
+    
+    # Arc from circle A (right side)
+    t1 = np.linspace(-theta_a, theta_a, 50)
+    arc_a_x = x_a + r * np.cos(t1)
+    arc_a_y = y_a + r * np.sin(t1)
+    
+    # Arc from circle B (left side)  
+    t2 = np.linspace(np.pi - theta_b, np.pi + theta_b, 50)
+    arc_b_x = x_b + r * np.cos(t2)
+    arc_b_y = y_b + r * np.sin(t2)
+    
+    # Combine into lens path
+    lens_x = np.concatenate([arc_a_x, arc_b_x[::-1]])
+    lens_y = np.concatenate([arc_a_y, arc_b_y[::-1]])
+    
+    # Fill circle A first (light blue)
+    circle_a_fill = Circle((x_a, y_a), r, facecolor=COLORS['primary'], alpha=0.25)
     ax.add_patch(circle_a_fill)
     
-    # Highlight intersection
-    from matplotlib.patches import Wedge
-    theta1 = np.degrees(np.arccos(0.5))  # angle for intersection
-    wedge = Wedge((0.75, 0), 0.8, -60, 60, facecolor=COLORS['warning'], alpha=0.6, edgecolor=COLORS['warning'], linewidth=2)
-    ax.add_patch(wedge)
+    # Fill intersection (orange/warning color)
+    ax.fill(lens_x, lens_y, color=COLORS['warning'], alpha=0.7, zorder=3)
+    
+    # Draw circle outlines on top
+    circle_a = Circle((x_a, y_a), r, facecolor='none', edgecolor=COLORS['primary'], linewidth=3, zorder=4)
+    circle_b = Circle((x_b, y_b), r, facecolor='none', edgecolor=COLORS['accent'], linewidth=3, linestyle='--', zorder=4)
+    ax.add_patch(circle_a)
+    ax.add_patch(circle_b)
     
     # Labels
-    ax.text(-0.8, 0.8, 'A (Given)', fontsize=14, fontweight='bold', color=COLORS['primary'])
-    ax.text(2.5, 0.8, 'B', fontsize=14, fontweight='bold', color=COLORS['accent'])
-    ax.text(0.75, -0.3, 'B and A', fontsize=11, fontweight='bold', color=COLORS['dark'])
+    ax.text(-0.9, 1.0, 'A', fontsize=16, fontweight='bold', color=COLORS['primary'])
+    ax.text(2.2, 1.0, 'B', fontsize=16, fontweight='bold', color=COLORS['accent'])
+    ax.text(0.65, 0, 'A ∩ B', fontsize=12, fontweight='bold', color='white', ha='center', va='center', zorder=5)
     
-    # Arrow and explanation (use consistent set notation + mathtext)
-    ax.annotate(r'$P(B\mid A)=\frac{P(A\cap B)}{P(A)}$', xy=(0.75, 0), xytext=(3.5, 1.5),
-                fontsize=14, fontweight='bold', color=COLORS['dark'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['warning'], lw=2),
-                bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['warning']))
+    # Formula box (positioned clearly)
+    ax.text(3.8, 1.8, r'$P(B|A) = \frac{P(A \cap B)}{P(A)}$', fontsize=14, fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor=COLORS['warning'], linewidth=2))
     
-    ax.text(1, -2.2, '"Given that A occurred,\nwhat is the probability of B?"', 
+    # Interpretation
+    ax.text(0.65, -2.0, '"Given A occurred, what fraction is also B?"', 
             fontsize=11, ha='center', style='italic', color=COLORS['neutral'])
     
-    # Add numerical example
-    ax.text(-2.5, 2.5, 'Example:\nP(A) = 0.6\nP(A and B) = 0.2\nP(B|A) = 0.2/0.6 = 0.333',
-            fontsize=10, ha='left', va='top', color=COLORS['dark'],
-            bbox=dict(boxstyle='round,pad=0.4', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
+    # Numerical example
+    ax.text(-2.7, 2.2, 'Example:\nP(A) = 0.6\nP(A ∩ B) = 0.2\n\nP(B|A) = 0.2 / 0.6\n        = 0.333',
+            fontsize=11, ha='left', va='top', color=COLORS['dark'],
+            bbox=dict(boxstyle='round,pad=0.5', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     
-    ax.set_title('Conditional Probability P(B|A)', fontsize=16, fontweight='bold', pad=15)
+    ax.set_title('Conditional Probability P(B|A)', fontsize=18, fontweight='bold', pad=15)
     
     save_figure(fig, 'conditional_probability_venn.png')
 
