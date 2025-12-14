@@ -686,46 +686,52 @@ def generate_correlation_examples():
 
 def generate_normal_curve():
     """Generate standard normal distribution curve with labeled components."""
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 7))
     
     x = np.linspace(-4, 4, 500)
     y = stats.norm.pdf(x, 0, 1)
     
-    ax.fill_between(x, y, alpha=0.3, color=COLORS['primary'])
+    ax.fill_between(x, y, alpha=0.25, color=COLORS['primary'])
     ax.plot(x, y, color=COLORS['primary'], linewidth=3)
     
     # Mean line
-    ax.axvline(0, color=COLORS['warning'], linewidth=2, linestyle='--', label='μ (Mean)')
+    ax.axvline(0, color=COLORS['warning'], linewidth=2.5, linestyle='--')
     
-    # Standard deviation markers (use μ ± kσ notation)
-    labels = {
-        -2: r'$\mu-2\sigma$',
-        -1: r'$\mu-\sigma$',
-        0: r'$\mu$',
-        1: r'$\mu+\sigma$',
-        2: r'$\mu+2\sigma$',
-    }
-    for sd in [-2, -1, 0, 1, 2]:
-        ax.axvline(sd, color=COLORS['neutral'], linewidth=1, linestyle=':', alpha=0.7)
+    # Standard deviation markers with staggered labels
+    sd_info = [
+        (-3, '-3σ', 0.06),
+        (-2, '-2σ', 0.10),
+        (-1, '-1σ', 0.06),
+        (0, 'μ', 0.10),
+        (1, '+1σ', 0.06),
+        (2, '+2σ', 0.10),
+        (3, '+3σ', 0.06),
+    ]
+    
+    for sd, label, y_offset in sd_info:
+        if sd != 0:
+            ax.axvline(sd, color=COLORS['neutral'], linewidth=1, linestyle=':', alpha=0.6)
+        
+        # Place label below x-axis with staggered heights
         color = COLORS['warning'] if sd == 0 else COLORS['dark']
         weight = 'bold' if sd == 0 else 'normal'
-        ax.text(sd, -0.03, labels[sd], ha='center', fontsize=10, color=color, fontweight=weight)
+        size = 12 if sd == 0 else 10
+        ax.text(sd, -y_offset, label, ha='center', fontsize=size, color=color, fontweight=weight)
     
-    # Annotations
-    ax.annotate('Peak at mean (μ)', xy=(0, 0.4), xytext=(1.5, 0.38),
-                fontsize=10, color=COLORS['dark'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['neutral']))
+    # Key properties box (instead of arrows)
+    props_text = 'Properties:\n• Symmetric around μ\n• Peak at mean\n• 68% within ±1σ\n• 95% within ±2σ'
+    ax.text(0.98, 0.95, props_text, transform=ax.transAxes, fontsize=10,
+            va='top', ha='right', color=COLORS['dark'],
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor=COLORS['primary'], alpha=0.9))
     
-    ax.annotate('Symmetric shape', xy=(-1.5, 0.15), xytext=(-3, 0.25),
-                fontsize=10, color=COLORS['dark'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['neutral']))
-    
-    ax.set_xlabel('Value (standardized)')
-    ax.set_ylabel('Probability Density')
-    ax.set_title('The Normal Distribution', fontsize=16, fontweight='bold', pad=15)
+    ax.set_xlabel('Standard Deviations from Mean', fontsize=11)
+    ax.set_ylabel('Probability Density', fontsize=11)
+    ax.set_title('The Normal Distribution', fontsize=18, fontweight='bold', pad=15)
     ax.set_yticks([])
     ax.set_xlim(-4, 4)
-    ax.legend(loc='upper right', frameon=True)
+    ax.set_ylim(-0.12, 0.45)  # Extra space below for labels
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     
     save_figure(fig, 'normal_curve.png')
 
