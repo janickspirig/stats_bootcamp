@@ -1698,42 +1698,68 @@ def generate_t_vs_z_critical_values():
 
 def generate_ci_width_vs_n():
     """Generate plot showing how CI width (margin of error) decreases with sample size."""
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, (ax, ax_info) = plt.subplots(1, 2, figsize=(14, 6), gridspec_kw={'width_ratios': [2, 1]})
     
     sigma = 15
     z = 1.96
     n_values = np.arange(10, 501)
     me_values = z * sigma / np.sqrt(n_values)
     
-    ax.plot(n_values, me_values, color=COLORS['primary'], linewidth=2.5)
-    ax.fill_between(n_values, me_values, alpha=0.2, color=COLORS['primary'])
+    ax.plot(n_values, me_values, color=COLORS['primary'], linewidth=3)
+    ax.fill_between(n_values, me_values, alpha=0.15, color=COLORS['primary'])
     
-    # Mark key points showing "halve ME requires 4x n"
-    key_points = [(25, 5.88), (100, 2.94), (400, 1.47)]
-    for n, e in key_points:
-        actual_e = z * sigma / np.sqrt(n)
-        ax.scatter([n], [actual_e], color=COLORS['warning'], s=100, zorder=5, edgecolors='white', linewidths=2)
-        ax.annotate(f'n={n}\nME={actual_e:.2f}', xy=(n, actual_e), xytext=(n + 30, actual_e + 0.8),
-                    fontsize=9, ha='left', color=COLORS['dark'],
-                    arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=1))
+    # Mark key points - just dots with labels below
+    key_points = [25, 100, 400]
+    for n in key_points:
+        me = z * sigma / np.sqrt(n)
+        ax.scatter([n], [me], color=COLORS['warning'], s=150, zorder=5, 
+                   edgecolors='white', linewidths=3)
+        # Label below x-axis level
+        ax.text(n, -0.5, f'n={n}', ha='center', fontsize=10, fontweight='bold', color=COLORS['dark'])
     
-    # Annotation for the relationship
-    ax.annotate('To halve the margin of error,\nyou must quadruple the sample size!\n\n'
-                r'ME ~ 1/$\sqrt{n}$,  so n ~ 1/E$^2$',
-                xy=(200, 2.1), fontsize=11, ha='center', color=COLORS['dark'],
-                bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['primary']))
+    # Horizontal dashed lines from points to y-axis
+    for n in key_points:
+        me = z * sigma / np.sqrt(n)
+        ax.plot([0, n], [me, me], color=COLORS['neutral'], linewidth=1, linestyle='--', alpha=0.5)
+        ax.text(-15, me, f'{me:.2f}', ha='right', va='center', fontsize=10, color=COLORS['dark'])
     
     ax.set_xlabel('Sample Size (n)', fontsize=12)
     ax.set_ylabel('Margin of Error (ME)', fontsize=12)
-    ax.set_title('Margin of Error vs. Sample Size\n(95% CI, σ = 15)', fontsize=14, fontweight='bold', pad=15)
-    ax.set_xlim(0, 520)
-    ax.set_ylim(0, 10)
+    ax.set_title('Margin of Error vs. Sample Size', fontsize=16, fontweight='bold')
+    ax.set_xlim(-30, 520)
+    ax.set_ylim(-1, 10)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     
-    # Formula
-    ax.text(0.95, 0.95, r'$ME = z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$', 
-            transform=ax.transAxes, fontsize=12, ha='right', va='top',
-            bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['primary']))
+    # Right panel: Key insights
+    ax_info.axis('off')
     
+    ax_info.text(0.5, 0.95, 'Key Insight', fontsize=14, fontweight='bold', 
+                 ha='center', transform=ax_info.transAxes, color=COLORS['dark'])
+    
+    ax_info.text(0.5, 0.78, 'To halve the margin of error,\nyou must quadruple n!', 
+                 fontsize=12, ha='center', transform=ax_info.transAxes, color=COLORS['primary'],
+                 fontweight='bold')
+    
+    # Table showing the relationship
+    table_text = """
+    n = 25   →  ME = 5.88
+    n = 100  →  ME = 2.94  (×4n, ½ME)
+    n = 400  →  ME = 1.47  (×4n, ½ME)
+    """
+    ax_info.text(0.5, 0.55, table_text, fontsize=11, ha='center', va='top',
+                 transform=ax_info.transAxes, fontfamily='monospace', color=COLORS['dark'])
+    
+    # Formula box
+    ax_info.text(0.5, 0.25, r'$ME = z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$', 
+                 fontsize=14, ha='center', transform=ax_info.transAxes,
+                 bbox=dict(boxstyle='round,pad=0.5', facecolor=COLORS['light'], 
+                          edgecolor=COLORS['primary'], linewidth=2))
+    
+    ax_info.text(0.5, 0.08, '95% CI, σ = 15', fontsize=10, ha='center', 
+                 transform=ax_info.transAxes, color=COLORS['neutral'], style='italic')
+    
+    plt.tight_layout()
     save_figure(fig, 'ci_width_vs_n.png')
 
 
