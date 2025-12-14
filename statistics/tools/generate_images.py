@@ -172,7 +172,7 @@ def generate_skewness_types():
 
 def generate_kurtosis_types():
     """Generate image showing leptokurtic, mesokurtic, and platykurtic distributions."""
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, (ax, ax_info) = plt.subplots(1, 2, figsize=(14, 6), gridspec_kw={'width_ratios': [2, 1]})
     
     x = np.linspace(-5, 5, 500)
     
@@ -182,38 +182,53 @@ def generate_kurtosis_types():
     # Leptokurtic (heavy tails) - t-distribution with low df
     y_lepto = stats.t.pdf(x, df=3)
     
-    # Platykurtic (light tails) - uniform-like
-    y_platy = stats.uniform.pdf(x, loc=-2, scale=4) * 0.6  # Scaled for visibility
-    # Smooth it with a wide normal
+    # Platykurtic (light tails) - wide normal
     y_platy = stats.norm.pdf(x, 0, 1.8) * 0.85
     
-    ax.plot(x, y_lepto, color=COLORS['leptokurtic'], linewidth=2.5, label='Leptokurtic (heavy tails)')
-    ax.fill_between(x, y_lepto, alpha=0.15, color=COLORS['leptokurtic'])
+    ax.plot(x, y_lepto, color=COLORS['leptokurtic'], linewidth=3, label='Leptokurtic')
+    ax.fill_between(x, y_lepto, alpha=0.2, color=COLORS['leptokurtic'])
     
-    ax.plot(x, y_meso, color=COLORS['normal'], linewidth=2.5, label='Mesokurtic (normal)')
-    ax.fill_between(x, y_meso, alpha=0.15, color=COLORS['normal'])
+    ax.plot(x, y_meso, color=COLORS['normal'], linewidth=3, label='Mesokurtic (Normal)')
+    ax.fill_between(x, y_meso, alpha=0.2, color=COLORS['normal'])
     
-    ax.plot(x, y_platy, color=COLORS['platykurtic'], linewidth=2.5, label='Platykurtic (light tails)')
-    ax.fill_between(x, y_platy, alpha=0.15, color=COLORS['platykurtic'])
+    ax.plot(x, y_platy, color=COLORS['platykurtic'], linewidth=3, label='Platykurtic')
+    ax.fill_between(x, y_platy, alpha=0.2, color=COLORS['platykurtic'])
     
-    # Annotations - with boxes to prevent cutoff
-    ax.annotate('Higher peak,\nheavier tails\n(kurtosis > 3)', xy=(0, 0.38), xytext=(2.2, 0.32),
-                fontsize=10, color=COLORS['leptokurtic'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['leptokurtic'], lw=1.5),
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['leptokurtic'], alpha=0.9))
-    
-    ax.annotate('Flatter peak,\nlighter tails\n(kurtosis < 3)', xy=(0, 0.18), xytext=(-3.2, 0.08),
-                fontsize=10, color=COLORS['platykurtic'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['platykurtic'], lw=1.5),
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['platykurtic'], alpha=0.9))
-    
-    ax.set_xlabel('Value (standardized)')
-    ax.set_ylabel('Density')
-    ax.set_title('Types of Kurtosis\n(Advanced Topic - not typically on HSG exams)', fontsize=14, fontweight='bold', pad=15)
-    ax.legend(loc='upper right', frameon=True, fancybox=True, shadow=False)
+    ax.set_xlabel('Value (standardized)', fontsize=11)
+    ax.set_ylabel('Density', fontsize=11)
+    ax.set_title('Types of Kurtosis', fontsize=16, fontweight='bold')
+    ax.legend(loc='upper right', frameon=True, fancybox=True, fontsize=10)
     ax.set_yticks([])
-    ax.set_xlim(-5, 5.5)  # Slightly wider to prevent cutoff
+    ax.set_xlim(-5, 5)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     
+    # Right panel: Info card
+    ax_info.axis('off')
+    
+    # Definitions table
+    info_items = [
+        ('Leptokurtic', COLORS['leptokurtic'], 'Higher peak, heavier tails\nKurtosis > 3\nEx: Stock returns'),
+        ('Mesokurtic', COLORS['normal'], 'Normal distribution\nKurtosis = 3\nEx: Heights, IQ scores'),
+        ('Platykurtic', COLORS['platykurtic'], 'Flatter peak, lighter tails\nKurtosis < 3\nEx: Uniform-like data'),
+    ]
+    
+    y_pos = 0.85
+    for name, color, desc in info_items:
+        ax_info.add_patch(FancyBboxPatch((0.05, y_pos - 0.12), 0.9, 0.22,
+                                          boxstyle='round,pad=0.02', facecolor=color, alpha=0.15,
+                                          edgecolor=color, linewidth=2, transform=ax_info.transAxes))
+        ax_info.text(0.1, y_pos + 0.02, name, fontsize=12, fontweight='bold', color=color,
+                     transform=ax_info.transAxes, va='top')
+        ax_info.text(0.1, y_pos - 0.05, desc, fontsize=9, color=COLORS['dark'],
+                     transform=ax_info.transAxes, va='top')
+        y_pos -= 0.3
+    
+    # Note at bottom
+    ax_info.text(0.5, 0.05, 'Advanced Topic\n(rarely on HSG exams)', fontsize=9, ha='center',
+                 transform=ax_info.transAxes, style='italic', color=COLORS['neutral'])
+    
+    plt.tight_layout()
     save_figure(fig, 'kurtosis_types.png')
 
 
