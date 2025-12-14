@@ -971,77 +971,86 @@ def generate_binomial_shapes():
 
 def generate_discrete_distribution_flowchart():
     """Generate decision flowchart for choosing discrete distributions."""
-    # Wider layout to avoid overlaps and improve legibility
-    fig, ax = plt.subplots(figsize=(16, 10))
-    ax.set_xlim(0, 16)
-    ax.set_ylim(0, 10)
+    fig, ax = plt.subplots(figsize=(14, 11))
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 11)
     ax.axis('off')
     
-    def draw_decision(x, y, text, width=3.5, height=1):
-        diamond = Polygon([(x, y + height/2), (x + width/2, y), (x, y - height/2), (x - width/2, y)],
-                         facecolor=COLORS['light'], edgecolor=COLORS['primary'], linewidth=2)
-        ax.add_patch(diamond)
-        ax.text(x, y, text, ha='center', va='center', fontsize=10, fontweight='bold',
-                color=COLORS['dark'], wrap=True)
-    
-    def draw_result(x, y, text, color):
-        box = FancyBboxPatch((x - 1.5, y - 0.5), 3, 1,
-                             boxstyle='round,pad=0.2', facecolor=color, edgecolor=color,
-                             linewidth=2, alpha=0.9)
+    def draw_question(x, y, text, width=3.5, height=1.0):
+        """Draw a decision/question box."""
+        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
+                             boxstyle='round,pad=0.2', facecolor=COLORS['light'],
+                             edgecolor=COLORS['primary'], linewidth=2.5)
         ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=12, fontweight='bold', color='white')
+        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color=COLORS['dark'])
     
-    def draw_arrow(x1, y1, x2, y2, label=''):
+    def draw_result(x, y, name, color, params='', example=''):
+        """Draw a distribution result box with parameters."""
+        box = FancyBboxPatch((x - 2, y - 0.6), 4, 1.2,
+                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color, linewidth=2)
+        ax.add_patch(box)
+        ax.text(x, y + 0.15, name, ha='center', va='center', fontsize=13, fontweight='bold', color='white')
+        if params:
+            ax.text(x, y - 0.25, params, ha='center', va='center', fontsize=9, color='white', alpha=0.9)
+    
+    def arrow(x1, y1, x2, y2, label='', label_pos='mid'):
+        """Draw an arrow with label."""
         ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=2))
+                    arrowprops=dict(arrowstyle='->', lw=2.5, color=COLORS['neutral']))
         if label:
-            mid_x, mid_y = (x1 + x2) / 2, (y1 + y2) / 2
-            ax.text(mid_x + 0.2, mid_y, label, fontsize=10, color=COLORS['dark'], fontweight='bold')
+            if label_pos == 'mid':
+                lx, ly = (x1 + x2) / 2 + 0.3, (y1 + y2) / 2
+            else:
+                lx, ly = x2 + 0.3, y2 + 0.2
+            ax.text(lx, ly, label, fontsize=11, fontweight='bold', color=COLORS['dark'])
     
-    # Start
-    box = FancyBboxPatch((6.5, 8.5), 3, 1,
-                         boxstyle='round,pad=0.2', facecolor=COLORS['primary'], 
-                         edgecolor=COLORS['primary'], linewidth=2)
-    ax.add_patch(box)
-    ax.text(8, 9, 'What are you\ncounting?', ha='center', va='center',
-            fontsize=11, fontweight='bold', color='white')
+    # ===== TOP: Starting Question =====
+    start_box = FancyBboxPatch((5, 9.5), 4, 1.2, boxstyle='round,pad=0.2',
+                                facecolor=COLORS['primary'], edgecolor=COLORS['primary'], linewidth=2)
+    ax.add_patch(start_box)
+    ax.text(7, 10.1, 'What type of counting', ha='center', va='center', fontsize=12, fontweight='bold', color='white')
+    ax.text(7, 9.7, 'problem is this?', ha='center', va='center', fontsize=12, fontweight='bold', color='white')
     
-    # First decision
-    draw_decision(8, 7, 'Fixed number\nof trials?')
-    draw_arrow(8, 8.5, 8, 7.6)
+    # ===== LEVEL 2: First Decision =====
+    arrow(7, 9.4, 7, 8.3)
+    draw_question(7, 7.7, 'Fixed number of trials\n(n is known)?', width=4.2, height=1.1)
     
-    # Yes branch - fixed trials
-    draw_decision(4, 5, 'Sampling from\nfinite population\nwithout replacement?')
-    draw_arrow(6.5, 7, 5.4, 5.6, 'Yes')
+    # ===== LEFT BRANCH: Yes - Fixed Trials =====
+    arrow(5.2, 7.2, 4, 6.3, 'YES')
+    draw_question(4, 5.7, 'Sampling without\nreplacement from\nfinite population?', width=4, height=1.1)
     
-    # Binomial
-    draw_result(4, 2.4, 'BINOMIAL', COLORS['primary'])
-    draw_arrow(4, 4.4, 4, 3, 'No')
-    ax.text(4, 1.6, 'Fixed n trials,\ncount successes', ha='center', fontsize=10,
+    # Hypergeometric (Yes to finite population)
+    arrow(2.3, 5.2, 1.5, 4.0, 'YES')
+    draw_result(2.5, 3.2, 'HYPERGEOMETRIC', COLORS['secondary'], 'N, K, n')
+    ax.text(2.5, 2.3, 'Drawing from finite pool\nwithout replacement', ha='center', fontsize=9,
             style='italic', color=COLORS['neutral'])
+    ax.text(2.5, 1.6, 'Ex: Cards, lottery, defects in batch', ha='center', fontsize=9, color=COLORS['dark'])
     
-    # Hypergeometric
-    draw_result(1.5, 2.4, 'HYPERGEOMETRIC', COLORS['secondary'])
-    draw_arrow(2.6, 5, 1.7, 3, 'Yes')
-    ax.text(1.5, 1.6, 'Finite population,\nno replacement', ha='center', fontsize=10,
+    # Binomial (No to finite population - sampling with replacement or infinite)
+    arrow(5.7, 5.2, 6.5, 4.0, 'NO')
+    draw_result(6.5, 3.2, 'BINOMIAL', COLORS['primary'], 'n, p')
+    ax.text(6.5, 2.3, 'Fixed n independent trials\neach with probability p', ha='center', fontsize=9,
             style='italic', color=COLORS['neutral'])
+    ax.text(6.5, 1.6, 'Ex: Coin flips, pass/fail, defects', ha='center', fontsize=9, color=COLORS['dark'])
     
-    # No branch - events in interval
-    draw_decision(12, 5, 'Events occur\nindependently at\nconstant rate?')
-    draw_arrow(9.8, 7, 10.8, 5.6, 'No (events in interval)')
+    # ===== RIGHT BRANCH: No - Events in Interval =====
+    arrow(8.8, 7.2, 10, 6.3, 'NO')
+    draw_question(10, 5.7, 'Counting events in\na fixed interval\n(time/space)?', width=4, height=1.1)
     
-    # Poisson
-    draw_result(12, 2.4, 'POISSON', COLORS['accent'])
-    draw_arrow(12, 4.4, 12, 3, 'Yes')
-    ax.text(12, 1.6, 'Events in fixed\ntime/space interval', ha='center', fontsize=10,
+    # Poisson (Yes to events in interval)
+    arrow(10, 5.1, 10.5, 4.0, 'YES')
+    draw_result(10.5, 3.2, 'POISSON', COLORS['accent'], 'λ (rate)')
+    ax.text(10.5, 2.3, 'Events occur independently\nat constant average rate', ha='center', fontsize=9,
             style='italic', color=COLORS['neutral'])
+    ax.text(10.5, 1.6, 'Ex: Calls/hour, typos/page, arrivals', ha='center', fontsize=9, color=COLORS['dark'])
     
-    # Special case note
-    ax.text(8, 0.9, 'TIP: If n is large and sample < 5% of population,\nuse Binomial as approximation for Hypergeometric',
+    # ===== BOTTOM: Tips and Formulas =====
+    # Approximation tip
+    ax.text(7, 0.7, 'TIP: Use Binomial as approximation for Hypergeometric when n < 5% of N',
             ha='center', fontsize=10, style='italic', color=COLORS['dark'],
-            bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['neutral'], alpha=0.9))
+            bbox=dict(boxstyle='round,pad=0.4', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
     
-    ax.set_title('Choosing the Right Discrete Distribution', fontsize=16, fontweight='bold', y=0.98)
+    ax.set_title('Choosing the Right Discrete Distribution', fontsize=18, fontweight='bold', y=0.97)
     
     save_figure(fig, 'discrete_distribution_flowchart.png')
 
