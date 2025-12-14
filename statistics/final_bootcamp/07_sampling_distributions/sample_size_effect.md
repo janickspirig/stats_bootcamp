@@ -52,7 +52,7 @@ Data: SE = 20/sqrt(n) for n from 10 to 1000
 Style: Clear curve with annotations for diminishing returns
 Filename: se_vs_sample_size.png
 -->
-![SE vs sample size](../images/se_vs_sample_size.png)
+![SE vs sample size](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/se_vs_sample_size.png)
 
 ---
 

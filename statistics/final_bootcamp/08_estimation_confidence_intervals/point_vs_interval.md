@@ -59,7 +59,7 @@ The **confidence level** (e.g., 95%) means:
 
 The true parameter is fixed; the interval is what varies from sample to sample.
 
-![Many confidence intervals from repeated samples showing 95% coverage](../images/ci_repeated_samples_coverage.png)
+![Many confidence intervals from repeated samples showing 95% coverage](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/ci_repeated_samples_coverage.png)
 
 ---
 

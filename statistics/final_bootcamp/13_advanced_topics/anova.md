@@ -36,7 +36,7 @@ Where:
 - k = number of groups
 - n = total sample size
 
-![ANOVA intuition showing between-group vs within-group variation](../images/anova_between_within_intuition.png)
+![ANOVA intuition showing between-group vs within-group variation](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/anova_between_within_intuition.png)
 
 ---
 
@@ -175,7 +175,7 @@ $$
 
 Since \(15.43 > 4.26\\), **reject \(H_0\\)**.
 
-![F-distribution with right-tail rejection region](../images/f_distribution_rejection_region.png)
+![F-distribution with right-tail rejection region](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/f_distribution_rejection_region.png)
 
 **Conclusion:** At α = 0.05, there is sufficient evidence that at least one teaching method has a different mean result.
 

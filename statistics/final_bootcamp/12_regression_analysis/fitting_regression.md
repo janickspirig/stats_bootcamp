@@ -57,7 +57,7 @@ $$
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}
 $$
 
-![Scatter plot with fitted OLS line and residual segments](../images/ols_fit_and_residuals.png)
+![Scatter plot with fitted OLS line and residual segments](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/ols_fit_and_residuals.png)
 
 ---
 

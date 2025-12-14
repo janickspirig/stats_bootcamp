@@ -45,7 +45,7 @@ The normal approximation is valid when:
 
 These ensure enough successes and failures for the sampling distribution to be approximately Normal.
 
-![Normal approximation for sampling distribution of proportion](../images/ci_for_proportion_normal_approx.png)
+![Normal approximation for sampling distribution of proportion](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/ci_for_proportion_normal_approx.png)
 
 ---
 

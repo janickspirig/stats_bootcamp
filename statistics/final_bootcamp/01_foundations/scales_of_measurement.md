@@ -164,7 +164,7 @@ Data: Nominal (categories), Ordinal (rankings), Interval (equal spacing), Ratio 
 Style: Clean infographic style with icons for each property
 Filename: noir_scales_comparison.png
 -->
-![NOIR scales comparison](../images/noir_scales_comparison.png)
+![NOIR scales comparison](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/noir_scales_comparison.png)
 
 ---
 

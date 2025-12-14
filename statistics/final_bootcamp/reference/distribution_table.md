@@ -134,7 +134,7 @@ Data: μ=0, σ=1, shade regions progressively
 Style: Blue curve, labeled percentages (68%, 95%, 99.7%)
 Filename: normal_empirical_rule.png
 -->
-![Normal distribution empirical rule](../images/normal_empirical_rule.png)
+![Normal distribution empirical rule](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/normal_empirical_rule.png)
 
 ---
 

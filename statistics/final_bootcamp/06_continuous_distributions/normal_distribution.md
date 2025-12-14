@@ -62,7 +62,7 @@ Data: Standard normal with μ=0, σ=1
 Style: Clean bell curve with labeled components
 Filename: normal_curve.png
 -->
-![Normal distribution curve](../images/normal_curve.png)
+![Normal distribution curve](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/normal_curve.png)
 
 ---
 
@@ -83,7 +83,7 @@ Data: Standard normal with marked regions
 Style: Progressively shaded regions with percentage labels
 Filename: empirical_rule.png
 -->
-![Empirical rule (68-95-99.7)](../images/empirical_rule.png)
+![Empirical rule (68-95-99.7)](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/empirical_rule.png)
 
 ---
 

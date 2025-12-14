@@ -51,7 +51,7 @@ Data: Simulated residual patterns
 Style: Four-panel diagnostic plot
 Filename: regression_diagnostics.png
 -->
-![Regression diagnostics](../images/regression_diagnostics.png)
+![Regression diagnostics](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/regression_diagnostics.png)
 
 ---
 

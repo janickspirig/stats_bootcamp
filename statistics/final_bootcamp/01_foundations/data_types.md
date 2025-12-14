@@ -77,7 +77,7 @@ Data: Clear labels at each level
 Style: Clean tree structure with examples at leaf nodes
 Filename: data_types_tree.png
 -->
-![Data types classification](../images/data_types_tree.png)
+![Data types classification](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/data_types_tree.png)
 
 #### Qualitative (Categorical) Data
 Data that describes qualities or categories, not measured numerically.

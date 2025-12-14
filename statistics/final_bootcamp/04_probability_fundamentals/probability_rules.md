@@ -97,7 +97,7 @@ Data: Two overlapping circles
 Style: Classic Venn diagram with labeled regions
 Filename: addition_rule_venn.png
 -->
-![Addition rule Venn diagram](../images/addition_rule_venn.png)
+![Addition rule Venn diagram](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/addition_rule_venn.png)
 
 ---
 

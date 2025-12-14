@@ -36,7 +36,7 @@ Data: Standard normal, shade left of z=1.5
 Style: Clear labeling of the cumulative probability area
 Filename: z_table_interpretation.png
 -->
-![Z-table interpretation](../images/z_table_interpretation.png)
+![Z-table interpretation](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/z_table_interpretation.png)
 
 ---
 

@@ -39,7 +39,7 @@ Data: Three endpoints with decision criteria
 Style: Clean flowchart with colored endpoints
 Filename: discrete_distribution_flowchart.png
 -->
-![Discrete distribution decision flowchart](../images/discrete_distribution_flowchart.png)
+![Discrete distribution decision flowchart](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/discrete_distribution_flowchart.png)
 
 ### Printable flowchart (text)
 

@@ -45,7 +45,7 @@ Data: Simulated sample means from any distribution
 Style: Bell-shaped histogram with μ marked
 Filename: sampling_distribution_means.png
 -->
-![Sampling distribution of means](../images/sampling_distribution_means.png)
+![Sampling distribution of means](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/sampling_distribution_means.png)
 
 ---
 

@@ -60,7 +60,7 @@ Use this checklist to avoid losing easy points on HSG-style questions.
 - **Critical value approach:** Compare test statistic to critical value
 - **P-value approach:** Compare p-value to α
 
-![Rejection regions for left-tailed, right-tailed, and two-tailed tests](../images/rejection_regions_left_right_two_tailed.png)
+![Rejection regions for left-tailed, right-tailed, and two-tailed tests](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/rejection_regions_left_right_two_tailed.png)
 
 ### Step 5: State Conclusion
 - In context of the problem

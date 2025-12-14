@@ -290,7 +290,7 @@ Data: Both curves centered at 50, one with σ=5, one with σ=15
 Style: Two distinct colors, legend, labeled axes
 Filename: variance_comparison.png
 -->
-![Variance comparison](../images/variance_comparison.png)
+![Variance comparison](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/variance_comparison.png)
 
 ---
 

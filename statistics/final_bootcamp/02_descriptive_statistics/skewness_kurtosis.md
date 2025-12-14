@@ -46,7 +46,7 @@ Data: Three curves with annotations showing tail direction
 Style: Three distinct curves, labeled with skewness values and mean/median positions
 Filename: skewness_types.png
 -->
-![Types of skewness](../images/skewness_types.png)
+![Types of skewness](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/skewness_types.png)
 
 | Type | Skewness Value | Tail Direction | Mean vs Median |
 |------|----------------|----------------|----------------|
@@ -98,7 +98,7 @@ Data: Three curves with different tail weights
 Style: Overlaid curves with legend, annotations for peak and tail characteristics
 Filename: kurtosis_types.png
 -->
-![Types of kurtosis](../images/kurtosis_types.png)
+![Types of kurtosis](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/kurtosis_types.png)
 
 | Type | Excess Kurtosis | Shape |
 |------|-----------------|-------|

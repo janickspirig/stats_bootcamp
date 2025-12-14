@@ -76,7 +76,7 @@ At α = 0.05, there is sufficient evidence that the new method produces higher s
 
 Business interpretation: The school should consider adopting the new method if the score increase is meaningful relative to implementation cost.
 
-![Z-test example showing test statistic location relative to critical value](../images/z_test_rejection_region_example.png)
+![Z-test example showing test statistic location relative to critical value](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/z_test_rejection_region_example.png)
 
 ---
 

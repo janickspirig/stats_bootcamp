@@ -33,7 +33,7 @@ After completing this section, you will be able to:
 
 In practice, σ is almost never known, so **t-intervals are more common**.
 
-![Comparison of t and z distributions showing wider t-distribution tails](../images/t_vs_z_critical_values.png)
+![Comparison of t and z distributions showing wider t-distribution tails](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/t_vs_z_critical_values.png)
 
 ---
 

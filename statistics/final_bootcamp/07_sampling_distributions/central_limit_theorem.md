@@ -69,7 +69,7 @@ Data: Simulated from skewed population
 Style: Side-by-side panels showing progression toward normality
 Filename: clt_demonstration.png
 -->
-![CLT demonstration](../images/clt_demonstration.png)
+![CLT demonstration](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/clt_demonstration.png)
 
 ---
 

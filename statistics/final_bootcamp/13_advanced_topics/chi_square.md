@@ -40,9 +40,9 @@ $$
 
 **Degrees of freedom:** df = (rows - 1)(columns - 1)
 
-![Chi-square distribution with right-tail rejection region](../images/chi_square_distribution_rejection_region.png)
+![Chi-square distribution with right-tail rejection region](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/chi_square_distribution_rejection_region.png)
 
-![Pipeline: Observed table → Expected table → (O-E)²/E](../images/chi_square_expected_counts_pipeline.png)
+![Pipeline: Observed table → Expected table → (O-E)²/E](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/chi_square_expected_counts_pipeline.png)
 
 ---
 

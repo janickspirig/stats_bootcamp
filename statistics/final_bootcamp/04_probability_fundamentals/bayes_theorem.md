@@ -126,7 +126,7 @@ Data: Four paths with joint probabilities calculated
 Style: Clean tree diagram with probabilities on branches
 Filename: bayes_tree_example.png
 -->
-![Bayes theorem tree](../images/bayes_tree_example.png)
+![Bayes theorem tree](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/bayes_tree_example.png)
 
 **Calculate joint probabilities:**
 - P(A and D) = 0.60 × 0.03 = 0.018

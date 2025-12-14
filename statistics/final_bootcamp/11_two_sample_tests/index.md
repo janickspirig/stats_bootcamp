@@ -11,7 +11,7 @@ order: 0
 
 Comparing two populations or groups.
 
-![Comparison of paired vs independent sample designs](../images/paired_vs_independent_design.png)
+![Comparison of paired vs independent sample designs](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/paired_vs_independent_design.png)
 
 ---
 

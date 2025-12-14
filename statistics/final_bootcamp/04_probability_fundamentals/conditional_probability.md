@@ -61,7 +61,7 @@ Data: Labels showing P(A|B) = P(A∩B)/P(B)
 Style: B circle highlighted as the "reduced sample space"
 Filename: conditional_probability_venn.png
 -->
-![Conditional probability Venn diagram](../images/conditional_probability_venn.png)
+![Conditional probability Venn diagram](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/conditional_probability_venn.png)
 
 ---
 

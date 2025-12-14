@@ -138,7 +138,7 @@ Business interpretation: The treatment likely improves outcomes; consider rollou
 
 ## Common Mistakes to Avoid
 
-![Visual showing pooled proportion used in SE under H0](../images/two_proportion_pooled_se_visual.png)
+![Visual showing pooled proportion used in SE under H0](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/two_proportion_pooled_se_visual.png)
 
 > ⚠️ **Mistake 1:** Using unpooled SE in a hypothesis test.
 > Tests use the pooled \(\\hat{p}\) under H₀.

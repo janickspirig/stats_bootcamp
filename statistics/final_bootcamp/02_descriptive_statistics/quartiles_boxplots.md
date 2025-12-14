@@ -97,7 +97,7 @@ Data: Example with Q1=25, Q2=35, Q3=45, min=10, max=60, one outlier at 75
 Style: Clean, labeled diagram with annotations
 Filename: boxplot_labeled.png
 -->
-![Labeled box plot](../images/boxplot_labeled.png)
+![Labeled box plot](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/boxplot_labeled.png)
 
 **Components:**
 - **Box:** Spans from Q1 to Q3 (contains middle 50%)
@@ -275,7 +275,7 @@ Data: Three box plots with different shapes
 Style: Labeled with group names, clear comparison
 Filename: boxplot_comparison.png
 -->
-![Box plot comparison](../images/boxplot_comparison.png)
+![Box plot comparison](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/boxplot_comparison.png)
 
 **What to look for:**
 - **Position:** Higher/lower median indicates different centers

@@ -58,7 +58,7 @@ Data: Simple arrow diagrams for each scenario
 Style: Clean, labeled boxes with arrows
 Filename: causation_explanations.png
 -->
-![Possible explanations for correlation](../images/causation_explanations.png)
+![Possible explanations for correlation](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/causation_explanations.png)
 
 #### 1. Reverse Causation
 Maybe Y causes X, not X causes Y.

@@ -117,7 +117,7 @@ Business interpretation: The campaign should update messaging/targeting based on
 
 ## Common Mistakes to Avoid
 
-![Visual reminder that proportion tests use p0 (not p-hat) in SE](../images/proportion_test_uses_p0_in_se.png)
+![Visual reminder that proportion tests use p0 (not p-hat) in SE](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/proportion_test_uses_p0_in_se.png)
 
 > ⚠️ **Mistake 1:** Using \(\\hat{p}\) in the standard error.
 > For hypothesis tests, the standard error uses **p₀** from H₀.

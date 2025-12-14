@@ -228,7 +228,7 @@ $$
 | Halve E | 4× n |
 | 95% → 99% confidence | ~1.7× n |
 
-![Margin of error decreasing as sample size increases](../images/ci_width_vs_n.png)
+![Margin of error decreasing as sample size increases](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/ci_width_vs_n.png)
 
 ---
 

@@ -31,7 +31,7 @@ Data: Module 01 (30min) → Module 02 (90min) → ... → Module 13 (90min)
 Style: Clean horizontal flowchart with color-coded difficulty levels
 Filename: module_progression.png
 -->
-![Module progression](../images/module_progression.png)
+![Module progression](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/module_progression.png)
 
 ---
 

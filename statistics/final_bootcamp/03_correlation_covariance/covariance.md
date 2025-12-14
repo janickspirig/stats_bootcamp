@@ -226,7 +226,7 @@ Data: Generate synthetic data for each pattern
 Style: Clean scatter plots with trend annotations
 Filename: covariance_patterns.png
 -->
-![Covariance patterns](../images/covariance_patterns.png)
+![Covariance patterns](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/covariance_patterns.png)
 
 ---
 

@@ -81,7 +81,7 @@ Data: Synthetic data matching each correlation level
 Style: Grid format with r values as titles
 Filename: correlation_examples.png
 -->
-![Correlation examples](../images/correlation_examples.png)
+![Correlation examples](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/correlation_examples.png)
 
 ---
 

@@ -248,7 +248,7 @@ Data: PMF values for each combination
 Style: Side-by-side bar charts with means marked
 Filename: binomial_shapes.png
 -->
-![Binomial distribution shapes](../images/binomial_shapes.png)
+![Binomial distribution shapes](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/binomial_shapes.png)
 
 **Key observations:**
 - p = 0.5 → Symmetric distribution

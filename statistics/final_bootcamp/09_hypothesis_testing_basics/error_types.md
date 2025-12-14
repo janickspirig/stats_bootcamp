@@ -31,7 +31,7 @@ After completing this section, you will be able to:
 | **Reject H₀** | Type I Error (α) | Correct ✓ |
 | **Fail to reject H₀** | Correct ✓ | Type II Error (β) |
 
-![Type I error (alpha), Type II error (beta), and power shown on overlapping H0 and H1 distributions](../images/alpha_beta_power_overlap.png)
+![Type I error (alpha), Type II error (beta), and power shown on overlapping H0 and H1 distributions](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/alpha_beta_power_overlap.png)
 
 ---
 

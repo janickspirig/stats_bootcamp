@@ -50,7 +50,7 @@ After completing this section, you will be able to:
 | Right-tailed | μ ≤ μ₀ | μ > μ₀ | Detect increase |
 | Left-tailed | μ ≥ μ₀ | μ < μ₀ | Detect decrease |
 
-![Cheatsheet mapping H1 direction to tail shading](../images/hypotheses_tail_direction_cheatsheet.png)
+![Cheatsheet mapping H1 direction to tail shading](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/hypotheses_tail_direction_cheatsheet.png)
 
 ---
 

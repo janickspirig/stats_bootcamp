@@ -159,7 +159,7 @@ Business interpretation: The observed mean difference could be due to sampling v
 - df = n₁ + n₂ - 2
 - Use Welch's t-test if variances unequal
 
-![Decision flowchart for pooled vs Welch t-test](../images/pooled_vs_welch_decision.png)
+![Decision flowchart for pooled vs Welch t-test](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/pooled_vs_welch_decision.png)
 
 ---
 

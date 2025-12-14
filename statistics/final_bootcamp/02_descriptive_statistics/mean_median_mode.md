@@ -51,7 +51,7 @@ $$
 - Best for symmetric distributions
 - Works with interval and ratio data
 
-![Histogram with outlier showing mean pulled away from median](../images/mean_median_mode_outlier_hist.png)
+![Histogram with outlier showing mean pulled away from median](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/mean_median_mode_outlier_hist.png)
 
 **When to Use:**
 - Data is roughly symmetric

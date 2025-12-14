@@ -22,7 +22,7 @@ Data: Include test names (z-test, t-test, paired t-test, ANOVA, chi-square, F-te
 Style: Clean flowchart with color-coded branches by test type
 Filename: test_selection_flowchart.png
 -->
-![Test selection flowchart](../images/test_selection_flowchart.png)
+![Test selection flowchart](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/test_selection_flowchart.png)
 
 ---
 

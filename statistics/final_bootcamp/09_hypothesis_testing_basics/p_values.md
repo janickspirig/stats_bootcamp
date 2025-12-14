@@ -30,7 +30,7 @@ After completing this section, you will be able to:
 
 $$\text{p-value} = P(\text{data as extreme or more} \mid H_0 \text{ is true})$$
 
-![P-value as shaded area under the curve for one-tailed and two-tailed tests](../images/p_value_shaded_area_one_two_tailed.png)
+![P-value as shaded area under the curve for one-tailed and two-tailed tests](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/p_value_shaded_area_one_two_tailed.png)
 
 ---
 

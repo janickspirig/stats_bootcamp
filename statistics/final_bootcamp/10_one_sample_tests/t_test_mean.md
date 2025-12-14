@@ -72,7 +72,7 @@ At α = 0.05, there is sufficient evidence that wait time differs from 10 minute
 
 Business interpretation: If longer waits harm satisfaction, the company should adjust staffing or scheduling.
 
-![T-test example showing test statistic location with heavier tails](../images/t_test_rejection_region_example.png)
+![T-test example showing test statistic location with heavier tails](https://raw.githubusercontent.com/janickspirig/stats_bootcamp/main/statistics/final_bootcamp/images/t_test_rejection_region_example.png)
 
 ---
 
