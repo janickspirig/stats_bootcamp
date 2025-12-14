@@ -2775,7 +2775,7 @@ def generate_mean_median_mode_outlier():
 
 def generate_ols_fit_and_residuals():
     """Generate scatter plot with fitted OLS line and residual segments."""
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, (ax, ax_info) = plt.subplots(1, 2, figsize=(14, 6), gridspec_kw={'width_ratios': [2, 1]})
     
     np.random.seed(42)
     
@@ -2789,40 +2789,70 @@ def generate_ols_fit_and_residuals():
     y_pred = intercept + slope * x
     
     # Plot points
-    ax.scatter(x, y, color=COLORS['primary'], s=100, zorder=5, edgecolors='white', linewidths=1.5, label='Data points')
+    ax.scatter(x, y, color=COLORS['primary'], s=120, zorder=5, edgecolors='white', linewidths=2)
     
     # Plot regression line
     x_line = np.linspace(0, 11, 100)
     y_line = intercept + slope * x_line
-    ax.plot(x_line, y_line, color=COLORS['warning'], linewidth=2.5, label=f'ŷ = {intercept:.2f} + {slope:.2f}x')
+    ax.plot(x_line, y_line, color=COLORS['warning'], linewidth=3)
     
     # Draw residuals
     for xi, yi, yi_pred in zip(x, y, y_pred):
-        ax.vlines(xi, min(yi, yi_pred), max(yi, yi_pred), colors=COLORS['negative'], linewidth=1.5, linestyles='-', alpha=0.7)
+        ax.vlines(xi, min(yi, yi_pred), max(yi, yi_pred), colors=COLORS['negative'], 
+                  linewidth=2, linestyles='-', alpha=0.8)
     
-    # Annotation for residuals
-    ax.annotate('Residual (e)\n= y - ŷ', xy=(x[5], (y[5] + y_pred[5])/2), xytext=(x[5] + 1.5, y[5] + 2),
-                fontsize=10, color=COLORS['negative'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['negative']))
-    
-    ax.set_xlabel('X (Independent Variable)')
-    ax.set_ylabel('Y (Dependent Variable)')
-    ax.set_title('OLS Regression: Minimizing Squared Residuals\n'
-                 'The line minimizes Σ(y - ŷ)²', 
-                 fontsize=14, fontweight='bold', pad=15)
+    ax.set_xlabel('X (Independent Variable)', fontsize=11)
+    ax.set_ylabel('Y (Dependent Variable)', fontsize=11)
+    ax.set_title('OLS Regression Fit', fontsize=16, fontweight='bold')
     ax.set_xlim(0, 11)
     ax.set_ylim(0, 20)
-    ax.legend(loc='upper left', frameon=True)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     
-    # Add residual legend element
+    # Custom legend
     from matplotlib.lines import Line2D
     legend_elements = [
-        Line2D([0], [0], marker='o', color='w', markerfacecolor=COLORS['primary'], markersize=10, label='Data points'),
-        Line2D([0], [0], color=COLORS['warning'], linewidth=2, label=f'ŷ = {intercept:.2f} + {slope:.2f}x'),
-        Line2D([0], [0], color=COLORS['negative'], linewidth=1.5, label='Residuals (y - ŷ)')
+        Line2D([0], [0], marker='o', color='w', markerfacecolor=COLORS['primary'], 
+               markersize=10, label='Data points (y)'),
+        Line2D([0], [0], color=COLORS['warning'], linewidth=3, label='Fitted line (ŷ)'),
+        Line2D([0], [0], color=COLORS['negative'], linewidth=2, label='Residuals')
     ]
-    ax.legend(handles=legend_elements, loc='upper left', frameon=True)
+    ax.legend(handles=legend_elements, loc='upper left', frameon=True, fontsize=10)
     
+    # Right panel: Info
+    ax_info.axis('off')
+    
+    ax_info.text(0.5, 0.95, 'Key Concepts', fontsize=14, fontweight='bold', 
+                 ha='center', transform=ax_info.transAxes, color=COLORS['dark'])
+    
+    # Equation
+    ax_info.text(0.5, 0.82, f'ŷ = {intercept:.2f} + {slope:.2f}x', fontsize=13, 
+                 ha='center', transform=ax_info.transAxes, fontweight='bold', color=COLORS['warning'])
+    
+    # Residual explanation
+    info_text = """
+Residual (error):
+    e = y - ŷ
+    (actual - predicted)
+
+OLS Goal:
+    Minimize Σeᵢ²
+    (sum of squared residuals)
+
+The fitted line is the one
+where total squared error
+is smallest.
+    """
+    ax_info.text(0.1, 0.7, info_text, fontsize=11, va='top', transform=ax_info.transAxes,
+                 fontfamily='monospace', color=COLORS['dark'])
+    
+    # Visual key for residual
+    ax_info.plot([0.3, 0.3], [0.15, 0.25], color=COLORS['negative'], linewidth=3, 
+                 transform=ax_info.transAxes)
+    ax_info.text(0.4, 0.2, '= Residual (y - ŷ)', fontsize=10, va='center',
+                 transform=ax_info.transAxes, color=COLORS['negative'])
+    
+    plt.tight_layout()
     save_figure(fig, 'ols_fit_and_residuals.png')
 
 
