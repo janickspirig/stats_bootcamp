@@ -2410,51 +2410,92 @@ def generate_paired_vs_independent():
 
 def generate_pooled_vs_welch():
     """Generate decision flowchart for pooled vs Welch t-test."""
-    fig, ax = plt.subplots(figsize=(12, 8))
+    # Two-panel layout: flowchart (left) + guidance (right) to avoid crowding/overlaps.
+    fig, (ax, ax_info) = plt.subplots(1, 2, figsize=(14, 7), gridspec_kw={'width_ratios': [2, 1]})
     ax.set_xlim(0, 12)
     ax.set_ylim(0, 10)
     ax.axis('off')
-    
+
+    ax_info.axis('off')
+
+    def _box(ax_, x, y, w, h, text, face, edge, text_color='white', fs=12, fw='bold', alpha=0.95):
+        patch = FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle='round,pad=0.25',
+                               facecolor=face, edgecolor=edge, linewidth=2.5, alpha=alpha, zorder=2)
+        ax_.add_patch(patch)
+        ax_.text(x, y, text, fontsize=fs, fontweight=fw, ha='center', va='center',
+                 color=text_color, zorder=3)
+        return patch
+
+    def _arrow(ax_, x1, y1, x2, y2, color, label=None):
+        ax_.annotate(
+            '',
+            xy=(x2, y2), xytext=(x1, y1),
+            arrowprops=dict(
+                arrowstyle='-|>',
+                lw=2.5,
+                color=color,
+                mutation_scale=16,
+                shrinkA=10,
+                shrinkB=12,
+            ),
+            zorder=10,
+        )
+        if label:
+            ax_.text((x1 + x2) / 2, (y1 + y2) / 2 + 0.35, label,
+                     fontsize=11, fontweight='bold', color=color, ha='center', zorder=11)
+
     # Start
-    start_box = FancyBboxPatch((4.5, 8.5), 3, 1, boxstyle='round,pad=0.2',
-                                facecolor=COLORS['primary'], edgecolor=COLORS['primary'])
-    ax.add_patch(start_box)
-    ax.text(6, 9, 'Two Independent\nSamples', fontsize=11, fontweight='bold', ha='center', va='center', color='white')
-    
-    # Question: Equal variances?
-    q_box = FancyBboxPatch((3.5, 5.5), 5, 1.5, boxstyle='round,pad=0.2',
-                            facecolor=COLORS['light'], edgecolor=COLORS['dark'], linewidth=2)
-    ax.add_patch(q_box)
-    ax.text(6, 6.25, 'Can we assume\nequal population variances?\n(σ₁² = σ₂²)', fontsize=11, ha='center', va='center')
-    ax.annotate('', xy=(6, 7), xytext=(6, 8.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['neutral']))
-    
-    # Yes branch: Pooled
-    yes_box = FancyBboxPatch((0.5, 2.5), 4.5, 2, boxstyle='round,pad=0.2',
-                              facecolor='white', edgecolor=COLORS['positive'], linewidth=3)
-    ax.add_patch(yes_box)
-    ax.text(2.75, 4, 'YES: Pooled t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['positive'])
-    ax.text(2.75, 3.3, 'Use pooled variance sp²\ndf = n₁ + n₂ − 2', fontsize=10, ha='center', color=COLORS['dark'])
-    ax.annotate('', xy=(2.75, 4.5), xytext=(4.5, 5.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['positive']))
-    ax.text(2.5, 5.2, 'Yes', fontsize=10, fontweight='bold', color=COLORS['positive'])
-    
-    # No branch: Welch
-    no_box = FancyBboxPatch((7, 2.5), 4.5, 2, boxstyle='round,pad=0.2',
-                             facecolor='white', edgecolor=COLORS['warning'], linewidth=3)
-    ax.add_patch(no_box)
-    ax.text(9.25, 4, 'NO: Welch t-test', fontsize=12, fontweight='bold', ha='center', color=COLORS['warning'])
-    ax.text(9.25, 3.3, 'Separate variances\ndf from Welch formula', fontsize=10, ha='center', color=COLORS['dark'])
-    ax.annotate('', xy=(9.25, 4.5), xytext=(7.5, 5.5), arrowprops=dict(arrowstyle='->', lw=2, color=COLORS['warning']))
-    ax.text(9.5, 5.2, 'No / Unsure', fontsize=10, fontweight='bold', color=COLORS['warning'])
-    
-    # Decision help
-    ax.text(6, 1.5, 'How to decide? Check if s₁² and s₂² are similar (rough rule: ratio < 2)\n'
-                    'or use F-test for equality of variances\n\n'
-                    'When in doubt, Welch is safer (more robust)',
-            fontsize=10, ha='center', color=COLORS['neutral'], style='italic',
-            bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor='none'))
-    
-    ax.set_title('Pooled vs. Welch t-test: Decision Guide', fontsize=16, fontweight='bold', y=0.98)
-    
+    _box(ax, 6, 9.1, 4.4, 1.2, 'Two independent samples', COLORS['primary'], COLORS['primary'], fs=13)
+
+    # Decision
+    q_patch = _box(
+        ax, 6, 6.9, 7.2, 1.8,
+        'Assume equal population variances?\n(σ₁² = σ₂²)',
+        COLORS['light'], COLORS['dark'], text_color=COLORS['dark'], fs=12, fw='bold', alpha=1.0
+    )
+    _arrow(ax, 6, 8.45, 6, 7.75, COLORS['neutral'])
+
+    # Outcomes
+    pooled_patch = _box(
+        ax, 3.2, 3.9, 5.0, 2.2,
+        'Pooled t-test\n\nUse pooled variance sₚ²\n df = n₁ + n₂ − 2',
+        'white', COLORS['positive'], text_color=COLORS['dark'], fs=11, fw='bold', alpha=1.0
+    )
+    welch_patch = _box(
+        ax, 8.8, 3.9, 5.0, 2.2,
+        'Welch t-test\n\nSeparate variances\n df via Welch–Satterthwaite',
+        'white', COLORS['warning'], text_color=COLORS['dark'], fs=11, fw='bold', alpha=1.0
+    )
+
+    # Branch arrows (kept away from box borders via shrinkA/B)
+    _arrow(ax, 5.1, 6.0, 3.9, 5.0, COLORS['positive'], label='Yes')
+    _arrow(ax, 6.9, 6.0, 8.1, 5.0, COLORS['warning'], label='No / unsure')
+
+    # Title
+    ax.set_title('Pooled vs. Welch t-test: Decision Guide', fontsize=16, fontweight='bold', pad=10)
+
+    # Right-side guidance card
+    ax_info.text(0.5, 0.95, 'How to decide?', fontsize=14, fontweight='bold',
+                 ha='center', transform=ax_info.transAxes, color=COLORS['dark'])
+
+    guide = (
+        "Quick rules:\n"
+        "- If sample variances are similar (roughly s₁²/s₂² < 2), pooled is ok.\n"
+        "- If variances differ or you’re unsure, Welch is safer (more robust).\n\n"
+        "Optional (formal):\n"
+        "- Use an F-test / Levene test for equal variances.\n"
+    )
+    ax_info.text(0.06, 0.83, guide, fontsize=10.5, va='top', ha='left',
+                 transform=ax_info.transAxes, color=COLORS['dark'],
+                 bbox=dict(boxstyle='round,pad=0.5', facecolor=COLORS['light'], edgecolor=COLORS['neutral'], alpha=0.95))
+
+    ax_info.text(0.5, 0.22,
+                 "When in doubt:\nchoose Welch.",
+                 fontsize=12, fontweight='bold', ha='center', va='center',
+                 transform=ax_info.transAxes, color=COLORS['warning'],
+                 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor=COLORS['warning'], linewidth=2))
+
+    plt.tight_layout()
     save_figure(fig, 'pooled_vs_welch_decision.png')
 
 
