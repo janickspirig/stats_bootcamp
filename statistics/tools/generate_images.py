@@ -218,103 +218,115 @@ def generate_kurtosis_types():
 
 
 def generate_boxplot_labeled():
-    """Generate a labeled box plot showing all components."""
-    fig, ax = plt.subplots(figsize=(12, 7))
+    """Generate a labeled box plot showing all components - clean design."""
+    fig, (ax_box, ax_info) = plt.subplots(1, 2, figsize=(14, 7), gridspec_kw={'width_ratios': [1, 1]})
     
-    # Create sample data with an outlier
+    # Create sample data with outliers
     np.random.seed(42)
-    data = np.concatenate([np.random.normal(35, 10, 50), [75, 78]])  # Add outliers
+    data = np.concatenate([np.random.normal(35, 10, 50), [75, 78]])
     
-    # Create box plot
-    bp = ax.boxplot(data, vert=True, widths=0.5, patch_artist=True,
-                    flierprops=dict(marker='o', markerfacecolor=COLORS['warning'], 
-                                   markersize=10, markeredgecolor=COLORS['warning']))
+    # Create box plot - positioned to the left
+    bp = ax_box.boxplot(data, vert=True, widths=0.4, patch_artist=True, positions=[0.5],
+                        flierprops=dict(marker='o', markerfacecolor=COLORS['warning'], 
+                                       markersize=12, markeredgecolor='white', markeredgewidth=2))
     
     # Style the box
-    bp['boxes'][0].set_facecolor(COLORS['light'])
+    bp['boxes'][0].set_facecolor(COLORS['primary'])
+    bp['boxes'][0].set_alpha(0.3)
     bp['boxes'][0].set_edgecolor(COLORS['primary'])
-    bp['boxes'][0].set_linewidth(2)
+    bp['boxes'][0].set_linewidth(3)
     bp['medians'][0].set_color(COLORS['warning'])
-    bp['medians'][0].set_linewidth(3)
-    bp['whiskers'][0].set_color(COLORS['primary'])
-    bp['whiskers'][1].set_color(COLORS['primary'])
-    bp['whiskers'][0].set_linewidth(2)
-    bp['whiskers'][1].set_linewidth(2)
-    bp['caps'][0].set_color(COLORS['primary'])
-    bp['caps'][1].set_color(COLORS['primary'])
-    bp['caps'][0].set_linewidth(2)
-    bp['caps'][1].set_linewidth(2)
+    bp['medians'][0].set_linewidth(4)
+    for whisker in bp['whiskers']:
+        whisker.set_color(COLORS['primary'])
+        whisker.set_linewidth(2)
+    for cap in bp['caps']:
+        cap.set_color(COLORS['primary'])
+        cap.set_linewidth(2)
     
     # Get actual values
-    q1, median, q3 = np.percentile(data[:-2], [25, 50, 75])  # Exclude outliers
+    q1, median, q3 = np.percentile(data[:-2], [25, 50, 75])
     iqr = q3 - q1
     whisker_low = max(min(data), q1 - 1.5 * iqr)
     whisker_high = min(max(data[:-2]), q3 + 1.5 * iqr)
     
-    # Add annotations with arrows
-    annotation_style = dict(fontsize=11, fontweight='bold', color=COLORS['dark'])
-    arrow_style = dict(arrowstyle='->', color=COLORS['neutral'], lw=1.5)
+    # Clean horizontal lines to labels on the right
+    labels_data = [
+        (whisker_high, f'Maximum = {whisker_high:.0f}', COLORS['primary']),
+        (q3, f'Q3 (75th %) = {q3:.0f}', COLORS['primary']),
+        (median, f'Median = {median:.0f}', COLORS['warning']),
+        (q1, f'Q1 (25th %) = {q1:.0f}', COLORS['primary']),
+        (whisker_low, f'Minimum = {whisker_low:.0f}', COLORS['primary']),
+    ]
     
-    # Maximum (whisker)
-    ax.annotate(f'Maximum\n(within 1.5×IQR)\n= {whisker_high:.0f}', 
-                xy=(1, whisker_high), xytext=(1.8, whisker_high + 5),
-                **annotation_style, ha='left',
-                arrowprops=arrow_style)
+    for y_val, label, color in labels_data:
+        ax_box.plot([0.72, 1.0], [y_val, y_val], color=color, linewidth=1.5, linestyle='-', alpha=0.7)
+        ax_box.text(1.05, y_val, label, fontsize=11, fontweight='bold', va='center', color=color)
     
-    # Q3
-    ax.annotate(f'Q3 (75th percentile)\n= {q3:.0f}', 
-                xy=(1.25, q3), xytext=(1.8, q3),
-                **annotation_style, ha='left', va='center',
-                arrowprops=arrow_style)
+    # IQR bracket on the left
+    ax_box.annotate('', xy=(0.2, q1), xytext=(0.2, q3),
+                    arrowprops=dict(arrowstyle='<->', color=COLORS['accent'], lw=3))
+    ax_box.text(0.08, (q1 + q3) / 2, f'IQR\n= {iqr:.0f}', fontsize=12, fontweight='bold', 
+                ha='center', va='center', color=COLORS['accent'])
     
-    # Median
-    ax.annotate(f'Median (Q2)\n= {median:.0f}', 
-                xy=(1.25, median), xytext=(1.8, median - 5),
-                **annotation_style, ha='left',
-                arrowprops=arrow_style)
+    # Outlier label
+    ax_box.text(0.35, 80, 'Outliers', fontsize=11, fontweight='bold', ha='center', 
+                color=COLORS['warning'])
     
-    # Q1
-    ax.annotate(f'Q1 (25th percentile)\n= {q1:.0f}', 
-                xy=(1.25, q1), xytext=(1.8, q1 - 3),
-                **annotation_style, ha='left', va='center',
-                arrowprops=arrow_style)
+    ax_box.set_xlim(0, 1.8)
+    ax_box.set_ylim(0, 90)
+    ax_box.set_ylabel('Value', fontsize=12)
+    ax_box.set_xticks([])
+    ax_box.set_title('Box Plot Anatomy', fontsize=16, fontweight='bold')
+    ax_box.spines['top'].set_visible(False)
+    ax_box.spines['right'].set_visible(False)
+    ax_box.spines['bottom'].set_visible(False)
     
-    # Minimum (whisker)
-    ax.annotate(f'Minimum\n(within 1.5×IQR)\n= {whisker_low:.0f}', 
-                xy=(1, whisker_low), xytext=(1.8, whisker_low - 5),
-                **annotation_style, ha='left',
-                arrowprops=arrow_style)
+    # Right panel: Info card
+    ax_info.axis('off')
     
-    # Outliers
-    ax.annotate('Outliers\n(beyond 1.5×IQR)', 
-                xy=(1, 76), xytext=(0.2, 72),
-                **annotation_style, ha='right',
-                arrowprops=arrow_style)
+    # Five-number summary table
+    ax_info.text(0.5, 0.95, 'Five-Number Summary', fontsize=14, fontweight='bold', 
+                 ha='center', transform=ax_info.transAxes, color=COLORS['dark'])
     
-    # IQR bracket
-    ax.annotate('', xy=(0.6, q1), xytext=(0.6, q3),
-                arrowprops=dict(arrowstyle='<->', color=COLORS['accent'], lw=2))
-    ax.text(0.45, (q1 + q3) / 2, f'IQR\n= {iqr:.0f}', 
-            fontsize=11, fontweight='bold', ha='center', va='center',
-            color=COLORS['accent'])
+    summary_text = f"""
+    Minimum:  {whisker_low:.0f}
+    Q1:       {q1:.0f}
+    Median:   {median:.0f}
+    Q3:       {q3:.0f}
+    Maximum:  {whisker_high:.0f}
     
-    ax.set_xlim(0, 3)
-    ax.set_ylim(0, 85)
-    ax.set_ylabel('Value')
-    ax.set_xticks([])
-    ax.set_title('Anatomy of a Box Plot', fontsize=16, fontweight='bold', pad=15)
-
-    # Fence formulas with worked example
+    IQR = Q3 - Q1 = {q3:.0f} - {q1:.0f} = {iqr:.0f}
+    """
+    ax_info.text(0.1, 0.85, summary_text, fontsize=12, va='top', transform=ax_info.transAxes,
+                 fontfamily='monospace', color=COLORS['dark'])
+    
+    # Fence formulas
     lower_fence = q1 - 1.5 * iqr
     upper_fence = q3 + 1.5 * iqr
-    ax.text(0.02, 0.12,
-            f'Fence calculations:\n'
-            f'Lower fence = Q1 - 1.5*IQR = {q1:.0f} - {1.5*iqr:.0f} = {lower_fence:.0f}\n'
-            f'Upper fence = Q3 + 1.5*IQR = {q3:.0f} + {1.5*iqr:.0f} = {upper_fence:.0f}\n'
-            f'Outliers: values < {lower_fence:.0f} or > {upper_fence:.0f}',
-            transform=ax.transAxes, fontsize=10, color=COLORS['dark'],
-            bbox=dict(boxstyle='round', facecolor='white', edgecolor=COLORS['neutral'], alpha=0.9))
     
+    ax_info.text(0.5, 0.45, 'Outlier Detection (Fences)', fontsize=14, fontweight='bold',
+                 ha='center', transform=ax_info.transAxes, color=COLORS['dark'])
+    
+    fence_text = f"""
+    Lower fence = Q1 - 1.5×IQR
+                = {q1:.0f} - {1.5*iqr:.0f} = {lower_fence:.0f}
+    
+    Upper fence = Q3 + 1.5×IQR  
+                = {q3:.0f} + {1.5*iqr:.0f} = {upper_fence:.0f}
+    
+    Outliers: values beyond fences
+    """
+    ax_info.text(0.1, 0.38, fence_text, fontsize=11, va='top', transform=ax_info.transAxes,
+                 fontfamily='monospace', color=COLORS['dark'])
+    
+    # Key insight box
+    ax_info.text(0.5, 0.08, '50% of data lies within the box (IQR)', fontsize=11, 
+                 ha='center', va='center', transform=ax_info.transAxes, style='italic',
+                 bbox=dict(boxstyle='round,pad=0.5', facecolor=COLORS['light'], 
+                          edgecolor=COLORS['accent'], linewidth=2))
+    
+    plt.tight_layout()
     save_figure(fig, 'boxplot_labeled.png')
 
 
@@ -363,18 +375,23 @@ def generate_boxplot_comparison():
         flier.set_markerfacecolor(COLORS['neutral'])
         flier.set_markeredgecolor(COLORS['neutral'])
     
-    ax.set_xticklabels(['Group A\n(Left-Skewed)', 'Group B\n(Symmetric)', 'Group C\n(Right-Skewed)'])
-    ax.set_ylabel('Value')
-    ax.set_title('Comparing Distribution Shapes via Box Plots', fontsize=16, fontweight='bold', pad=15)
+    ax.set_xticks(positions)
+    ax.set_xticklabels(['Left-Skewed', 'Symmetric', 'Right-Skewed'], fontsize=12, fontweight='bold')
+    ax.set_ylabel('Value', fontsize=11)
+    ax.set_title('Recognizing Skewness in Box Plots', fontsize=16, fontweight='bold', pad=15)
     
-    # Add annotations
-    ax.annotate('Median closer to Q3\n= Left-skewed', xy=(1, 60), fontsize=9, 
-                ha='center', color=COLORS['left_skew'], style='italic')
-    ax.annotate('Median centered\n= Symmetric', xy=(2, 65), fontsize=9, 
-                ha='center', color=COLORS['symmetric'], style='italic')
-    ax.annotate('Median closer to Q1\n= Right-skewed', xy=(3, 60), fontsize=9, 
-                ha='center', color=COLORS['right_skew'], style='italic')
+    # Clean styling
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     
+    # Key insight at bottom (cleaner than floating annotations)
+    ax.text(0.5, -0.08, 
+            'Tip: Median closer to Q3 = left-skewed | Median centered = symmetric | Median closer to Q1 = right-skewed',
+            transform=ax.transAxes, fontsize=10, ha='center', style='italic', color=COLORS['neutral'])
+    
+    plt.tight_layout()
     save_figure(fig, 'boxplot_comparison.png')
 
 
