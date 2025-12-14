@@ -1218,70 +1218,76 @@ def generate_bayes_tree():
 
 
 def generate_causation_explanations():
-    """Generate diagram showing possible explanations for correlation."""
-    fig, ax = plt.subplots(figsize=(12, 8))
-    ax.set_xlim(0, 12)
-    ax.set_ylim(0, 10)
-    ax.axis('off')
+    """Generate diagram showing possible explanations for correlation - spacious layout."""
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    axes = axes.flatten()
     
-    def draw_box(x, y, text, color):
-        box = FancyBboxPatch((x - 0.8, y - 0.4), 1.6, 0.8,
-                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color, alpha=0.9)
-        ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color='white')
+    def draw_box(ax, x, y, text, color, size=0.15):
+        """Draw a variable box."""
+        circle = plt.Circle((x, y), size, facecolor=color, edgecolor='white', linewidth=3)
+        ax.add_patch(circle)
+        ax.text(x, y, text, ha='center', va='center', fontsize=16, fontweight='bold', color='white')
     
-    # Title for each scenario
+    def draw_arrow(ax, x1, y1, x2, y2, color=COLORS['dark'], style='-', width=4):
+        """Draw a prominent arrow."""
+        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle='-|>', color=color, lw=width, 
+                                   mutation_scale=20, linestyle=style))
+    
     scenarios = [
-        ('1. X causes Y', 8.5),
-        ('2. Y causes X', 6.5),
-        ('3. Confounding variable Z', 4.5),
-        ('4. Coincidence (spurious)', 2.5),
+        ('1. Direct Causation: X → Y', 'Ad spend causes Sales', 0),
+        ('2. Reverse Causation: Y → X', 'Success causes more Ad budget', 1),
+        ('3. Confounding Variable', 'Z (Seasonality) affects both', 2),
+        ('4. Spurious Correlation', 'No real connection, just coincidence', 3),
     ]
     
-    for title, y in scenarios:
-        ax.text(0.5, y, title, fontsize=11, fontweight='bold', color=COLORS['dark'], va='center')
+    for i, (title, example, idx) in enumerate(scenarios):
+        ax = axes[idx]
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.axis('off')
+        ax.set_title(title, fontsize=13, fontweight='bold', pad=10, color=COLORS['dark'])
+        
+        if idx == 0:  # X → Y
+            draw_box(ax, 0.25, 0.5, 'X', COLORS['primary'])
+            draw_box(ax, 0.75, 0.5, 'Y', COLORS['accent'])
+            draw_arrow(ax, 0.4, 0.5, 0.6, 0.5, COLORS['dark'])
+            ax.text(0.5, 0.15, example, ha='center', fontsize=11, style='italic', color=COLORS['neutral'])
+            
+        elif idx == 1:  # Y → X  
+            draw_box(ax, 0.25, 0.5, 'X', COLORS['primary'])
+            draw_box(ax, 0.75, 0.5, 'Y', COLORS['accent'])
+            draw_arrow(ax, 0.6, 0.5, 0.4, 0.5, COLORS['dark'])
+            ax.text(0.5, 0.15, example, ha='center', fontsize=11, style='italic', color=COLORS['neutral'])
+            
+        elif idx == 2:  # Confounding
+            draw_box(ax, 0.25, 0.35, 'X', COLORS['primary'])
+            draw_box(ax, 0.75, 0.35, 'Y', COLORS['accent'])
+            draw_box(ax, 0.5, 0.7, 'Z', COLORS['warning'])
+            draw_arrow(ax, 0.4, 0.6, 0.32, 0.48, COLORS['warning'], width=3)
+            draw_arrow(ax, 0.6, 0.6, 0.68, 0.48, COLORS['warning'], width=3)
+            # Dashed line between X and Y (no arrow - spurious correlation)
+            ax.plot([0.4, 0.6], [0.35, 0.35], color=COLORS['neutral'], linewidth=2, 
+                    linestyle=':', alpha=0.6)
+            ax.text(0.5, 0.1, example, ha='center', fontsize=11, style='italic', color=COLORS['neutral'])
+            
+        elif idx == 3:  # Spurious
+            draw_box(ax, 0.25, 0.5, 'X', COLORS['primary'])
+            draw_box(ax, 0.75, 0.5, 'Y', COLORS['accent'])
+            # Wavy/broken line with question mark
+            ax.plot([0.4, 0.45, 0.5, 0.55, 0.6], [0.5, 0.53, 0.47, 0.53, 0.5], 
+                    color=COLORS['neutral'], linewidth=2, linestyle='--', alpha=0.5)
+            ax.text(0.5, 0.5, '?', ha='center', va='center', fontsize=24, 
+                    fontweight='bold', color=COLORS['warning'])
+            ax.text(0.5, 0.15, example, ha='center', fontsize=11, style='italic', color=COLORS['neutral'])
     
-    # Scenario 1: X → Y
-    draw_box(4, 8.5, 'X', COLORS['primary'])
-    draw_box(7, 8.5, 'Y', COLORS['accent'])
-    ax.annotate('', xy=(6.2, 8.5), xytext=(4.8, 8.5),
-                arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=3))
-    ax.text(9, 8.5, 'Example: Ad spend causes Sales', fontsize=9, va='center', style='italic', color=COLORS['neutral'])
+    # Add prominent warning at bottom
+    fig.text(0.5, 0.02, '⚠ REMEMBER: Correlation does NOT imply causation!', 
+             ha='center', fontsize=14, fontweight='bold', color=COLORS['warning'],
+             bbox=dict(boxstyle='round,pad=0.5', facecolor='#FEF3C7', edgecolor=COLORS['warning'], linewidth=2))
     
-    # Scenario 2: Y → X
-    draw_box(4, 6.5, 'X', COLORS['primary'])
-    draw_box(7, 6.5, 'Y', COLORS['accent'])
-    ax.annotate('', xy=(4.8, 6.5), xytext=(6.2, 6.5),
-                arrowprops=dict(arrowstyle='->', color=COLORS['neutral'], lw=3))
-    ax.text(9, 6.5, 'Example: Sales causes Ad spend\n(budget increases after success)', fontsize=9, va='center',
-            style='italic', color=COLORS['neutral'])
-    
-    # Scenario 3: Confounding
-    draw_box(4, 4.2, 'X', COLORS['primary'])
-    draw_box(7, 4.2, 'Y', COLORS['accent'])
-    draw_box(5.5, 5.5, 'Z', COLORS['warning'])
-    ax.annotate('', xy=(4.4, 4.6), xytext=(5.1, 5.1),
-                arrowprops=dict(arrowstyle='->', color=COLORS['warning'], lw=2))
-    ax.annotate('', xy=(6.6, 4.6), xytext=(5.9, 5.1),
-                arrowprops=dict(arrowstyle='->', color=COLORS['warning'], lw=2))
-    ax.plot([4.8, 6.2], [4.2, 4.2], color=COLORS['neutral'], linewidth=2, linestyle=':', alpha=0.5)
-    ax.text(9, 4.5, 'Example: Sales & Returns\n(Z = Seasonality)', fontsize=9, va='center', style='italic', color=COLORS['neutral'])
-    
-    # Scenario 4: Spurious
-    draw_box(4, 2.5, 'X', COLORS['primary'])
-    draw_box(7, 2.5, 'Y', COLORS['accent'])
-    ax.plot([4.8, 6.2], [2.5, 2.5], color=COLORS['neutral'], linewidth=2, linestyle='--')
-    ax.text(5.5, 2.1, '?', fontsize=16, ha='center', color=COLORS['warning'])
-    ax.text(9, 2.5, 'Example: Two trending time series\n(spurious correlation)', fontsize=9, va='center',
-            style='italic', color=COLORS['neutral'])
-    
-    # Key message
-    ax.text(6, 0.8, 'WARNING: Correlation does NOT imply causation!', 
-            fontsize=14, ha='center', fontweight='bold', color=COLORS['warning'],
-            bbox=dict(boxstyle='round', facecolor=COLORS['light'], edgecolor=COLORS['warning']))
-    
-    ax.set_title('Possible Explanations When X and Y Are Correlated', fontsize=16, fontweight='bold', y=0.98)
-    
+    fig.suptitle('Why Are X and Y Correlated?', fontsize=18, fontweight='bold', y=0.98)
+    plt.tight_layout(rect=[0, 0.06, 1, 0.95])
     save_figure(fig, 'causation_explanations.png')
 
 
