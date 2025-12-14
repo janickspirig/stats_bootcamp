@@ -970,88 +970,83 @@ def generate_binomial_shapes():
 
 
 def generate_discrete_distribution_flowchart():
-    """Generate decision flowchart for choosing discrete distributions."""
-    fig, ax = plt.subplots(figsize=(14, 11))
-    ax.set_xlim(0, 14)
-    ax.set_ylim(0, 11)
+    """Generate decision flowchart for choosing discrete distributions using graphviz."""
+    try:
+        import graphviz
+    except ImportError:
+        print("Warning: graphviz not installed, falling back to matplotlib")
+        return _generate_discrete_distribution_flowchart_fallback()
+    
+    # Create a directed graph
+    dot = graphviz.Digraph(comment='Discrete Distribution Selection')
+    dot.attr(rankdir='TB', splines='ortho', nodesep='0.8', ranksep='1.0')
+    dot.attr('node', fontname='Helvetica', fontsize='14')
+    dot.attr('edge', fontname='Helvetica', fontsize='12', color='#6B7280')
+    
+    # Define colors
+    blue = '#2563EB'
+    purple = '#7C3AED'
+    green = '#059669'
+    light_gray = '#F3F4F6'
+    dark = '#1F2937'
+    
+    # Start node
+    dot.node('start', 'What type of counting\nproblem is this?', 
+             shape='box', style='rounded,filled', fillcolor=blue, fontcolor='white', fontsize='16')
+    
+    # Decision nodes (questions)
+    dot.node('q1', 'Fixed number of trials?\n(n is known)', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark, width='3', height='1.5')
+    
+    dot.node('q2', 'Sampling without replacement\nfrom finite population?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark, width='3', height='1.5')
+    
+    dot.node('q3', 'Events occur independently\nat constant rate?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark, width='3', height='1.5')
+    
+    # Result nodes (distributions)
+    dot.node('hyper', 'HYPERGEOMETRIC\n─────────────\nParameters: N, K, n\n─────────────\nEx: Cards, lottery,\ndefects in batch', 
+             shape='box', style='rounded,filled', fillcolor=purple, fontcolor='white', fontsize='13')
+    
+    dot.node('binom', 'BINOMIAL\n─────────────\nParameters: n, p\n─────────────\nEx: Coin flips,\npass/fail tests', 
+             shape='box', style='rounded,filled', fillcolor=blue, fontcolor='white', fontsize='13')
+    
+    dot.node('poisson', 'POISSON\n─────────────\nParameter: λ (rate)\n─────────────\nEx: Calls/hour,\ntypos/page', 
+             shape='box', style='rounded,filled', fillcolor=green, fontcolor='white', fontsize='13')
+    
+    # Tip node
+    dot.node('tip', 'TIP: Use Binomial as approximation for\nHypergeometric when n < 5% of N', 
+             shape='note', style='filled', fillcolor='#FEF3C7', fontcolor=dark, fontsize='11')
+    
+    # Edges with labels
+    dot.edge('start', 'q1', '')
+    dot.edge('q1', 'q2', 'YES', fontsize='13', fontcolor=dark)
+    dot.edge('q1', 'q3', 'NO\n(events in interval)', fontsize='13', fontcolor=dark)
+    dot.edge('q2', 'hyper', 'YES', fontsize='13', fontcolor=dark)
+    dot.edge('q2', 'binom', 'NO', fontsize='13', fontcolor=dark)
+    dot.edge('q3', 'poisson', 'YES', fontsize='13', fontcolor=dark)
+    
+    # Invisible edge to position tip
+    dot.edge('binom', 'tip', style='invis')
+    
+    # Add title using a cluster
+    with dot.subgraph(name='cluster_title') as c:
+        c.attr(label='Choosing the Right Discrete Distribution', 
+               labelloc='t', fontsize='20', fontname='Helvetica-Bold', 
+               style='invis')
+    
+    # Render to PNG
+    output_path = IMAGES_DIR / 'discrete_distribution_flowchart'
+    dot.render(output_path, format='png', cleanup=True)
+    print(f"  ✓ Saved: discrete_distribution_flowchart.png")
+
+
+def _generate_discrete_distribution_flowchart_fallback():
+    """Fallback matplotlib version if graphviz is not available."""
+    fig, ax = plt.subplots(figsize=(10, 8))
+    ax.text(0.5, 0.5, 'Graphviz not installed.\nRun: pip install graphviz', 
+            ha='center', va='center', fontsize=14)
     ax.axis('off')
-    
-    def draw_question(x, y, text, width=3.5, height=1.0):
-        """Draw a decision/question box."""
-        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
-                             boxstyle='round,pad=0.2', facecolor=COLORS['light'],
-                             edgecolor=COLORS['primary'], linewidth=2.5)
-        ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color=COLORS['dark'])
-    
-    def draw_result(x, y, name, color, params='', example=''):
-        """Draw a distribution result box with parameters."""
-        box = FancyBboxPatch((x - 2, y - 0.6), 4, 1.2,
-                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color, linewidth=2)
-        ax.add_patch(box)
-        ax.text(x, y + 0.15, name, ha='center', va='center', fontsize=13, fontweight='bold', color='white')
-        if params:
-            ax.text(x, y - 0.25, params, ha='center', va='center', fontsize=9, color='white', alpha=0.9)
-    
-    def arrow(x1, y1, x2, y2, label='', label_pos='mid'):
-        """Draw an arrow with label."""
-        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle='->', lw=2.5, color=COLORS['neutral']))
-        if label:
-            if label_pos == 'mid':
-                lx, ly = (x1 + x2) / 2 + 0.3, (y1 + y2) / 2
-            else:
-                lx, ly = x2 + 0.3, y2 + 0.2
-            ax.text(lx, ly, label, fontsize=11, fontweight='bold', color=COLORS['dark'])
-    
-    # ===== TOP: Starting Question =====
-    start_box = FancyBboxPatch((5, 9.5), 4, 1.2, boxstyle='round,pad=0.2',
-                                facecolor=COLORS['primary'], edgecolor=COLORS['primary'], linewidth=2)
-    ax.add_patch(start_box)
-    ax.text(7, 10.1, 'What type of counting', ha='center', va='center', fontsize=12, fontweight='bold', color='white')
-    ax.text(7, 9.7, 'problem is this?', ha='center', va='center', fontsize=12, fontweight='bold', color='white')
-    
-    # ===== LEVEL 2: First Decision =====
-    arrow(7, 9.4, 7, 8.3)
-    draw_question(7, 7.7, 'Fixed number of trials\n(n is known)?', width=4.2, height=1.1)
-    
-    # ===== LEFT BRANCH: Yes - Fixed Trials =====
-    arrow(5.2, 7.2, 4, 6.3, 'YES')
-    draw_question(4, 5.7, 'Sampling without\nreplacement from\nfinite population?', width=4, height=1.1)
-    
-    # Hypergeometric (Yes to finite population)
-    arrow(2.3, 5.2, 1.5, 4.0, 'YES')
-    draw_result(2.5, 3.2, 'HYPERGEOMETRIC', COLORS['secondary'], 'N, K, n')
-    ax.text(2.5, 2.3, 'Drawing from finite pool\nwithout replacement', ha='center', fontsize=9,
-            style='italic', color=COLORS['neutral'])
-    ax.text(2.5, 1.6, 'Ex: Cards, lottery, defects in batch', ha='center', fontsize=9, color=COLORS['dark'])
-    
-    # Binomial (No to finite population - sampling with replacement or infinite)
-    arrow(5.7, 5.2, 6.5, 4.0, 'NO')
-    draw_result(6.5, 3.2, 'BINOMIAL', COLORS['primary'], 'n, p')
-    ax.text(6.5, 2.3, 'Fixed n independent trials\neach with probability p', ha='center', fontsize=9,
-            style='italic', color=COLORS['neutral'])
-    ax.text(6.5, 1.6, 'Ex: Coin flips, pass/fail, defects', ha='center', fontsize=9, color=COLORS['dark'])
-    
-    # ===== RIGHT BRANCH: No - Events in Interval =====
-    arrow(8.8, 7.2, 10, 6.3, 'NO')
-    draw_question(10, 5.7, 'Counting events in\na fixed interval\n(time/space)?', width=4, height=1.1)
-    
-    # Poisson (Yes to events in interval)
-    arrow(10, 5.1, 10.5, 4.0, 'YES')
-    draw_result(10.5, 3.2, 'POISSON', COLORS['accent'], 'λ (rate)')
-    ax.text(10.5, 2.3, 'Events occur independently\nat constant average rate', ha='center', fontsize=9,
-            style='italic', color=COLORS['neutral'])
-    ax.text(10.5, 1.6, 'Ex: Calls/hour, typos/page, arrivals', ha='center', fontsize=9, color=COLORS['dark'])
-    
-    # ===== BOTTOM: Tips and Formulas =====
-    # Approximation tip
-    ax.text(7, 0.7, 'TIP: Use Binomial as approximation for Hypergeometric when n < 5% of N',
-            ha='center', fontsize=10, style='italic', color=COLORS['dark'],
-            bbox=dict(boxstyle='round,pad=0.4', facecolor=COLORS['light'], edgecolor=COLORS['neutral']))
-    
-    ax.set_title('Choosing the Right Discrete Distribution', fontsize=18, fontweight='bold', y=0.97)
-    
     save_figure(fig, 'discrete_distribution_flowchart.png')
 
 
@@ -1339,107 +1334,104 @@ def generate_module_progression():
 
 
 def generate_test_selection_flowchart():
-    """Generate flowchart for selecting the right statistical test."""
-    fig, ax = plt.subplots(figsize=(16, 12))
-    ax.set_xlim(0, 16)
-    ax.set_ylim(0, 14)
-    ax.axis('off')
+    """Generate flowchart for selecting the right statistical test using graphviz."""
+    try:
+        import graphviz
+    except ImportError:
+        print("Warning: graphviz not installed")
+        return
     
-    def draw_question(x, y, text, width=3.2, height=1.0):
-        """Draw a decision/question box."""
-        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
-                             boxstyle='round,pad=0.2', facecolor=COLORS['light'],
-                             edgecolor=COLORS['primary'], linewidth=2.5)
-        ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color=COLORS['dark'])
+    # Create a directed graph
+    dot = graphviz.Digraph(comment='Statistical Test Selection')
+    dot.attr(rankdir='TB', splines='ortho', nodesep='0.6', ranksep='0.8')
+    dot.attr('node', fontname='Helvetica', fontsize='13')
+    dot.attr('edge', fontname='Helvetica', fontsize='11', color='#6B7280')
     
-    def draw_test(x, y, text, color, width=2.8, height=0.9):
-        """Draw a test result box."""
-        box = FancyBboxPatch((x - width/2, y - height/2), width, height,
-                             boxstyle='round,pad=0.15', facecolor=color, edgecolor=color, linewidth=2)
-        ax.add_patch(box)
-        ax.text(x, y, text, ha='center', va='center', fontsize=11, fontweight='bold', color='white')
+    # Define colors
+    blue = '#2563EB'
+    purple = '#7C3AED'
+    green = '#059669'
+    orange = '#DC2626'
+    light_gray = '#F3F4F6'
+    dark = '#1F2937'
     
-    def arrow(x1, y1, x2, y2, label='', label_offset=(0, 0.15)):
-        """Draw an arrow with optional label."""
-        ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle='->', lw=2.5, color=COLORS['neutral']))
-        if label:
-            mid_x = (x1 + x2) / 2 + label_offset[0]
-            mid_y = (y1 + y2) / 2 + label_offset[1]
-            ax.text(mid_x, mid_y, label, fontsize=10, fontweight='bold', color=COLORS['dark'], ha='center')
+    # Start node
+    dot.node('start', 'What is your\nresearch question?', 
+             shape='box', style='rounded,filled', fillcolor=blue, fontcolor='white', fontsize='16')
     
-    # ===== TOP: Main Question =====
-    draw_question(8, 13, 'What is your\nresearch question?', width=4, height=1.2)
+    # Main branch decision
+    dot.node('branch', 'Compare groups\nor analyze relationship?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark, width='3')
     
-    # ===== LEVEL 2: Two main branches =====
-    arrow(6.5, 12.4, 4, 11.2, 'Compare\ngroups', (-0.5, 0))
-    arrow(9.5, 12.4, 12, 11.2, 'Relationship\nbetween variables', (0.5, 0))
+    # Left branch: Comparing Groups
+    dot.node('groups', 'How many groups?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark)
     
-    draw_question(4, 10.5, 'How many groups?', width=3.5)
-    draw_question(12, 10.5, 'Variable types?', width=3.5)
+    dot.node('sigma', 'Is σ (population SD)\nknown?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark)
     
-    # ===== LEFT BRANCH: Comparing Groups =====
+    dot.node('paired', 'Paired or\nindependent samples?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark)
     
-    # One sample branch
-    arrow(2.5, 10, 1.5, 8.7, '1')
-    draw_question(1.5, 8, 'Is σ known?', width=2.8)
+    # Right branch: Relationships  
+    dot.node('vartype', 'What type of\nvariables?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark)
     
-    arrow(0.8, 7.5, 0.8, 6.2, 'Yes')
-    arrow(2.2, 7.5, 2.2, 6.2, 'No')
-    draw_test(0.8, 5.5, 'Z-test\n(1-sample)', COLORS['primary'])
-    draw_test(2.2, 5.5, 't-test\n(1-sample)', COLORS['secondary'])
+    dot.node('predict', 'Want to predict\none from another?', 
+             shape='diamond', style='filled', fillcolor=light_gray, fontcolor=dark)
     
-    # Two sample branch
-    arrow(4, 10, 5, 8.7, '2')
-    draw_question(5, 8, 'Paired or\nindependent?', width=3)
+    # Test result nodes
+    dot.node('ztest', 'Z-TEST\n(1-sample, σ known)', 
+             shape='box', style='rounded,filled', fillcolor=blue, fontcolor='white')
+    dot.node('ttest1', 'T-TEST\n(1-sample, σ unknown)', 
+             shape='box', style='rounded,filled', fillcolor=purple, fontcolor='white')
+    dot.node('ttest2', 'TWO-SAMPLE T-TEST\n(independent groups)', 
+             shape='box', style='rounded,filled', fillcolor=green, fontcolor='white')
+    dot.node('paired_t', 'PAIRED T-TEST\n(same subjects, 2 conditions)', 
+             shape='box', style='rounded,filled', fillcolor=green, fontcolor='white')
+    dot.node('anova', 'ANOVA (F-test)\n(3+ groups)', 
+             shape='box', style='rounded,filled', fillcolor=orange, fontcolor='white')
+    dot.node('corr', 'CORRELATION\n(Pearson r)', 
+             shape='box', style='rounded,filled', fillcolor=blue, fontcolor='white')
+    dot.node('reg', 'REGRESSION\n(OLS)', 
+             shape='box', style='rounded,filled', fillcolor=purple, fontcolor='white')
+    dot.node('chi', 'CHI-SQUARE TEST\n(independence)', 
+             shape='box', style='rounded,filled', fillcolor=orange, fontcolor='white')
     
-    arrow(4, 7.5, 3.8, 6.2, 'Ind.')
-    arrow(6, 7.5, 6.2, 6.2, 'Paired')
-    draw_test(3.8, 5.5, 'Two-sample\nt-test', COLORS['accent'])
-    draw_test(6.2, 5.5, 'Paired\nt-test', COLORS['accent'])
+    # Tip node
+    dot.node('tip', 'For PROPORTIONS: use z-test for p\nor chi-square for independence', 
+             shape='note', style='filled', fillcolor='#FEF3C7', fontcolor=dark, fontsize='11')
     
-    # Three+ groups branch
-    arrow(5.5, 10, 8, 8.7, '3+')
-    draw_test(8, 8, 'ANOVA\n(F-test)', COLORS['warning'])
+    # Edges
+    dot.edge('start', 'branch', '')
+    dot.edge('branch', 'groups', 'Compare groups')
+    dot.edge('branch', 'vartype', 'Relationship')
     
-    # ===== RIGHT BRANCH: Relationships =====
+    # Groups branch
+    dot.edge('groups', 'sigma', '1 group')
+    dot.edge('groups', 'paired', '2 groups')
+    dot.edge('groups', 'anova', '3+ groups')
     
-    # Numerical variables
-    arrow(10.5, 10, 10, 8.7, 'Both\nnumerical', (-0.6, 0))
-    draw_test(10, 8, 'Correlation\n(Pearson r)', COLORS['primary'])
+    dot.edge('sigma', 'ztest', 'Yes')
+    dot.edge('sigma', 'ttest1', 'No')
     
-    arrow(10, 7.5, 10, 6.2, 'Predict Y?')
-    draw_test(10, 5.5, 'Regression\n(OLS)', COLORS['secondary'])
+    dot.edge('paired', 'ttest2', 'Independent')
+    dot.edge('paired', 'paired_t', 'Paired')
     
-    # Categorical variables  
-    arrow(13.5, 10, 14, 8.7, 'Categorical', (0.5, 0))
-    draw_test(14, 8, 'Chi-square\ntest', COLORS['warning'])
+    # Relationship branch
+    dot.edge('vartype', 'predict', 'Both numerical')
+    dot.edge('vartype', 'chi', 'Categorical')
     
-    # ===== BOTTOM: Quick Reference Notes =====
-    note_y = 3.5
-    ax.text(8, note_y, 'Quick Reference', fontsize=13, fontweight='bold', ha='center', color=COLORS['dark'])
+    dot.edge('predict', 'corr', 'No (strength only)')
+    dot.edge('predict', 'reg', 'Yes')
     
-    notes = [
-        ('Z-test:', 'σ known (rare in practice)', COLORS['primary']),
-        ('t-test:', 'σ unknown, small samples', COLORS['secondary']),
-        ('ANOVA:', '3+ group means comparison', COLORS['warning']),
-        ('Chi-square:', 'categorical independence', COLORS['warning']),
-    ]
+    # Invisible edges for layout
+    dot.edge('anova', 'tip', style='invis')
     
-    for i, (test, desc, color) in enumerate(notes):
-        x_pos = 2 + (i % 2) * 7
-        y_pos = note_y - 1 - (i // 2) * 0.7
-        ax.text(x_pos, y_pos, test, fontsize=10, fontweight='bold', color=color)
-        ax.text(x_pos + 1.8, y_pos, desc, fontsize=10, color=COLORS['neutral'])
-    
-    ax.text(8, 0.8, 'For proportions: use z-test for p or chi-square for independence',
-            fontsize=10, ha='center', style='italic', color=COLORS['neutral'],
-            bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['light'], edgecolor='none'))
-    
-    ax.set_title('Choosing the Right Statistical Test', fontsize=18, fontweight='bold', y=0.98)
-    
-    save_figure(fig, 'test_selection_flowchart.png')
+    # Render to PNG
+    output_path = IMAGES_DIR / 'test_selection_flowchart'
+    dot.render(output_path, format='png', cleanup=True)
+    print(f"  ✓ Saved: test_selection_flowchart.png")
 
 
 def generate_normal_empirical_rule_reference():
