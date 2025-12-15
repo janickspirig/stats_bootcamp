@@ -1,0 +1,42 @@
+# ============================================================
+# Public repo safety net: keep GitHub effectively "images only"
+# ============================================================
+#
+# This repo is intended to be public and only serve images for Notion embeds.
+# Everything else (markdown content, scripts, exports, secrets, etc.) is ignored.
+
+# Ignore everything by default
+*
+
+# But keep this file tracked
+!.gitignore
+
+# Allow traversing into the images directory
+!statistics/
+!statistics/final_bootcamp/
+!statistics/final_bootcamp/images/
+
+# Allow only PNG images
+!statistics/final_bootcamp/images/*.png
+
+# Never allow common secrets even if patterns change
+.env
+*.env
+*secret*
+*token*
+
+# Ignore everything
+*
+
+# Except images folder
+!statistics/
+!statistics/final_bootcamp/
+!statistics/final_bootcamp/images/
+!statistics/final_bootcamp/images/*.png
+
+# But ignore everything else in statistics
+statistics/**/*.md
+statistics/**/*.txt
+statistics/**/*.py
+statistics/**/*.json
+statistics/**/*.pdf
